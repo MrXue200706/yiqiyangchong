@@ -1,0 +1,74 @@
+<view class="mine">
+    <!--头像-->
+    <view class="avatar">
+        <view class="avatar_avatar"></view>
+        <view class="avatar_name">小灰灰</view>
+        <view class="avatar_fallow">
+            <text class="avatar_fallow_left">关注 1212</text>
+            <text>|</text>
+            <text class="avatar_fallow_right">粉丝1212</text>
+        </view>
+    </view>
+
+    <!--状态-->
+    <view class="state">
+        <view class="state_item">
+            <view class="state_item_img"></view>
+            <text>待付款</text>
+        </view>
+        <view class="state_item">
+            <view class="state_item_img"></view>
+            <text>待成团</text>
+        </view>
+        <view class="state_item">
+            <view class="state_item_img"></view>
+            <text>待收货</text>
+        </view>
+        <view class="state_item">
+            <view class="state_item_img"></view>
+            <text>已完成</text>
+        </view>
+        <view class="state_item">
+            <view class="state_item_img"></view>
+            <text>售后服务</text>
+        </view>
+    </view>
+
+    <!--事项-->
+    <view class="official">
+        <view class="official_item">
+            <view class="official_item_img"></view>
+            <view class="official_item_title">积分</view>
+            <view class="official_item_under">可用积分：23232</view>
+        </view>
+        <view class="official_item">
+            <view class="official_item_img"></view>
+            <view class="official_item_title">萌宠</view>
+            <view class="official_item_under">已添加：23</view>
+        </view>
+        <view class="official_item">
+            <view class="official_item_img"></view>
+            <view class="official_item_title">优惠券</view>
+            <view class="official_item_under">积分兑换优惠券</view>
+        </view>
+        <view class="official_item">
+            <view class="official_item_img"></view>
+            <view class="official_item_title">收藏</view>
+            <view class="official_item_under">已收藏：2323</view>
+        </view>
+        <view class="official_item">
+            <view class="official_item_img"></view>
+            <view class="official_item_title">地址</view>
+            <view class="official_item_under">添加地址：2</view>
+        </view>
+        <view class="official_item">
+            <view class="official_item_img"></view>
+            <view class="official_item_title">合作</view>
+            <view class="official_item_under">商务合作</view>
+        </view>
+        <!--线框-->
+        <view class="line_column"></view>
+        <view class="line_row1"></view>
+        <view class="line_row2"></view>
+    </view>
+</view>

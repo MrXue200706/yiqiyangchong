@@ -67,7 +67,7 @@
   margin-top: 16rpx;
 }
 .pet_expert_title{
-  font-size: 32rpx;
+  font-size: 28rpx;
 }
 .pet_expert_reflesh{
   font-size: 28rpx;
@@ -77,6 +77,7 @@
 .pet_expert_scroll{
   display: flex;
   flex-wrap: nowrap;
+  width: 100%;
 }
 .pet_expert_item{
   width: 240rpx;
@@ -86,6 +87,7 @@
   text-align: center;
   font-weight: 500;
   margin-right: 20rpx;
+  flex-shrink: 0;
 }
 .pet_expert_avatar{
   width: 140rpx;
@@ -126,7 +128,7 @@
   margin-top: 16rpx;
 }
 .special_topic_title{
-  font-size: 32rpx;
+  font-size: 28rpx;
 }
 .special_topic_more{
   font-size: 28rpx;
@@ -167,6 +169,7 @@
   border-radius: 10rpx;
   background-color: #fff;
   position: relative;
+  overflow: hidden;
 }
 .goods_item_img{
   height: 360rpx;
@@ -206,6 +209,8 @@
   position: absolute;
   left: 0;
   top: 0;
+  border: 1px solid #fff;
+  box-sizing: border-box;
 }
 .goods_item_recommend_avatar_right{
   width: 50rpx;
