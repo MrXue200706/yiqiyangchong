@@ -1,41 +1,123 @@
 <view class="shoping">
     <!--时间-->
     <scroll-view scroll-x="true">
-        <view class="time">
-            <view class="time_item time_item_active">
-                <view class="time_item_time">10:00</view>        
-                <view class="time_item_notice">抢购中</view>        
+        <view class="shoping_time">
+            <view class="shoping_time_item shoping_time_item_active">
+                <view class="shoping_time_item_time">10:00</view>        
+                <view class="shoping_time_item_notice">抢购中</view>        
             </view>
-            <view class="time_item">
-                <view class="time_item_time">12:00</view>        
-                <view class="time_item_notice">即将开始</view>        
+            <view class="shoping_time_item">
+                <view class="shoping_time_item_time">12:00</view>        
+                <view class="shoping_time_item_notice">即将开始</view>        
             </view>
-            <view class="time_item">
-                <view class="time_item_time">14:00</view>        
-                <view class="time_item_notice">即将开始</view>        
+            <view class="shoping_time_item">
+                <view class="shoping_time_item_time">14:00</view>        
+                <view class="shoping_time_item_notice">即将开始</view>        
             </view>
-            <view class="time_item">
-                <view class="time_item_time">16:00</view>        
-                <view class="time_item_notice">即将开始</view>        
+            <view class="shoping_time_item">
+                <view class="shoping_time_item_time">16:00</view>        
+                <view class="shoping_time_item_notice">即将开始</view>        
             </view>
-            <view class="time_item">
-                <view class="time_item_time">18:00</view>        
-                <view class="time_item_notice">即将开始</view>        
+            <view class="shoping_time_item">
+                <view class="shoping_time_item_time">18:00</view>        
+                <view class="shoping_time_item_notice">即将开始</view>        
             </view>
-            <view class="time_item">
-                <view class="time_item_time">22:00</view>        
-                <view class="time_item_notice">即将开始</view>        
+            <view class="shoping_time_item">
+                <view class="shoping_time_item_time">22:00</view>        
+                <view class="shoping_time_item_notice">即将开始</view>        
             </view>
-            <view class="time_item">
-                <view class="time_item_time">00:00</view>        
-                <view class="time_item_notice">即将开始</view>        
+            <view class="shoping_time_item">
+                <view class="shoping_time_item_time">00:00</view>        
+                <view class="shoping_time_item_notice">即将开始</view>        
             </view>
         </view>
     </scroll-view>
 
     <!--时间提醒-->
-    <view class="time_notice">
-        <text class="time_notice_gray">距离结束还有：</text>
-        <text class="time_notice_red">06:10:52</text>
+    <view class="shoping_time_notice">
+        <text class="shoping_time_notice_gray">距离结束还有：</text>
+        <text class="shoping_time_notice_red">06:10:52</text>
+    </view>
+
+    <!--商品-->
+    <view class="shoping_goods">
+        <view class="shoping_goods_img"></view>
+        <view class="shoping_goods_text">
+            <view class="shoping_goods_text_title">狗粮狗粮狗粮狗粮狗粮狗粮狗粮狗粮狗粮狗粮狗粮狗粮狗粮</view>
+            <view class="shoping_goods_text_middle">
+                <text class="shoping_goods_text_middle_orange">积分抵10%</text>
+                <text class="shoping_goods_text_middle_red">限时限量</text>
+                <text class="shoping_goods_text_middle_gray">仅剩323件</text>
+            </view>
+            <view class="shoping_goods_text_bottom">
+                <text class="shoping_goods_text_bottom_red">￥58.88</text>
+                <text class="shoping_goods_text_bottom_gray">￥98.88</text>
+                <text class="shoping_goods_text_bottom_button">马上抢</text>
+            </view>
+        </view>
+    </view>
+    <view class="shoping_goods">
+        <view class="shoping_goods_img"></view>
+        <view class="shoping_goods_text">
+            <view class="shoping_goods_text_title">狗粮狗粮狗粮狗粮狗粮狗粮狗粮狗粮狗粮狗粮狗粮狗粮狗粮</view>
+            <view class="shoping_goods_text_middle">
+                <text class="shoping_goods_text_middle_orange">积分抵10%</text>
+                <text class="shoping_goods_text_middle_red">限时限量</text>
+                <text class="shoping_goods_text_middle_gray">仅剩323件</text>
+            </view>
+            <view class="shoping_goods_text_bottom">
+                <text class="shoping_goods_text_bottom_red">￥58.88</text>
+                <text class="shoping_goods_text_bottom_gray">￥98.88</text>
+                <text class="shoping_goods_text_bottom_button">马上抢</text>
+            </view>
+        </view>
+    </view>
+    <view class="shoping_goods">
+        <view class="shoping_goods_img"></view>
+        <view class="shoping_goods_text">
+            <view class="shoping_goods_text_title">狗粮狗粮狗粮狗粮狗粮狗粮狗粮狗粮狗粮狗粮狗粮狗粮狗粮</view>
+            <view class="shoping_goods_text_middle">
+                <text class="shoping_goods_text_middle_orange">积分抵10%</text>
+                <text class="shoping_goods_text_middle_red">限时限量</text>
+                <text class="shoping_goods_text_middle_gray">仅剩323件</text>
+            </view>
+            <view class="shoping_goods_text_bottom">
+                <text class="shoping_goods_text_bottom_red">￥58.88</text>
+                <text class="shoping_goods_text_bottom_gray">￥98.88</text>
+                <text class="shoping_goods_text_bottom_button">马上抢</text>
+            </view>
+        </view>
+    </view>
+    <view class="shoping_goods">
+        <view class="shoping_goods_img"></view>
+        <view class="shoping_goods_text">
+            <view class="shoping_goods_text_title">狗粮狗粮狗粮狗粮狗粮狗粮狗粮狗粮狗粮狗粮狗粮狗粮狗粮</view>
+            <view class="shoping_goods_text_middle">
+                <text class="shoping_goods_text_middle_orange">积分抵10%</text>
+                <text class="shoping_goods_text_middle_red">限时限量</text>
+                <text class="shoping_goods_text_middle_gray">仅剩323件</text>
+            </view>
+            <view class="shoping_goods_text_bottom">
+                <text class="shoping_goods_text_bottom_red">￥58.88</text>
+                <text class="shoping_goods_text_bottom_gray">￥98.88</text>
+                <text class="shoping_goods_text_bottom_button">马上抢</text>
+            </view>
+        </view>
+    </view>
+    <view class="shoping_goods">
+        <view class="shoping_goods_img"></view>
+        <view class="shoping_goods_text">
+            <view class="shoping_goods_text_title">狗粮狗粮狗粮狗粮狗粮狗粮狗粮狗粮狗粮狗粮狗粮狗粮狗粮</view>
+            <view class="shoping_goods_text_middle">
+                <text class="shoping_goods_text_middle_orange">积分抵10%</text>
+                <text class="shoping_goods_text_middle_red">限时限量</text>
+                <text class="shoping_goods_text_middle_gray">仅剩323件</text>
+            </view>
+            <view class="shoping_goods_text_bottom">
+                <text class="shoping_goods_text_bottom_red">￥58.88</text>
+                <text class="shoping_goods_text_bottom_gray">￥98.88</text>
+                <text class="shoping_goods_text_bottom_button">马上抢</text>
+            </view>
+        </view>
     </view>
 </view>

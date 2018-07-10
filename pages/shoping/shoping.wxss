@@ -1,9 +1,9 @@
-.time{
+.shoping_time{
     height: 84rpx;
     display: flex;
     flex-wrap: nowrap;
 }
-.time_item{
+.shoping_time_item{
     width: 142rpx;
     height: 84rpx;
     flex-shrink: 0;
@@ -12,30 +12,103 @@
     padding-top: 10rpx;
     box-sizing: border-box;
 }
-.time_item_active{
+.shoping_time_item_active{
     background-color: #ffe32a;
     color: #333;
 }
-.time_item_time{
+.shoping_time_item_time{
     font-size: 28rpx;
     text-align: center;
 }
-.time_item_notice{
+.shoping_time_item_notice{
     font-size: 20rpx;
     text-align: center;
 }
 
 /*时间提醒*/
-.time_notice{
+.shoping_time_notice{
     height: 60rpx;
     line-height: 60rpx;
     background-color: #f2f7f8;
     text-align: center;
     font-size: 24rpx;
 }
-.time_notice_gray{
+.shoping_time_notice_gray{
     color: #797979;
 }
-.time_notice_red{
+.shoping_time_notice_red{
     color: #fe2529;
+}
+
+/*商品*/
+.shoping_goods{
+    padding: 28rpx;
+    display: flex;
+    flex-wrap: nowrap;
+}
+.shoping_goods_img{
+    width: 220rpx;
+    height: 228rpx;
+    background-color: #888;
+    flex-shrink: 0;
+}
+.shoping_goods_text{
+    padding-left: 20rpx;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+}
+.shoping_goods_text_title{
+    font-size: 28rpx;
+}
+.shoping_goods_text_middle_orange{
+    height: 36rpx;
+    line-height: 36rpx;
+    width: 110rpx;
+    text-align: center;
+    font-size: 22rpx;
+    background-color: #f58b00;
+    color: #fff;
+    border-radius: 5rpx;
+    vertical-align: middle;
+    padding: 0 10rpx;
+}
+.shoping_goods_text_middle_red{
+    height: 36rpx;
+    line-height: 36rpx;
+    width: 90rpx;
+    text-align: center;
+    font-size: 22rpx;
+    border: 1px solid #f73227;
+    color: #f73227;
+    border-radius: 5rpx;
+    margin-left: 20rpx;
+    padding: 0 10rpx;
+}
+.shoping_goods_text_middle_gray{
+    font-size: 26rpx;
+    color: #89898c;
+    margin-left: 30rpx;
+}
+.shoping_goods_text_bottom_red{
+    font-size: 28rpx;
+    color: #f73227;
+}
+.shoping_goods_text_bottom_gray{
+    font-size: 22rpx;
+    color: #d4d4d4;
+}
+.shoping_goods_text_bottom_button{
+    display: inline-block;
+    height: 54rpx;
+    line-height: 54rpx;
+    width: 136rpx;
+    text-align: center;
+    background-color: #ff920a;
+    color: #fff;
+    border-radius: 28rpx;
+    font-size: 28rpx;
+    flex-shrink: 0;
+    margin-left: 100rpx;
 }
