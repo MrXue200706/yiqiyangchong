@@ -15,18 +15,18 @@
       <view class="goods_class_item_img"></view>
       <text class="goods_class_item_title">狗狗</text>
     </navigator>
-    <view class="goods_class_item">
+    <navigator url="../dogGoods/dogGoods" class="goods_class_item">
       <view class="goods_class_item_img"></view>
       <text class="goods_class_item_title">猫猫</text>
-    </view>
-    <view class="goods_class_item">
+    </navigator>
+    <navigator url="../dogGoods/dogGoods" class="goods_class_item">
       <view class="goods_class_item_img"></view>
       <text class="goods_class_item_title">小宠</text>
-    </view>
-    <view class="goods_class_item">
+    </navigator>
+    <navigator url="../dogGoods/dogGoods" class="goods_class_item">
       <view class="goods_class_item_img"></view>
       <text class="goods_class_item_title">周边</text>
-    </view>
+    </navigator>
   </view>
 
   <!--商品推荐-->
