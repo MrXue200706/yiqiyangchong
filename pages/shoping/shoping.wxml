@@ -1,0 +1,41 @@
+<view class="shoping">
+    <!--时间-->
+    <scroll-view scroll-x="true">
+        <view class="time">
+            <view class="time_item time_item_active">
+                <view class="time_item_time">10:00</view>        
+                <view class="time_item_notice">抢购中</view>        
+            </view>
+            <view class="time_item">
+                <view class="time_item_time">12:00</view>        
+                <view class="time_item_notice">即将开始</view>        
+            </view>
+            <view class="time_item">
+                <view class="time_item_time">14:00</view>        
+                <view class="time_item_notice">即将开始</view>        
+            </view>
+            <view class="time_item">
+                <view class="time_item_time">16:00</view>        
+                <view class="time_item_notice">即将开始</view>        
+            </view>
+            <view class="time_item">
+                <view class="time_item_time">18:00</view>        
+                <view class="time_item_notice">即将开始</view>        
+            </view>
+            <view class="time_item">
+                <view class="time_item_time">22:00</view>        
+                <view class="time_item_notice">即将开始</view>        
+            </view>
+            <view class="time_item">
+                <view class="time_item_time">00:00</view>        
+                <view class="time_item_notice">即将开始</view>        
+            </view>
+        </view>
+    </scroll-view>
+
+    <!--时间提醒-->
+    <view class="time_notice">
+        <text class="time_notice_gray">距离结束还有：</text>
+        <text class="time_notice_red">06:10:52</text>
+    </view>
+</view>

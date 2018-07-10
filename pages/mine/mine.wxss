@@ -90,6 +90,7 @@
     margin-top: 20rpx;
 }
 .official_item_under{
+    width: 100%;
     font-size: 22rpx;
     color: #afafaf;
     text-align: center;

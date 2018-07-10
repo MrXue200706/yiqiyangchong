@@ -1,0 +1,41 @@
+.time{
+    height: 84rpx;
+    display: flex;
+    flex-wrap: nowrap;
+}
+.time_item{
+    width: 142rpx;
+    height: 84rpx;
+    flex-shrink: 0;
+    background-color: #333;
+    color: #fefefe;
+    padding-top: 10rpx;
+    box-sizing: border-box;
+}
+.time_item_active{
+    background-color: #ffe32a;
+    color: #333;
+}
+.time_item_time{
+    font-size: 28rpx;
+    text-align: center;
+}
+.time_item_notice{
+    font-size: 20rpx;
+    text-align: center;
+}
+
+/*时间提醒*/
+.time_notice{
+    height: 60rpx;
+    line-height: 60rpx;
+    background-color: #f2f7f8;
+    text-align: center;
+    font-size: 24rpx;
+}
+.time_notice_gray{
+    color: #797979;
+}
+.time_notice_red{
+    color: #fe2529;
+}
