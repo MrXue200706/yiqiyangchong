@@ -98,6 +98,7 @@
 .shoping_goods_text_bottom_gray{
     font-size: 22rpx;
     color: #d4d4d4;
+    text-decoration: line-through;
 }
 .shoping_goods_text_bottom_button{
     display: inline-block;
