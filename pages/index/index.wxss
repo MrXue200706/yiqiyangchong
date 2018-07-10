@@ -7,6 +7,7 @@
 .head_swiper{
   padding: 0 28rpx;
   background-color: #fff;
+  height: 332rpx;
 }
 .bc_blue{
   background-color: rgba(121, 120, 24, .3);
