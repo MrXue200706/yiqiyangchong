@@ -1,0 +1,58 @@
+<view class="dogGoods">
+    <!--分类-->
+    <veiw class="dogGoods_class">
+        <view class="dogGoods_class_item dogGoods_class_item_active">主粮</view>
+        <view class="dogGoods_class_item">零食</view>
+        <view class="dogGoods_class_item">护理</view>
+        <view class="dogGoods_class_item">日用</view>
+        <view class="dogGoods_class_item">玩具</view>
+    </veiw>
+
+    <!--排序-->
+    <view class="dogGoods_array">
+        <view class="dogGoods_array_item dogGoods_array_item_active">综合</view>
+        <view class="dogGoods_array_item">销量</view>
+        <view class="dogGoods_array_item">推荐</view>
+        <view class="dogGoods_array_item">价格</view>
+    </view>
+
+    <!--商品列表-->
+    <view class="dogGoods_goods">
+        <view class="dogGoods_goods_item">
+            <view class="dogGoods_goods_item_img"></view>
+            <view class="dogGoods_goods_item_title">狗粮狗粮狗粮狗粮狗粮狗粮狗粮狗粮狗粮</view>
+            <view class="dogGoods_goods_item_price">￥888.88</view>
+            <view class="dogGoods_goods_item_recommend">
+                <text class="dogGoods_goods_item_recommend_number">1234推荐</text>
+                <view class="dogGoods_goods_item_recommend_avatars">
+                    <view class="dogGoods_goods_item_recommend_avatar_left"></view>
+                    <view class="dogGoods_goods_item_recommend_avatar_right"></view>
+                </view>
+            </view>
+        </view>
+        <view class="dogGoods_goods_item">
+            <view class="dogGoods_goods_item_img"></view>
+            <view class="dogGoods_goods_item_title">狗粮狗粮狗粮狗粮狗粮狗粮狗粮狗粮狗粮</view>
+            <view class="dogGoods_goods_item_price">￥888.88</view>
+            <view class="dogGoods_goods_item_recommend">
+                <text class="dogGoods_goods_item_recommend_number">1234推荐</text>
+                <view class="dogGoods_goods_item_recommend_avatars">
+                    <view class="dogGoods_goods_item_recommend_avatar_left"></view>
+                    <view class="dogGoods_goods_item_recommend_avatar_right"></view>
+                </view>
+            </view>
+        </view>
+        <view class="dogGoods_goods_item">
+            <view class="dogGoods_goods_item_img"></view>
+            <view class="dogGoods_goods_item_title">狗粮狗粮狗粮狗粮狗粮狗粮狗粮狗粮狗粮</view>
+            <view class="dogGoods_goods_item_price">￥888.88</view>
+            <view class="dogGoods_goods_item_recommend">
+                <text class="dogGoods_goods_item_recommend_number">1234推荐</text>
+                <view class="dogGoods_goods_item_recommend_avatars">
+                    <view class="dogGoods_goods_item_recommend_avatar_left"></view>
+                    <view class="dogGoods_goods_item_recommend_avatar_right"></view>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>

@@ -41,10 +41,14 @@
 }
 
 /*商品*/
-.shoping_goods{
+.shoping_goods_d{
     padding: 28rpx;
+}
+.shoping_goods{
+    padding: 28rpx 0;
     display: flex;
     flex-wrap: nowrap;
+    border-bottom: 1px solid #d5d5d5;
 }
 .shoping_goods_img{
     width: 220rpx;

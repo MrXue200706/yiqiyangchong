@@ -2,7 +2,8 @@
   "pages":[
     "pages/index/index",
     "pages/shoping/shoping",
-    "pages/mine/mine"
+    "pages/mine/mine",
+    "pages/dogGoods/dogGoods"
   ],
   "window":{
     "backgroundTextStyle":"light",

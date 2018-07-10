@@ -160,9 +160,10 @@
 
 /*商品列表*/
 .goods{
-  padding: 20rpx;
+  padding:0 20rpx;
   display: flex;
   justify-content: space-between;
+  flex-wrap: wrap;
 }
 .goods_item{
   width: 350rpx;
@@ -171,6 +172,8 @@
   background-color: #fff;
   position: relative;
   overflow: hidden;
+  flex-shrink: 0;
+  margin-top: 20rpx;
 }
 .goods_item_img{
   height: 360rpx;
