@@ -1,6 +1,6 @@
 <view class="shoping">
     <!--时间-->
-    <scroll-view scroll-x="true">
+    <scroll-view scroll-x="true" class="shoping_time_d">
         <view class="shoping_time">
             <view class="shoping_time_item shoping_time_item_active">
                 <view class="shoping_time_item_time">10:00</view>        
@@ -33,9 +33,18 @@
         </view>
     </scroll-view>
 
+    <!--广播-->
+    <view class="shoping_radio_d">
+        <view class="shoping_radio">
+            <text class="shoping_radio_content">用户小灰灰**分享获得2132积分</text>
+            <text class="shoping_radio_content">用户小灰灰**分享获得2132积分</text>
+        </view>
+    </view>
+
     <!--时间提醒-->
     <view class="shoping_time_notice">
-        <text class="shoping_time_notice_gray">距离结束还有：</text>
+        <text class="shoping_time_notice_title">积分限时抢购中</text>
+        <text class="shoping_time_notice_gray">距离结束：</text>
         <text class="shoping_time_notice_red">06:10:52</text>
     </view>
 
