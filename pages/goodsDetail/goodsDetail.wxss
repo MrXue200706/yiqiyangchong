@@ -1,5 +1,132 @@
+.goodsDetail{
+    background-color: #f2f7f8;
+}
+/*头部轮播图片*/
 .goodsDetail_headimg{
     height: 666rpx;
     width: 100%;
+    background-color: #888;
+    display: flex;
+    flex-wrap: nowrap;
+}
+.goodsDetail_headimg_item{
+    height: 100%;
+    width: 100%;
+    flex-shrink: 0;
+}
+.bc_blue{
+  background-color: rgba(121, 120, 24, .3);
+}
+.bc_red{
+  background: rgba(0, 120, 24, .3);
+}
+.bc_black{
+  background: rgba(121, 0, 24, .3);
+}
+/*商品标题*/
+.goodsDetail_title{
+    padding: 20rpx 28rpx;
+    border-bottom: 1px solid #d6d6d6;
+    background-color: #fff;
+}
+.goodsDetail_title_price_red{
+    color: #e02f23;
+    font-size: 36rpx;
+}
+.goodsDetail_title_price_gray{
+    font-size: 20rpx;
+    color: #a5a5a5;
+    text-decoration: line-through;
+}
+.goodsDetail_title_state{
+    color: #616161;
+    font-size: 24rpx;
+    margin-top: 20rpx;
+}
+.goodsDetail_title_content{
+    font-size: 24rpx;
+    color: #333;
+    font-weight: 600;
+    margin-top: 20rpx;
+}
+
+/*服务*/
+.goodsDetail_surv{
+    background-color: #fff;
+    padding: 20rpx 28rpx;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+}
+.goodsDetail_surv_item{
+    color: #616161;
+    font-size: 24rpx;
+    flex-shrink: 0;
+}
+.goodsDetail_surv_item_text{
+    margin-left: 10rpx;
+}
+
+/*推荐*/
+.goodsDetail_recommend{
+    height: 134rpx;
+    line-height: 134rpx;
+    box-sizing: border-box;
+    margin: 14rpx 0;
+    padding: 0 28rpx;
+    background-color: #fff;
+    overflow: hidden;
+}
+.goodsDetail_recommend_content{
+    color: #313131;
+    font-size: 26rpx;
+}
+.goodsDetail_recommend_avatar{
+    margin-top: 28rpx;
+    margin-right: 28rpx;
+    float: right;
+    display: flex;
+    flex-wrap: nowrap;
+}
+.goodsDetail_recommend_avatar_item{
+    width: 70rpx;
+    height: 70rpx;
+    border-radius: 50%;
+    background-color: #888;
+    flex-shrink: 0;
+    border: 1rpx solid #fff;
+    box-sizing: border-box;
+    margin-left: -26rpx;
+}
+
+/*商品详情*/
+.goodsDetail_main{
+    padding: 18rpx;
+    background-color: #fff;
+}
+.goodsDetail_main_title{
+    font-size: 28rpx;
+    color: #333;
+    padding-left: 10rpx;
+    padding-bottom: 20rpx;
+    border-bottom: 1px solid #d6d6d6;
+}
+.goodsDetail_main_descript{
+    padding: 20rpx;
+    background-color: #fafafa;
+    margin-top: 18rpx;
+}
+.goodsDetail_main_descript_title{
+    font-size: 26rpx;
+}
+.goodsDetail_main_descript_content{
+    font-size: 26rpx;
+    color: #9b9b9b;
+    margin-top: -10rpx;
+}
+.goodsDetail_main_img{
+    width: 100%;
+    height: 430rpx;
+    margin-top: 40rpx;
     background-color: #888;
 }

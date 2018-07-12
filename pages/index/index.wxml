@@ -97,7 +97,7 @@
 
   <!--商品列表-->
   <view class="goods">
-    <view class="goods_item">
+    <navigator url="../goodsDetail/goodsDetail" class="goods_item">
       <view class="goods_item_img"></view>
       <view class="goods_item_title">狗粮狗粮狗粮狗粮狗粮狗粮狗粮狗粮狗粮</view>
       <view class="goods_item_price">￥888.88</view>
@@ -108,8 +108,8 @@
           <view class="goods_item_recommend_avatar_right"></view>
         </view>
       </view>
-    </view>
-    <view class="goods_item">
+    </navigator>
+    <navigator url="../goodsDetail/goodsDetail" class="goods_item">
       <view class="goods_item_img"></view>
       <view class="goods_item_title">狗粮狗粮狗粮狗粮狗粮狗粮狗粮狗粮狗粮</view>
       <view class="goods_item_price">￥888.88</view>
@@ -120,6 +120,6 @@
           <view class="goods_item_recommend_avatar_right"></view>
         </view>
       </view>
-    </view>
+    </navigator>
   </view>
 </view>

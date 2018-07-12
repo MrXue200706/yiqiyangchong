@@ -50,7 +50,7 @@
 
     <!--商品-->
     <view class="shoping_goods_d">
-        <view class="shoping_goods">
+        <navigator url="../goodsDetail/goodsDetail" class="shoping_goods">
             <view class="shoping_goods_img"></view>
             <view class="shoping_goods_text">
                 <view class="shoping_goods_text_title">狗粮狗粮狗粮狗粮狗粮狗粮狗粮狗粮狗粮狗粮狗粮狗粮狗粮</view>
@@ -65,8 +65,8 @@
                     <text class="shoping_goods_text_bottom_button">马上抢</text>
                 </view>
             </view>
-        </view>
-        <view class="shoping_goods">
+        </navigator>
+        <navigator url="../goodsDetail/goodsDetail" class="shoping_goods">
             <view class="shoping_goods_img"></view>
             <view class="shoping_goods_text">
                 <view class="shoping_goods_text_title">狗粮狗粮狗粮狗粮狗粮狗粮狗粮狗粮狗粮狗粮狗粮狗粮狗粮</view>
@@ -81,8 +81,8 @@
                     <text class="shoping_goods_text_bottom_button">马上抢</text>
                 </view>
             </view>
-        </view>
-        <view class="shoping_goods">
+        </navigator>
+        <navigator url="../goodsDetail/goodsDetail" class="shoping_goods">
             <view class="shoping_goods_img"></view>
             <view class="shoping_goods_text">
                 <view class="shoping_goods_text_title">狗粮狗粮狗粮狗粮狗粮狗粮狗粮狗粮狗粮狗粮狗粮狗粮狗粮</view>
@@ -97,8 +97,8 @@
                     <text class="shoping_goods_text_bottom_button">马上抢</text>
                 </view>
             </view>
-        </view>
-        <view class="shoping_goods">
+        </navigator>
+        <navigator url="../goodsDetail/goodsDetail" class="shoping_goods">
             <view class="shoping_goods_img"></view>
             <view class="shoping_goods_text">
                 <view class="shoping_goods_text_title">狗粮狗粮狗粮狗粮狗粮狗粮狗粮狗粮狗粮狗粮狗粮狗粮狗粮</view>
@@ -113,8 +113,8 @@
                     <text class="shoping_goods_text_bottom_button">马上抢</text>
                 </view>
             </view>
-        </view>
-        <view class="shoping_goods">
+        </navigator>
+        <navigator url="../goodsDetail/goodsDetail" class="shoping_goods">
             <view class="shoping_goods_img"></view>
             <view class="shoping_goods_text">
                 <view class="shoping_goods_text_title">狗粮狗粮狗粮狗粮狗粮狗粮狗粮狗粮狗粮狗粮狗粮狗粮狗粮</view>
@@ -129,6 +129,6 @@
                     <text class="shoping_goods_text_bottom_button">马上抢</text>
                 </view>
             </view>
-        </view>
+        </navigator>
     </view>
 </view>

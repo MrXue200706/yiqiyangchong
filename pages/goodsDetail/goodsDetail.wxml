@@ -1,3 +1,77 @@
 <view class="goodsDetail">
-    <view class="goodsDetail_headimg"></view>
+    <!--头部轮播图片-->
+    <swiper class="goodsDetail_headimg" autoplay="true">
+        <swiper-item class="goodsDetail_headimg_item bc_blue"></swiper-item>
+        <swiper-item class="goodsDetail_headimg_item bc_red"></swiper-item>
+        <swiper-item class="goodsDetail_headimg_item bc_black"></swiper-item>
+    </swiper>
+
+    <!--商品标题-->
+    <view class="goodsDetail_title">
+        <view class="goodsDetail_title_price">
+            <text class="goodsDetail_title_price_red">￥58.8</text>
+            <text class="goodsDetail_title_price_gray">￥98.8</text>
+        </view>
+        <view class="goodsDetail_title_state">
+            <text>已抢购2300件</text>
+            <text>(2人团)</text>
+        </view>
+        <view class="goodsDetail_title_content">
+            <text>狗粮狗粮狗粮狗粮狗粮狗粮狗粮狗粮狗粮狗粮狗粮狗粮狗粮狗粮狗粮狗粮狗粮狗粮狗粮</text>
+        </view>
+    </view>
+
+    <!--服务-->
+    <view class="goodsDetail_surv">
+        <view class="goodsDetail_surv_item">
+            <icon type="success_no_circle" size="12" color="#e02f23"/>
+            <text class="goodsDetail_surv_item_text">正品保障</text>
+        </view>
+        <view class="goodsDetail_surv_item">
+            <icon type="success_no_circle" size="12" color="#e02f23"/>
+            <text class="goodsDetail_surv_item_text">7天退换</text>
+        </view>
+        <view class="goodsDetail_surv_item">
+            <icon type="success_no_circle" size="12" color="#e02f23"/>
+            <text class="goodsDetail_surv_item_text">极速发货</text>
+        </view>
+        <view class="goodsDetail_surv_item">
+            <icon type="success_no_circle" size="12" color="#e02f23"/>
+            <text class="goodsDetail_surv_item_text">全场包邮</text>
+        </view>
+    </view>
+
+    <!--推荐-->
+    <view class="goodsDetail_recommend">
+        <text class="goodsDetail_recommend_content">1212名宠友推荐</text>
+        <view class="goodsDetail_recommend_avatar">
+            <view class="goodsDetail_recommend_avatar_item goodsDetail_recommend_avatar_first"></view>
+            <view class="goodsDetail_recommend_avatar_item"></view>
+            <view class="goodsDetail_recommend_avatar_item"></view>
+            <view class="goodsDetail_recommend_avatar_item"></view>
+            <view class="goodsDetail_recommend_avatar_item"></view>
+            <view class="goodsDetail_recommend_avatar_item"></view>
+            <view class="goodsDetail_recommend_avatar_item"></view>
+            <view class="goodsDetail_recommend_avatar_item"></view>
+            <view class="goodsDetail_recommend_avatar_item"></view>
+        </view>
+    </view>
+
+    <!--商品详情-->
+    <view class="goodsDetail_main">
+        <view class="goodsDetail_main_title">
+            <text>商品详情</text>
+        </view>
+        <view class="goodsDetail_main_descript">
+            <view class="goodsDetail_main_descript_title">
+                <text>商品描述</text>
+            </view>
+            <view class="goodsDetail_main_descript_content">
+                <text>
+                    描述内容描述内容描述内容描述内容描述内容描述内容描述内容描述内容描述内容描述内容描述内容描述内容描述内容描述内容描述内容描述内容描述内容描述内容描述内容描述内容描述内容描述内容描述内容描述内容描述内容描述内容描述内容描述内容
+                </text>
+            </view>
+        </view>
+        <view class="goodsDetail_main_img"></view>
+    </view>
 </view>

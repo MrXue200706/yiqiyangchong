@@ -1,5 +1,6 @@
 .shoping_time_d{
     background-color: #333;
+    overflow: hidden;
 }
 .shoping_time{
     height: 84rpx;
@@ -30,6 +31,7 @@
 /*广播*/
 .shoping_radio_d{
     background-color: #f2f7f8;
+    overflow: hidden;
 }
 .shoping_radio{
     width: 100%;
