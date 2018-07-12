@@ -74,4 +74,20 @@
         </view>
         <view class="goodsDetail_main_img"></view>
     </view>
+
+    <!--底部购买-->
+    <view class="goodsDetail_foot">
+        <view class="goodsDetail_foot_left">
+            <view class="goodsDetail_foot_left_home">
+                <text>首页</text>
+            </view>
+            <view class="goodsDetail_foot_left_collect">
+                <text>收藏</text>
+            </view>
+        </view>
+        <view class="goodsDetail_foot_right">
+            <text>￥52.23</text>
+            <text>(最多可立减12元)</text>
+        </view>
+    </view>
 </view>

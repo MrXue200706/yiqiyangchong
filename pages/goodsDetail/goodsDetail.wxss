@@ -130,3 +130,29 @@
     margin-top: 40rpx;
     background-color: #888;
 }
+
+/*底部购买*/
+.goodsDetail_foot{
+    height: 100rpx;
+    display: flex;
+    flex-wrap: nowrap;
+    position: fixed;
+    bottom: 0;
+}
+.goodsDetail_foot_left{
+    width: 240rpx;
+    background-color: #fff;
+    font-size: 22rpx;
+    color: #666;
+    display: flex;
+    justify-content: space-around;
+}
+.goodsDetail_foot_right{
+    width: 510rpx;
+    height: 100rpx;
+    line-height: 100rpx;
+    text-align: center;
+    background-color: #ff9305;
+    color: #fff;
+    font-size: 26rpx;
+}
