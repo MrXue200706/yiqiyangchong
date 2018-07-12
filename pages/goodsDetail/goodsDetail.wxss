@@ -1,0 +1,5 @@
+.goodsDetail_headimg{
+    height: 666rpx;
+    width: 100%;
+    background-color: #888;
+}
