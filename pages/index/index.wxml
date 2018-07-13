@@ -80,17 +80,17 @@
   <!--专题精选-->
   <view class="special_topic">
     <text class="special_topic_title">专题精选</text>
-    <text class="special_topic_more">更多</text>
+    <navigator url="../specialTopic/specialTopic" class="special_topic_more">更多</navigator>
     <scroll-view scroll-x="true">
       <view class="special_topic_scroll">
-          <view class="special_topic_item">
+          <navigator url="../specialTopicDetail/specialTopicDetail" class="special_topic_item">
             <view class="special_topic_item_img"></view>
             <text class="special_topic_item_title">新手养狗必备三件套</text>
-          </view>
-          <view class="special_topic_item">
+          </navigator>
+          <navigator url="../specialTopicDetail/specialTopicDetail" class="special_topic_item">
             <view class="special_topic_item_img"></view>
             <text class="special_topic_item_title">新手养狗必备三件套</text>
-          </view>
+          </navigator>
       </view>
     </scroll-view>
   </view>

@@ -4,7 +4,9 @@
     "pages/shoping/shoping",
     "pages/mine/mine",
     "pages/dogGoods/dogGoods",
-    "pages/goodsDetail/goodsDetail"
+    "pages/goodsDetail/goodsDetail",
+    "pages/specialTopic/specialTopic",
+    "pages/specialTopicDetail/specialTopicDetail"
   ],
   "window":{
     "backgroundTextStyle":"light",

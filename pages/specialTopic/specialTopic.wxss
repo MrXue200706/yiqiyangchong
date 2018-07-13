@@ -1,0 +1,23 @@
+.specialTopic{
+    padding:0 20rpx;
+}
+.specialTopic_item{
+    margin-top: 26rpx;
+}
+.specialTopic_item_img{
+    height: 332rpx;
+    width: 100%;
+    border-radius: 10rpx;
+    overflow: hidden;
+    background-color: #888;
+}
+.specialTopic_item_title{
+    font-size: 32rpx;
+    color: #333;
+    padding: 5rpx 10rpx;
+}
+.specialTopic_item_time{
+    font-size: 20rpx;
+    color: #888;
+    padding: 5rpx 10rpx;
+}
