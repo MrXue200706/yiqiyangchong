@@ -1,8 +1,10 @@
 .specialTopicDetail{
-    padding:0 28rpx;
+    overflow: hidden;
 }
-
 /*文章*/
+.specialTopicDetail_p{
+    padding: 0 28rpx;
+}
 .specialTopicDetail_p_p{
     padding: 0 10rpx;
     font-size: 26rpx;
@@ -18,7 +20,7 @@
 
 /*商品推荐*/
 .specialTopicDetail_goods{
-    padding: 28rpx 0;
+    padding: 28rpx 28rpx;
     display: flex;
     flex-wrap: nowrap;
     border-bottom: 1px solid #d5d5d5;
@@ -45,6 +47,8 @@
     padding: 0 28rpx;
     background-color: #fff;
     overflow: hidden;
+    display: flex;
+    align-items: center;
 }
 .specialTopicDetail_goods_recommend_content{
     color: #313131;
@@ -88,4 +92,31 @@
     font-size: 28rpx;
     flex-shrink: 0;
     margin-left: 100rpx;
+}
+
+/*底部*/
+.specialTopicDetail_foot{
+    width: 100%;
+    height: 100rpx;
+    border-top: 1px solid #d2d2d2;
+    position: fixed;
+    bottom: 0;
+    display: flex;
+    justify-content: space-between;
+    background-color: #fff;
+}
+.specialTopicDetail_foot_right{
+    height: 100rpx;
+    line-height: 100rpx;
+    font-size: 24rpx;
+    color: #666;
+}
+.specialTopicDetail_foot_right_follow,.specialTopicDetail_foot_right_share{
+    padding: 0 46rpx;
+}
+
+/*占位*/
+.palceholder{
+    height: 100rpx;
+    width: 100%;
 }

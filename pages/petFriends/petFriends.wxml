@@ -1,0 +1,18 @@
+<view class="petFriends">
+    <view class="petFriends_item">
+        <view class="petFriends_item_left">
+            <view class="petFriends_item_avatar"></view>
+            <view class="petFriends_item_content">
+                <view class="petFriends_item_content_name">
+                    <text>阿华</text>
+                </view>
+                <view class="petFriends_item_content_pet">
+                    <text>泰迪 阿拉斯加</text>
+                </view>
+            </view>
+        </view>
+        <view class="petFriends_item_button">
+            <text>关注</text>
+        </view>
+    </view>
+</view>

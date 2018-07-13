@@ -70,20 +70,20 @@
 /*推荐*/
 .goodsDetail_recommend{
     height: 134rpx;
-    line-height: 134rpx;
     box-sizing: border-box;
     margin: 14rpx 0;
     padding: 0 28rpx;
     background-color: #fff;
     overflow: hidden;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 .goodsDetail_recommend_content{
     color: #313131;
     font-size: 26rpx;
 }
 .goodsDetail_recommend_avatar{
-    margin-top: 28rpx;
-    margin-right: 28rpx;
     float: right;
     display: flex;
     flex-wrap: nowrap;
@@ -155,4 +155,10 @@
     background-color: #ff9305;
     color: #fff;
     font-size: 26rpx;
+}
+
+/*占位*/
+.palceholder{
+    height: 100rpx;
+    width: 100%;
 }

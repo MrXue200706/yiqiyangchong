@@ -14,17 +14,15 @@
         <view class="specialTopicDetail_goods_img"></view>
         <view class="specialTopicDetail_goods_text">
             <view class="specialTopicDetail_goods_text_title">狗粮狗粮狗粮狗粮狗粮狗粮狗粮狗粮狗粮狗粮狗粮狗粮狗粮</view>
-            <view class="specialTopicDetail_goods_text_middle">
-                <view class="specialTopicDetail_goods_recommend">
-                    <view class="specialTopicDetail_goods_recommend_avatar">
-                        <view class="specialTopicDetail_goods_recommend_avatar_item specialTopicDetail_goods_recommend_avatar_first"></view>
-                        <view class="specialTopicDetail_goods_recommend_avatar_item"></view>
-                        <view class="specialTopicDetail_goods_recommend_avatar_item"></view>
-                        <view class="specialTopicDetail_goods_recommend_avatar_item"></view>
-                        <view class="specialTopicDetail_goods_recommend_avatar_item"></view>
-                    </view>
-                    <text class="specialTopicDetail_goods_recommend_content">1212推荐</text>
+            <view class="specialTopicDetail_goods_recommend">
+                <view class="specialTopicDetail_goods_recommend_avatar">
+                    <view class="specialTopicDetail_goods_recommend_avatar_item specialTopicDetail_goods_recommend_avatar_first"></view>
+                    <view class="specialTopicDetail_goods_recommend_avatar_item"></view>
+                    <view class="specialTopicDetail_goods_recommend_avatar_item"></view>
+                    <view class="specialTopicDetail_goods_recommend_avatar_item"></view>
+                    <view class="specialTopicDetail_goods_recommend_avatar_item"></view>
                 </view>
+                <text class="specialTopicDetail_goods_recommend_content">1212推荐</text>
             </view>
             <view class="specialTopicDetail_goods_text_bottom">
                 <text class="specialTopicDetail_goods_text_bottom_red">￥58.88</text>
@@ -56,4 +54,17 @@
             </view>
         </view>
     </navigator>
+
+    <!--占位-->
+    <view class="palceholder"></view>
+
+    <!--底部-->
+    <view class="specialTopicDetail_foot">
+        <view class="specialTopicDetail_foot_left"></view>
+        <view class="specialTopicDetail_foot_right">
+            <text class="specialTopicDetail_foot_right_follow">点赞12112</text>
+            |
+            <text class="specialTopicDetail_foot_right_share">分享</text>
+        </view>
+    </view>
 </view>

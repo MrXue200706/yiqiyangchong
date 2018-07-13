@@ -6,7 +6,8 @@
     "pages/dogGoods/dogGoods",
     "pages/goodsDetail/goodsDetail",
     "pages/specialTopic/specialTopic",
-    "pages/specialTopicDetail/specialTopicDetail"
+    "pages/specialTopicDetail/specialTopicDetail",
+    "pages/petFriends/petFriends"
   ],
   "window":{
     "backgroundTextStyle":"light",

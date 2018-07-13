@@ -44,7 +44,7 @@
     <!--推荐-->
     <view class="goodsDetail_recommend">
         <text class="goodsDetail_recommend_content">1212名宠友推荐</text>
-        <view class="goodsDetail_recommend_avatar">
+        <navigator url="../petFriends/petFriends" class="goodsDetail_recommend_avatar">
             <view class="goodsDetail_recommend_avatar_item goodsDetail_recommend_avatar_first"></view>
             <view class="goodsDetail_recommend_avatar_item"></view>
             <view class="goodsDetail_recommend_avatar_item"></view>
@@ -54,7 +54,7 @@
             <view class="goodsDetail_recommend_avatar_item"></view>
             <view class="goodsDetail_recommend_avatar_item"></view>
             <view class="goodsDetail_recommend_avatar_item"></view>
-        </view>
+        </navigator>
     </view>
 
     <!--商品详情-->
@@ -74,6 +74,9 @@
         </view>
         <view class="goodsDetail_main_img"></view>
     </view>
+
+    <!--占位-->
+    <view class="palceholder"></view>
 
     <!--底部购买-->
     <view class="goodsDetail_foot">
