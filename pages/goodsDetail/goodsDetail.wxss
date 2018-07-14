@@ -31,7 +31,7 @@
 }
 .goodsDetail_title_price_red{
     color: #e02f23;
-    font-size: 36rpx;
+    font-size: 42rpx;
 }
 .goodsDetail_title_price_gray{
     font-size: 20rpx;
@@ -41,13 +41,13 @@
 .goodsDetail_title_state{
     color: #616161;
     font-size: 24rpx;
-    margin-top: 20rpx;
+    margin-top: 10rpx;
 }
 .goodsDetail_title_content{
-    font-size: 24rpx;
+    font-size: 30rpx;
     color: #333;
     font-weight: 600;
-    margin-top: 20rpx;
+    margin-top: 10rpx;
 }
 
 /*服务*/
@@ -94,7 +94,7 @@
     border-radius: 50%;
     background-color: #888;
     flex-shrink: 0;
-    border: 1rpx solid #fff;
+    border: 1px solid #fff;
     box-sizing: border-box;
     margin-left: -26rpx;
 }

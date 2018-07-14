@@ -20,7 +20,7 @@
     color: #333;
 }
 .shoping_time_item_time{
-    font-size: 28rpx;
+    font-size: 30rpx;
     text-align: center;
 }
 .shoping_time_item_notice{

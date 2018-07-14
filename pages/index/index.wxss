@@ -206,8 +206,8 @@
   margin-left: 10rpx;
 }
 .goods_item_recommend_avatar_left{
-  width: 50rpx;
-  height: 50rpx;
+  width: 51rpx;
+  height: 51rpx;
   border-radius: 50%;
   background-color: #989898;
   position: absolute;
