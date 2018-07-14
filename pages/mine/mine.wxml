@@ -12,10 +12,10 @@
 
     <!--状态-->
     <view class="state">
-        <view class="state_item">
+        <navigator url="../unpay/unpay" class="state_item">
             <view class="state_item_img"></view>
             <text>待付款</text>
-        </view>
+        </navigator>
         <view class="state_item">
             <view class="state_item_img"></view>
             <text>待成团</text>
