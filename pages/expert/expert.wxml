@@ -1,0 +1,88 @@
+<view class="expert">
+    <!--头像-->
+    <view class="expert_avatar">
+        <view class="expert_avatar_item"></view>
+    </view>
+
+    <!--名字-->
+    <view class="expert_name">
+        <view class="expert_name_item">
+            <text>阿花</text>
+        </view>
+    </view>
+
+    <!--粉丝-->
+    <view class="expert_fans">
+        <text class="expert_fans_text">关注：4564</text> |
+        <text class="expert_fans_text">粉丝：4564</text>
+    </view>
+    
+    <!--商品-->
+    <view class="expert_goods">
+        <view class="expert_goods_content">
+            <view class="expert_goods_content_item">
+                <text class="expert_goods_content_item_title">收藏</text>
+                <text class="expert_goods_content_item_detail">已添加:3</text>
+                <view class="expert_goods_content_item_avatar">
+                    <view class="expert_goods_content_item_avatar_item expert_goods_content_item_avatar_item_first"></view>
+                    <view class="expert_goods_content_item_avatar_item"></view>
+                    <view class="expert_goods_content_item_avatar_item"></view>
+                </view>
+            </view>
+            <view class="expert_goods_content_item">
+                <text class="expert_goods_content_item_title">推荐商品</text>
+                <text class="expert_goods_content_item_detail">已购商品:5634</text>
+                <view class="expert_goods_content_item_avatar">
+                    <view class="expert_goods_content_item_avatar_item expert_goods_content_item_avatar_item_first"></view>
+                    <view class="expert_goods_content_item_avatar_item"></view>
+                    <view class="expert_goods_content_item_avatar_item"></view>
+                    <view class="expert_goods_content_item_avatar_item"></view>
+                    <view class="expert_goods_content_item_avatar_item"></view>
+                </view>
+            </view>
+        </view>
+        <view class="expert_goods_line"></view>
+    </view>
+
+    <!--宠物-->
+    <view class="expert_pets_d">
+        <view class="expert_pets">
+            <view class="expert_pets_content">
+                <view>
+                    <text class="expert_pets_content_item expert_pets_content_item_blue">
+                        <text>GG</text>
+                    </text>
+                </view>
+                <view>
+                    <text class="expert_pets_content_item expert_pets_content_item_red">
+                        <text>泰日天</text>
+                    </text>
+                </view>
+                <view>
+                    <text class="expert_pets_content_item expert_pets_content_item_yellow">
+                        <text>1岁1个月</text>
+                    </text>
+                </view>
+            </view>
+        </view>
+        <view class="expert_pets">
+            <view class="expert_pets_content">
+                <view>
+                    <text class="expert_pets_content_item expert_pets_content_item_blue">
+                        <text>GG</text>
+                    </text>
+                </view>
+                <view>
+                    <text class="expert_pets_content_item expert_pets_content_item_red">
+                        <text>泰日天</text>
+                    </text>
+                </view>
+                <view>
+                    <text class="expert_pets_content_item expert_pets_content_item_yellow">
+                        <text>1岁1个月</text>
+                    </text>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>

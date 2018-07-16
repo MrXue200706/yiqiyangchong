@@ -8,7 +8,8 @@
     "pages/specialTopic/specialTopic",
     "pages/specialTopicDetail/specialTopicDetail",
     "pages/petFriends/petFriends",
-    "pages/unpay/unpay"
+    "pages/unpay/unpay",
+    "pages/expert/expert"
   ],
   "window":{
     "backgroundTextStyle":"light",
