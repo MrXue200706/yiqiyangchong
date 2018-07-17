@@ -46,6 +46,12 @@
 					"name": "expert",
 					"pathName": "pages/expert/expert",
 					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "integral",
+					"pathName": "pages/integral/integral",
+					"query": ""
 				}
 			]
 		}

@@ -9,7 +9,8 @@
     "pages/specialTopicDetail/specialTopicDetail",
     "pages/petFriends/petFriends",
     "pages/unpay/unpay",
-    "pages/expert/expert"
+    "pages/expert/expert",
+    "pages/integral/integral"
   ],
   "window":{
     "backgroundTextStyle":"light",
