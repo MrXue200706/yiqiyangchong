@@ -36,11 +36,11 @@
 
     <!--事项-->
     <view class="official">
-        <view class="official_item">
+        <navigator url="../integral/integral" class="official_item">
             <view class="official_item_img"></view>
             <view class="official_item_title">积分</view>
             <view class="official_item_under">可用积分：23232</view>
-        </view>
+        </navigator>
         <view class="official_item">
             <view class="official_item_img"></view>
             <view class="official_item_title">萌宠</view>

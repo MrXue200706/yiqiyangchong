@@ -1,0 +1,112 @@
+.integral{
+    background-color: #f2f7f8;
+}
+/*标题*/
+.integral_title{
+    height: 266rpx;
+    background-color: #888;
+    overflow: hidden;
+    position: relative;
+}
+.integral_title_total{
+    text-align: center;
+    font-size: 50rpx;
+    color: #fff;
+    margin-top: 80rpx;
+}
+.integral_title_descript{
+    text-align: center;
+    font-size: 30rpx;
+    color: #fff;
+    margin-top: 30rpx;
+}
+.integral_title_detailbtn{
+    position: absolute;
+    top: 28rpx;
+    right: 28rpx;
+    font-size: 28rpx;
+    color: #fff;
+}
+
+/*tab栏*/
+.integral_tab{
+    height: 106rpx;
+    background-color: #fff;
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+}
+.integral_tab_item{
+    width: 50%;
+    text-align: center;
+    font-size: 32rpx;
+    color: #888;
+}
+.integral_tab_item_active{
+    color: #333;
+    border-bottom: 2px solid #fe9206;
+    padding-bottom: 20rpx;
+}
+
+/*列表*/
+.integral_detail{
+    padding-left: 32rpx;
+    background-color: #fff;
+    margin-top: 16rpx;
+}
+.integral_detail_item{
+    border-bottom: 1px solid #f4f4f4;
+    padding: 28rpx 0;
+    overflow: hidden;
+}
+.integral_detail_item_up_left{
+    color: #333;
+    font-size: 28rpx;
+}
+.integral_detail_item_up_right{
+    color: #e53018;
+    font-size: 24rpx;
+    float: right;
+    padding-right: 28rpx;
+}
+.integral_detail_item_down{
+    font-size: 24rpx;
+    color: #888;
+}
+
+/*领取积分*/
+.integral_get{
+    padding-left: 32rpx;
+    background-color: #fff;
+    margin-top: 16rpx;
+    display: none;
+}
+.integral_get_item{
+    border-bottom: 1px solid #f4f4f4;
+    padding: 28rpx 0;
+    overflow: hidden;
+    position: relative;
+}
+.integral_get_item_title{
+    color: #333;
+    font-size: 28rpx;
+}
+.integral_get_item_descript{
+    font-size: 24rpx;
+    color: #888;
+}
+.integral_get_item_button{
+    height: 50rpx;
+    line-height: 50rpx;
+    position: absolute;
+    top: 28rpx;
+    right: 28rpx;
+    color: #fff;
+    background-color: #ff491d;
+    padding:0 28rpx;
+    font-size: 26rpx;
+    border-radius: 25rpx;
+}
+.integral_get_item_red{
+    color: #dd301d;
+}
