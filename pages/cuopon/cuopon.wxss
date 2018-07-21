@@ -1,0 +1,28 @@
+.cuopon{
+    background-color: #f2f7f8;
+    min-height: 1218rpx;
+}
+
+/*tab栏*/
+.cuopon_tab{
+    background-color: #fff;
+    font-size: 26rpx;
+    font-weight: 600;
+    color: #888;
+    display: flex;
+    flex-wrap: nowrap;
+    padding: 28rpx 0;
+}
+.cuopon_tab_item{
+    width: 50%;
+    text-align: center;
+}
+.cuopon_tab_item_active{
+    color: #333;
+    border-bottom: 4rpx solid #fb8f01;
+}
+
+/*内容*/
+.cuopon_content{
+    padding: 0 28rpx;
+}

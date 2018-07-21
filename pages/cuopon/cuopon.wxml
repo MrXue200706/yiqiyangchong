@@ -1,0 +1,18 @@
+<view class="cuopon">
+    <!--tab栏-->
+    <view class="cuopon_tab">
+        <view class="cuopon_tab_item">
+            <text class="cuopon_tab_item_active">兑换优惠券</text>
+        </view>
+        <view class="cuopon_tab_item">  
+            <text>我的优惠券</text>
+        </view>
+    </view>
+
+    <!--内容-->
+    <view class="cuopon_content">
+        <view class="cuopon_content_item">
+            
+        </view>
+    </view>
+</view>

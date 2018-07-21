@@ -12,7 +12,8 @@
     "pages/expert/expert",
     "pages/integral/integral",
     "pages/myPets/myPets",
-    "pages/petsAdd/petsAdd"
+    "pages/petsAdd/petsAdd",
+    "pages/cuopon/cuopon"
   ],
   "window":{
     "backgroundTextStyle":"light",
