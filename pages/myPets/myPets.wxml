@@ -1,0 +1,34 @@
+<view class="myPets">
+    <!--萌宠框-->
+    <view class="myPets_items">
+        <view class="myPets_item">
+            <view class="myPets_item_content">
+                <view>
+                    <text class="myPets_item_content_item myPets_item_content_item_blue">
+                        <text>GG</text>
+                    </text>
+                </view>
+                <view>
+                    <text class="myPets_item_content_item myPets_item_content_item_red">
+                        <text>泰日天</text>
+                    </text>
+                </view>
+                <view>
+                    <text class="myPets_item_content_item myPets_item_content_item_yellow">
+                        <text>1岁1个月</text>
+                    </text>
+                </view>
+            </view>
+        </view>
+    </view>
+
+    <!--添加宠物信息-->
+    <navigator url="../petsAdd/petsAdd" class="myPets_add">
+        <view class="myPets_add_icon">
+            <text>+</text>
+        </view>
+        <view class="myPets_add_title">
+            <text>添加新的萌宠档案</text>
+        </view>
+    </navigator>
+</view>

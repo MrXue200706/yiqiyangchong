@@ -1,0 +1,56 @@
+.myPets{
+    min-height: 1218rpx;
+    padding: 0 28rpx;
+    background-color: #f2f7f8;
+    overflow: hidden;
+}
+
+/*宠物框*/
+.myPets_items{
+    margin-top: 28rpx;
+}
+.myPets_item{
+    height: 410rpx;
+    background-color: #888;
+    border-radius: 15rpx;
+}
+.myPets_item_content_item{
+    display: inline-block;
+    height: 46rpx;
+    line-height: 46rpx;
+    padding: 0 28rpx;
+    margin: 18rpx 0 0 28rpx;
+    font-size: 22rpx;
+    border-radius: 23rpx;
+}
+.myPets_item_content_item_blue{
+    background-color: #5f99c2;
+}
+.myPets_item_content_item_red{
+    background-color: #c05e90;
+}
+.myPets_item_content_item_yellow{
+    background-color: #cc9a00;
+}
+
+/*添加宠物信息*/
+.myPets_add{
+    height: 100rpx;
+    background-color: #fff;
+    margin-top: 50rpx;
+    border-radius: 10rpx;
+    overflow: hidden;
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+}
+.myPets_add_icon{
+    font-size: 40rpx;
+    color: #f3950a;
+    font-family: yahei;
+    margin-left: 28rpx;
+}
+.myPets_add_title{
+    font-size: 30rpx;
+    margin-left: 28rpx;
+}

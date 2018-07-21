@@ -10,7 +10,9 @@
     "pages/petFriends/petFriends",
     "pages/unpay/unpay",
     "pages/expert/expert",
-    "pages/integral/integral"
+    "pages/integral/integral",
+    "pages/myPets/myPets",
+    "pages/petsAdd/petsAdd"
   ],
   "window":{
     "backgroundTextStyle":"light",

@@ -41,11 +41,11 @@
             <view class="official_item_title">积分</view>
             <view class="official_item_under">可用积分：23232</view>
         </navigator>
-        <view class="official_item">
+        <navigator url="../myPets/myPets" class="official_item">
             <view class="official_item_img"></view>
             <view class="official_item_title">萌宠</view>
             <view class="official_item_under">已添加：23</view>
-        </view>
+        </navigator>
         <view class="official_item">
             <view class="official_item_img"></view>
             <view class="official_item_title">优惠券</view>

@@ -52,6 +52,12 @@
 					"name": "integral",
 					"pathName": "pages/integral/integral",
 					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "myPets",
+					"pathName": "pages/myPets/myPets",
+					"query": ""
 				}
 			]
 		}
