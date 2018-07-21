@@ -58,6 +58,12 @@
 					"name": "myPets",
 					"pathName": "pages/myPets/myPets",
 					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "petsAdd",
+					"pathName": "pages/petsAdd/petsAdd",
+					"query": ""
 				}
 			]
 		}

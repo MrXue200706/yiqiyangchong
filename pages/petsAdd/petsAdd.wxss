@@ -1,0 +1,85 @@
+.petsAdd{
+    padding: 0 28rpx;
+}
+/*表单内容*/
+.petsAdd_form_item{
+    font-size: 30rpx;
+    margin-top: 40rpx;
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+}
+.petsAdd_form_item_other{
+    align-items: flex-start;
+}
+.petsAdd_form_item_title{
+    flex-shrink: 0;
+}
+.petsAdd_form_item_content{
+    color: #888;
+}
+.petsAdd_form_item_button{
+    display: flex;
+    flex-wrap: nowrap;
+}
+.petsAdd_form_item_button_item{
+    color: #888;
+    border: 1px solid #e5e5e5;
+    font-size: 20rpx;
+    width: 120rpx;
+    height: 44rpx;
+    line-height: 44rpx;
+    border-radius: 22rpx;
+    text-align: center;
+    margin-right: 20rpx;
+}
+.petsAdd_form_item_textarea{
+    border: 1px solid #e5e5e5;
+    border-radius: 10rpx;
+    padding: 20rpx;
+    font-size: 28rpx;
+}
+.petsAdd_form_item_add{
+    height: 150rpx;
+    width: 150rpx;
+    border: 1px solid #e5e5e5;
+    border-radius: 10rpx;
+    color: #888;
+    font-size: 80rpx;
+    flex-shrink: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.petsAdd_form_item_pciture{
+    display: flex;
+    flex-wrap: nowrap;
+}
+.petsAdd_form_item_pciture_item{
+    height: 150rpx;
+    width: 150rpx;
+    border-radius: 10rpx;
+    background-color: #888;
+    margin-left: 10rpx;
+    flex-shrink: 0;
+}
+.petsAdd_form_item_pciture_item_cancel{
+    text-align: right;
+}
+
+/*保存按钮*/
+.petsAdd_save{
+    display: flex;
+    justify-content: center;
+    margin-top: 120rpx;
+}
+.petsAdd_save_button{
+    height: 74rpx;
+    line-height: 74rpx;
+    text-align: center;
+    width: 620rpx;
+    background-color: #fe9204;
+    font-size: 30rpx;
+    color: #fff;
+    border-radius: 10rpx;
+}
