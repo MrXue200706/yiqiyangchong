@@ -1,0 +1,34 @@
+<view class="myAdress">
+    <!--地址-->
+    <view class="myAdress_item">
+        <view class="myAdress_item_content">
+            <view class="myAdress_item_content_up">
+                <text>林小姐</text>
+                <text class="myAdress_item_content_up_phone">121****4234</text>
+            </view>
+            <view class="myAdress_item_content_down">
+                <text>地址：广东省广州市科学城和司法鉴定哈翻江倒海的介绍客户</text>
+            </view>
+        </view>
+        <view class="myAdress_item_edict">
+            <view class="myAdress_item_edict_left">
+                <icon type="success" size="16" color="#ea2c29"/>
+                <text class="myAdress_item_edict_left_text">设为默认</text>
+            </view>
+            <view class="myAdress_item_edict_right">
+                <text class="myAdress_item_edict_right_item">编辑</text>
+                <text class="myAdress_item_edict_right_item">删除</text>
+            </view>
+        </view>
+    </view>
+
+    <!--添加-->
+    <view class="myAdress_add">
+        <view class="myAdress_add_item myAdress_add_yellow">
+            <text>手动添加地址</text>
+        </view>
+        <view class="myAdress_add_item myAdress_add_green">
+            <text>获取微信地址</text>
+        </view>
+    </view>
+</view>

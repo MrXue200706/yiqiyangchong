@@ -56,11 +56,11 @@
             <view class="official_item_title">收藏</view>
             <view class="official_item_under">已收藏：2323</view>
         </navigator>
-        <view class="official_item">
+        <navigator url="../myAdress/myAdress" class="official_item">
             <view class="official_item_img"></view>
             <view class="official_item_title">地址</view>
             <view class="official_item_under">添加地址：2</view>
-        </view>
+        </navigator>
         <view class="official_item">
             <view class="official_item_img"></view>
             <view class="official_item_title">合作</view>
