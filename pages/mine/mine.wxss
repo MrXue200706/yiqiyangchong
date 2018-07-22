@@ -32,9 +32,11 @@
     text-align: center;
 }
 .avatar_fallow_left{
+    display: inline-block;
     margin-right: 30rpx;
 }
 .avatar_fallow_right{
+    display: inline-block;
     margin-left: 30rpx;
 }
 

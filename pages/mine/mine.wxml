@@ -4,9 +4,9 @@
         <view class="avatar_avatar"></view>
         <view class="avatar_name">小灰灰</view>
         <view class="avatar_fallow">
-            <text class="avatar_fallow_left">关注 1212</text>
+            <navigator url="../petFriends/petFriends" class="avatar_fallow_left">关注 1212</navigator>
             <text>|</text>
-            <text class="avatar_fallow_right">粉丝1212</text>
+            <navigator url="../petFriends/petFriends" class="avatar_fallow_right">粉丝1212</navigator>
         </view>
     </view>
 
@@ -16,18 +16,18 @@
             <view class="state_item_img"></view>
             <text>待付款</text>
         </navigator>
-        <view class="state_item">
+        <navigator url="../unpay/unpay" class="state_item">
             <view class="state_item_img"></view>
             <text>待成团</text>
-        </view>
-        <view class="state_item">
+        </navigator>
+        <navigator url="../unpay/unpay" class="state_item">
             <view class="state_item_img"></view>
             <text>待收货</text>
-        </view>
-        <view class="state_item">
+        </navigator>
+        <navigator url="../unpay/unpay" class="state_item">
             <view class="state_item_img"></view>
             <text>已完成</text>
-        </view>
+        </navigator>
         <view class="state_item">
             <view class="state_item_img"></view>
             <text>售后服务</text>
