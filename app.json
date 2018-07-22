@@ -13,7 +13,8 @@
     "pages/integral/integral",
     "pages/myPets/myPets",
     "pages/petsAdd/petsAdd",
-    "pages/cuopon/cuopon"
+    "pages/cuopon/cuopon",
+    "pages/collect/collect"
   ],
   "window":{
     "backgroundTextStyle":"light",

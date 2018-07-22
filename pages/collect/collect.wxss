@@ -1,0 +1,74 @@
+.collect_goods{
+    padding: 28rpx 28rpx;
+    display: flex;
+    flex-wrap: nowrap;
+    border-bottom: 1px solid #d5d5d5;
+}
+.collect_goods_img{
+    width: 220rpx;
+    height: 228rpx;
+    background-color: #888;
+    flex-shrink: 0;
+}
+.collect_goods_text{
+    padding-left: 20rpx;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+}
+.collect_goods_text_title{
+    font-size: 28rpx;
+}
+.collect_goods_recommend{
+    box-sizing: border-box;
+    margin: 14rpx 0;
+    padding: 0 28rpx;
+    background-color: #fff;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+}
+.collect_goods_recommend_content{
+    color: #313131;
+    font-size: 26rpx;
+}
+.collect_goods_recommend_avatar{
+    margin-right: 28rpx;
+    float: left;
+    display: flex;
+    flex-wrap: nowrap;
+}
+.collect_goods_recommend_avatar_item{
+    width: 50rpx;
+    height: 50rpx;
+    border-radius: 50%;
+    background-color: #888;
+    flex-shrink: 0;
+    border: 1rpx solid #fff;
+    box-sizing: border-box;
+    margin-left: -26rpx;
+}
+
+.collect_goods_text_bottom_red{
+    font-size: 28rpx;
+    color: #f73227;
+}
+.collect_goods_text_bottom_gray{
+    font-size: 22rpx;
+    color: #d4d4d4;
+    text-decoration: line-through;
+}
+.collect_goods_text_bottom_button{
+    display: inline-block;
+    height: 54rpx;
+    line-height: 54rpx;
+    width: 136rpx;
+    text-align: center;
+    background-color: #ff920a;
+    color: #fff;
+    border-radius: 28rpx;
+    font-size: 28rpx;
+    flex-shrink: 0;
+    margin-left: 100rpx;
+}
