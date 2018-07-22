@@ -1,0 +1,34 @@
+<view class="addAdress">
+    <!--内容-->
+    <view class="addAdress_part">
+        <view class="addAdress_part_item">
+            <text>收货人：</text>
+            <input type="text"/>
+        </view>
+        <view class="addAdress_part_item">
+            <text>手机号码：</text>
+            <input type="number"/>
+        </view>
+        <view class="addAdress_part_item">
+            <text>所在地区：</text>
+            <input type="text"/>
+        </view>
+        <view class="addAdress_part_item">
+            <text>详细地址：</text>
+            <input type="text"/>
+        </view>
+    </view>
+    <view class="addAdress_part">
+        <view class="addAdress_part_item addAdress_part_item_right">
+            <text>设为默认地址</text>
+            <i class="addAdress_part_item_circle"></i>
+        </view>
+    </view>
+
+    <!--按钮-->
+    <view class="addAdress_button">
+        <view class="addAdress_button_item">
+            <text>保存</text>
+        </view>
+    </view>
+</view>

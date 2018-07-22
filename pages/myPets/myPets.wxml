@@ -1,7 +1,7 @@
 <view class="myPets">
     <!--萌宠框-->
     <view class="myPets_items">
-        <view class="myPets_item">
+        <navigator url="../petsDetail/petsDetail" class="myPets_item">
             <view class="myPets_item_content">
                 <view>
                     <text class="myPets_item_content_item myPets_item_content_item_blue">
@@ -19,7 +19,7 @@
                     </text>
                 </view>
             </view>
-        </view>
+        </navigator>
     </view>
 
     <!--添加宠物信息-->

@@ -33,51 +33,8 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 6,
-			"list": [
-				{
-					"id": -1,
-					"name": "unpay",
-					"pathName": "pages/unpay/unpay",
-					"query": ""
-				},
-				{
-					"id": -1,
-					"name": "expert",
-					"pathName": "pages/expert/expert",
-					"query": ""
-				},
-				{
-					"id": -1,
-					"name": "integral",
-					"pathName": "pages/integral/integral",
-					"query": ""
-				},
-				{
-					"id": -1,
-					"name": "myPets",
-					"pathName": "pages/myPets/myPets",
-					"query": ""
-				},
-				{
-					"id": -1,
-					"name": "petsAdd",
-					"pathName": "pages/petsAdd/petsAdd",
-					"query": ""
-				},
-				{
-					"id": -1,
-					"name": "cuopon",
-					"pathName": "pages/cuopon/cuopon",
-					"query": ""
-				},
-				{
-					"id": -1,
-					"name": "myAdress",
-					"pathName": "pages/myAdress/myAdress",
-					"query": ""
-				}
-			]
+			"current": -1,
+			"list": []
 		}
 	}
 }

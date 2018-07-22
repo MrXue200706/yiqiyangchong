@@ -24,9 +24,9 @@
 
     <!--添加-->
     <view class="myAdress_add">
-        <view class="myAdress_add_item myAdress_add_yellow">
+        <navigator url="../addAdress/addAdress" class="myAdress_add_item myAdress_add_yellow">
             <text>手动添加地址</text>
-        </view>
+        </navigator>
         <view class="myAdress_add_item myAdress_add_green">
             <text>获取微信地址</text>
         </view>

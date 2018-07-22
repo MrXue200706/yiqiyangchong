@@ -15,7 +15,9 @@
     "pages/petsAdd/petsAdd",
     "pages/cuopon/cuopon",
     "pages/collect/collect",
-    "pages/myAdress/myAdress"
+    "pages/myAdress/myAdress",
+    "pages/addAdress/addAdress",
+    "pages/petsDetail/petsDetail"
   ],
   "window":{
     "backgroundTextStyle":"light",

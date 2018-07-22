@@ -20,7 +20,7 @@
     <!--商品-->
     <view class="expert_goods">
         <view class="expert_goods_content">
-            <view class="expert_goods_content_item">
+            <navigator url="../collect/collect" class="expert_goods_content_item">
                 <text class="expert_goods_content_item_title">收藏</text>
                 <text class="expert_goods_content_item_detail">已添加:3</text>
                 <view class="expert_goods_content_item_avatar">
@@ -28,8 +28,8 @@
                     <view class="expert_goods_content_item_avatar_item"></view>
                     <view class="expert_goods_content_item_avatar_item"></view>
                 </view>
-            </view>
-            <view class="expert_goods_content_item">
+            </navigator>
+            <navigator url="../collect/collect" class="expert_goods_content_item">
                 <text class="expert_goods_content_item_title">推荐商品</text>
                 <text class="expert_goods_content_item_detail">已购商品:5634</text>
                 <view class="expert_goods_content_item_avatar">
@@ -39,14 +39,14 @@
                     <view class="expert_goods_content_item_avatar_item"></view>
                     <view class="expert_goods_content_item_avatar_item"></view>
                 </view>
-            </view>
+            </navigator>
         </view>
         <view class="expert_goods_line"></view>
     </view>
 
     <!--宠物-->
     <view class="expert_pets_d">
-        <view class="expert_pets">
+        <navigator url="../petsDetail/petsDetail" class="expert_pets">
             <view class="expert_pets_content">
                 <view>
                     <text class="expert_pets_content_item expert_pets_content_item_blue">
@@ -64,8 +64,8 @@
                     </text>
                 </view>
             </view>
-        </view>
-        <view class="expert_pets">
+        </navigator>
+        <navigator url="../petsDetail/petsDetail" class="expert_pets">
             <view class="expert_pets_content">
                 <view>
                     <text class="expert_pets_content_item expert_pets_content_item_blue">
@@ -83,6 +83,6 @@
                     </text>
                 </view>
             </view>
-        </view>
+        </navigator>
     </view>
 </view>

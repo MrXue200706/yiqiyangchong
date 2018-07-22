@@ -1,0 +1,96 @@
+/*头部轮播*/
+.petsDetail_imgs{
+    position: relative;
+}
+.petsDetail_imgs_swiper{
+  background-color: #fff;
+  height: 750rpx;
+}
+.petsDetail_imgs_bc_blue{
+  background-color: rgba(121, 120, 24, .3);
+}
+.petsDetail_imgs_bc_red{
+  background: rgba(0, 120, 24, .3);
+}
+.bpetsDetail_imgs_c_black{
+  background: rgba(121, 0, 24, .3);
+}
+.petsDetail_imgs_content{
+    position: absolute;
+    top: 46rpx;
+    left: 28rpx;
+}
+.petsDetail_imgs_content_item{
+    display: inline-block;
+    height: 46rpx;
+    line-height: 46rpx;
+    padding: 0 28rpx;
+    margin-top: 18rpx;
+    font-size: 22rpx;
+    border-radius: 23rpx;
+}
+.petsDetail_imgs_content_item_blue{
+    background-color: #5f99c2;
+}
+.petsDetail_imgs_content_item_red{
+    background-color: #c05e90;
+}
+.petsDetail_imgs_content_item_yellow{
+    background-color: #cc9a00;
+}
+
+/*标题*/
+.petsDetail_title{
+    height: 90rpx;
+    background-color: #fff;
+    padding: 0 28rpx;
+}
+.petsDetail_title_item{
+    height: 100%;
+    border-bottom: 1px solid #e4e4e4;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.petsDetail_title_item_title{
+    font-size: 30rpx;
+    color: #333;
+}
+.petsDetail_title_item_time{
+    font-size: 20rpx;
+    color: #888;
+}
+
+/*内容*/
+.petsDetail_content{
+    padding: 28rpx;
+    font-size: 28rpx;
+    color: #333;
+}
+
+/*底部*/
+.petsDetail_foot{
+    width: 100%;
+    height: 100rpx;
+    border-top: 1px solid #d2d2d2;
+    position: fixed;
+    bottom: 0;
+    display: flex;
+    justify-content: space-between;
+    background-color: #fff;
+}
+.petsDetail_foot_right{
+    height: 100rpx;
+    line-height: 100rpx;
+    font-size: 24rpx;
+    color: #666;
+}
+.petsDetail_foot_right_follow,.petsDetail_foot_right_share{
+    padding: 0 46rpx;
+}
+
+/*占位*/
+.petsDetail_palceholder{
+    height: 100rpx;
+    width: 100%;
+}
