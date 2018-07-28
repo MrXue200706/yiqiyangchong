@@ -93,4 +93,56 @@
             <text>(最多可立减12元)</text>
         </view>
     </view>
+
+    <!--弹出层-->
+    <view class="goodsDetail_iframe">
+        <view class="goodsDetail_iframe_opacity"></view>
+        <view class="goodsDetail_iframe_white">
+            <view class="goodsDetail_iframe_goods">
+                <view class="goodsDetail_iframe_goods_avatar"></view>
+                <view class="goodsDetail_iframe_goods_price">
+                    <text>¥58.8</text>
+                </view>
+                <view class="goodsDetail_iframe_goods_descript">
+                    <text>选择规格</text>
+                </view>
+                <view class="goodsDetail_iframe_goods_cancel">
+                    <icon type="cancel" size="30" color="#888"/>    
+                </view>    
+            </view>
+            <view class="goodsDetail_iframe_type">
+                <view class="goodsDetail_iframe_type_title">
+                    <text>规格</text>
+                </view>
+                <view class="goodsDetail_iframe_type_item">
+                    <text>1.5kg</text>
+                </view>
+                <view class="goodsDetail_iframe_type_item goodsDetail_iframe_type_active">
+                    <text>1.5kg</text>
+                </view>
+            </view>
+            <view class="goodsDetail_iframe_type">
+                <view class="goodsDetail_iframe_type_title">
+                    <text>规格</text>
+                </view>
+                <view class="goodsDetail_iframe_type_item goodsDetail_iframe_type_active">
+                    <text>1.5kg</text>
+                </view>
+                <view class="goodsDetail_iframe_type_item">
+                    <text>1.5kg</text>
+                </view>
+            </view>
+            <view class="goodsDetail_iframe_number">
+                <text>数量</text>
+                <view class="goodsDetail_iframe_number_button">
+                    <view class="goodsDetail_iframe_number_button_left">-</view>
+                    <input type="number" class="goodsDetail_iframe_number_button_text"/>
+                    <view class="goodsDetail_iframe_number_button_right">+</view>
+                </view>
+            </view>
+            <view class="goodsDetail_iframe_check">
+                <text>确定</text>
+            </view>
+        </view>
+    </view>
 </view>

@@ -17,7 +17,8 @@
     "pages/collect/collect",
     "pages/myAdress/myAdress",
     "pages/addAdress/addAdress",
-    "pages/petsDetail/petsDetail"
+    "pages/petsDetail/petsDetail",
+    "pages/goodsTogether/goodsTogether"
   ],
   "window":{
     "backgroundTextStyle":"light",

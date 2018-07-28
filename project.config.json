@@ -33,8 +33,21 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": -1,
-			"list": []
+			"current": 1,
+			"list": [
+				{
+					"id": -1,
+					"name": "goodsDetail",
+					"pathName": "pages/goodsDetail/goodsDetail",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "goodsTogether",
+					"pathName": "pages/goodsTogether/goodsTogether",
+					"query": ""
+				}
+			]
 		}
 	}
 }
