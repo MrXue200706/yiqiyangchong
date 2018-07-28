@@ -19,6 +19,9 @@
         <view class="goodsDetail_title_content">
             <text>狗粮狗粮狗粮狗粮狗粮狗粮狗粮狗粮狗粮狗粮狗粮狗粮狗粮狗粮狗粮狗粮狗粮狗粮狗粮</text>
         </view>
+        <navigator url="../goodsTogether/goodsTogether" class="goodsDetail_title_get">
+            <text>赚积分</text>
+        </navigator>
     </view>
 
     <!--服务-->

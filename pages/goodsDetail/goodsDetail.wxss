@@ -28,6 +28,7 @@
     padding: 20rpx 28rpx;
     border-bottom: 1px solid #d6d6d6;
     background-color: #fff;
+    position: relative;
 }
 .goodsDetail_title_price_red{
     color: #e02f23;
@@ -48,6 +49,22 @@
     color: #333;
     font-weight: 600;
     margin-top: 10rpx;
+}
+.goodsDetail_title_get{
+    width: 98rpx;
+    height: 82rpx;
+    position: absolute;
+    top: 32rpx;
+    right: 0;
+    font-size: 24rpx;
+    color: #fff;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
+    background-color: #ff9305;
+    border-top-left-radius: 10rpx;
+    border-bottom-left-radius: 10rpx;
 }
 
 /*服务*/
