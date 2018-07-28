@@ -1,0 +1,104 @@
+<view class="checkPay">
+    <!--获取地址-->
+    <view class="checkPay_getAdress">
+        <view class="checkPay_getAdress_item checkPay_getAdress_item_green">
+            <view class="checkPay_getAdress_item_left">
+                <view class="checkPay_getAdress_item_avatar"></view>
+                <text>获取微信地址</text>
+            </view>
+            <view class="checkPay_getAdress_item_right">></view>
+        </view>
+        <view class="checkPay_getAdress_item checkPay_getAdress_item_orange">
+            <view class="checkPay_getAdress_item_left">
+                <view class="checkPay_getAdress_item_avatar"></view>
+                <text>手动添加地址</text>
+            </view>
+            <view class="checkPay_getAdress_item_right">></view>
+        </view>
+    </view>
+
+    <!--地址-->
+    <view class="checkPay_adress">
+        <view class="checkPay_adress_name">
+            <text>林小姐</text>
+            <text>132****9092</text>
+        </view>
+        <view class="checkPay_adress_adress">
+            <text>地址：广东省广州市好的健身卡回复好多时间啊复活健康</text>
+        </view>
+    </view>
+
+    <!--商品-->
+    <view class="checkPay_goods_d">
+        <navigator url="../goodsDetail/goodsDetail" class="checkPay_goods">
+            <view class="checkPay_goods_img"></view>
+            <view class="checkPay_goods_text">
+                <view class="checkPay_goods_text_title">狗粮狗粮狗粮狗粮狗粮狗粮狗粮狗粮狗粮狗粮狗粮狗粮狗粮</view>
+                <view class="checkPay_goods_recommend">
+                    <text>2人团</text>
+                    <text>已团3232件</text>
+                </view>
+                <view class="checkPay_goods_text_bottom">
+                    <text class="checkPay_goods_text_bottom_red">￥58.88</text>
+                    <text class="checkPay_goods_text_bottom_gray">￥98.88</text>
+                </view>
+            </view>
+        </navigator>
+        <view class="checkPay_goods_number">
+            <text>数量</text>
+            <view class="checkPay_goods_number_button">
+                <view class="checkPay_goods_number_button_left">-</view>
+                <input type="number" class="checkPay_goods_number_button_input"/>
+                <view class="checkPay_goods_number_button_right">+</view>
+            </view>
+        </view>
+        <view class="checkPay_goods_total">
+            <view class="checkPay_goods_total_left">
+                <text>共计1件商品 合计：</text>
+            </view>
+            <view class="checkPay_goods_total_right">
+                <text>¥58.8</text>
+            </view>
+        </view>
+    </view>
+
+    <!--优惠券-->
+    <view class="checkPay_ticket">
+        <view class="checkPay_ticket_item">
+            <view class="checkPay_ticket_item_left">
+                <text>可用100积分抵扣10元</text>
+            </view>
+            <view class="checkPay_ticket_item_right">
+                <icon type="success" size="20" color="#f73227"/>
+            </view>
+        </view>
+        <view class="checkPay_ticket_item" style="display:none;">
+            <view class="checkPay_ticket_item_left">
+                <text>优惠券</text>
+            </view>
+            <view class="checkPay_ticket_item_right">
+                <text>-¥10</text>
+                <text class="checkPay_ticket_item_right_more">></text>
+            </view>
+        </view>
+        <view class="checkPay_ticket_item">
+            <view class="checkPay_ticket_item_left">
+                <view class="checkPay_ticket_item_left_icon">
+                    <text>积分</text>
+                </view>
+                <text class="checkPay_ticket_item_left_text">本次购物确认收货后可获得4800积分</text>
+            </view>
+        </view>
+    </view>
+
+    <!--底部-->
+    <view class="checkPay_foot">
+        <view class="checkPay_foot_left">
+            <text class="checkPay_foot_left_b">实付款：</text>
+            <text class="checkPay_foot_left_r">¥58.88</text>
+        </view>
+        <view class="checkPay_foot_right">
+            <text>立即支付</text>
+        </view>
+    </view>
+</view>

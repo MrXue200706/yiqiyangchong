@@ -1,0 +1,211 @@
+.checkPay{
+    min-height: 1218rpx;
+    background-color: #f2f7f8;
+    overflow: hidden;
+}
+
+/*获取地址*/
+.checkPay_getAdress{
+    margin-top: 16rpx;
+    background-color: #fff;
+}
+.checkPay_getAdress_item{
+    height: 94rpx;
+    padding: 0 30rpx;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 28rpx;
+    border-bottom: 1px solid #f2f7f8;
+}
+.checkPay_getAdress_item_green{
+    color: #2bb41b;
+}
+.checkPay_getAdress_item_orange{
+    color: #ff8f0e;
+}
+.checkPay_getAdress_item_left{
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+}
+.checkPay_getAdress_item_avatar{
+    width: 36rpx;
+    height: 36rpx;
+    background-color: #888;
+    margin-right: 20rpx;
+}
+.checkPay_getAdress_item_right{
+    color: #888;
+}
+
+/*地址*/
+.checkPay_adress{
+    height: 154rpx;
+    background-color: #fff;
+    margin-top: 16rpx;
+    padding: 0 28rpx;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+    display: none;
+}
+.checkPay_adress_name{
+    font-size: 26rpx;
+    color: #333;
+}
+.checkPay_adress_adress{
+    font-size: 24rpx;
+    color: #888;
+    margin-top: 1em;
+}
+
+/*商品*/
+.checkPay_goods_d{
+    margin-top: 16rpx;
+    background-color: #fff;
+}
+.checkPay_goods{
+    padding: 28rpx 28rpx;
+    display: flex;
+    flex-wrap: nowrap;
+    background-color: #f8f8f8;
+}
+.checkPay_goods_img{
+    width: 220rpx;
+    height: 228rpx;
+    background-color: #888;
+    flex-shrink: 0;
+}
+.checkPay_goods_text{
+    padding-left: 20rpx;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: space-around;
+}
+.checkPay_goods_text_title{
+    width: 100%;
+    font-size: 28rpx;
+}
+.checkPay_goods_recommend{
+    width: 100%;
+    font-size: 22rpx;
+    color: #888;
+}
+.checkPay_goods_text_bottom{
+    width: 100%;
+}
+.checkPay_goods_text_bottom_red{
+    font-size: 28rpx;
+    color: #f73227;
+}
+.checkPay_goods_text_bottom_gray{
+    font-size: 22rpx;
+    color: #d4d4d4;
+    text-decoration: line-through;
+}
+.checkPay_goods_number,.checkPay_goods_total,.checkPay_ticket_item{
+    height: 110rpx;
+    background-color: #fff;
+    padding: 0 28rpx;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 26rpx;
+    border-bottom: 1px solid #f2f7f8;
+}
+.checkPay_goods_number_button{
+    display: flex;
+    flex-wrap: nowrap;
+}
+.checkPay_goods_number_button_left,.checkPay_goods_number_button_right{
+    width: 56rpx;
+    height: 56rpx;
+    line-height: 56rpx;
+    background-color: #f2f2f2;
+    border-radius: 10rpx;
+    font-size: 36rpx;
+    text-align: center;
+}
+.checkPay_goods_number_button_input{
+    width: 140rpx;
+    height: 56rpx;
+    border-radius: 10rpx;
+    margin: 0 10rpx;
+    padding: 0 10rpx;
+    background-color: #f5f5f5;
+    text-align: center;
+}
+.checkPay_goods_total_right{
+    color: #e62a26;
+}
+
+/*优惠券*/
+.checkPay_ticket{
+    margin-top: 16rpx;
+    background-color: #fff;
+}
+.checkPay_ticket_item_right_more{
+    color: #888;
+    margin-left: 20rpx;
+}
+.checkPay_ticket_item_left{
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+}
+.checkPay_ticket_item_left_icon{
+    height: 26rpx;
+    line-height: 26rpx;
+    border-radius: 5rpx;
+    background-color: #ff8f0e;
+    font-size: 18rpx;
+    padding:0 10rpx;
+    color: #fff;
+}
+.checkPay_ticket_item_left_text{
+    color: #888;
+    font-size: 24rpx;
+    margin-left: 10rpx;
+}
+
+/*底部*/
+.checkPay_foot{
+    height: 104rpx;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background-color: #fff;
+    display: flex;
+    flex-wrap: nowrap;
+}
+.checkPay_foot_left{
+    width:460rpx;
+    height: 104rpx;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 0 28rpx;
+    box-sizing: border-box;
+}
+.checkPay_foot_left_b{
+    font-size: 26rpx;
+}
+.checkPay_foot_left_r{
+    font-size: 28rpx;
+    color: #e62a26;
+}
+.checkPay_foot_right{
+    width: 290rpx;
+    height: 104rpx;
+    background-color: #ff8f0e;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    font-size: 32rpx;
+}

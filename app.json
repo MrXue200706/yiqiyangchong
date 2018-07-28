@@ -19,7 +19,8 @@
     "pages/addAdress/addAdress",
     "pages/petsDetail/petsDetail",
     "pages/goodsTogether/goodsTogether",
-    "pages/superShop/superShop"
+    "pages/superShop/superShop",
+    "pages/checkPay/checkPay"
   ],
   "window":{
     "backgroundTextStyle":"light",
