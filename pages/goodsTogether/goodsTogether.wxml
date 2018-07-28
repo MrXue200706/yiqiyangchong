@@ -20,7 +20,7 @@
     <!--推荐-->
     <view class="goodsTogether_recommend">
         <text>1212名宠友推荐</text>
-        <view class="goodsTogether_recommend_avatar">
+        <navigator url="../petFriends/petFriends" class="goodsTogether_recommend_avatar">
             <view class="goodsTogether_recommend_avatar_item specialTopicDetail_goods_recommend_avatar_first"></view>
             <view class="goodsTogether_recommend_avatar_item"></view>
             <view class="goodsTogether_recommend_avatar_item"></view>
@@ -30,7 +30,7 @@
             <view class="goodsTogether_recommend_avatar_item"></view>
             <view class="goodsTogether_recommend_avatar_item"></view>
             <view class="goodsTogether_recommend_avatar_item"></view>
-        </view>
+        </navigator>
     </view>
 
     <!--拼团-->

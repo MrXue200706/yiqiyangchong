@@ -1,0 +1,24 @@
+<view class="superShop">
+    <!--头部图片-->
+    <view class="surperShop_head"></view>
+
+    <!--商品-->
+    <view class="superShop_goods_d">
+        <navigator url="../goodsDetail/goodsDetail" class="superShop_goods">
+            <view class="superShop_goods_img"></view>
+            <view class="superShop_goods_text">
+                <view class="superShop_goods_text_title">狗粮狗粮狗粮狗粮狗粮狗粮狗粮狗粮狗粮狗粮狗粮狗粮狗粮</view>
+                <view class="superShop_goods_text_middle">
+                    <text class="superShop_goods_text_middle_orange">积分抵10%</text>
+                    <text class="superShop_goods_text_middle_red">限时限量</text>
+                    <text class="superShop_goods_text_middle_gray">仅剩323件</text>
+                </view>
+                <view class="superShop_goods_text_bottom">
+                    <text class="superShop_goods_text_bottom_red">￥58.88</text>
+                    <text class="superShop_goods_text_bottom_gray">￥98.88</text>
+                    <text class="superShop_goods_text_bottom_button">马上抢</text>
+                </view>
+            </view>
+        </navigator>
+    </view>
+</view>

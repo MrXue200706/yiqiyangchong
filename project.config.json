@@ -33,7 +33,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": -1,
+			"current": 2,
 			"list": [
 				{
 					"id": -1,
@@ -46,6 +46,11 @@
 					"name": "goodsTogether",
 					"pathName": "pages/goodsTogether/goodsTogether",
 					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "superShop",
+					"pathName": "pages/superShop/superShop"
 				}
 			]
 		}

@@ -18,7 +18,8 @@
     "pages/myAdress/myAdress",
     "pages/addAdress/addAdress",
     "pages/petsDetail/petsDetail",
-    "pages/goodsTogether/goodsTogether"
+    "pages/goodsTogether/goodsTogether",
+    "pages/superShop/superShop"
   ],
   "window":{
     "backgroundTextStyle":"light",
