@@ -189,7 +189,6 @@
     left: 0;
     font-size: 26rpx;
     z-index: 10;
-    display: none;
 }
 .goodsDetail_iframe_opacity{
     height: 350rpx;
@@ -246,6 +245,13 @@
     display: inline-block;
 }
 .goodsDetail_iframe_type_active{
+    width: 140rpx;
+    height: 54rpx;
+    line-height: 54rpx;
+    border-radius: 10rpx;
+    text-align: center;
+    margin: 30rpx 30rpx 0 0;
+    display: inline-block;
     background-color: #ff9305;
     color: #fff;
 }
