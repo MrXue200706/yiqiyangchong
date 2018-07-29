@@ -167,19 +167,21 @@
 .goodsDetail_foot_right{
     width: 510rpx;
     height: 100rpx;
-    /*line-height: 100rpx;*/
     text-align: center;
     background-color: #ff9305;
     color: #fff;
     font-size: 26rpx;
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: center;
 }
 .goodsDetail_foot_right_left,.goodsDetail_foot_right_right{
     height: 100%;
     width: 50%;
-    float: left;
     display: flex;
     flex-wrap: wrap;
-    align-content: space-around;
+    align-content: center;
 }
 .goodsDetail_foot_right_left{
     background-color: #febb5e;

@@ -82,7 +82,7 @@
     <view class="palceholder"></view>
 
     <!--底部购买-->
-    <view class="goodsDetail_foot" wx:if="{{shopping}}">
+    <view class="goodsDetail_foot" wx:if="{{shopping=='shopping'}}">
         <view class="goodsDetail_foot_left">
             <view class="goodsDetail_foot_left_home">
                 <text>首页</text>
@@ -96,7 +96,7 @@
             <text>(最多可立减12元)</text>
         </view>
     </view>
-    <view class="goodsDetail_foot">
+    <view class="goodsDetail_foot" wx:else>
         <view class="goodsDetail_foot_left">
             <view class="goodsDetail_foot_left_home">
                 <text>首页</text>
