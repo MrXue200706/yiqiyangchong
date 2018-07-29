@@ -50,7 +50,7 @@
 
     <!--商品-->
     <view class="shoping_goods_d">
-        <navigator url="../goodsDetail/goodsDetail" class="shoping_goods">
+        <navigator url="../goodsDetail/goodsDetail?type=shopping" class="shoping_goods">
             <view class="shoping_goods_img"></view>
             <view class="shoping_goods_text">
                 <view class="shoping_goods_text_title">狗粮狗粮狗粮狗粮狗粮狗粮狗粮狗粮狗粮狗粮狗粮狗粮狗粮</view>
@@ -66,55 +66,7 @@
                 </view>
             </view>
         </navigator>
-        <navigator url="../goodsDetail/goodsDetail" class="shoping_goods">
-            <view class="shoping_goods_img"></view>
-            <view class="shoping_goods_text">
-                <view class="shoping_goods_text_title">狗粮狗粮狗粮狗粮狗粮狗粮狗粮狗粮狗粮狗粮狗粮狗粮狗粮</view>
-                <view class="shoping_goods_text_middle">
-                    <text class="shoping_goods_text_middle_orange">积分抵10%</text>
-                    <text class="shoping_goods_text_middle_red">限时限量</text>
-                    <text class="shoping_goods_text_middle_gray">仅剩323件</text>
-                </view>
-                <view class="shoping_goods_text_bottom">
-                    <text class="shoping_goods_text_bottom_red">￥58.88</text>
-                    <text class="shoping_goods_text_bottom_gray">￥98.88</text>
-                    <text class="shoping_goods_text_bottom_button">马上抢</text>
-                </view>
-            </view>
-        </navigator>
-        <navigator url="../goodsDetail/goodsDetail" class="shoping_goods">
-            <view class="shoping_goods_img"></view>
-            <view class="shoping_goods_text">
-                <view class="shoping_goods_text_title">狗粮狗粮狗粮狗粮狗粮狗粮狗粮狗粮狗粮狗粮狗粮狗粮狗粮</view>
-                <view class="shoping_goods_text_middle">
-                    <text class="shoping_goods_text_middle_orange">积分抵10%</text>
-                    <text class="shoping_goods_text_middle_red">限时限量</text>
-                    <text class="shoping_goods_text_middle_gray">仅剩323件</text>
-                </view>
-                <view class="shoping_goods_text_bottom">
-                    <text class="shoping_goods_text_bottom_red">￥58.88</text>
-                    <text class="shoping_goods_text_bottom_gray">￥98.88</text>
-                    <text class="shoping_goods_text_bottom_button">马上抢</text>
-                </view>
-            </view>
-        </navigator>
-        <navigator url="../goodsDetail/goodsDetail" class="shoping_goods">
-            <view class="shoping_goods_img"></view>
-            <view class="shoping_goods_text">
-                <view class="shoping_goods_text_title">狗粮狗粮狗粮狗粮狗粮狗粮狗粮狗粮狗粮狗粮狗粮狗粮狗粮</view>
-                <view class="shoping_goods_text_middle">
-                    <text class="shoping_goods_text_middle_orange">积分抵10%</text>
-                    <text class="shoping_goods_text_middle_red">限时限量</text>
-                    <text class="shoping_goods_text_middle_gray">仅剩323件</text>
-                </view>
-                <view class="shoping_goods_text_bottom">
-                    <text class="shoping_goods_text_bottom_red">￥58.88</text>
-                    <text class="shoping_goods_text_bottom_gray">￥98.88</text>
-                    <text class="shoping_goods_text_bottom_button">马上抢</text>
-                </view>
-            </view>
-        </navigator>
-        <navigator url="../goodsDetail/goodsDetail" class="shoping_goods">
+        <navigator url="../goodsDetail/goodsDetail?type=shopping" class="shoping_goods">
             <view class="shoping_goods_img"></view>
             <view class="shoping_goods_text">
                 <view class="shoping_goods_text_title">狗粮狗粮狗粮狗粮狗粮狗粮狗粮狗粮狗粮狗粮狗粮狗粮狗粮</view>

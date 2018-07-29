@@ -7,12 +7,16 @@ Page({
     is_iframe:false,//点击购买按钮弹出选择弹出层
     type_two:false,//规格2显示
     type_active:false,//修改点击后的样式
+    shoping:false,//是否抢购，否则正常
   },
   iframeFn(){
     this.setData({is_iframe:!this.data.is_iframe});
   },
   typeTwoFn(e){
-    this.setData({type_two:true});
-    this.setData({type_active:true});
+    this.setData({type_two:!this.data.type_two});
+    this.setData({type_active:!this.data.type_active});
+  },
+  onLoad(o){
+    console.log(o)
   }
 })

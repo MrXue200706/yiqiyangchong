@@ -167,11 +167,25 @@
 .goodsDetail_foot_right{
     width: 510rpx;
     height: 100rpx;
-    line-height: 100rpx;
+    /*line-height: 100rpx;*/
     text-align: center;
     background-color: #ff9305;
     color: #fff;
     font-size: 26rpx;
+}
+.goodsDetail_foot_right_left,.goodsDetail_foot_right_right{
+    height: 100%;
+    width: 50%;
+    float: left;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: space-around;
+}
+.goodsDetail_foot_right_left{
+    background-color: #febb5e;
+}
+.goodsDetail_foot_right_text{
+    width: 100%;
 }
 
 /*占位*/

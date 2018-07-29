@@ -82,7 +82,7 @@
     <view class="palceholder"></view>
 
     <!--底部购买-->
-    <view class="goodsDetail_foot">
+    <view class="goodsDetail_foot" wx:if="{{shopping}}">
         <view class="goodsDetail_foot_left">
             <view class="goodsDetail_foot_left_home">
                 <text>首页</text>
@@ -94,6 +94,26 @@
         <view class="goodsDetail_foot_right" bindtap="iframeFn">
             <text>￥52.23</text>
             <text>(最多可立减12元)</text>
+        </view>
+    </view>
+    <view class="goodsDetail_foot">
+        <view class="goodsDetail_foot_left">
+            <view class="goodsDetail_foot_left_home">
+                <text>首页</text>
+            </view>
+            <view class="goodsDetail_foot_left_collect">
+                <text>收藏</text>
+            </view>
+        </view>
+        <view class="goodsDetail_foot_right">
+            <view class="goodsDetail_foot_right_left">
+                <text class="goodsDetail_foot_right_text">￥98.23</text>
+                <text class="goodsDetail_foot_right_text">直接购买</text>
+            </view>
+            <view class="goodsDetail_foot_right_right">
+                <text class="goodsDetail_foot_right_text">￥52.23</text>
+                <text class="goodsDetail_foot_right_text">一键拼团</text>
+            </view>
         </view>
     </view>
 
