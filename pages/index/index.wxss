@@ -10,16 +10,16 @@
   height: 332rpx;
 }
 .bc_blue{
-  background-color: rgba(121, 120, 24, .3);
+  /*background-color: rgba(121, 120, 24, .3);*/
   border-radius: 10rpx;
 }
 .bc_red{
   border-radius: 10rpx;
-  background: rgba(0, 120, 24, .3);
+  /*background: rgba(0, 120, 24, .3);*/
 }
 .bc_black{
   border-radius: 10rpx;
-  background: rgba(121, 0, 24, .3);
+  /*background: rgba(121, 0, 24, .3);*/
 }
 
 /*商品分类*/

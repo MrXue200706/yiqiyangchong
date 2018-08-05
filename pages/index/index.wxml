@@ -4,9 +4,12 @@
   <swiper class="head_swiper" 
     indicator-color="#fff" indicator-active-color="#fd9805" 
     indicator-dots="{{true}}" autoplay="true">
-    <swiper-item class="bc_blue"></swiper-item>
-    <swiper-item class="bc_red"></swiper-item>
-    <swiper-item class="bc_black"></swiper-item>
+    <block wx:for="{{swiper}}" wx:key="item.url">
+      <swiper-item class="bc_blue">
+        <text>{{item.title}}</text>
+        <image src="{{item.url}}"></image>
+      </swiper-item>
+    </block>
   </swiper>
 
   <!--商品分类-->
