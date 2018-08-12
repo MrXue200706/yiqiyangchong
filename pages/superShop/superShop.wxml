@@ -5,23 +5,24 @@
     </view>
 
     <!--商品-->
-    <navigator url="../goodsDetail/goodsDetail" class="surperShop_goods">
-        <view class="surperShop_goods_img"></view>
+    <navigator url="../goodsDetail/goodsDetail" class="surperShop_goods" wx:for="{{superShop.goods_list}}" wx:key="item.id">
+        <view class="surperShop_goods_img">
+            <image class="surperShop_goods_img_image" mode="widthFix" src="{{item.goods_img}}"></image>
+        </view>
         <view class="surperShop_goods_text">
-            <view class="surperShop_goods_text_title">狗粮狗粮狗粮狗粮狗粮狗粮狗粮狗粮狗粮狗粮狗粮狗粮狗粮</view>
+            <view class="surperShop_goods_text_title">{{item.goods_name}}</view>
             <view class="surperShop_goods_recommend">
                 <view class="surperShop_goods_recommend_avatar">
-                    <view class="surperShop_goods_recommend_avatar_item ssurperShop_goods_recommend_avatar_first"></view>
-                    <view class="surperShop_goods_recommend_avatar_item"></view>
-                    <view class="surperShop_goods_recommend_avatar_item"></view>
-                    <view class="surperShop_goods_recommend_avatar_item"></view>
-                    <view class="surperShop_goods_recommend_avatar_item"></view>
+                    <view class="surperShop_goods_recommend_avatar_item" wx:for="{{item.pet_friend_list}}" wx:key="item.id">
+                        <image mode="widthFix" src="{{item.avatar}}" class="surperShop_goods_recommend_avatar_item_img"></image>
+                    </view>
                 </view>
-                <text class="surperShop_goods_recommend_content">1212推荐</text>
+                <text class="surperShop_goods_recommend_content">{{item.pet_friend_count}}推荐</text>
+                <text class="surperShop_goods_recommend_number">仅剩2000件</text>
             </view>
             <view class="surperShop_goods_text_bottom">
-                <text class="surperShop_goods_text_bottom_red">￥58.88</text>
-                <text class="surperShop_goods_text_bottom_gray">￥98.88</text>
+                <text class="surperShop_goods_text_bottom_red">￥{{item.price}}</text>
+                <text class="surperShop_goods_text_bottom_gray">￥{{item.market_price}}</text>
                 <text class="surperShop_goods_text_bottom_button">去看看</text>
             </view>
         </view>

@@ -45,7 +45,7 @@ Page({
         that.setData({
           goods_index: res.data.data
         })
-        // console.log(that.data.goods_index)
+        console.log(that.data.goods_index)
       },
     })
   },
@@ -90,7 +90,7 @@ Page({
         that.setData({
           goods_recommend: res.data.data
         })
-        console.log(that.data.goods_recommend)
+        // console.log(that.data.goods_recommend)
       },
     })
   }

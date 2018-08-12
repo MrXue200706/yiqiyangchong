@@ -7,7 +7,6 @@ Page({
     superShop:{},//
   },
   onLoad(o){
-    console.log(o.id);
     this.getSwiper(o.id);
   },
 
@@ -22,8 +21,10 @@ Page({
       success(res) {
         that.setData({
           superShop: res.data.data
+        });
+        wx.setNavigationBarTitle({
+          title: res.data.data.events_info.events_title 
         })
-        console.log(that.data.superShop)
       },
     })
   },

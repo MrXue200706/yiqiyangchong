@@ -1,23 +1,23 @@
 <view class="goodsDetail">
     <!--头部轮播图片-->
     <swiper class="goodsDetail_headimg" autoplay="true">
-        <swiper-item class="goodsDetail_headimg_item bc_blue"></swiper-item>
-        <swiper-item class="goodsDetail_headimg_item bc_red"></swiper-item>
-        <swiper-item class="goodsDetail_headimg_item bc_black"></swiper-item>
+        <swiper-item class="goodsDetail_headimg_item bc_blue" wx:for="{{goods_detail.goods_img_list}}" wx:key="item.id">
+            <image mode="widthFix" src="{{item.goods_img}}"  class="goodsDetail_headimg_item_img"></image>
+        </swiper-item>
     </swiper>
 
     <!--商品标题-->
     <view class="goodsDetail_title">
         <view class="goodsDetail_title_price">
-            <text class="goodsDetail_title_price_red">￥58.8</text>
-            <text class="goodsDetail_title_price_gray">￥98.8</text>
+            <text class="goodsDetail_title_price_red">￥{{goods_detail.price}}</text>
+            <text class="goodsDetail_title_price_gray">￥{{goods_detail.market_price}}</text>
         </view>
         <view class="goodsDetail_title_state">
             <text>已抢购2300件</text>
             <text>(2人团)</text>
         </view>
         <view class="goodsDetail_title_content">
-            <text>狗粮狗粮狗粮狗粮狗粮狗粮狗粮狗粮狗粮狗粮狗粮狗粮狗粮狗粮狗粮狗粮狗粮狗粮狗粮</text>
+            <text>{{goods_detail.goods_name}}</text>
         </view>
         <navigator url="../goodsTogether/goodsTogether" class="goodsDetail_title_get">
             <text>赚积分</text>
@@ -46,17 +46,11 @@
 
     <!--推荐-->
     <view class="goodsDetail_recommend">
-        <text class="goodsDetail_recommend_content">1212名宠友推荐</text>
+        <text class="goodsDetail_recommend_content">{{goods_detail.pet_friend_count}}名宠友推荐</text>
         <navigator url="../petFriends/petFriends" class="goodsDetail_recommend_avatar">
-            <view class="goodsDetail_recommend_avatar_item goodsDetail_recommend_avatar_first"></view>
-            <view class="goodsDetail_recommend_avatar_item"></view>
-            <view class="goodsDetail_recommend_avatar_item"></view>
-            <view class="goodsDetail_recommend_avatar_item"></view>
-            <view class="goodsDetail_recommend_avatar_item"></view>
-            <view class="goodsDetail_recommend_avatar_item"></view>
-            <view class="goodsDetail_recommend_avatar_item"></view>
-            <view class="goodsDetail_recommend_avatar_item"></view>
-            <view class="goodsDetail_recommend_avatar_item"></view>
+            <view class="goodsDetail_recommend_avatar_item" wx:for="{{goods_detail.pet_friend_list}}" wx:key="item.index">
+                <image mode="widthFix" src="{{item.avatar}}" class="goodsDetail_recommend_avatar_item_img"></image>
+            </view>
         </navigator>
     </view>
 
@@ -71,7 +65,7 @@
             </view>
             <view class="goodsDetail_main_descript_content">
                 <text>
-                    描述内容描述内容描述内容描述内容描述内容描述内容描述内容描述内容描述内容描述内容描述内容描述内容描述内容描述内容描述内容描述内容描述内容描述内容描述内容描述内容描述内容描述内容描述内容描述内容描述内容描述内容描述内容描述内容
+                    {{goods_detail.goods_desc}}
                 </text>
             </view>
         </view>
@@ -107,11 +101,11 @@
         </view>
         <view class="goodsDetail_foot_right">
             <view class="goodsDetail_foot_right_left">
-                <text class="goodsDetail_foot_right_text">￥98.23</text>
+                <text class="goodsDetail_foot_right_text">￥{{goods_detail.price}}</text>
                 <text class="goodsDetail_foot_right_text">直接购买</text>
             </view>
             <view class="goodsDetail_foot_right_right">
-                <text class="goodsDetail_foot_right_text">￥52.23</text>
+                <text class="goodsDetail_foot_right_text">￥{{goods_detail.group_price}}</text>
                 <text class="goodsDetail_foot_right_text">一键拼团</text>
             </view>
         </view>

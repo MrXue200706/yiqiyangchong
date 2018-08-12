@@ -1,6 +1,3 @@
-.superShop{
-
-}
 /*头部图片*/
 .surperShop_head{
     height: 416rpx;
@@ -24,6 +21,9 @@
     background-color: #888;
     flex-shrink: 0;
 }
+.surperShop_goods_img_image{
+    width: 100%;
+}
 .surperShop_goods_text{
     padding-left: 20rpx;
     display: flex;
@@ -35,9 +35,10 @@
     font-size: 28rpx;
 }
 .surperShop_goods_recommend{
+    width: 100%;
     box-sizing: border-box;
     margin: 14rpx 0;
-    padding: 0 28rpx;
+    padding-left:28rpx;
     background-color: #fff;
     overflow: hidden;
     display: flex;
@@ -46,6 +47,12 @@
 .surperShop_goods_recommend_content{
     color: #313131;
     font-size: 26rpx;
+}
+.surperShop_goods_recommend_number{
+    font-size:26rpx;
+    color:#89898c;
+    margin-left:48rpx;
+    text-align: right;
 }
 .surperShop_goods_recommend_avatar{
     margin-right: 28rpx;
@@ -62,8 +69,11 @@
     border: 1rpx solid #fff;
     box-sizing: border-box;
     margin-left: -26rpx;
+    overflow: hidden;
 }
-
+.surperShop_goods_recommend_avatar_item_img{
+    width: 100%;
+}
 .surperShop_goods_text_bottom_red{
     font-size: 28rpx;
     color: #f73227;
@@ -84,5 +94,5 @@
     border-radius: 28rpx;
     font-size: 28rpx;
     flex-shrink: 0;
-    margin-left: 100rpx;
+    margin-left: 240rpx;
 }

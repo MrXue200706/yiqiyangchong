@@ -3,7 +3,7 @@
 }
 /*头部轮播图片*/
 .goodsDetail_headimg{
-    height: 666rpx;
+    height: 750rpx;
     width: 100%;
     background-color: #888;
     display: flex;
@@ -13,6 +13,10 @@
     height: 100%;
     width: 100%;
     flex-shrink: 0;
+    overflow: hidden;
+}
+.goodsDetail_headimg_item_img{
+    width: 100%;
 }
 .bc_blue{
   background-color: rgba(121, 120, 24, .3);
@@ -93,7 +97,7 @@
     background-color: #fff;
     overflow: hidden;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
 }
 .goodsDetail_recommend_content{
@@ -114,6 +118,10 @@
     border: 1px solid #fff;
     box-sizing: border-box;
     margin-left: -26rpx;
+    overflow: hidden;
+}
+.goodsDetail_recommend_avatar_item_img{
+    width: 100%;
 }
 
 /*商品详情*/
@@ -140,6 +148,7 @@
     font-size: 26rpx;
     color: #9b9b9b;
     margin-top: -10rpx;
+    word-break:break-all
 }
 .goodsDetail_main_img{
     width: 100%;
