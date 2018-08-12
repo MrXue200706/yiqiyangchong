@@ -1,12 +1,13 @@
 <view class="specialTopic">
-    <navigator url="../specialTopicDetail/specialTopicDetail" class="specialTopic_item">
-        <view class="specialTopic_item_img"></view>
+    <navigator url="../specialTopicDetail/specialTopicDetail?id={{item.id}}" class="specialTopic_item" wx:for="{{special_topic}}" wx:key="item.id">
+        <view class="specialTopic_item_img">
+            <image class="specialTopic_item_img_image" src="{{item.project_img}}" mode="widthFix"></image>
+        </view>
         <view class="specialTopic_item_title">
-            <text>新手必备三件常用药</text>
+            <text>{{item.project_title}}</text>
         </view>
         <view class="specialTopic_item_time">
-            <text>2018-5-14</text>
-            <text>10:00</text>
+            <text>{{item.project_time}}</text>
         </view>        
     </navigator>
 </view>

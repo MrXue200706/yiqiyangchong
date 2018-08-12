@@ -5,74 +5,75 @@
 .surperShop_head{
     height: 416rpx;
     background-color: #888;
+    overflow: hidden;
+}
+.surperShop_head_img{
+    width: 100%;
 }
 
 /*商品*/
-/*商品*/
-.superShop_goods_d{
-    padding:0 28rpx;
-}
-.superShop_goods{
-    padding: 28rpx 0;
+.surperShop_goods{
+    padding: 28rpx 28rpx;
     display: flex;
     flex-wrap: nowrap;
     border-bottom: 1px solid #d5d5d5;
 }
-.superShop_goods_img{
+.surperShop_goods_img{
     width: 220rpx;
     height: 228rpx;
     background-color: #888;
     flex-shrink: 0;
 }
-.superShop_goods_text{
+.surperShop_goods_text{
     padding-left: 20rpx;
     display: flex;
     flex-wrap: wrap;
     flex-direction: row-reverse;
     justify-content: flex-end;
 }
-.superShop_goods_text_title{
+.surperShop_goods_text_title{
     font-size: 28rpx;
 }
-.superShop_goods_text_middle_orange{
-    height: 36rpx;
-    line-height: 36rpx;
-    width: 110rpx;
-    text-align: center;
-    font-size: 22rpx;
-    background-color: #f58b00;
-    color: #fff;
-    border-radius: 5rpx;
-    vertical-align: middle;
-    padding: 0 10rpx;
+.surperShop_goods_recommend{
+    box-sizing: border-box;
+    margin: 14rpx 0;
+    padding: 0 28rpx;
+    background-color: #fff;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
 }
-.superShop_goods_text_middle_red{
-    height: 36rpx;
-    line-height: 36rpx;
-    width: 90rpx;
-    text-align: center;
-    font-size: 22rpx;
-    border: 1px solid #f73227;
-    color: #f73227;
-    border-radius: 5rpx;
-    margin-left: 20rpx;
-    padding: 0 10rpx;
-}
-.superShop_goods_text_middle_gray{
+.surperShop_goods_recommend_content{
+    color: #313131;
     font-size: 26rpx;
-    color: #89898c;
-    margin-left: 30rpx;
 }
-.superShop_goods_text_bottom_red{
+.surperShop_goods_recommend_avatar{
+    margin-right: 28rpx;
+    float: left;
+    display: flex;
+    flex-wrap: nowrap;
+}
+.surperShop_goods_recommend_avatar_item{
+    width: 50rpx;
+    height: 50rpx;
+    border-radius: 50%;
+    background-color: #888;
+    flex-shrink: 0;
+    border: 1rpx solid #fff;
+    box-sizing: border-box;
+    margin-left: -26rpx;
+}
+
+.surperShop_goods_text_bottom_red{
     font-size: 28rpx;
     color: #f73227;
 }
-.superShop_goods_text_bottom_gray{
+.surperShop_goods_text_bottom_gray{
     font-size: 22rpx;
     color: #d4d4d4;
     text-decoration: line-through;
 }
-.superShop_goods_text_bottom_button{
+.surperShop_goods_text_bottom_button{
     display: inline-block;
     height: 54rpx;
     line-height: 54rpx;

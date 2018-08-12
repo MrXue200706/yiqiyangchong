@@ -10,6 +10,10 @@
     border-radius: 10rpx;
     overflow: hidden;
     background-color: #888;
+    overflow: hidden;
+}
+.specialTopic_item_img_image{
+    width: 100%;
 }
 .specialTopic_item_title{
     font-size: 32rpx;

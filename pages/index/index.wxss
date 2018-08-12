@@ -21,6 +21,9 @@
   border-radius: 10rpx;
   /*background: rgba(121, 0, 24, .3);*/
 }
+.head_swiper_img{
+  width: 100%;
+}
 
 /*商品分类*/
 .goods_class{
@@ -44,7 +47,7 @@
   transform: translateX(-50%);
 }
 
-/*商品推荐*/
+/*活动*/
 .goods_recommend{
   display: flex;
   justify-content: space-between;
@@ -59,6 +62,10 @@
   background-color: #fafafa;
   margin-bottom: 10rpx;
   border-radius: 10rpx;
+  overflow: hidden;
+}
+.goods_recommend_item_img{
+  width: 100%;
 }
 
 /*养宠达人*/
@@ -98,6 +105,10 @@
   margin-left: 50%;
   transform: translateX(-50%);
   margin-top: 12rpx;
+  overflow: hidden;
+}
+.pet_expert_avatar_img{
+  width: 100%;
 }
 .pet_expert_name{
   font-size: 26rpx;
@@ -111,6 +122,7 @@
 .pet_expert_item_button{
   width: 180rpx;
   height: 42rpx;
+  line-height: 42rpx;
   background-color: #f1312f;
   color: #fff;
   font-size: 24rpx;
@@ -152,6 +164,10 @@
   background-color: #fafafa;
   text-align: center;
   font-weight: 500;
+  overflow: hidden;
+}
+.special_topic_item_img_image{
+  width: 100%;
 }
 .special_topic_item_title{
   font-size: 26rpx;
@@ -176,18 +192,27 @@
   margin-top: 20rpx;
 }
 .goods_item_img{
-  height: 360rpx;
+  height: 350rpx;
   background-color: #989898;
+  overflow: hidden;
+}
+.goods_item_img_image{
+  width: 100%;
 }
 .goods_item_title{
   font-size: 24rpx;
   line-height: 1em;
   padding:10rpx;
+  font-weight: 600;
 }
 .goods_item_price{
   color: #de361a;
   font-size: 24rpx;
   padding: 10rpx;
+  position: absolute;
+  bottom: 20rpx;
+  left: 20rpx;
+  font-weight: 600;
 }
 .goods_item_recommend{
   position: absolute;
@@ -215,6 +240,7 @@
   top: 0;
   border: 1px solid #fff;
   box-sizing: border-box;
+  overflow: hidden;
 }
 .goods_item_recommend_avatar_right{
   width: 50rpx;
@@ -225,4 +251,8 @@
   top: 0;
   right: 0;
   border: 1px solid #fff;
+  overflow: hidden;
+}
+.goods_item_recommend_avatars_img{
+  width: 100%;
 }

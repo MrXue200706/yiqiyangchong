@@ -1,24 +1,29 @@
 <view class="superShop">
     <!--头部图片-->
-    <view class="surperShop_head"></view>
+    <view class="surperShop_head">
+        <image class="surperShop_head_img" mode="widthFix" src="{{superShop.events_info.events_img}}"></image>
+    </view>
 
     <!--商品-->
-    <view class="superShop_goods_d">
-        <navigator url="../goodsDetail/goodsDetail" class="superShop_goods">
-            <view class="superShop_goods_img"></view>
-            <view class="superShop_goods_text">
-                <view class="superShop_goods_text_title">狗粮狗粮狗粮狗粮狗粮狗粮狗粮狗粮狗粮狗粮狗粮狗粮狗粮</view>
-                <view class="superShop_goods_text_middle">
-                    <text class="superShop_goods_text_middle_orange">积分抵10%</text>
-                    <text class="superShop_goods_text_middle_red">限时限量</text>
-                    <text class="superShop_goods_text_middle_gray">仅剩323件</text>
+    <navigator url="../goodsDetail/goodsDetail" class="surperShop_goods">
+        <view class="surperShop_goods_img"></view>
+        <view class="surperShop_goods_text">
+            <view class="surperShop_goods_text_title">狗粮狗粮狗粮狗粮狗粮狗粮狗粮狗粮狗粮狗粮狗粮狗粮狗粮</view>
+            <view class="surperShop_goods_recommend">
+                <view class="surperShop_goods_recommend_avatar">
+                    <view class="surperShop_goods_recommend_avatar_item ssurperShop_goods_recommend_avatar_first"></view>
+                    <view class="surperShop_goods_recommend_avatar_item"></view>
+                    <view class="surperShop_goods_recommend_avatar_item"></view>
+                    <view class="surperShop_goods_recommend_avatar_item"></view>
+                    <view class="surperShop_goods_recommend_avatar_item"></view>
                 </view>
-                <view class="superShop_goods_text_bottom">
-                    <text class="superShop_goods_text_bottom_red">￥58.88</text>
-                    <text class="superShop_goods_text_bottom_gray">￥98.88</text>
-                    <text class="superShop_goods_text_bottom_button">马上抢</text>
-                </view>
+                <text class="surperShop_goods_recommend_content">1212推荐</text>
             </view>
-        </navigator>
-    </view>
+            <view class="surperShop_goods_text_bottom">
+                <text class="surperShop_goods_text_bottom_red">￥58.88</text>
+                <text class="surperShop_goods_text_bottom_gray">￥98.88</text>
+                <text class="surperShop_goods_text_bottom_button">去看看</text>
+            </view>
+        </view>
+    </navigator>
 </view>
