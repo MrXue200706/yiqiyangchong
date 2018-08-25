@@ -19,6 +19,7 @@ Page({
         events_id:id
       },
       success(res) {
+        console.log(res)
         that.setData({
           superShop: res.data.data
         });

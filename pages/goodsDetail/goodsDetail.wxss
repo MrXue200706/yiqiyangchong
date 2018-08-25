@@ -156,6 +156,9 @@
     margin-top: 40rpx;
     background-color: #888;
 }
+.goodsDetail_main_img_item{
+    width: 100%;
+}
 
 /*底部购买*/
 .goodsDetail_foot{

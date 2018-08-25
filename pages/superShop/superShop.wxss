@@ -94,5 +94,5 @@
     border-radius: 28rpx;
     font-size: 28rpx;
     flex-shrink: 0;
-    margin-left: 240rpx;
+    margin-left: 222rpx;
 }
