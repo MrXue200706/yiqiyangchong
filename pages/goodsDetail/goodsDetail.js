@@ -5,17 +5,25 @@ const app = getApp()
 Page({
   data: {
     is_iframe:false,//点击购买按钮弹出选择弹出层
-    type_two:false,//规格2显示
-    type_active:false,//修改点击后的样式
+    type_one_active:null,//修改点击后的样式
+    type_two_active:null,//修改点击后的样式
+    type_selected:{},//选中的规格
     shopping:'normal',//是否抢购，否则正常
     goods_detail:{},//详情
+    selected_numb:1,//选择的数量
   },
-  iframeFn(){
+  iframeFn(){//规格选择弹出
     this.setData({is_iframe:!this.data.is_iframe});
   },
-  typeTwoFn(e){
-    this.setData({type_two:!this.data.type_two});
-    this.setData({type_active:!this.data.type_active});
+  typeOneFn(event){//规格1选择
+    let type_select = event.target.dataset.type;
+    let id = event.target.id;
+    this.setData({type_selected:type_select});
+    this.setData({type_one_active:id});
+    // console.log(this.type_one_active)
+  },
+  typeTwoFn(event){//规格2选择
+    this.setData({type_two_active:!this.data.type_two_active});
   },
   onLoad(o){
     if(o.type == 'shopping'){
@@ -25,7 +33,7 @@ Page({
     //请求
     this.getGoodsDetail(o.id);
   },
-  getGoodsDetail(id){
+  getGoodsDetail(id){//获取页面细节
     let that = this;
     wx.request({
       url: 'https://wechatapi.vipcsg.com/index/goods/details',
@@ -39,5 +47,13 @@ Page({
         console.log(that.data.goods_detail)
       },
     })
+  },
+  numberReduceFn(){//减
+    this.setData({selected_numb:this.data.selected_numb-1});
+    this.data.selected_numb < 1 ? 
+      this.setData({selected_numb:1}):null;
+  },
+  numberAddFn(){//加
+    this.setData({selected_numb:this.data.selected_numb+1})
   },
 })

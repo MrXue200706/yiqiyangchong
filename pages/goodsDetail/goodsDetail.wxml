@@ -118,7 +118,9 @@
         <view class="goodsDetail_iframe_opacity"></view>
         <view class="goodsDetail_iframe_white">
             <view class="goodsDetail_iframe_goods">
-                <view class="goodsDetail_iframe_goods_avatar"></view>
+                <view class="goodsDetail_iframe_goods_avatar">
+                    <image mode="widthFix" src="{{goods_detail.goods_img_list[0].goods_img}}"  class="goodsDetail_iframe_goods_avatar_img"></image>
+                </view>
                 <view class="goodsDetail_iframe_goods_price">
                     <text>¥58.8</text>
                 </view>
@@ -133,30 +135,31 @@
                 <view class="goodsDetail_iframe_type_title">
                     <text>规格</text>
                 </view>
-                <view class="goodsDetail_iframe_type_item" bindtap="typeTwoFn">
-                    <text>1.5kg</text>
-                </view>
-                <view class="{{type_active?'goodsDetail_iframe_type_active':'goodsDetail_iframe_type_item'}}" bindtap="typeTwoFn">
-                    <text>1.5kg</text>
+                <view 
+                    class="{{type_one_active==index?'goodsDetail_iframe_type_active':'goodsDetail_iframe_type_item'}}" 
+                    bindtap="typeOneFn"
+                    data-type="{{item}}"
+                    id="{{index}}"
+                    wx:for="{{goods_detail.goods_spec_list}}" wx:key="item.id">
+                    <text>{{item.spec_value}}</text>
                 </view>
             </view>
-            <view class="goodsDetail_iframe_type" wx:if="{{type_two}}">
+            <view class="goodsDetail_iframe_type" wx:if="{{type_selected.spec_value_2}}">
                 <view class="goodsDetail_iframe_type_title">
                     <text>规格</text>
                 </view>
-                <view class="goodsDetail_iframe_type_item goodsDetail_iframe_type_active">
-                    <text>1.5kg</text>
-                </view>
-                <view class="goodsDetail_iframe_type_item">
-                    <text>1.5kg</text>
+                <view 
+                    class="{{type_two_active?'goodsDetail_iframe_type_active':'goodsDetail_iframe_type_item'}}" 
+                    bindtap="typeTwoFn">
+                    <text>{{type_selected.spec_value_2}}</text>
                 </view>
             </view>
             <view class="goodsDetail_iframe_number">
                 <text>数量</text>
                 <view class="goodsDetail_iframe_number_button">
-                    <view class="goodsDetail_iframe_number_button_left">-</view>
-                    <input type="number" class="goodsDetail_iframe_number_button_text"/>
-                    <view class="goodsDetail_iframe_number_button_right">+</view>
+                    <view class="goodsDetail_iframe_number_button_left" bindtap="numberReduceFn">-</view>
+                    <input value="{{selected_numb}}" type="number" class="goodsDetail_iframe_number_button_text"/>
+                    <view class="goodsDetail_iframe_number_button_right" bindtap="numberAddFn">+</view>
                 </view>
             </view>
             <view class="goodsDetail_iframe_check">
