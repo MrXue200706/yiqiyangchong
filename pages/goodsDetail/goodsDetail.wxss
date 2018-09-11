@@ -148,14 +148,11 @@
     font-size: 26rpx;
     color: #9b9b9b;
     margin-top: -10rpx;
-    word-break:break-all
+    word-break:break-all;
 }
-.goodsDetail_main_img{
+/* .goodsDetail_main_img{
     width: 100%;
-    height: 430rpx;
-    margin-top: 40rpx;
-    background-color: #888;
-}
+} */
 .goodsDetail_main_img_item{
     width: 100%;
 }

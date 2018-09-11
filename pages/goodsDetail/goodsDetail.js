@@ -1,6 +1,8 @@
 //index.js
 //获取应用实例
 const app = getApp()
+//文件引用
+var CusBase64 = require('../../utils/base64.js');
 
 Page({
   data: {
@@ -11,6 +13,7 @@ Page({
     shopping:'normal',//是否抢购，否则正常
     goods_detail:{},//详情
     selected_numb:1,//选择的数量
+    descript:null,//描述
   },
   iframeFn(){//规格选择弹出
     this.setData({is_iframe:!this.data.is_iframe});
@@ -43,8 +46,12 @@ Page({
       success(res) {
         that.setData({
           goods_detail: res.data.data
-        })
+        });
+        that.setData({
+          descript:res.data.data.goods_desc
+        });
         console.log(that.data.goods_detail)
+        console.log(that.data.descript)
       },
     })
   },
