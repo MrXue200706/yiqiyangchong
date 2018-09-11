@@ -61,6 +61,7 @@
             <view class="official_item_title">地址</view>
             <view class="official_item_under">添加地址：2</view>
         </navigator>
+        <button open-type='getUserInfo' bindgetuserinfo="bindGetUserInfo"></button>
         <view class="official_item">
             <view class="official_item_img"></view>
             <view class="official_item_title">合作</view>

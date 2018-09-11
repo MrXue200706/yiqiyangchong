@@ -87,6 +87,7 @@
                 <text>收藏</text>
             </view>
         </view>
+        
         <view class="goodsDetail_foot_right" bindtap="iframeFn">
             <text>￥52.23</text>
             <text>(最多可立减12元)</text>
@@ -162,7 +163,8 @@
                     <view class="goodsDetail_iframe_number_button_right" bindtap="numberAddFn">+</view>
                 </view>
             </view>
-            <view class="goodsDetail_iframe_check">
+            
+            <view class="goodsDetail_iframe_check" bindtap="submitOrder">
                 <text>确定</text>
             </view>
         </view>

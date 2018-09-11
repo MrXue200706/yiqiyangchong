@@ -18,6 +18,7 @@ Page({
     this.getPetExpert();
     this.getSpecialTopic();
     this.getGoodsRecommend();
+	this.loginApp();
   },
 
   //请求轮播图
@@ -93,5 +94,46 @@ Page({
         // console.log(that.data.goods_recommend)
       },
     })
+  },
+  
+  //用户登录
+  loginApp(){
+	  wx.login({
+		  success: function (res) {
+			if (res.code) {
+			  var code = res.code;
+			  wx.getUserInfo({//getUserInfo流程
+				success: function (res2) {//获取userinfo成功
+				  console.log(res2);
+				  var encryptedData = encodeURIComponent(res2.encryptedData);//一定要把加密串转成URI编码
+				  var iv = res2.iv;
+				  //发起网络请求
+				  wx.request({
+            url: 'https://wechatapi.vipcsg.com/index/member/login',
+            method: 'POST',
+            data: {
+              code: res.code,
+              encryptedData: encryptedData,
+              iv: iv
+            },success(resUser) {
+              app.globalData.userInfo = resUser
+              debugger;
+              console.log(resUser);
+              //app.globalData.userId = resUser.data.data.user_id
+              wx.setStorageSync('LoginSessionKey', resUser.data.data.user_id)  //保存在session中
+              /*
+              that.setData({
+                goods_recommend: resUser.data.data
+              })*/
+              // console.log(that.data.goods_recommend)
+              },
+				  })
+				}
+			  })
+			} else {
+			  console.log('登录失败！' + res.errMsg)
+			}
+		  }
+		})
   }
 })

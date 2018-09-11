@@ -3,11 +3,11 @@
     <view class="addAdress_part">
         <view class="addAdress_part_item">
             <text>收货人：</text>
-            <input type="text"/>
+            <input  type="text" placeholder="请填写收货人" maxlength="11" type="tel" bindinput="getConsignee" />
         </view>
         <view class="addAdress_part_item">
             <text>手机号码：</text>
-            <input type="number"/>
+            <input  type="text" placeholder="请输入手机号码" maxlength="11" type="tel" bindinput="getNumber" />
         </view>
         <view class="addAdress_part_item">
             <text>所在地区：</text>
@@ -15,7 +15,7 @@
         </view>
         <view class="addAdress_part_item">
             <text>详细地址：</text>
-            <input type="text"/>
+            <input type="text" placeholder="请输入收货详细地址" maxlength="11" type="tel" bindinput="getAddress" />
         </view>
     </view>
     <view class="addAdress_part">
@@ -27,7 +27,7 @@
 
     <!--按钮-->
     <view class="addAdress_button">
-        <view class="addAdress_button_item">
+        <view class="addAdress_button_item" bindtap="saveForm">
             <text>保存</text>
         </view>
     </view>

@@ -14,13 +14,14 @@ Page({
     goods_detail:{},//详情
     selected_numb:1,//选择的数量
     descript:null,//描述
+    productId:""
   },
   iframeFn(){//规格选择弹出
     this.setData({is_iframe:!this.data.is_iframe});
   },
   typeOneFn(event){//规格1选择
-    let type_select = event.target.dataset.type;
-    let id = event.target.id;
+  let type_select = event.currentTarget.dataset.type.spec_value;
+  let id = event.currentTarget.id;
     this.setData({type_selected:type_select});
     this.setData({type_one_active:id});
     // console.log(this.type_one_active)
@@ -32,7 +33,9 @@ Page({
     if(o.type == 'shopping'){
       this.setData({shopping:'shopping'})
     }
-
+    this.setData({
+		productId : o.id
+	});
     //请求
     this.getGoodsDetail(o.id);
   },
@@ -63,4 +66,48 @@ Page({
   numberAddFn(){//加
     this.setData({selected_numb:this.data.selected_numb+1})
   },
+  submitOrder(){
+    // 数据校验
+    if (JSON.stringify(this.data.type_selected) == '{}' ? true : false) {
+      wx.showToast({
+        title: '请填写商品规格',
+        icon: 'none',
+        duration: 2000
+      })
+      return;
+    }
+
+    console.log(this.data.productId);
+    console.log(this.data.type_selected);
+    console.log(this.data.selected_numb);
+    subMitOrderFun();
+  },
+  subMitOrderFun(){
+    //获取用户数据
+    
+
+    //提交表单数据，生成订单ID
+    wx.request({
+      url: 'https://wechatapi.vipcsg.com/index/order/submit',
+      data: {
+        "user_id": "", //用户ID
+        "goods_id": id, //商品ID
+        "coupons_id": "", //优惠ID
+        "address_id": "", //收货地址ID
+        "number": "", //商品数量
+        "spec_1": "", //规格值1
+        "spec_2": "" //规格值1
+      },
+      success(res) {
+        that.setData({
+          goods_detail: res.data.data
+        })
+        console.log(that.data.goods_detail)
+      },
+    })
+
+    wx.navigateTo({
+      url: '/page/admin/details',
+    })
+  }
 })
