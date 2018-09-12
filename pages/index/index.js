@@ -117,14 +117,9 @@ Page({
               iv: iv
             },success(resUser) {
               app.globalData.userInfo = resUser
-              debugger;
               console.log(resUser);
               //app.globalData.userId = resUser.data.data.user_id
               wx.setStorageSync('LoginSessionKey', resUser.data.data.user_id)  //保存在session中
-              /*
-              that.setData({
-                goods_recommend: resUser.data.data
-              })*/
               // console.log(that.data.goods_recommend)
               },
 				  })

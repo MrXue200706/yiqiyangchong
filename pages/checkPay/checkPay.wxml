@@ -8,13 +8,13 @@
             </view>
             <view class="checkPay_getAdress_item_right">></view>
         </view>
-        <view class="checkPay_getAdress_item checkPay_getAdress_item_orange">
-            <view class="checkPay_getAdress_item_left">
-                <view class="checkPay_getAdress_item_avatar"></view>
-                <text>手动添加地址</text>
-            </view>
-            <view class="checkPay_getAdress_item_right">></view>
-        </view>
+		<view class="checkPay_getAdress_item checkPay_getAdress_item_orange" bindtap="chooseAdr">
+			<view class="checkPay_getAdress_item_left">
+				<view class="checkPay_getAdress_item_avatar"></view>
+				<text>手动添加地址</text>
+			</view>
+			<view class="checkPay_getAdress_item_right">></view>
+		</view>
     </view>
 
     <!--地址-->
@@ -31,33 +31,35 @@
     <!--商品-->
     <view class="checkPay_goods_d">
         <navigator url="../goodsDetail/goodsDetail" class="checkPay_goods">
-            <view class="checkPay_goods_img"></view>
+            <view class="checkPay_goods_img">
+				<!-- img位置 -->
+			</view>
             <view class="checkPay_goods_text">
-                <view class="checkPay_goods_text_title">狗粮狗粮狗粮狗粮狗粮狗粮狗粮狗粮狗粮狗粮狗粮狗粮狗粮</view>
+                <view class="checkPay_goods_text_title">{{goods_detail.goods_name}}</view>
                 <view class="checkPay_goods_recommend">
                     <text>2人团</text>
                     <text>已团3232件</text>
                 </view>
                 <view class="checkPay_goods_text_bottom">
-                    <text class="checkPay_goods_text_bottom_red">￥58.88</text>
-                    <text class="checkPay_goods_text_bottom_gray">￥98.88</text>
+                    <text class="checkPay_goods_text_bottom_red">￥{{goods_detail.price}}</text>
+                    <text class="checkPay_goods_text_bottom_gray">￥{{goods_detail.market_price}}</text>
                 </view>
             </view>
         </navigator>
         <view class="checkPay_goods_number">
             <text>数量</text>
             <view class="checkPay_goods_number_button">
-                <view class="checkPay_goods_number_button_left">-</view>
-                <input type="number" class="checkPay_goods_number_button_input"/>
-                <view class="checkPay_goods_number_button_right">+</view>
+                <view class="checkPay_goods_number_button_left" bindtap="numberReduceFn">-</view>
+                <input type="number" class="checkPay_goods_number_button_input" value="{{selected_numb}}"/>
+                <view class="checkPay_goods_number_button_right" bindtap="numberAddFn">+</view>
             </view>
         </view>
         <view class="checkPay_goods_total">
             <view class="checkPay_goods_total_left">
-                <text>共计1件商品 合计：</text>
+                <text>共计{{selected_numb}}件商品 合计：</text>
             </view>
             <view class="checkPay_goods_total_right">
-                <text>¥58.8</text>
+                <text>¥{{totalPay}}</text>
             </view>
         </view>
     </view>
@@ -95,9 +97,9 @@
     <view class="checkPay_foot">
         <view class="checkPay_foot_left">
             <text class="checkPay_foot_left_b">实付款：</text>
-            <text class="checkPay_foot_left_r">¥58.88</text>
+            <text class="checkPay_foot_left_r">¥{{totalPay}}</text>
         </view>
-        <view class="checkPay_foot_right">
+        <view class="checkPay_foot_right" bindtap="payNow">
             <text>立即支付</text>
         </view>
     </view>

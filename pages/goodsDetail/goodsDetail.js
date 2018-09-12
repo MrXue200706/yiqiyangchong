@@ -14,7 +14,7 @@ Page({
     goods_detail:{},//详情
     selected_numb:1,//选择的数量
     descript:null,//描述
-    productId:""
+    goods_id:""
   },
   iframeFn(){//规格选择弹出
     this.setData({is_iframe:!this.data.is_iframe});
@@ -34,7 +34,7 @@ Page({
       this.setData({shopping:'shopping'})
     }
     this.setData({
-		productId : o.id
+		goods_id : o.id
 	});
     //请求
     this.getGoodsDetail(o.id);
@@ -66,8 +66,7 @@ Page({
   numberAddFn(){//加
     this.setData({selected_numb:this.data.selected_numb+1})
   },
-  submitOrder(){
-    // 数据校验
+  submitOrder(){//数据校验
     if (JSON.stringify(this.data.type_selected) == '{}' ? true : false) {
       wx.showToast({
         title: '请填写商品规格',
@@ -77,26 +76,47 @@ Page({
       return;
     }
 
-    console.log(this.data.productId);
+    console.log();
     console.log(this.data.type_selected);
     console.log(this.data.selected_numb);
-    subMitOrderFun();
+	wx.navigateTo({
+      url: "../checkPay/checkPay?goods_id="+this.data.goods_id+"&type_selected="+this.data.type_selected+"&selected_numb="+this.data.selected_numb
+    })
+	
+    //this.subMitOrderFun();
   },
   subMitOrderFun(){
-    //获取用户数据
-    
-
+    //获取用户地址数据
+	wx.request({
+      url: 'https://wechatapi.vipcsg.com/index/member/addres_list',
+      data: {
+        "user_id": app.globalData.userInfo.data.data.user_id,
+      },
+      success(res) {
+		//获取到默认地址
+		if(res.result==1){
+			//获取默认收货地址
+			pages/checkPay/checkPay
+		}else{
+			//获取收货地址出错
+		}
+      },
+    })
+	
+	console.log(app.globalData.userInfo);
+	console.log();
+/*
     //提交表单数据，生成订单ID
     wx.request({
       url: 'https://wechatapi.vipcsg.com/index/order/submit',
       data: {
-        "user_id": "", //用户ID
-        "goods_id": id, //商品ID
+        "user_id": app.globalData.userInfo.data.data.user_id, //用户ID
+        "goods_id": this.data.goods_id, //商品ID
         "coupons_id": "", //优惠ID
         "address_id": "", //收货地址ID
-        "number": "", //商品数量
-        "spec_1": "", //规格值1
-        "spec_2": "" //规格值1
+        "number": this.data.selected_numb, //商品数量
+        "spec_1": this.data.type_selected, //规格值1
+        //"spec_2": "" 规格值1
       },
       success(res) {
         that.setData({
@@ -108,6 +128,6 @@ Page({
 
     wx.navigateTo({
       url: '/page/admin/details',
-    })
+    })*/
   }
 })

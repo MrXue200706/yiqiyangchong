@@ -8,6 +8,35 @@ Page({
     phoneNumber: null, //手机号码
     address:null //收货地址
   },
+  onLoad(option){
+	if(option.adrId != undefined && option.adrId!= null && option.adrId!="") {
+		//填充数据
+		let that = this;
+		wx.request({
+		  url: 'https://wechatapi.vipcsg.com/index/member/addres_list',
+		  data: {
+			user_id: app.globalData.userInfo.data.data.user_id
+		  },
+		  success(res) {
+			let adressList= res.data.data;
+			for(var i = 0 ;i<adressList.length ;i++){
+				if(adressList[i].id == option.adrId){
+					console.log(adressList[i].name)
+					console.log(adressList[i].phone)
+					console.log(adressList[i].addres)
+					
+					that.setData({
+						consignee: adressList[i].name, 
+						phoneNumber: adressList[i].phone, 
+						address: adressList[i].addres 
+					});
+					break;
+				}
+			}
+		  },
+		})
+	} 
+  },
   getConsignee: function (e) {//收货人
     this.data.consignee = e.detail.value;
   },
@@ -19,11 +48,6 @@ Page({
   },
   //保存收货地址
   saveForm: function(){
-    console.log(this.data.consignee)
-    console.log(this.data.phoneNumber)
-    console.log(this.data.address)
-    console.log("用户ID："+app.globalData.userInfo.data.data.user_id)
-
     wx.request({
       url: 'https://wechatapi.vipcsg.com/index/member/address',
       method: 'POST',
