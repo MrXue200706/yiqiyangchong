@@ -105,7 +105,7 @@ Page({
 			  wx.getUserInfo({//getUserInfo流程
 				success: function (res2) {//获取userinfo成功
 				  console.log(res2);
-				  var encryptedData = encodeURIComponent(res2.encryptedData);//一定要把加密串转成URI编码
+				  var encryptedData = encodeURIComponent(res2.encryptedData);
 				  var iv = res2.iv;
 				  //发起网络请求
 				  wx.request({

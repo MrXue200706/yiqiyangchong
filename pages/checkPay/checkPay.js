@@ -1,6 +1,7 @@
 //index.js
 //获取应用实例
 const app = getApp()
+var util = require('../../utils/md5.js') 
 
 Page({
   data: {
@@ -103,33 +104,41 @@ Page({
         spec_2: type_selected2,
       },
       success(res) {
-		console.log(res)
-		payData = res.data.data;
-		debugger;
-		packageStr = "prepay_id="+payData.prepay_id
-		paySignStr = MD5("appId=wxc7bf060c95b1645b&nonceStr="+payData.nonceStr+"&package="+packageStr+"&signType=MD5&timeStamp="+payData.timeStamp+"&key=dbsDggC8AMXk8LBo30hlHvZ5GBtnjybx")
-		debugger;
-		//跳转微信支付
-		wx.requestPayment({
-			'timeStamp': payData.timeStamp,
-			'nonceStr': payData.nonceStr,
-			'package': packageStr,
-			'signType': 'MD5',
-			'paySign': paySignStr,
-			'success':function(res){
-				console.log("支付成功！！")
-				debugger;
-				
-			},
-			'fail':function(res){
-				console.log("支付失败！！")
-				debugger;
-			},
-			'complete':function(res){
-				console.log("最终路线！！")
-				debugger;
-			}
-		})
+		if(res.data.result == 1){
+			console.log(res)
+			let payData = res.data.data;
+			let packageStr = "prepay_id="+payData.prepay_id
+			let paySignStr = util.hexMD5("appId=wxc7bf060c95b1645b&nonceStr="+payData.nonceStr+"&package="+packageStr+"&signType=MD5&timeStamp="+payData.timeStamp+"&key=dbsDggC8AMXk8LBo30hlHvZ5GBtnjybx")
+			debugger;
+			//跳转微信支付
+			wx.requestPayment({
+				'timeStamp': String(payData.timeStamp),
+				'nonceStr': String(payData.nonceStr),
+				'package': packageStr,
+				'signType': 'MD5',
+				'paySign': paySignStr,
+				'success':function(res){
+					//跳转到待收货页面
+					wx.navigateTo({
+					  url: "../unpay/unpay?order_status=1"
+					})
+					console.log("支付成功！！")
+					debugger;
+					
+				},
+				'fail':function(res){
+					//跳转到待支付页面
+					wx.navigateTo({
+					  url: "../unpay/unpay?order_status=1"
+					})
+					console.log("支付失败！！")
+					debugger;
+				},
+				'complete':function(res){
+					console.log("最终路线！！")
+				}
+			})
+		}
       },
     })
   }

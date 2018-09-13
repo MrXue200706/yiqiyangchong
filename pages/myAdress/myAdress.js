@@ -44,7 +44,7 @@ Page({
 	var adrId = e.currentTarget.dataset.id;
 	if(this.data.type=="shopping"){
 		//如果是在购买页面跳转过来的，单击直接填充地址
-		wx.navigateTo({
+		wx.navigateTo({ 
 		  url: "../checkPay/checkPay?adrId="+adrId+"&goods_id="+this.data.goods_id+"&type_selected="+this.data.type_selected+"&selected_numb="+this.data.selected_numb
 		});
 	}else{

@@ -4,7 +4,7 @@ const app = getApp()
 
 Page({
   data: {
-    
+    userInfo: {},
   },
   onLoad(){
     this.getUserInfoDetail();//获取用户数据
@@ -19,21 +19,20 @@ Page({
     }
   },
   getUserInfoDetail:function(){
-    /*
-    //获取用户数据
-    let userId = wx.getStorageSync("LoginSessionKey");
-    console.log("userId: " + userId);
-    //http://wechatapi.vipcsg.com/index/member/my_info
-    wx.request({
-      url: 'https://wechatapi.vipcsg.com/index/member/my_info',
-      method: 'GET',
-      data: {
-        user_id: userId
-      }, success(resUser) {
-        debugger;
-        console.log(resUser);
-      },
-    })*/
-    console.log(app.globalData.userInfo)
+	let that = this;
+	wx.request({
+	  url: 'https://wechatapi.vipcsg.com/index/member/my_info',
+	  method: 'GET',
+	  data: {
+		user_id: app.globalData.userInfo.data.data.user_id
+	  }, success(res) {
+		 if (res.data.result == 1){
+       
+			 that.setData({
+				userInfo: res.data.data
+			})
+		 }
+	  },
+	})
   }
 })

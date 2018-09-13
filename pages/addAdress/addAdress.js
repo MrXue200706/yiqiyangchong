@@ -25,7 +25,7 @@ Page({
 					console.log(adressList[i].phone)
 					console.log(adressList[i].addres)
 					
-					that.setData({
+					that.setData({ 
 						consignee: adressList[i].name, 
 						phoneNumber: adressList[i].phone, 
 						address: adressList[i].addres 

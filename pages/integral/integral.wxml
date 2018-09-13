@@ -2,7 +2,7 @@
     <!--标题-->
     <view class="integral_title">
         <view class="integral_title_total">
-            <text>3000</text>
+            <text>{{integral}}</text>
         </view>
         <view class="integral_title_descript">
             <text>可抵现金：30.222元</text>

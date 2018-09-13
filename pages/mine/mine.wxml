@@ -1,12 +1,12 @@
 <view class="mine">
     <!--头像-->
     <view class="avatar">
-        <view class="avatar_avatar"></view>
-        <view class="avatar_name">小灰灰</view>
+        <view class="avatar_avatar"><!--  img:  {{userInfo.member.avatarUrl}} --></view>
+        <view class="avatar_name">{{userInfo.member.nickName}}</view>
         <view class="avatar_fallow">
-            <navigator url="../petFriends/petFriends" class="avatar_fallow_left">关注 1212</navigator>
+            <navigator url="../petFriends/petFriends" class="avatar_fallow_left">关注 {{userInfo.follow_count}}</navigator>
             <text>|</text>
-            <navigator url="../petFriends/petFriends" class="avatar_fallow_right">粉丝1212</navigator>
+            <navigator url="../petFriends/petFriends" class="avatar_fallow_right">粉丝 {{userInfo.fans_count}}</navigator>
         </view>
     </view>
 
@@ -36,15 +36,15 @@
 
     <!--事项-->
     <view class="official">
-        <navigator url="../integral/integral" class="official_item">
+        <navigator url="../integral/integral?integral={{userInfo.member.integral}}" class="official_item">
             <view class="official_item_img"></view>
             <view class="official_item_title">积分</view>
-            <view class="official_item_under">可用积分：23232</view>
+            <view class="official_item_under">可用积分：{{userInfo.member.integral}}</view>
         </navigator>
         <navigator url="../myPets/myPets" class="official_item">
             <view class="official_item_img"></view>
             <view class="official_item_title">萌宠</view>
-            <view class="official_item_under">已添加：23</view>
+            <view class="official_item_under">已添加：{{userInfo.pet_count}}</view>
         </navigator>
         <navigator url="../cuopon/cuopon" class="official_item">
             <view class="official_item_img"></view>
@@ -54,14 +54,14 @@
         <navigator url="../collect/collect" class="official_item">
             <view class="official_item_img"></view>
             <view class="official_item_title">收藏</view>
-            <view class="official_item_under">已收藏：2323</view>
+            <view class="official_item_under">已收藏：{{userInfo.goods_collection_count}}</view>
         </navigator>
         <navigator url="../myAdress/myAdress" class="official_item">
             <view class="official_item_img"></view>
             <view class="official_item_title">地址</view>
-            <view class="official_item_under">添加地址：2</view>
+            <view class="official_item_under">已存在：{{userInfo.address_count}}</view>
         </navigator>
-        <button open-type='getUserInfo' bindgetuserinfo="bindGetUserInfo"></button>
+        <!-- <button open-type='getUserInfo' bindgetuserinfo="bindGetUserInfo"></button> -->
         <view class="official_item">
             <view class="official_item_img"></view>
             <view class="official_item_title">合作</view>

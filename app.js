@@ -4,7 +4,6 @@ App({
     
   },
   globalData: {
-    userInfo: null,
-	shoppingAdr: null
+    userInfo: null
   }
 })
