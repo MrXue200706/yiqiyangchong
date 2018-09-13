@@ -5,7 +5,7 @@
             <text>{{integral}}</text>
         </view>
         <view class="integral_title_descript">
-            <text>可抵现金：30.222元</text>
+            <text>可抵现金：{{deduction}}元</text>
         </view>
         <view class="integral_title_detailbtn">
             <text>积分规则 > </text>
@@ -14,117 +14,104 @@
 
     <!--tab栏-->
     <view class="integral_tab">
-        <view class="integral_tab_item">
-            <text class="integral_tab_item_active">积分明细</text>
+        <view class="integral_tab_item" bindtap="typeOneFn">
+            <text class="{{type_one_active}}">积分明细</text>
         </view>
-        <view class="integral_tab_item">
-            <text>领取积分</text>
-        </view>
-    </view>
-
-    <!--列表-->
-    <view class="integral_detail">
-        <view class="integral_detail_item">
-            <view class="integral_detail_item_up">
-                <text class="integral_detail_item_up_left">新人奖励</text>
-                <text class="integral_detail_item_up_right">+200</text>
-            </view>
-            <view class="integral_detail_item_down">
-                <text>2016-02-15</text>
-                <text>10:25</text>
-            </view>
-        </view>
-        <view class="integral_detail_item">
-            <view class="integral_detail_item_up">
-                <text class="integral_detail_item_up_left">新人奖励</text>
-                <text class="integral_detail_item_up_right">+200</text>
-            </view>
-            <view class="integral_detail_item_down">
-                <text>2016-02-15</text>
-                <text>10:25</text>
-            </view>
-        </view>
-        <view class="integral_detail_item">
-            <view class="integral_detail_item_up">
-                <text class="integral_detail_item_up_left">新人奖励</text>
-                <text class="integral_detail_item_up_right">+200</text>
-            </view>
-            <view class="integral_detail_item_down">
-                <text>2016-02-15</text>
-                <text>10:25</text>
-            </view>
-        </view>
-        <view class="integral_detail_item">
-            <view class="integral_detail_item_up">
-                <text class="integral_detail_item_up_left">新人奖励</text>
-                <text class="integral_detail_item_up_right">+200</text>
-            </view>
-            <view class="integral_detail_item_down">
-                <text>2016-02-15</text>
-                <text>10:25</text>
-            </view>
+        <view class="integral_tab_item" bindtap="typeTwoFn">
+            <text class="{{type_two_active}}">领取积分</text>
         </view>
     </view>
 
+    <!--积分明细列表-->
+	<view hidden="{{tapFlag}}">
+		<view class="integral_detail">
+			<view class="integral_detail_item" wx:for="{{integralList}}" wx:key="item.id" data-id="{{item.id}}" >
+				<view class="integral_detail_item_up" >
+					<text class="integral_detail_item_up_left">{{item.type_name}}</text>
+					<text class="{{item.change_integral>0? 'integral_detail_item_up_right' : '这里填写减少的样式'}}">+{{item.change_integral>0? '+'+item.change_integral : '-'+item.change_integral}}</text>
+				</view>
+				<view class="integral_detail_item_down">
+					<text>2016-02-15</text>
+					<text>{{}}</text>
+				</view>
+			</view>
+			<!-- 
+			<view class="integral_detail_item">
+				<view class="integral_detail_item_up">
+					<text class="integral_detail_item_up_left">新人奖励</text>
+					<text class="integral_detail_item_up_right">+200</text>
+				</view>
+				<view class="integral_detail_item_down">
+					<text>2016-02-15</text>
+					<text>10:25</text>
+				</view>
+			</view>
+			-->
+			
+		</view>
+	</view>
+	
     <!--领取积分-->
-    <view class="integral_get">
-        <view class="integral_get_item">
-            <view class="integral_get_item_title">
-                <text>分享商品赚积分</text>
-            </view>
-            <view class="integral_get_item_descript">
-                <text>成功分享的商品被宠友购买</text>
-            </view>
-            <view class="integral_get_item_button">
-                <text>赚积分</text>
-            </view>
-        </view>
-        <view class="integral_get_item">
-            <view class="integral_get_item_title">
-                <text>购物返积分</text>
-            </view>
-            <view class="integral_get_item_descript">
-                <text>每次购物成功后即可获取相应积分</text>
-            </view>
-            <view class="integral_get_item_button">
-                <text>快领取</text>
-            </view>
-        </view>
-        <view class="integral_get_item">
-            <view class="integral_get_item_title">
-                <text>每日奖励</text>
-            </view>
-            <view class="integral_get_item_descript">
-                <text>每日登录即可领取积分</text>
-                <text class="integral_get_item_red">+50</text>
-            </view>
-            <view class="integral_get_item_button">
-                <text>快领取</text>
-            </view>
-        </view>
-        <view class="integral_get_item">
-            <view class="integral_get_item_title">
-                <text>分享微信群</text>
-            </view>
-            <view class="integral_get_item_descript">
-                <text>每天可领取三次奖励</text>
-                <text class="integral_get_item_red">+200</text>
-            </view>
-            <view class="integral_get_item_button">
-                <text>去分享</text>
-            </view>
-        </view>
-        <view class="integral_get_item">
-            <view class="integral_get_item_title">
-                <text>添加宠物</text>
-            </view>
-            <view class="integral_get_item_descript">
-                <text>完善自家的宠物信息</text>
-                <text class="integral_get_item_red">+200</text>
-            </view>
-            <view class="integral_get_item_button">
-                <text>去添加</text>
-            </view>
-        </view>
-    </view>
+	<view hidden="{{!tapFlag}}">
+		<view class="integral_get">
+			<view class="integral_get_item">
+				<view class="integral_get_item_title">
+					<text>分享商品赚积分</text>
+				</view>
+				<view class="integral_get_item_descript">
+					<text>成功分享的商品被宠友购买</text>
+				</view>
+				<view class="integral_get_item_button">
+					<text>赚积分</text>
+				</view>
+			</view>
+			<view class="integral_get_item">
+				<view class="integral_get_item_title">
+					<text>购物返积分</text>
+				</view>
+				<view class="integral_get_item_descript">
+					<text>每次购物成功后即可获取相应积分</text>
+				</view>
+				<view class="integral_get_item_button">
+					<text>快领取</text>
+				</view>
+			</view>
+			<view class="integral_get_item">
+				<view class="integral_get_item_title">
+					<text>每日奖励</text>
+				</view>
+				<view class="integral_get_item_descript">
+					<text>每日登录即可领取积分</text>
+					<text class="integral_get_item_red">+50</text>
+				</view>
+				<view class="integral_get_item_button">
+					<text>快领取</text>
+				</view>
+			</view>
+			<view class="integral_get_item">
+				<view class="integral_get_item_title">
+					<text>分享微信群</text>
+				</view>
+				<view class="integral_get_item_descript">
+					<text>每天可领取三次奖励</text>
+					<text class="integral_get_item_red">+200</text>
+				</view>
+				<view class="integral_get_item_button">
+					<text>去分享</text>
+				</view>
+			</view>
+			<view class="integral_get_item">
+				<view class="integral_get_item_title">
+					<text>添加宠物</text>
+				</view>
+				<view class="integral_get_item_descript">
+					<text>完善自家的宠物信息</text>
+					<text class="integral_get_item_red">+200</text>
+				</view>
+				<view class="integral_get_item_button">
+					<text>去添加</text>
+				</view>
+			</view>
+		</view>
+	</view>
 </view>

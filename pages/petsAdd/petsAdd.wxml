@@ -3,22 +3,22 @@
     <view class="petsAdd_form">
         <view class="petsAdd_form_item">
             <text class="petsAdd_form_item_title">姓名：</text>
-            <input type="text" placeholder="输入宠物的昵称"/>
+            <input type="text" placeholder="输入宠物的昵称" bindinput="petNameVal"/>
         </view>
         <view class="petsAdd_form_item">
             <text class="petsAdd_form_item_title">性别：</text>
             <view class="petsAdd_form_item_button">
-                <view class="petsAdd_form_item_button_item">
+                <view class="petsAdd_form_item_button_item" data-sex="MM" bindtap="petSexVal">
                     <text>MM</text>
                 </view>
-                <view class="petsAdd_form_item_button_item">
+                <view class="petsAdd_form_item_button_item" data-sex="GG" bindtap="petSexVal">
                     <text>GG</text>
                 </view>
             </view>
         </view>
         <view class="petsAdd_form_item">
             <text class="petsAdd_form_item_title">品类：</text>
-            <input type="text" placeholder="输入宠物的品类"/>
+            <input type="text" placeholder="输入宠物的品类" bindinput="petTypeVal"/>
         </view>
         <view class="petsAdd_form_item">
             <text class="petsAdd_form_item_title">生日：</text>
@@ -29,11 +29,11 @@
         <view class="petsAdd_form_item petsAdd_form_item_other">
             <text class="petsAdd_form_item_title">故事：</text>
             <textarea cols="30" rows="5" class="petsAdd_form_item_textarea"
-            placeholder="你和萌宠的故事是怎么开始的，介绍下自家的萌宠吧"></textarea>
+            placeholder="你和萌宠的故事是怎么开始的，介绍下自家的萌宠吧" bindinput="petStoryVal"></textarea>
         </view>
         <view class="petsAdd_form_item petsAdd_form_item_other">
             <text class="petsAdd_form_item_title">照片：</text>
-            <view class="petsAdd_form_item_add">
+            <view class="petsAdd_form_item_add" bindtap="addPic">
                 <text>+</text>
             </view>
             <scroll-view scroll-x="true">
@@ -50,7 +50,7 @@
 
     <!--保存按钮-->
     <view class="petsAdd_save">
-        <view class="petsAdd_save_button">
+        <view class="petsAdd_save_button" bindtap="submitForm">
             <text>保存</text>
         </view>
     </view>

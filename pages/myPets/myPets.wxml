@@ -1,21 +1,21 @@
 <view class="myPets">
     <!--萌宠框-->
     <view class="myPets_items">
-        <navigator url="../petsDetail/petsDetail" class="myPets_item">
+        <navigator url="../petsDetail/petsDetail?pet_id={{item.id}}" class="myPets_item" wx:for="{{myPetList}}" wx:key="item.id">
             <view class="myPets_item_content">
                 <view>
                     <text class="myPets_item_content_item myPets_item_content_item_blue">
-                        <text>GG</text>
+                        <text>{{item.pet_sex}}</text>
                     </text>
                 </view>
                 <view>
                     <text class="myPets_item_content_item myPets_item_content_item_red">
-                        <text>泰日天</text>
+                        <text>{{item.pet_type}}</text>  <!-- <text>泰日天</text> -->
                     </text>
                 </view>
                 <view>
                     <text class="myPets_item_content_item myPets_item_content_item_yellow">
-                        <text>1岁1个月</text>
+                        <text>{{item.show_birthday}}</text>  <!-- <text>1岁1个月</text> -->
                     </text>
                 </view>
             </view>

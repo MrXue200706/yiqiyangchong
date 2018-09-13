@@ -1,7 +1,7 @@
 <view class="myAdress">
 	<!--地址-->
-	<view class="myAdress_item" wx:for="{{adressList}}" wx:key="item.id" data-id="{{item.id}}" catchtap="chooseAdr">
-		<view class="myAdress_item_content">
+	<view class="myAdress_item" wx:for="{{adressList}}" wx:key="item.id" data-id="{{item.id}}">
+		<view class="myAdress_item_content" data-id="{{item.id}}" bindtap="chooseAdr">
 			<view class="myAdress_item_content_up">
 				<text>{{item.name}}</text>
 				<text class="myAdress_item_content_up_phone">{{item.phone}}</text>
@@ -11,13 +11,13 @@
 			</view>
 		</view>
 		<view class="myAdress_item_edict">
-			<view class="myAdress_item_edict_left">
+			<view class="myAdress_item_edict_left" data-id="{{item.id}}" data-name="{{item.name}}" dat-def="{{item.is_default}}" data-phone="{{item.phone}}" data-address="{{item.addres}}" bindtap="setDef">
 				<icon type="success" size="16" color="#ea2c29"/>
 				<text class="myAdress_item_edict_left_text">设为默认</text>
 			</view>
 			<view class="myAdress_item_edict_right">
-				<text class="myAdress_item_edict_right_item">编辑</text>
-				<text class="myAdress_item_edict_right_item">删除</text>
+				<text class="myAdress_item_edict_right_item" data-id="{{item.id}}" bindtap="chooseAdr">编辑</text>
+				<text class="myAdress_item_edict_right_item" data-id="{{item.id}}" bindtap="delAdr">删除</text>
 			</view>
 		</view>
 	</view>

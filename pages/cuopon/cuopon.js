@@ -74,9 +74,21 @@ Page({
 	  }, success(res) {
 		if(res.data.result==1){
 			//兑换成功
+			wx.showToast({
+				title: '兑换成功',
+				icon: 'succes',
+				duration: 2000,
+				mask:true
+			})
 			console.log("兑换成功")
 		}else{
 			//兑换失败
+			wx.showToast({
+				title: '兑换失败',
+				icon: 'none',
+				duration: 2000,
+				mask: true
+			  });
 			console.log("兑换失败")
 		}
 	  },

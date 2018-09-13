@@ -9,17 +9,17 @@
         <view class="petsDetail_imgs_content">
             <view>
                 <text class="petsDetail_imgs_content_item petsDetail_imgs_content_item_blue">
-                    <text>GG</text>
+                    <text>{{petDetail.pet_sex}}</text>
                 </text>
             </view>
             <view>
                 <text class="petsDetail_imgs_content_item petsDetail_imgs_content_item_red">
-                    <text>泰日天</text>
+                    <text>{{petDetail.pet_type}}</text>
                 </text>
             </view>
             <view>
                 <text class="petsDetail_imgs_content_item petsDetail_imgs_content_item_yellow">
-                    <text>1岁1个月</text>
+                    <text>{{petDetail.show_birthday}}</text>
                 </text>
             </view>
         </view>
@@ -28,14 +28,14 @@
     <!--标题-->
     <view class="petsDetail_title">
         <view class="petsDetail_title_item">
-            <text class="petsDetail_title_item_title">小灰灰的故事</text>
-            <text class="petsDetail_title_item_time">2018-7-9</text>
+            <text class="petsDetail_title_item_title">{{petDetail.pet_name}}的故事</text>
+            <text class="petsDetail_title_item_time">{{petDetail.pet_birthday}}</text>
         </view>
     </view>
 
     <!--内容-->
     <view class="petsDetail_content">
-        <text>为了识别用户，每个用户针对每个公众号会产生一个安全的OpenID，如果需要在多公众号、移动应用之间做用户共通，则需前往微信开放平台，将这些公众号和应用绑定到一个开放平台账号下，绑定后，一个用户虽然对多个公众号和应用有多个不同的OpenID，但他对所有这些同一开放平台账号下的公众号和应用，只有一个UnionID，可以在用户管理-获取用户基本信息（UnionID机制）文档了解详情。微信公众平台是运营者通过公众号为微信用户提供资讯和服务的平台，而公众平台开发接口则是提供服务的基础，开发者在公众平台网站中创建公众号、获取接口权限后，可以通过阅读本接口文档来帮助开发。</text>
+        <text>{{petDetail.pet_story}}</text>
     </view>
 
     <!--占位-->
@@ -45,7 +45,7 @@
     <view class="petsDetail_foot">
         <view class="petsDetail_foot_left"></view>
         <view class="petsDetail_foot_right">
-            <text class="petsDetail_foot_right_follow">点赞12112</text>
+            <text class="petsDetail_foot_right_follow">点赞{{petDetail.like}}</text>
             |
             <text class="petsDetail_foot_right_share">分享</text>
         </view>
