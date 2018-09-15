@@ -1,6 +1,9 @@
 //index.js
 //获取应用实例
 const app = getApp()
+// 引入SDK核心类
+var QQMapWX = require('../../utils/qqmap-wx-jssdk.min.js');
+var qqmapsdk;
 
 Page({
   data: {
@@ -126,5 +129,40 @@ Page({
 		   }
 		}
     })
+  },
+  getWXAdr() {
+    wx.authorize({
+      scope: 'scope.address',
+      success() {
+        var that = this
+        // 实例化腾讯地图API核心类
+        qqmapsdk = new QQMapWX({
+          key: 'J2ABZ-TYRY6-Z4ISF-MW23G-L4TFZ-Q5FLM' // 必填
+        });
+        //1、获取当前位置坐标
+        wx.getLocation({
+          type: 'wgs84',
+          success: function (res) {
+            //2、根据坐标获取当前位置名称，显示在顶部:腾讯地图逆地址解析
+            qqmapsdk.reverseGeocoder({
+              location: {
+                latitude: res.latitude,
+                longitude: res.longitude
+              },
+              success: function (addressRes) {
+                console.log(addressRes);
+                var address = addressRes.result.address;
+                console.log(address)
+              },
+              fail: function (data) {
+                debugger;
+              }
+            })
+          }
+        })
+      }
+    })
+
+    
   }
 })

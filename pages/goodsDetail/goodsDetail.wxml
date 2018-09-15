@@ -19,7 +19,7 @@
         <view class="goodsDetail_title_content">
             <text>{{goods_detail.goods_name}}</text>
         </view>
-        <navigator url="../goodsTogether/goodsTogether" class="goodsDetail_title_get">
+        <navigator url="../goodsTogether/goodsTogether?goods_id={{goods_detail.id}}" class="goodsDetail_title_get">
             <text>赚积分</text>
         </navigator>
     </view>
@@ -80,11 +80,11 @@
     <!--底部购买-->
     <view class="goodsDetail_foot" wx:if="{{shopping=='shopping'}}">
         <view class="goodsDetail_foot_left">
-            <view class="goodsDetail_foot_left_home">
+            <view class="goodsDetail_foot_left_home" bindtap="gotoIndex">
                 <text>首页</text>
             </view>
-            <view class="goodsDetail_foot_left_collect">
-                <text>收藏</text>
+            <view class="goodsDetail_foot_left_collect" bindtap="collectProduct">
+                <text>{{collectTxt}}</text>
             </view>
         </view>
         
@@ -95,11 +95,11 @@
     </view>
     <view class="goodsDetail_foot" wx:else>
         <view class="goodsDetail_foot_left">
-            <view class="goodsDetail_foot_left_home">
+            <view class="goodsDetail_foot_left_home" bindtap="gotoIndex">
                 <text>首页</text>
             </view>
-            <view class="goodsDetail_foot_left_collect">
-                <text>收藏</text>
+            <view class="goodsDetail_foot_left_collect" bindtap="collectProduct">
+                <text>{{collectTxt}}</text>
             </view>
         </view>
         <view class="goodsDetail_foot_right">

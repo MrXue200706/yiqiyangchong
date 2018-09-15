@@ -23,12 +23,12 @@
     </view>
 
     <!--积分明细列表-->
-	<view hidden="{{tapFlag}}">
+	<view hidden="{{!tapFlag}}">
 		<view class="integral_detail">
 			<view class="integral_detail_item" wx:for="{{integralList}}" wx:key="item.id" data-id="{{item.id}}" >
 				<view class="integral_detail_item_up" >
 					<text class="integral_detail_item_up_left">{{item.type_name}}</text>
-					<text class="{{item.change_integral>0? 'integral_detail_item_up_right' : '这里填写减少的样式'}}">+{{item.change_integral>0? '+'+item.change_integral : '-'+item.change_integral}}</text>
+					<text class="{{item.change_integral>0? 'integral_detail_item_up_right' : '这里填写减少的样式'}}">{{item.change_integral>0? '+'+item.change_integral : '-'+item.change_integral}}</text>
 				</view>
 				<view class="integral_detail_item_down">
 					<text>2016-02-15</text>
@@ -52,7 +52,7 @@
 	</view>
 	
     <!--领取积分-->
-	<view hidden="{{!tapFlag}}">
+	<view hidden="{{tapFlag}}">
 		<view class="integral_get">
 			<view class="integral_get_item">
 				<view class="integral_get_item_title">

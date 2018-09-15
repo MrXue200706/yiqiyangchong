@@ -26,7 +26,7 @@
         <navigator url="../addAdress/addAdress" class="myAdress_add_item myAdress_add_yellow">
             <text>手动添加地址</text>
         </navigator>
-        <view class="myAdress_add_item myAdress_add_green">
+        <view class="myAdress_add_item myAdress_add_green" bindtap='getWXAdr'>
             <text>获取微信地址</text>
         </view>
     </view>

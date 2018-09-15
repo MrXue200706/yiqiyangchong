@@ -16,16 +16,16 @@
 					<view class="cuopon_content_item_left">
 						<view>
 							<text class="cuopon_content_item_left_con">¥</text>
-							<text class="cuopon_content_item_left_price">10</text>
+							<text class="cuopon_content_item_left_price">{{item.coupons_money}}</text>
 						</view>
 						<view class="cuopon_content_item_left_descript_d">
-							<text class="cuopon_content_item_left_descript">满199元可用</text>
+							<text class="cuopon_content_item_left_descript">满{{item.order_money}}元可用</text>
 						</view>
 					</view>
 					<view class="cuopon_content_item_right">
 						<view class="cuopon_content_item_right_up">
-							<text class="cuopon_content_item_right_up_left">满79减10元优惠券</text>
-							<text class="cuopon_content_item_right_up_right">200积分</text>
+							<text class="cuopon_content_item_right_up_left">满{{item.order_money}}减{{item.coupons_money}}元优惠券</text>
+							<text class="cuopon_content_item_right_up_right">{{item.integral}}积分</text>
 						</view>
 						<view class="cuopon_content_item_right_center">
 							<text>满减优惠券</text>

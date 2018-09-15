@@ -1,17 +1,17 @@
 <view class="goodsTogether">
     <!--商品-->
     <view class="goodsTogether_goods_d">
-        <navigator url="../goodsDetail/goodsDetail" class="goodsTogether_goods">
+        <navigator url="../goodsDetail/goodsDetail?id={{goods_detail.id}}" class="goodsTogether_goods">
             <view class="goodsTogether_goods_img"></view>
             <view class="goodsTogether_goods_text">
-                <view class="goodsTogether_goods_text_title">狗粮狗粮狗粮狗粮狗粮狗粮狗粮狗粮狗粮狗粮狗粮狗粮狗粮</view>
+                <view class="goodsTogether_goods_text_title">{{goods_detail.goods_name}}</view>
                 <view class="goodsTogether_goods_recommend">
                     <text>2人团</text>
                     <text>已团3232件</text>
                 </view>
                 <view class="goodsTogether_goods_text_bottom">
-                    <text class="goodsTogether_goods_text_bottom_red">￥58.88</text>
-                    <text class="goodsTogether_goods_text_bottom_gray">￥98.88</text>
+                    <text class="goodsTogether_goods_text_bottom_red">￥{{goods_detail.group_price}}</text>
+                    <text class="goodsTogether_goods_text_bottom_gray">￥{{goods_detail.market_price}}</text>
                 </view>
             </view>
         </navigator>
@@ -19,7 +19,7 @@
 
     <!--推荐-->
     <view class="goodsTogether_recommend">
-        <text>1212名宠友推荐</text>
+        <text>{{goods_detail.pet_friend_count}}名宠友推荐</text>
         <navigator url="../petFriends/petFriends" class="goodsTogether_recommend_avatar">
             <view class="goodsTogether_recommend_avatar_item specialTopicDetail_goods_recommend_avatar_first"></view>
             <view class="goodsTogether_recommend_avatar_item"></view>
@@ -44,7 +44,7 @@
             <view class="goodsTogether_person_info_text">
                 <text>仅剩1个名额,12:01：21后结束</text>
             </view>
-            <view class="goodsTogether_person_info_button">
+            <view class="goodsTogether_person_info_button" bindtap='shareTogetherShop'>
                 <text>邀请宠友参团</text>
             </view>
         </view>

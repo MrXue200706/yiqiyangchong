@@ -1,5 +1,26 @@
 <view class="collect">
-    <navigator url="../goodsDetail/goodsDetail" class="collect_goods">
+    <navigator url="../goodsDetail/goodsDetail?type=shopping&id={{item.goods_id}}" class="collect_goods" wx:for="{{collectList}}" wx:key="item.id">
+        <view class="collect_goods_img"><!-- 图片填充{{item.goods_img}}  --></view>
+        <view class="collect_goods_text">
+            <view class="collect_goods_text_title">{{item.goods_name}}</view>
+            <view class="collect_goods_recommend">
+                <view class="collect_goods_recommend_avatar">
+                    <view class="collect_goods_recommend_avatar_item collect_goods_recommend_avatar_first"></view>
+                    <view class="collect_goods_recommend_avatar_item"></view>
+                    <view class="collect_goods_recommend_avatar_item"></view>
+                    <view class="collect_goods_recommend_avatar_item"></view>
+                    <view class="collect_goods_recommend_avatar_item"></view>
+                </view>
+                <text class="collect_goods_recommend_content">{{item.count}}推荐</text>
+            </view>
+            <view class="collect_goods_text_bottom">
+                <text class="collect_goods_text_bottom_red">￥{{item.spec_price}}</text>
+                <text class="collect_goods_text_bottom_gray">￥{{item.market_price}}</text>
+                <text class="collect_goods_text_bottom_button">去看看</text>
+            </view>
+        </view>
+    </navigator>
+  <!--  <navigator url="../goodsDetail/goodsDetail" class="collect_goods">
         <view class="collect_goods_img"></view>
         <view class="collect_goods_text">
             <view class="collect_goods_text_title">狗粮狗粮狗粮狗粮狗粮狗粮狗粮狗粮狗粮狗粮狗粮狗粮狗粮</view>
@@ -19,26 +40,5 @@
                 <text class="collect_goods_text_bottom_button">去看看</text>
             </view>
         </view>
-    </navigator>
-    <navigator url="../goodsDetail/goodsDetail" class="collect_goods">
-        <view class="collect_goods_img"></view>
-        <view class="collect_goods_text">
-            <view class="collect_goods_text_title">狗粮狗粮狗粮狗粮狗粮狗粮狗粮狗粮狗粮狗粮狗粮狗粮狗粮</view>
-            <view class="collect_goods_recommend">
-                <view class="collect_goods_recommend_avatar">
-                    <view class="collect_goods_recommend_avatar_item collect_goods_recommend_avatar_first"></view>
-                    <view class="collect_goods_recommend_avatar_item"></view>
-                    <view class="collect_goods_recommend_avatar_item"></view>
-                    <view class="collect_goods_recommend_avatar_item"></view>
-                    <view class="collect_goods_recommend_avatar_item"></view>
-                </view>
-                <text class="collect_goods_recommend_content">1212推荐</text>
-            </view>
-            <view class="collect_goods_text_bottom">
-                <text class="collect_goods_text_bottom_red">￥58.88</text>
-                <text class="collect_goods_text_bottom_gray">￥98.88</text>
-                <text class="collect_goods_text_bottom_button">去看看</text>
-            </view>
-        </view>
-    </navigator>
+    </navigator>  -->
 </view>
