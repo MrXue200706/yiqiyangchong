@@ -19,7 +19,7 @@
         <view class="goodsDetail_title_content">
             <text>{{goods_detail.goods_name}}</text>
         </view>
-        <navigator url="../goodsTogether/goodsTogether?goods_id={{goods_detail.id}}" class="goodsDetail_title_get">
+        <navigator url="../goodsTogether/goodsTogether?ct=n&param_id={{goods_detail.id}}" class="goodsDetail_title_get">
             <text>赚积分</text>
         </navigator>
     </view>
@@ -103,13 +103,13 @@
             </view>
         </view>
         <view class="goodsDetail_foot_right">
-            <view class="goodsDetail_foot_right_left">
+            <view class="goodsDetail_foot_right_left" bindtap="buyOwn">
                 <text class="goodsDetail_foot_right_text">￥{{goods_detail.price}}</text>
                 <text class="goodsDetail_foot_right_text">直接购买</text>
             </view>
-            <view class="goodsDetail_foot_right_right">
+            <view class="goodsDetail_foot_right_right" bindtap="buyTogether">
                 <text class="goodsDetail_foot_right_text">￥{{goods_detail.group_price}}</text>
-                <text class="goodsDetail_foot_right_text">一键拼团</text>
+                <text class="goodsDetail_foot_right_text" >一键拼团</text>
             </view>
         </view>
     </view>

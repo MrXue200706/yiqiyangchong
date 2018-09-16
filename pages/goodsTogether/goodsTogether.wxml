@@ -44,9 +44,16 @@
             <view class="goodsTogether_person_info_text">
                 <text>仅剩1个名额,12:01：21后结束</text>
             </view>
-            <view class="goodsTogether_person_info_button" bindtap='shareTogetherShop'>
-                <text>邀请宠友参团</text>
-            </view>
+			<view hidden="{{showShare}}">
+				<button class="goodsTogether_person_info_button" bindtap="buyTogether">
+					<text>参与团购</text>
+				</button>
+			</view>
+			<view hidden="{{!showShare}}">
+				<button class="goodsTogether_person_info_button" data-paramId="{{goods_detail.id}}" data-shareId="{{app.globalData.userInfo.data.data.user_id}}" open-type="share">
+					<text>邀请宠友参团</text>
+				</button>
+			</view>
         </view>
     </view>
 

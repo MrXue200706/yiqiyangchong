@@ -5,7 +5,6 @@ var util = require('../../utils/md5.js')
 
 Page({
   data: {
-    goods_id: null, //商品id
     goods_detail: {}, //详情
     type_selected: null, //选择规格
     selected_numb: 1, //选择数量
@@ -14,12 +13,8 @@ Page({
     shopping: 'normal', //是否抢购，否则正常
   },
   onLoad: function(options) {
-    if (options.shopping =="shopping"){//如果是团购
-      this.setData({
-        shopping: options.shopping
-      });
-    }
     this.setData({
+      shopping: options.shopping,
       goods_id: options.goods_id,
       type_selected: options.type_selected,
       selected_numb: options.selected_numb,
@@ -76,10 +71,21 @@ Page({
   },
   chooseAdr() { //选择地址
     wx.navigateTo({
-      url: "../myAdress/myAdress?type=shopping&goods_id=" + this.data.goods_id + "&type_selected=" + this.data.type_selected + "&selected_numb=" + this.data.selected_numb
+    goods_detail: {}, //详情
+      url: "../myAdress/myAdress?type=shopping&goods_id=" + this.data.goods_detail.id + "&type_selected=" + this.data.type_selected + "&selected_numb=" + this.data.selected_numb
     })
   },
   payNow() { //立即支付
+    if (this.data.address_id == 0) {
+      wx.showToast({
+        title: '请选择收货地址！',
+        icon: 'none',
+        duration: 2000,
+        mask: true,
+        success: function() {}
+      })
+    }
+
     //获取选择规格全部信息
     let spec_list = this.data.goods_detail.goods_spec_list;
     let type_selected1 = null; //规格1
@@ -94,30 +100,30 @@ Page({
 
 
     console.log("user_id: " + app.globalData.userInfo.data.data.user_id)
-    console.log("goods_id: " + that.data.goods_id)
+    console.log("goods_id: " + that.data.goods_detail.id)
     console.log("coupons_id: " + "")
     console.log("address_id: " + that.data.address_id)
     console.log("number: " + that.data.selected_numb)
     console.log("spec_1: " + type_selected1)
     console.log("spec_2: " + type_selected2)
-    if (that.data.address_id == 0) {
-      wx.showToast({
-        title: '请选择收货地址！',
-        icon: 'none',
-        duration: 2000,
-        mask: true,
-        success: function() {}
-      })
+
+    var queryUrl = '';
+    //确认订单类型
+    if (this.data.shopping == 'shopping') {
+      //团购订单提交入口
+      queryUrl = 'https://wechatapi.vipcsg.com/index/order/group_submit'
+    } else {
+      //一般订单提交入口
+      queryUrl = 'https://wechatapi.vipcsg.com/index/order/submit'
     }
 
-
-    //提交订单
+    //提交团购订单
     wx.request({
-      url: 'https://wechatapi.vipcsg.com/index/order/submit',
+      url: queryUrl,
       method: 'POST',
       data: {
         user_id: app.globalData.userInfo.data.data.user_id,
-        goods_id: that.data.goods_id,
+        goods_id: that.data.goods_detail.id,
         coupons_id: "",
         address_id: that.data.address_id,
         number: that.data.selected_numb,
@@ -126,10 +132,12 @@ Page({
       },
       success(res) {
         if (res.data.result == 1) {
-          let that = this;
           let payData = res.data.data;
           let packageStr = "prepay_id=" + payData.prepay_id
           let paySignStr = util.hexMD5("appId=wxc7bf060c95b1645b&nonceStr=" + payData.nonceStr + "&package=" + packageStr + "&signType=MD5&timeStamp=" + payData.timeStamp + "&key=dbsDggC8AMXk8LBo30hlHvZ5GBtnjybx")
+          let order_no = payData.order_no;
+
+          console.log(that.data.shopping)
           debugger;
           //跳转微信支付
           wx.requestPayment({
@@ -138,17 +146,22 @@ Page({
             'package': packageStr,
             'signType': 'MD5',
             'paySign': paySignStr,
-            'success': function(res) {
-              //判断是否为团购，如果团购，则调到待成团页面
-              if(that.data.shopping=="shoppring"){
+            'success': function(res2) {
+              //判断是否为团购，如果团购，则跳到邀请团友页面/待成团界面
+              debugger;
+              if (that.data.shopping == "shopping") {
+                debugger
                 wx.navigateTo({
-                  url: "../goodsTogether/goodsTogether?goods_id=23&"
+                  url: "../goodsTogether/goodsTogether?ct=n&order_no=" + order_no +"&param_id="+that.data.goods_detail.id
+                })
+              }else{
+                debugger
+                //跳转到待收货页面
+                wx.navigateTo({
+                  url: "../unpay/unpay?order_status=1"
                 })
               }
-              //跳转到待收货页面
-              wx.navigateTo({
-                url: "../unpay/unpay?order_status=1"
-              })
+              
               console.log("支付成功！！")
               debugger;
 
@@ -168,5 +181,6 @@ Page({
         }
       },
     })
+
   }
 })

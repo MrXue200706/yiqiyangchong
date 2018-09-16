@@ -223,5 +223,17 @@ Page({
     wx.switchTab({
       url: '../index/index',
     })
+  },
+  buyTogether(){//团购订单修改入口
+    this.setData({
+      shopping: 'shopping'
+    });
+    this.iframeFn();
+  },
+  buyOwn(){
+    this.setData({
+      shopping: 'normal'
+    });
+    this.iframeFn();
   }
 })

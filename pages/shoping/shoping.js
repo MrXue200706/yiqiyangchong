@@ -4,7 +4,7 @@ const app = getApp()
 
 Page({
   data: {
-    
+    shopList: null, //列表
   },
   onShow(){
     this.getList();
@@ -14,7 +14,7 @@ Page({
   },
   getList(){
     //获取当前时间
-    let nowH = new Date().getHours()
+    let nowH = new Date().getHours();
     console.log(nowH);
     let that = this;
     wx.request({
@@ -23,7 +23,9 @@ Page({
       data: {
         time: "15:00"
       }, success(res) {
-        console.log(res);
+        that.setData({
+          shopList: res.data.data
+        })
       },
     })
   }

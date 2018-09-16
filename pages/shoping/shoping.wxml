@@ -50,7 +50,7 @@
 
     <!--商品-->
     <view class="shoping_goods_d">
-        <navigator url="../goodsDetail/goodsDetail?type=shopping&id={{item.goods_id}}" class="shoping_goods">
+        <navigator url="../goodsDetail/goodsDetail?type=shopping&id={{item.goods_id}}" wx:for="{{shopList}}" wx:key="item.id" class="shoping_goods">
             <view class="shoping_goods_img"></view>
             <view class="shoping_goods_text">
                 <view class="shoping_goods_text_title">{{item.goods_name}}</view>

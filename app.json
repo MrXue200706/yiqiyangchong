@@ -21,7 +21,7 @@
     "pages/goodsTogether/goodsTogether",
     "pages/superShop/superShop",
     "pages/checkPay/checkPay",
-	"pages/login/login",
+    "pages/login/login",
     "login"
   ],
   "window": {

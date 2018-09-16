@@ -14,18 +14,12 @@ Page({
 	selected_numb: 1,//选择数量，临时存储
   },
   onLoad(options){
-	if (options.type == "shopping"){
 		this.setData({
-			type: options.type,
-			goods_id: options.goods_id,
-			type_selected: options.type_selected,
-			selected_numb: options.selected_numb,
+      type: options.type == undefined ? 'editAdr' : options.type,
+      goods_id: options.goods_id == undefined ? null : options.goods_id,
+      type_selected: options.type_selected == undefined ? null : options.type_selected,
+      selected_numb: options.selected_numb == undefined ? null : options.selected_numb,
 		})
-	}else{
-		this.setData({
-			type: "editAdr"
-		})
-	}
     this.getAddressList();
   },
   getAddressList(){
@@ -48,7 +42,7 @@ Page({
 	if(this.data.type=="shopping"){
 		//如果是在购买页面跳转过来的，单击直接填充地址
 		wx.navigateTo({ 
-		  url: "../checkPay/checkPay?adrId="+adrId+"&goods_id="+this.data.goods_id+"&type_selected="+this.data.type_selected+"&selected_numb="+this.data.selected_numb
+		  url: "../checkPay/checkPay?shopping="+this.data.type + "&adrId="+adrId+"&goods_id="+this.data.goods_id+"&type_selected="+this.data.type_selected+"&selected_numb="+this.data.selected_numb
 		});
 	}else{
 		//进入编辑页面
