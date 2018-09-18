@@ -149,5 +149,33 @@ Page({
 			}
 		  }
 		})	
-	}
+	},
+
+  //关注
+  focusOn(e){
+    let friend_id = e.currentTarget.dataset.friendid
+    let that = this;
+    wx.request({
+      url: 'https://wechatapi.vipcsg.com/index/member/follow',
+      method: 'POST',
+      data: {
+        user_id: app.globalData.userInfo.data.data.user_id,
+        follow_id: friend_id
+      }, success(res) {
+        if(res.data.result==1){
+          //弹窗提示
+          wx.showToast({
+            title: '关注成功',
+            icon: 'succes',
+            duration: 1000,
+            mask: true,
+            success: function () {
+              //按钮变黑
+              
+            }
+          })
+        }
+      },
+    })
+  }
 })

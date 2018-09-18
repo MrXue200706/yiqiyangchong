@@ -15,7 +15,7 @@ Page({
 		  url: 'https://wechatapi.vipcsg.com/index/member/pet_list',
 		  method: 'GET',
 		  data: {
-			user_id: app.globalData.userInfo.data.data.user_id
+			  user_id: app.globalData.userInfo.data.data.user_id
 		  }, success(res) {
 			  that.setData({
 				  myPetList: res.data.data

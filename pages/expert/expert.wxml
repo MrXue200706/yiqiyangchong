@@ -1,52 +1,74 @@
 <view class="expert">
-    <!--头像-->
-    <view class="expert_avatar">
-        <view class="expert_avatar_item"></view>
+  <!--头像-->
+  <view class="expert_avatar">
+    <view class="expert_avatar_item">
+      <!-- 头像 {{expertDetail.member.avatarUrl}} -->
     </view>
+  </view>
 
-    <!--名字-->
-    <view class="expert_name">
-        <view class="expert_name_item">
-            <text>阿花</text>
+  <!--名字-->
+  <view class="expert_name">
+    <view class="expert_name_item">
+      <text>{{expertDetail.member.nickName}}</text>
+    </view>
+  </view>
+
+  <!--粉丝-->
+  <view class="expert_fans">
+    <navigator url="../petFriends/petFriends?pageType=expert&petType=follow&uid={{expertDetail.member.id}}" class="expert_fans_text">关注：{{expertDetail.follow_count}}</navigator> |
+    <navigator url="../petFriends/petFriends?pageType=expert&petType=fans&uid={{expertDetail.member.id}}" class="expert_fans_text">粉丝：{{expertDetail.fans_count}}</navigator>
+  </view>
+
+  <!--商品-->
+  <view class="expert_goods">
+    <view class="expert_goods_content">
+      <navigator url="../collect/collect?ptype=collect&uid={{expertDetail.member.id}}" class="expert_goods_content_item">
+        <text class="expert_goods_content_item_title">收藏</text>
+        <text class="expert_goods_content_item_detail">已添加:{{expertDetail.goods_collection_count}}</text>
+        <view class="expert_goods_content_item_avatar">
+          <!-- 已收藏的图片{{expertDetail.goods_collection_list}} -->
+          <view class="expert_goods_content_item_avatar_item expert_goods_content_item_avatar_item_first"></view>
+          <view class="expert_goods_content_item_avatar_item"></view>
+          <view class="expert_goods_content_item_avatar_item"></view>
         </view>
-    </view>
-
-    <!--粉丝-->
-    <view class="expert_fans">
-        <text class="expert_fans_text">关注：4564</text> |
-        <text class="expert_fans_text">粉丝：4564</text>
-    </view>
-    
-    <!--商品-->
-    <view class="expert_goods">
-        <view class="expert_goods_content">
-            <navigator url="../collect/collect" class="expert_goods_content_item">
-                <text class="expert_goods_content_item_title">收藏</text>
-                <text class="expert_goods_content_item_detail">已添加:3</text>
-                <view class="expert_goods_content_item_avatar">
-                    <view class="expert_goods_content_item_avatar_item expert_goods_content_item_avatar_item_first"></view>
-                    <view class="expert_goods_content_item_avatar_item"></view>
-                    <view class="expert_goods_content_item_avatar_item"></view>
-                </view>
-            </navigator>
-            <navigator url="../collect/collect" class="expert_goods_content_item">
-                <text class="expert_goods_content_item_title">推荐商品</text>
-                <text class="expert_goods_content_item_detail">已购商品:5634</text>
-                <view class="expert_goods_content_item_avatar">
-                    <view class="expert_goods_content_item_avatar_item expert_goods_content_item_avatar_item_first"></view>
-                    <view class="expert_goods_content_item_avatar_item"></view>
-                    <view class="expert_goods_content_item_avatar_item"></view>
-                    <view class="expert_goods_content_item_avatar_item"></view>
-                    <view class="expert_goods_content_item_avatar_item"></view>
-                </view>
-            </navigator>
+      </navigator>
+      <navigator url="../collect/collect?ptype=recommend&uid={{expertDetail.member.id}}" class="expert_goods_content_item">
+        <text class="expert_goods_content_item_title">推荐商品</text>
+        <text class="expert_goods_content_item_detail">已购商品:5634<!-- 缺个已购商品的数量 --></text>
+        <view class="expert_goods_content_item_avatar">
+          <view class="expert_goods_content_item_avatar_item expert_goods_content_item_avatar_item_first"></view>
+          <view class="expert_goods_content_item_avatar_item"></view>
+          <view class="expert_goods_content_item_avatar_item"></view>
+          <view class="expert_goods_content_item_avatar_item"></view>
+          <view class="expert_goods_content_item_avatar_item"></view>
         </view>
-        <view class="expert_goods_line"></view>
+      </navigator>
     </view>
+    <view class="expert_goods_line"></view>
+  </view>
 
-    <!--宠物-->
-    <view class="expert_pets_d">
-        <navigator url="../petsDetail/petsDetail" class="expert_pets">
+  <!--宠物-->
+  <view class="expert_pets_d">
+    <navigator url="../petsDetail/petsDetail?pet_id={{item.id}}" class="expert_pets" wx:for="{{expertDetail.pet_list}}" wx:key="item.id">
+      <view class="expert_pets_content">
+        <view>
+          <text class="expert_pets_content_item expert_pets_content_item_blue">
+                        <text>{{item.pet_sex}}</text>
+          </text>
+        </view>
+        <view>
+          <text class="expert_pets_content_item expert_pets_content_item_red">
+                        <text>{{item.pet_type}}</text>
+          </text>
+        </view>
+        <view>
+          <text class="expert_pets_content_item expert_pets_content_item_yellow">
+                        <text>{{item.show_birthday}}</text>
+          </text>
+        </view>
+      </view>
+    </navigator>
+    <!-- <navigator url="../petsDetail/petsDetail" class="expert_pets">
             <view class="expert_pets_content">
                 <view>
                     <text class="expert_pets_content_item expert_pets_content_item_blue">
@@ -64,25 +86,6 @@
                     </text>
                 </view>
             </view>
-        </navigator>
-        <navigator url="../petsDetail/petsDetail" class="expert_pets">
-            <view class="expert_pets_content">
-                <view>
-                    <text class="expert_pets_content_item expert_pets_content_item_blue">
-                        <text>GG</text>
-                    </text>
-                </view>
-                <view>
-                    <text class="expert_pets_content_item expert_pets_content_item_red">
-                        <text>泰日天</text>
-                    </text>
-                </view>
-                <view>
-                    <text class="expert_pets_content_item expert_pets_content_item_yellow">
-                        <text>1岁1个月</text>
-                    </text>
-                </view>
-            </view>
-        </navigator>
-    </view>
+        </navigator> -->
+  </view>
 </view>

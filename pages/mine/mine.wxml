@@ -4,9 +4,9 @@
         <view class="avatar_avatar"><!--  img:  {{userInfo.member.avatarUrl}} --></view>
         <view class="avatar_name">{{userInfo.member.nickName}}</view>
         <view class="avatar_fallow">
-            <navigator url="../petFriends/petFriends" class="avatar_fallow_left">关注 {{userInfo.follow_count}}</navigator>
+            <navigator url="../petFriends/petFriends?pageType=mine&petType=follow&uid={{userInfo.member.id}}" class="avatar_fallow_left">关注 {{userInfo.follow_count}}</navigator>
             <text>|</text>
-            <navigator url="../petFriends/petFriends" class="avatar_fallow_right">粉丝 {{userInfo.fans_count}}</navigator>
+            <navigator url="../petFriends/petFriends?pageType=mine&petType=fans&uid={{userInfo.member.id}}" class="avatar_fallow_right">粉丝 {{userInfo.fans_count}}</navigator>
         </view>
     </view>
 
@@ -51,7 +51,7 @@
             <view class="official_item_title">优惠券</view>
             <view class="official_item_under">积分兑换优惠券</view>
         </navigator>
-        <navigator url="../collect/collect" class="official_item">
+        <navigator url="../collect/collect?ptype=collect&uid={{userInfo.member.id}}" class="official_item">
             <view class="official_item_img"></view>
             <view class="official_item_title">收藏</view>
             <view class="official_item_under">已收藏：{{userInfo.goods_collection_count}}</view>
@@ -62,7 +62,7 @@
             <view class="official_item_under">已存在：{{userInfo.address_count}}</view>
         </navigator>
         <!-- <button open-type='getUserInfo' bindgetuserinfo="bindGetUserInfo"></button> -->
-        <view class="official_item">
+        <view class="official_item" bindtap='cooperation'>
             <view class="official_item_img"></view>
             <view class="official_item_title">合作</view>
             <view class="official_item_under">商务合作</view>

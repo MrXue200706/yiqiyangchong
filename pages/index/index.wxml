@@ -54,12 +54,12 @@
     <scroll-view scroll-x="true">
       <view class="pet_expert_scroll">
           <view class="pet_expert_item" wx:for="{{pet_expert}}" wx:key="item.friend_id">
-            <navigator url="../expert/expert" class="pet_expert_avatar">
+            <navigator url="../expert/expert?key={{item.friend_id}}" class="pet_expert_avatar">
               <image class="pet_expert_avatar_img" src="{{item.avatar}}" mode="widthFix"></image>
             </navigator>
             <view class="pet_expert_name">{{item.nick_name}}</view>
             <view class="pet_expert_pet">{{item.pet_name}} {{item.pet_type}}</view>
-            <view class="pet_expert_item_button">
+            <view class="pet_expert_item_button" data-friendId="{{item.friend_id}}" bindtap='focusOn'>
               <text>关注</text>
             </view>
           </view>

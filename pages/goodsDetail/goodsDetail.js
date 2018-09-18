@@ -46,8 +46,6 @@ Page({
     }
     //请求
     this.getGoodsDetail(o.id);
-    //检查是否已收藏
-    this.checkCollect();
   },
   getGoodsDetail(id) { //获取页面细节
     let that = this;
@@ -63,8 +61,8 @@ Page({
         that.setData({
           descript: res.data.data.goods_desc
         });
-        console.log(that.data.goods_detail)
-        console.log(that.data.descript)
+        //检查是否已收藏
+        that.checkCollect();
       },
     })
   },
@@ -100,21 +98,19 @@ Page({
   checkCollect() { //检查是否已收藏
     let that = this;
     wx.request({
-      url: 'https://wechatapi.vipcsg.com/index/goods/collection_list',
+      url: 'http://wechatapi.vipcsg.com/index/goods/is_collection',
       method: 'GET',
       data: {
         user_id: app.globalData.userInfo.data.data.user_id,
+        goods_id: this.data.goods_detail.id
       },
       success(res) {
-        var collectList = res.data.data;
-        for (var i = 0; i < collectList.length; i++) {
-          if (collectList[i].goods_id == that.data.goods_detail.id) {
-            //字体改为取消收藏
-            that.setData({
-              collectTxt: "取消收藏"
-            });
-            break;
-          }
+        var isCollection = res.data.data.collection;
+        if (isCollection == 1) {
+          //字体改为取消收藏
+          that.setData({
+            collectTxt: "取消收藏"
+          });
         }
       },
     })

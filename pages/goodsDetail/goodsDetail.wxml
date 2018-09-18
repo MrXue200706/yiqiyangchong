@@ -65,7 +65,7 @@
             </view>
             <view class="goodsDetail_main_descript_content">
                 <text>
-                    {{goods_detail.goods_desc}}
+                    {{goods_detail.goods_description}}
                 </text>
             </view>
         </view>

@@ -39,7 +39,7 @@
 		</view>
 		
 		<view hidden="{{!couponFlag}}">
-			<!--    后续需要点击我的优惠券，以下代码就是，但少了开始时间和结束时间的样式。所以注释了
+			<!--    后续需要点击我的优惠券，以下代码就是，但少了开始时间和结束时间的样式。所以注释了-->
 			<view class="cuopon_content_item"  wx:for="{{myCoupon}}" wx:key="item.id" data-id="{{item.id}}">
 				<view class="cuopon_content_item_left">
 					<view>
@@ -60,11 +60,10 @@
 					</view>
 					<view class="cuopon_content_item_right_down">
 						<text class="cuopon_content_item_right_down_left">积分兑换，不可叠加使用</text>
-						<text class="cuopon_content_item_right_down_right">立即兑换</text>
+            <navigator url="../index/index" class="cuopon_content_item_right_down_right" open-type="switchTab">立即使用</navigator>
 					</view>
 				</view>
 			</view>
-			-->
 		</view>
 		
 		

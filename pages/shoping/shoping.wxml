@@ -2,15 +2,15 @@
     <!--时间-->
     <scroll-view scroll-x="true" class="shoping_time_d">
         <view class="shoping_time">
-            <view class="shoping_time_item shoping_time_item_active">
+            <!-- <view class="shoping_time_item ">
                 <view class="shoping_time_item_time">10:00</view>        
                 <view class="shoping_time_item_notice">抢购中</view>        
+            </view> -->
+            <view class="shoping_time_item{{nowTime>=dateListNum[index]?(nowTime<dateListNum[index+1]?' shoping_time_item_active':''):''}}" wx:for="{{dateListNum}}" data-timeNum="{{item}}" bindtap="chooseTimeShow">
+                <view class="shoping_time_item_time">{{item=='全天'?'全天':item+':00'}}</view>        
+                <view class="shoping_time_item_notice">{{nowTime>=dateListNum[index]?(nowTime<dateListNum[index+1]?'抢购中':'已结束'): '即将开始'}}</view>
             </view>
-            <view class="shoping_time_item">
-                <view class="shoping_time_item_time">12:00</view>        
-                <view class="shoping_time_item_notice">即将开始</view>        
-            </view>
-            <view class="shoping_time_item">
+            <!-- <view class="shoping_time_item">
                 <view class="shoping_time_item_time">14:00</view>        
                 <view class="shoping_time_item_notice">即将开始</view>        
             </view>
@@ -29,7 +29,7 @@
             <view class="shoping_time_item">
                 <view class="shoping_time_item_time">00:00</view>        
                 <view class="shoping_time_item_notice">即将开始</view>        
-            </view>
+            </view> -->
         </view>
     </scroll-view>
 
@@ -62,7 +62,15 @@
                 <view class="shoping_goods_text_bottom">
                     <text class="shoping_goods_text_bottom_red">￥{{item.price}}</text>
                     <text class="shoping_goods_text_bottom_gray">￥{{item.market_price}}</text>
-                    <text class="shoping_goods_text_bottom_button">马上抢</text>
+                    <view hidden='{{nowTime<chooseTimeNo}}'>
+                      <text>抢购结束</text>
+                    </view>
+                    <view hidden='{{nowTime>chooseTimeNo}}'>
+                      <text>尚未开始</text>
+                    </view>
+                    <view hidden='{{nowTime==chooseTimeNo}}'>
+                      <text class="shoping_goods_text_bottom_button">马上抢</text>
+                    </view>
                 </view>
             </view>
         </navigator>

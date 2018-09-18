@@ -36,7 +36,7 @@ Page({
   },
   calculate(){//计算积分可抵扣的钱
 	  this.setData({
-		  deduction: (Number(this.data.integral) / 100).toFixed(2)
+		  deduction: (Number(this.data.integral) / 1000).toFixed(2)
 	  })
   },
   getIntegralList(){//获取积分明细
