@@ -12,6 +12,7 @@ Page({
     share_date: null, //分享日期，分享后，别人点进来的入口参数
     showShare: true, //预置分享样式
     order_no: null, //开团团长团购订单NO
+    fullTogether: false, //团购商品是否满员
   },
   onLoad(options) {
     this.setData({
@@ -20,22 +21,14 @@ Page({
       share_id: options.share_id == undefined ? null : options.share_id,
       share_type: options.share_type == undefined ? null : options.share_type,
       share_date: options.share_date == undefined ? null : options.share_date,
-      order_no: options.order_no,
+      order_no: options.order_no == undefined ? null : options.order_no,
     });
-    
-    if (options.ct == 'y') {
-      //参团操作
-      this.setData({
-        showShare: false
-      })
-    } else {
-      //开团操作
-      this.setData({
-        showShare: true
-      })
-    }
+
     //获取商品详情
     this.getGoodsDetail(options.param_id);
+
+    //检查是否满团
+    this.groupCheck();
   },
   getGoodsDetail(id) {//获取商品详情，填充页面
     let that = this;
@@ -61,11 +54,15 @@ Page({
         order_no: that.data.order_no
       }, success(res) {
         if (res.data.result==1){
-          //可拼团，跳转支付页面
+          //可拼团，跳转商品规格选择页面
           console.log("可拼团~~~")
+          wx.navigateTo({
+            url: "../goodsDetail/goodsDetail?shopping=together&goods_id=" + that.data.goods_detail.id + "&ct=y&order_no=" + that.data.order_no
+          })
+        }else{
           //弹窗提示
           wx.showToast({
-            title: '可拼团~~~',
+            title: '该团购已满员',
             icon: 'none',
             duration: 2000,
             mask: true,
@@ -149,5 +146,42 @@ Page({
     console.log(shareObj)
     return shareObj;
   },
-
+  groupCheck() {//检查是否满团
+    let that = this;
+    wx.request({
+      url: 'https://wechatapi.vipcsg.com/index/order/group_check',
+      method: 'GET',
+      data: {
+        order_no: that.data.order_no
+      }, success(res) {
+        if (res.data.result == 1) {
+          if (that.ct == 'y') {
+            //参团操作
+            that.setData({
+              showShare: false,
+              fullTogether: false
+            })
+          } else {
+            //开团操作
+            that.setData({
+              showShare: true,
+              fullTogether: false
+            })
+          }
+        } else {
+          that.setData({
+            fullTogether: true
+          })
+          //弹窗提示
+          wx.showToast({
+            title: '该团购已满员',
+            icon: 'none',
+            duration: 2000,
+            mask: true,
+            success: function () { }
+          })
+        }
+      },
+    })
+  }
 })

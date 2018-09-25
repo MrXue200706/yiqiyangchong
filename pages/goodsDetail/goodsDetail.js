@@ -10,12 +10,14 @@ Page({
     type_one_active: null, //修改点击后的样式
     type_two_active: null, //修改点击后的样式
     type_selected: {}, //选中的规格
-    shopping: 'normal', //是否抢购，否则正常
+    shopping: 'normal', //是否抢购，shopping：抢购商品，together：团购商品，normal：一般订单
     goods_detail: {}, //详情
     selected_numb: 1, //选择的数量
     descript: null, //描述
     collectTxt: "收藏", //收藏按钮显示文字
     collectId: null, //收藏id
+    order_no: null, //参与团购的开团orderNo
+    ct: 'n', //是否参与团购,n:不参团, y:参与团购
   },
   iframeFn() { //规格选择弹出
     this.setData({
@@ -42,6 +44,12 @@ Page({
     if (o.type == 'shopping') {
       this.setData({
         shopping: 'shopping'
+      })
+    } else if (o.type == 'together') {
+      this.setData({
+        shopping: 'together',
+        order_no: o.order_no,
+        ct: 'y'
       })
     }
     //请求
@@ -80,7 +88,8 @@ Page({
       selected_numb: this.data.selected_numb + 1
     })
   },
-  submitOrder() { //数据校验
+  submitOrder() { 
+    //数据校验
     if (JSON.stringify(this.data.type_selected) == '{}' ? true : false) {
       wx.showToast({
         title: '请填写商品规格',
@@ -90,7 +99,7 @@ Page({
       return;
     }
     wx.navigateTo({
-      url: "../checkPay/checkPay?shopping=" + this.data.shopping+"&goods_id=" + this.data.goods_detail.id + "&type_selected=" + this.data.type_selected + "&selected_numb=" + this.data.selected_numb
+      url: "../checkPay/checkPay?shopping=" + this.data.shopping + "&goods_id=" + this.data.goods_detail.id + "&type_selected=" + this.data.type_selected + "&selected_numb=" + this.data.selected_numb + "&ct=" + this.data.ct + "&order_no=" + this.data.order_no
     })
 
     //this.subMitOrderFun();
@@ -222,7 +231,7 @@ Page({
   },
   buyTogether(){//团购订单修改入口
     this.setData({
-      shopping: 'shopping'
+      shopping: 'together'
     });
     this.iframeFn();
   },

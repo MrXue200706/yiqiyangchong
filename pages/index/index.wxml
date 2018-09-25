@@ -90,7 +90,7 @@
         <image class="goods_item_img_image" src="{{item.goods_img}}" mode="widthFix"></image>
       </view>
       <view class="goods_item_title">{{item.goods_name}}</view>
-      <view class="goods_item_price">￥{{item.market_price}}</view>
+      <view class="goods_item_price">￥{{item.price}}</view>
       <view class="goods_item_recommend">
         <text class="goods_item_recommend_number">{{item.pet_friend_count}}推荐</text>
         <view class="goods_item_recommend_avatars">

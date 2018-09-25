@@ -1,7 +1,7 @@
 <view class="checkPay">
     <!--获取地址-->
     <view class="checkPay_getAdress">
-        <view class="checkPay_getAdress_item checkPay_getAdress_item_green">
+        <view class="checkPay_getAdress_item checkPay_getAdress_item_green" bindtap='chooseVxAddr'>
             <view class="checkPay_getAdress_item_left">
                 <view class="checkPay_getAdress_item_avatar"></view>
                 <text>获取微信地址</text>
@@ -66,20 +66,20 @@
 
     <!--优惠券-->
     <view class="checkPay_ticket">
-        <view class="checkPay_ticket_item">
+        <view class="checkPay_ticket_item" style="display:none;">
             <view class="checkPay_ticket_item_left">
                 <text>可用100积分抵扣10元</text>
             </view>
             <view class="checkPay_ticket_item_right">
-                <icon type="success" size="20" color="#f73227"/>
+                <icon type="clear" size="20" color="#f73227"/>
             </view>
         </view>
-        <view class="checkPay_ticket_item" style="display:none;">
+        <view class="checkPay_ticket_item" bindtap='chooseCoupon'>
             <view class="checkPay_ticket_item_left">
-                <text>优惠券</text>
+                <text>请选择优惠券</text>
             </view>
             <view class="checkPay_ticket_item_right">
-                <text>-¥10</text>
+                <text>{{subprice==0? '' : subprice}}<!--  -¥10 --></text>
                 <text class="checkPay_ticket_item_right_more">></text>
             </view>
         </view>
@@ -97,7 +97,7 @@
     <view class="checkPay_foot">
         <view class="checkPay_foot_left">
             <text class="checkPay_foot_left_b">实付款：</text>
-            <text class="checkPay_foot_left_r">¥{{totalPay}}</text>
+            <text class="checkPay_foot_left_r">¥{{totalPay-subprice}}</text>
         </view>
         <view class="checkPay_foot_right" bindtap="payNow">
             <text>立即支付</text>

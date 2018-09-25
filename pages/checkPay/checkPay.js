@@ -11,6 +11,10 @@ Page({
     totalPay: 100000, //费用合计
     address_id: 0, //地址ID
     shopping: 'normal', //是否抢购，否则正常
+    ct: 'n', //是否参与团购,n:普通购买, y:参与团购
+    order_no: null, //参与团购的开团orderNo
+    couponId: "", //优惠券ID
+    subprice: 0, //优惠券减免价格
   },
   onLoad: function(options) {
     this.setData({
@@ -18,13 +22,21 @@ Page({
       goods_id: options.goods_id,
       type_selected: options.type_selected,
       selected_numb: options.selected_numb,
+      ct: options.ct == undefined ? null : options.ct,
+      order_no: options.order_no == undefined ? null : options.order_no,
+      couponId: options.couponId == undefined ? null : options.couponId,
+      address_id: options.address_id == undefined ? null : options.address_id,
+      subprice: options.subprice == undefined ? 0 : options.subprice,
     });
     if (options.adrId != undefined) {
       this.setData({
         address_id: options.adrId
       });
     }
+    //商品详情
     this.getGoodsDetail(options.goods_id);
+    //填充默认收货地址
+    this.fullDefaultAddress();
   },
   getGoodsDetail(id) { //获取页面细节
     let that = this;
@@ -71,8 +83,7 @@ Page({
   },
   chooseAdr() { //选择地址
     wx.navigateTo({
-    goods_detail: {}, //详情
-      url: "../myAdress/myAdress?type=shopping&goods_id=" + this.data.goods_detail.id + "&type_selected=" + this.data.type_selected + "&selected_numb=" + this.data.selected_numb
+      url: "../myAdress/myAdress?type=" + this.data.shopping + "&goods_id=" + this.data.goods_detail.id + "&type_selected=" + this.data.type_selected + "&selected_numb=" + this.data.selected_numb + "&ct=" + this.data.ct + "&order_no=" + this.data.order_no + "&couponId=" + this.data.couponId
     })
   },
   payNow() { //立即支付
@@ -109,22 +120,33 @@ Page({
 
     var queryUrl = '';
     //确认订单类型
-    if (this.data.shopping == 'shopping') {
-      //团购订单提交入口
-      queryUrl = 'https://wechatapi.vipcsg.com/index/order/group_submit'
+    if (this.data.shopping == 'together') {
+      if (this.data.ct == 'n') {
+        //开团
+        queryUrl = 'https://wechatapi.vipcsg.com/index/order/group_submit'
+      } else {
+        //参团
+        queryUrl = 'https://wechatapi.vipcsg.com/index/order/member_submit'
+      }
+    } else if (this.data.shopping == 'shopping') {
+      //抢购商品
+      //queryUrl = 'https://wechatapi.vipcsg.com/index/order/group_submit'
     } else {
       //一般订单提交入口
       queryUrl = 'https://wechatapi.vipcsg.com/index/order/submit'
     }
 
+    console.log("提交订单的url：" + queryUrl)
+    console.log("优惠券ID：" + that.data.couponId)
     //提交团购订单
     wx.request({
       url: queryUrl,
       method: 'POST',
       data: {
+        order_no: that.data.order_no,
         user_id: app.globalData.userInfo.data.data.user_id,
         goods_id: that.data.goods_detail.id,
-        coupons_id: "",
+        coupons_id: that.data.couponId,
         address_id: that.data.address_id,
         number: that.data.selected_numb,
         spec_1: type_selected1,
@@ -149,19 +171,35 @@ Page({
             'success': function(res2) {
               //判断是否为团购，如果团购，则跳到邀请团友页面/待成团界面
               debugger;
-              if (that.data.shopping == "shopping") {
+              if (that.data.shopping == "together") {
                 debugger
-                wx.navigateTo({
-                  url: "../goodsTogether/goodsTogether?ct=n&order_no=" + order_no +"&param_id="+that.data.goods_detail.id
-                })
-              }else{
+                if (that.data.ct = 'n') {
+                  //开团
+                  wx.navigateTo({
+                    url: "../goodsTogether/goodsTogether?ct=n&order_no=" + order_no + "&param_id=" + that.data.goods_detail.id
+                  })
+                } else {
+                  //参团，传递团长order_no
+                  wx.showToast({
+                    title: '参与团购成功，邀请更多朋友团购吧',
+                    icon: 'succes',
+                    duration: 1000,
+                    mask: true,
+                    success: function() {
+                      wx.navigateTo({
+                        url: "../goodsTogether/goodsTogether?ct=n&order_no=" + that.data.order_no + "&param_id=" + that.data.goods_detail.id
+                      })
+                    }
+                  });
+                }
+              } else {
                 debugger
                 //跳转到待收货页面
                 wx.navigateTo({
                   url: "../unpay/unpay?order_status=1"
                 })
               }
-              
+
               console.log("支付成功！！")
               debugger;
 
@@ -182,5 +220,51 @@ Page({
       },
     })
 
+  },
+  fullDefaultAddress() { //填充默认用户地址
+
+    let that = this;
+    wx.request({
+      url: 'http://wechatapi.vipcsg.com/index/member/default_address',
+      method: 'GET',
+      data: {
+        user_id: app.globalData.userInfo.data.data.user_id
+      },
+      success(res) {
+        if (res.data.result == 1) {
+          that.setData({
+            address_id: res.data.data.id
+          })
+        } else {
+          //弹窗提示
+          wx.showToast({
+            title: '获取默认地址出错',
+            icon: 'one',
+            duration: 1000,
+            mask: true,
+            success: function() {}
+          })
+        }
+      },
+    })
+  },
+  chooseVxAddr() { //获取微信地址
+    if (wx.chooseAddress) {
+      wx.chooseAddress({
+        success: function(res) {
+          console.log(JSON.stringify(res))
+        },
+        fail: function(err) {
+          console.log(JSON.stringify(err))
+        }
+      })
+    } else {
+      console.log('当前微信版本不支持chooseAddress');
+    }
+  },
+  chooseCoupon(){//选择优惠券
+    wx.navigateTo({
+      url: "../cuopon/cuopon?type=" + this.data.shopping + "&goods_id=" + this.data.goods_detail.id + "&type_selected=" + this.data.type_selected + "&selected_numb=" + this.data.selected_numb + "&ct=" + this.data.ct + "&order_no=" + this.data.order_no + "&address_id=" + this.data.address_id + "&totalPay=" + this.data.totalPay
+    })
   }
 })
