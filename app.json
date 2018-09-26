@@ -21,6 +21,7 @@
     "pages/goodsTogether/goodsTogether",
     "pages/superShop/superShop",
     "pages/checkPay/checkPay",
+    "pages/orderList/orderList",
     "pages/login/login",
     "login"
   ],
