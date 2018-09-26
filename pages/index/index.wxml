@@ -1,13 +1,5 @@
 <!--index.wxml-->
 <view class="index">
-  <!--搜索框-->
-  <navigator url="../search/search" class="search">
-    <view class="search_in">
-      <image src="../../images/搜索栏搜索.png" mode="widthFix"></image>
-      <text>输入想搜索的商品</text>
-    </view>
-  </navigator>
-
   <!--头部轮播图-->
   <swiper class="head_swiper" 
     indicator-color="#fff" indicator-active-color="#fd9805" 
@@ -22,27 +14,19 @@
   <!--商品分类-->
   <view class="goods_class">
     <navigator url="../dogGoods/dogGoods" class="goods_class_item">
-      <view class="goods_class_item_img">
-        <image src="../../images/狗狗.png" mode="widthFix"></image>
-      </view>
+      <view class="goods_class_item_img"></view>
       <text class="goods_class_item_title">狗狗</text>
     </navigator>
     <navigator url="../dogGoods/dogGoods" class="goods_class_item">
-      <view class="goods_class_item_img">
-        <image src="../../images/猫咪.png" mode="widthFix"></image>
-      </view>
+      <view class="goods_class_item_img"></view>
       <text class="goods_class_item_title">猫猫</text>
     </navigator>
     <navigator url="../dogGoods/dogGoods" class="goods_class_item">
-      <view class="goods_class_item_img">
-        <image src="../../images/小宠.png" mode="widthFix"></image>
-      </view>
+      <view class="goods_class_item_img"></view>
       <text class="goods_class_item_title">小宠</text>
     </navigator>
     <navigator url="../dogGoods/dogGoods" class="goods_class_item">
-      <view class="goods_class_item_img">
-        <image src="../../images/周边.png" mode="widthFix"></image>
-      </view>
+      <view class="goods_class_item_img"></view>
       <text class="goods_class_item_title">周边</text>
     </navigator>
   </view>

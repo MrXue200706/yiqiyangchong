@@ -9,13 +9,9 @@ Page({
     is_iframe: false, //点击购买按钮弹出选择弹出层
     type_one_active: null, //修改点击后的样式
     type_two_active: null, //修改点击后的样式
-<<<<<<< HEAD
     type_one_selected: null, //选中的规格
     spec1: "0", //规格1
     spec2: "0", //规格2
-=======
-    type_one_selected: {}, //选中的规格
->>>>>>> fcbdaad8955754fa1cd169fc16aaae3f2dd21302
     shopping: 'normal', //是否抢购，shopping：抢购商品，together：团购商品，normal：一般订单
     goods_detail: {}, //详情
     selected_numb: 1, //选择的数量
@@ -34,28 +30,20 @@ Page({
     let type_select = event.currentTarget.dataset.type;
     let id = event.currentTarget.id;
     this.setData({
-<<<<<<< HEAD
       type_one_selected: type_select,
       spec1: event.currentTarget.dataset.spec
-=======
-      type_one_selected: type_select
->>>>>>> fcbdaad8955754fa1cd169fc16aaae3f2dd21302
     });
     this.setData({
       type_one_active: id
     });
   },
   typeTwoFn(event) { //规格2选择
-<<<<<<< HEAD
     let type_select = event.currentTarget.dataset.spec;
     let id = event.currentTarget.id;
     this.setData({
       type_two_selected: type_select,
       spec2: event.currentTarget.dataset.spec
     });
-=======
-    let id = event.currentTarget.id;
->>>>>>> fcbdaad8955754fa1cd169fc16aaae3f2dd21302
     this.setData({
       type_two_active: id
     });

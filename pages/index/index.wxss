@@ -3,32 +3,6 @@
   background-color: #f2f7f8;
 }
 
-/*搜索框*/
-.search{
-  height: 70rpx;
-  background-color: #fff;
-  display: flex;
-  justify-content: center;
-  align-content: center;
-}
-.search_in{
-  width: 90%;
-  height: 50rpx;
-  border-radius: 25rpx;
-  background-color: #f2f7f8;
-  display: flex;
-  align-items: center;
-}
-.search_in image{
-  width: 32rpx;
-  margin-left: 20rpx;
-}
-.search_in text{
-  font-size: 20rpx;
-  margin-left: 30rpx;
-  color: #989898;
-}
-
 /*头部轮播图*/
 .head_swiper{
   padding: 0 28rpx;
@@ -67,13 +41,10 @@
   width: 88rpx;
   height: 88rpx;
   border-radius: 50%;
-  /*background-color: #989898;*/
+  background-color: #989898;
   margin: 16rpx 0;
   margin-left: 50%;
   transform: translateX(-50%);
-}
-.goods_class_item_img image{
-  width: 86rpx;
 }
 
 /*活动*/

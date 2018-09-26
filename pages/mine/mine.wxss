@@ -16,10 +16,6 @@
     margin-left: 50%;
     transform: translateX(-50%);
     border: 1px solid #fff;
-    overflow: hidden;
-}
-.avatar_avatar image{
-    width: 100%;
 }
 .avatar_name{
     font-size: 30rpx;

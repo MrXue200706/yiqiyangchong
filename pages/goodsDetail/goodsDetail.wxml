@@ -154,12 +154,8 @@
                     class="{{type_two_active==index?'goodsDetail_iframe_type_active':'goodsDetail_iframe_type_item'}}"
                     wx:for="{{type_one_selected.spec_option}}" wx:key="item.id"
                     id="{{index}}"
-<<<<<<< HEAD
                     bindtap="typeTwoFn"
                     data-spec="{{item.spec_value_2}}">
-=======
-                    bindtap="typeTwoFn">
->>>>>>> fcbdaad8955754fa1cd169fc16aaae3f2dd21302
                     <text>{{item.spec_value_2}}</text>
                 </view>
             </view>
