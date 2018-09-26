@@ -64,7 +64,7 @@ Page({
 			"phone": this.data.phoneNumber,
 			"addres": this.data.address
 		  }, success(res) {
-			debugger;
+			// debugger;
 			if (res.data.result == 1){
 			  //保存成功
 			  wx.navigateTo({

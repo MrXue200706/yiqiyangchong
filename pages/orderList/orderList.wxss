@@ -1,0 +1,98 @@
+.orderList{
+    background-color: #f2f7f8;
+}
+/*顶部tab*/
+.orderList_tab{
+    display: flex;
+    flex-wrap: nowrap;
+    font-size: 26rpx;
+    color: #bcbcbc;
+    justify-content: space-around;
+    background-color: #fff;
+}
+.orderList_tab_item_active{
+    color: #000;
+    border-bottom: 4rpx solid #ff9305;
+}
+
+/*订单*/
+.orderList_content_item{
+    padding: 10rpx;
+    margin-top: 14rpx;
+    background-color: #fff;
+}
+.orderList_content_item_head{
+    display: flex;
+    justify-content: space-between;
+    padding: 20rpx;
+}
+.orderList_content_item_head text:first-child{
+    font-size: 20rpx;
+}
+.orderList_content_item_head text:last-child{
+    font-size: 24rpx;
+    color: #e02f23;
+}
+.orderList_content_item_body{
+    background-color: #f8f8f8;
+    display: flex;
+    flex-wrap: nowrap;
+    padding: 10rpx;
+}
+.orderList_content_item_body_img{
+    width: 118rpx;
+    height: 118rpx;
+    background-color: #888;
+    flex-shrink: 0;
+}
+.orderList_content_item_body_text{
+    width: 480rpx;
+    margin-left: 20rpx;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: space-between;
+}
+.orderList_content_item_body_text_tittle{
+    font-size: 26rpx;
+}
+.orderList_content_item_body_text_detail{
+    font-size: 20rpx;
+    color: #bcbcbc;
+}
+.orderList_content_item_body_numb{
+    font-size: 26rpx;
+    margin-left: 30rpx;
+}
+.orderList_total{
+    font-size: 26rpx;
+    padding: 20rpx;
+    text-align: right;
+    border-bottom: 1px solid #bcbcbc;
+}
+.orderList_buttons{
+    padding: 20rpx;
+    text-align: right;
+}
+.orderList_buttons_cancel{
+    font-size: 26rpx;
+    display: inline-block;
+    width: 134rpx;
+    height: 44rpx;
+    line-height: 44rpx;
+    border: 1px solid #888;
+    border-radius: 10rpx;
+    text-align: center;
+}
+.orderList_buttons_check{
+    font-size: 26rpx;
+    display: inline-block;
+    width: 134rpx;
+    height: 44rpx;
+    line-height: 44rpx;
+    border: 1px solid #fff;
+    color: #fff;
+    border-radius: 10rpx;
+    text-align: center;
+    background-color: #e02f23;
+    margin-left: 20rpx;
+}

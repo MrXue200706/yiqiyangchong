@@ -40,7 +40,7 @@ Page({
         // 返回选定照片的本地文件路径列表，tempFilePath可以作为img标签的src属性显示图片
         that.data.petFilePaths = res.tempFilePaths;
         //图片回显操作
-        debugger;
+        // debugger;
       }
     })
   },
@@ -99,7 +99,7 @@ Page({
               },
               success: function (res) {
                 uploadImgCount++;
-				debugger;
+				// debugger;
 
                 //如果是最后一张,则隐藏等待中
                 if (uploadImgCount == tempFilePaths.length) {
@@ -117,7 +117,7 @@ Page({
 				})
               },
               fail: function (res) {
-				  debugger;
+				  // debugger;
                 wx.hideToast();
                 wx.showModal({
                   title: '错误提示',

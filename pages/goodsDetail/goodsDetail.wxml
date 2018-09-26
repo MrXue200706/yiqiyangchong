@@ -69,8 +69,8 @@
                 </text>
             </view>
         </view>
-        <view class="goodsDetail_main_img" wx:for="{{goods_detail.goods_img_list}}" wx:key="item.index">
-            <image mode="widthFix" src="{{item.goods_img}}" class="goodsDetail_main_img_item"></image>
+        <view class="goodsDetail_main_img" wx:for="{{goods_detail.goods_desc}}" wx:key="item.index">
+            <image mode="widthFix" src="{{item}}" class="goodsDetail_main_img_item"></image>
         </view>
     </view>
 
@@ -120,7 +120,7 @@
         <view class="goodsDetail_iframe_white">
             <view class="goodsDetail_iframe_goods">
                 <view class="goodsDetail_iframe_goods_avatar">
-                    <image mode="widthFix" src="{{goods_detail.goods_img_list[0].goods_img}}"  class="goodsDetail_iframe_goods_avatar_img"></image>
+                    <image mode="widthFix" src="{{type_one_selected.spec_img}}"  class="goodsDetail_iframe_goods_avatar_img"></image>
                 </view>
                 <view class="goodsDetail_iframe_goods_price">
                     <text>¥58.8</text>
@@ -140,19 +140,23 @@
                     class="{{type_one_active==index?'goodsDetail_iframe_type_active':'goodsDetail_iframe_type_item'}}" 
                     bindtap="typeOneFn"
                     data-type="{{item}}"
+                    data-spec="{{item.spec_name}}"
                     id="{{index}}"
-                    wx:for="{{goods_detail.goods_spec_list}}" wx:key="item.id">
-                    <text>{{item.spec_value}}</text>
+                    wx:for="{{goods_detail.display_spec}}" wx:key="item.id">
+                    <text>{{item.spec_name}}</text>
                 </view>
             </view>
-            <view class="goodsDetail_iframe_type" wx:if="{{type_selected.spec_value_2}}">
+            <view class="goodsDetail_iframe_type" wx:if="{{type_one_selected.spec_option.length > 0}}">
                 <view class="goodsDetail_iframe_type_title">
                     <text>规格</text>
                 </view>
                 <view 
-                    class="{{type_two_active?'goodsDetail_iframe_type_active':'goodsDetail_iframe_type_item'}}" 
-                    bindtap="typeTwoFn">
-                    <text>{{type_selected.spec_value_2}}</text>
+                    class="{{type_two_active==index?'goodsDetail_iframe_type_active':'goodsDetail_iframe_type_item'}}"
+                    wx:for="{{type_one_selected.spec_option}}" wx:key="item.id"
+                    id="{{index}}"
+                    bindtap="typeTwoFn"
+                    data-spec="{{item.spec_value_2}}">
+                    <text>{{item.spec_value_2}}</text>
                 </view>
             </view>
             <view class="goodsDetail_iframe_number">

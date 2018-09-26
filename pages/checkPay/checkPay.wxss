@@ -50,13 +50,14 @@
     display: flex;
     flex-wrap: wrap;
     align-content: center;
-    display: none;
 }
 .checkPay_adress_name{
+    width: 100%;
     font-size: 26rpx;
     color: #333;
 }
 .checkPay_adress_adress{
+    width: 100%;
     font-size: 24rpx;
     color: #888;
     margin-top: 1em;

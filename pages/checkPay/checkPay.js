@@ -6,7 +6,8 @@ var util = require('../../utils/md5.js')
 Page({
   data: {
     goods_detail: {}, //详情
-    type_selected: null, //选择规格
+    type_selected1: null, //选择规格1
+    type_selected2: null, //选择规格2
     selected_numb: 1, //选择数量
     totalPay: 100000, //费用合计
     address_id: 0, //地址ID
@@ -15,12 +16,24 @@ Page({
     order_no: null, //参与团购的开团orderNo
     couponId: "", //优惠券ID
     subprice: 0, //优惠券减免价格
+    defaultAddress: null, //默认地址
   },
   onLoad: function(options) {
+    if (options.type_selected1 == undefined || options.type_selected2 == undefined) { //如果不选规格，直接return
+      wx.showToast({
+        title: '加载页面出错',
+        icon: 'none',
+        duration: 2000,
+        mask: true,
+        success: function() {}
+      })
+      return;
+    }
     this.setData({
       shopping: options.shopping,
       goods_id: options.goods_id,
-      type_selected: options.type_selected,
+      type_selected1: options.type_selected1,
+      type_selected2: options.type_selected2,
       selected_numb: options.selected_numb,
       ct: options.ct == undefined ? null : options.ct,
       order_no: options.order_no == undefined ? null : options.order_no,
@@ -70,12 +83,27 @@ Page({
     });
     this.totalPayCount();
   },
+  selecrInputNum(event) { //用户输入数字
+    this.setData({
+      selected_numb: event.detail.value == 0 ? 1 : event.detail.value
+    })
+    this.totalPayCount();
+  },
   totalPayCount() { //计算价格，重新设置价格
+    //获取当前选择规格的价钱
     let list = this.data.goods_detail.goods_spec_list
     for (var i = 0; i < list.length; i++) {
-      if (list[i].spec_value == this.data.type_selected || list[i].spec_value_2 == this.data.type_selected) {
+      if (list[i].spec_value == this.data.type_selected1 && list[i].spec_value_2 == this.data.type_selected2) {
+        let pice;
+        if (this.data.shopping == "normal") { //普通购买
+          pice = list[i].spec_price
+        } else if (this.data.shopping == "together") { //团购价格
+          pice = list[i].group_price
+        } else { //默认为普通购买
+          pice = list[i].spec_price
+        }
         this.setData({
-          totalPay: (Number(list[i].spec_price) * Number(this.data.selected_numb)).toFixed(2)
+          totalPay: (Number(pice) * Number(this.data.selected_numb)).toFixed(2)
         });
         console.log("价格：" + this.data.totalPay);
       }
@@ -83,40 +111,38 @@ Page({
   },
   chooseAdr() { //选择地址
     wx.navigateTo({
-      url: "../myAdress/myAdress?type=" + this.data.shopping + "&goods_id=" + this.data.goods_detail.id + "&type_selected=" + this.data.type_selected + "&selected_numb=" + this.data.selected_numb + "&ct=" + this.data.ct + "&order_no=" + this.data.order_no + "&couponId=" + this.data.couponId
+      url: "../myAdress/myAdress?type=" + this.data.shopping + "&goods_id=" + this.data.goods_detail.id + "&type_selected1=" + this.data.type_selected1 + "&type_selected2=" + this.data.type_selected2 + "&selected_numb=" + this.data.selected_numb + "&ct=" + this.data.ct + "&order_no=" + this.data.order_no + "&couponId=" + this.data.couponId
     })
   },
   payNow() { //立即支付
+    if (this.data.type_selected1 == undefined){
+      wx.showToast({
+        title: '数据丢失，请重新进行选择购买',
+        icon: 'none',
+        duration: 1000,
+        mask: true,
+        success: function () { }
+      })
+      return;
+    }
     if (this.data.address_id == 0) {
       wx.showToast({
         title: '请选择收货地址！',
         icon: 'none',
-        duration: 2000,
+        duration: 1000,
         mask: true,
         success: function() {}
       })
     }
 
-    //获取选择规格全部信息
-    let spec_list = this.data.goods_detail.goods_spec_list;
-    let type_selected1 = null; //规格1
-    let type_selected2 = null; //规格2
-    for (var i = 0; i < spec_list.length; i++) {
-      if (spec_list[i].spec_value == this.data.type_selected || spec_list[i].spec_value_2 == this.data.type_selected) {
-        type_selected1 = spec_list[i].spec_value;
-        type_selected2 = spec_list[i].spec_value_2;
-      }
-    }
     let that = this;
-
-
     console.log("user_id: " + app.globalData.userInfo.data.data.user_id)
     console.log("goods_id: " + that.data.goods_detail.id)
     console.log("coupons_id: " + "")
     console.log("address_id: " + that.data.address_id)
     console.log("number: " + that.data.selected_numb)
-    console.log("spec_1: " + type_selected1)
-    console.log("spec_2: " + type_selected2)
+    console.log("spec_1: " + that.data.type_selected1)
+    console.log("spec_2: " + that.data.type_selected2)
 
     var queryUrl = '';
     //确认订单类型
@@ -136,8 +162,6 @@ Page({
       queryUrl = 'https://wechatapi.vipcsg.com/index/order/submit'
     }
 
-    console.log("提交订单的url：" + queryUrl)
-    console.log("优惠券ID：" + that.data.couponId)
     //提交团购订单
     wx.request({
       url: queryUrl,
@@ -149,8 +173,8 @@ Page({
         coupons_id: that.data.couponId,
         address_id: that.data.address_id,
         number: that.data.selected_numb,
-        spec_1: type_selected1,
-        spec_2: type_selected2,
+        spec_1: that.data.type_selected1,
+        spec_2: that.data.type_selected2,
       },
       success(res) {
         if (res.data.result == 1) {
@@ -159,8 +183,6 @@ Page({
           let paySignStr = util.hexMD5("appId=wxc7bf060c95b1645b&nonceStr=" + payData.nonceStr + "&package=" + packageStr + "&signType=MD5&timeStamp=" + payData.timeStamp + "&key=dbsDggC8AMXk8LBo30hlHvZ5GBtnjybx")
           let order_no = payData.order_no;
 
-          console.log(that.data.shopping)
-          debugger;
           //跳转微信支付
           wx.requestPayment({
             'timeStamp': String(payData.timeStamp),
@@ -170,9 +192,9 @@ Page({
             'paySign': paySignStr,
             'success': function(res2) {
               //判断是否为团购，如果团购，则跳到邀请团友页面/待成团界面
-              debugger;
+              // debugger;
               if (that.data.shopping == "together") {
-                debugger
+                // debugger
                 if (that.data.ct = 'n') {
                   //开团
                   wx.navigateTo({
@@ -193,7 +215,7 @@ Page({
                   });
                 }
               } else {
-                debugger
+                // debugger
                 //跳转到待收货页面
                 wx.navigateTo({
                   url: "../unpay/unpay?order_status=1"
@@ -201,7 +223,7 @@ Page({
               }
 
               console.log("支付成功！！")
-              debugger;
+              // debugger;
 
             },
             'fail': function(res) {
@@ -210,7 +232,7 @@ Page({
                 url: "../unpay/unpay?order_status=1"
               })
               console.log("支付失败！！")
-              debugger;
+              // debugger;
             },
             'complete': function(res) {
               console.log("最终路线！！")
@@ -234,6 +256,9 @@ Page({
         if (res.data.result == 1) {
           that.setData({
             address_id: res.data.data.id
+          });
+          that.setData({
+            defaultAddress: res.data.data
           })
         } else {
           //弹窗提示
@@ -247,6 +272,7 @@ Page({
         }
       },
     })
+    console.log(this.data)
   },
   chooseVxAddr() { //获取微信地址
     if (wx.chooseAddress) {
@@ -262,9 +288,9 @@ Page({
       console.log('当前微信版本不支持chooseAddress');
     }
   },
-  chooseCoupon(){//选择优惠券
+  chooseCoupon() { //选择优惠券
     wx.navigateTo({
-      url: "../cuopon/cuopon?type=" + this.data.shopping + "&goods_id=" + this.data.goods_detail.id + "&type_selected=" + this.data.type_selected + "&selected_numb=" + this.data.selected_numb + "&ct=" + this.data.ct + "&order_no=" + this.data.order_no + "&address_id=" + this.data.address_id + "&totalPay=" + this.data.totalPay
+      url: "../cuopon/cuopon?type=" + this.data.shopping + "&goods_id=" + this.data.goods_detail.id + "&type_selected1=" + this.data.type_selected1 + "&type_selected2=" + this.data.type_selected2 + "&selected_numb=" + this.data.selected_numb + "&ct=" + this.data.ct + "&order_no=" + this.data.order_no + "&address_id=" + this.data.address_id + "&totalPay=" + this.data.totalPay
     })
   }
 })

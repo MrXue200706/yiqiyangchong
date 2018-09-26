@@ -11,7 +11,8 @@ Page({
     couponFlag: false, //是否隐藏兑换优惠券
     otype: 'normal', //记录订单参数
     goods_id: null, //记录订单参数
-    type_selected: null, //记录订单参数
+    type_selected1: null, //记录订单参数
+    type_selected2: null, //记录订单参数
     selected_numb: null, //记录订单参数
     order_no: null, //记录订单参数
     ct: 'n', //记录订单参数
@@ -24,7 +25,8 @@ Page({
       this.setData({
         otype: options.type,
         goods_id: options.goods_id,
-        type_selected: options.type_selected,
+        type_selected1: options.type_selected1,
+        type_selected2: options.type_selected2,
         selected_numb: options.selected_numb,
         order_no: options.order_no == undefined ? null : options.order_no,
         ct: options.ct == undefined ? 'n' : options.ct,
@@ -119,12 +121,13 @@ Page({
   },
   useCoupon(e){//立即使用
     if (this.data.comeIn== 'order'){
+      console.log(parseFloat(e.currentTarget.dataset.order_money) )
+      console.log(parseFloat(this.data.totalPay));
       //查看优惠券的商品价格是否达到要求
-      if (e.currentTarget.dataset.order_money < this.data.totalPay){
+      if (parseFloat(e.currentTarget.dataset.order_money) <= parseFloat(this.data.totalPay)){
         //如果是在购买页面跳转过来的，单击直接填充优惠券ID
         wx.navigateTo({
-          
-          url: "../checkPay/checkPay?shopping=" + this.data.otype + "&couponId=" + e.currentTarget.dataset.couponid + "&goods_id=" + this.data.goods_id + "&type_selected=" + this.data.type_selected + "&selected_numb=" + this.data.selected_numb + "&order_no=" + this.data.order_no + "&ct=" + this.data.ct + "&subprice=" + e.currentTarget.dataset.subprice
+          url: "../checkPay/checkPay?shopping=" + this.data.otype + "&couponId=" + e.currentTarget.dataset.couponid + "&goods_id=" + this.data.goods_id + "&type_selected1=" + this.data.type_selected1 + "&type_selected2=" + this.data.type_selected2 + "&selected_numb=" + this.data.selected_numb + "&order_no=" + this.data.order_no + "&ct=" + this.data.ct + "&subprice=" + e.currentTarget.dataset.subprice
         });
       }else{
         wx.showToast({

@@ -1,6 +1,6 @@
 <view class="checkPay">
     <!--获取地址-->
-    <view class="checkPay_getAdress">
+    <view class="checkPay_getAdress" wx:if="{{defaultAddress == null}}">
         <view class="checkPay_getAdress_item checkPay_getAdress_item_green" bindtap='chooseVxAddr'>
             <view class="checkPay_getAdress_item_left">
                 <view class="checkPay_getAdress_item_avatar"></view>
@@ -18,19 +18,19 @@
     </view>
 
     <!--地址-->
-    <view class="checkPay_adress">
+    <view class="checkPay_adress" wx:if="{{defaultAddress != null}}">
         <view class="checkPay_adress_name">
-            <text>林小姐</text>
-            <text>132****9092</text>
+            <text>{{defaultAddress.name}}</text>
+            <text>{{defaultAddress.phone}}</text>
         </view>
         <view class="checkPay_adress_adress">
-            <text>地址：广东省广州市好的健身卡回复好多时间啊复活健康</text>
+            <text>地址：{{defaultAddress.addres}}</text>
         </view>
     </view>
 
     <!--商品-->
     <view class="checkPay_goods_d">
-        <navigator url="../goodsDetail/goodsDetail" class="checkPay_goods">
+        <navigator url="../goodsDetail/goodsDetail?type={{shopping}}&id={{goods_detail.id}}" class="checkPay_goods">
             <view class="checkPay_goods_img">
 				<!-- img位置 -->
 			</view>
@@ -50,7 +50,7 @@
             <text>数量</text>
             <view class="checkPay_goods_number_button">
                 <view class="checkPay_goods_number_button_left" bindtap="numberReduceFn">-</view>
-                <input type="number" class="checkPay_goods_number_button_input" value="{{selected_numb}}"/>
+                <input type="number" bindinput='selecrInputNum' class="checkPay_goods_number_button_input" value="{{selected_numb}}"/>
                 <view class="checkPay_goods_number_button_right" bindtap="numberAddFn">+</view>
             </view>
         </view>

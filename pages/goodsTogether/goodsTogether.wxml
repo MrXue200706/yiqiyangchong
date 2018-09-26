@@ -50,15 +50,17 @@
                   <text>该团购已满</text>
                 </view>
             </view>
-            <view hidden="{{showShare&&!fullTogether}}">
-              <button class="goodsTogether_person_info_button" bindtap="buyTogether">
-                <text>参与团购</text>
-              </button>
-            </view>
-            <view hidden="{{!showShare&&!fullTogether}}">
-              <button class="goodsTogether_person_info_button" data-paramId="{{goods_detail.id}}" data-shareId="{{app.globalData.userInfo.data.data.user_id}}" open-type="share">
-                <text>邀请宠友参团</text>
-              </button>
+            <view hidden="{{!fullTogether}}">
+              <view hidden="{{showShare}}">
+                <button class="goodsTogether_person_info_button" bindtap="buyTogether">
+                  <text>参与团购</text>
+                </button>
+              </view>
+              <view hidden="{{!showShare&&!fullTogether}}">
+                <button class="goodsTogether_person_info_button" data-paramId="{{goods_detail.id}}" data-shareId="{{app.globalData.userInfo.data.data.user_id}}" open-type="share">
+                  <text>邀请宠友参团</text>
+                </button>
+              </view>
             </view>
         </view>
     </view>
