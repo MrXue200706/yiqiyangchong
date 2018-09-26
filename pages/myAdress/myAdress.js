@@ -156,7 +156,7 @@ Page({
                 console.log(address)
               },
               fail: function(data) {
-                debugger;
+                // debugger;
               }
             })
           }

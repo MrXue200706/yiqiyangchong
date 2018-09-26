@@ -1,6 +1,6 @@
 <view class="checkPay">
     <!--获取地址-->
-    <view class="checkPay_getAdress">
+    <view class="checkPay_getAdress" wx:if="{{defaultAddress == null}}">
         <view class="checkPay_getAdress_item checkPay_getAdress_item_green" bindtap='chooseVxAddr'>
             <view class="checkPay_getAdress_item_left">
                 <view class="checkPay_getAdress_item_avatar"></view>
@@ -18,13 +18,13 @@
     </view>
 
     <!--地址-->
-    <view class="checkPay_adress">
+    <view class="checkPay_adress" wx:if="{{defaultAddress != null}}">
         <view class="checkPay_adress_name">
-            <text>林小姐</text>
-            <text>132****9092</text>
+            <text>{{defaultAddress.name}}</text>
+            <text>{{defaultAddress.phone}}</text>
         </view>
         <view class="checkPay_adress_adress">
-            <text>地址：广东省广州市好的健身卡回复好多时间啊复活健康</text>
+            <text>地址：{{defaultAddress.addres}}</text>
         </view>
     </view>
 

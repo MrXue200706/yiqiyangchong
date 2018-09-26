@@ -61,7 +61,7 @@ Page({
         that.setData({
           pet_expert: res.data.data
         })
-        debugger;
+        // debugger;
         console.log(that.data.pet_expert)
       },
     })

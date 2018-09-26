@@ -15,6 +15,7 @@ Page({
     order_no: null, //参与团购的开团orderNo
     couponId: "", //优惠券ID
     subprice: 0, //优惠券减免价格
+    defaultAddress: null,//默认地址
   },
   onLoad: function(options) {
     this.setData({
@@ -160,7 +161,7 @@ Page({
           let order_no = payData.order_no;
 
           console.log(that.data.shopping)
-          debugger;
+          // debugger;
           //跳转微信支付
           wx.requestPayment({
             'timeStamp': String(payData.timeStamp),
@@ -170,9 +171,9 @@ Page({
             'paySign': paySignStr,
             'success': function(res2) {
               //判断是否为团购，如果团购，则跳到邀请团友页面/待成团界面
-              debugger;
+              // debugger;
               if (that.data.shopping == "together") {
-                debugger
+                // debugger
                 if (that.data.ct = 'n') {
                   //开团
                   wx.navigateTo({
@@ -193,7 +194,7 @@ Page({
                   });
                 }
               } else {
-                debugger
+                // debugger
                 //跳转到待收货页面
                 wx.navigateTo({
                   url: "../unpay/unpay?order_status=1"
@@ -201,7 +202,7 @@ Page({
               }
 
               console.log("支付成功！！")
-              debugger;
+              // debugger;
 
             },
             'fail': function(res) {
@@ -210,7 +211,7 @@ Page({
                 url: "../unpay/unpay?order_status=1"
               })
               console.log("支付失败！！")
-              debugger;
+              // debugger;
             },
             'complete': function(res) {
               console.log("最终路线！！")
@@ -234,6 +235,9 @@ Page({
         if (res.data.result == 1) {
           that.setData({
             address_id: res.data.data.id
+          });
+          that.setData({
+            defaultAddress: res.data.data
           })
         } else {
           //弹窗提示
@@ -247,6 +251,7 @@ Page({
         }
       },
     })
+    console.log(this.data)
   },
   chooseVxAddr() { //获取微信地址
     if (wx.chooseAddress) {
