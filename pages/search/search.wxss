@@ -1,0 +1,25 @@
+/*搜索框*/
+.search_box{
+  height: 70rpx;
+  background-color: #fff;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
+.search_box_in{
+  width: 90%;
+  height: 50rpx;
+  border-radius: 25rpx;
+  background-color: #f2f7f8;
+  display: flex;
+  align-items: center;
+}
+.search_box_in image{
+  width: 32rpx;
+  margin-left: 20rpx;
+}
+.search_box_in input{
+  font-size: 20rpx;
+  margin-left: 30rpx;
+  color: #989898;
+}

@@ -1,0 +1,9 @@
+<view class="search">
+    <!--搜索框-->
+    <view class="search_box">
+        <view class="search_box_in">
+            <image src="../../images/搜索栏搜索.png" mode="widthFix"></image>
+            <input type="search" placeholder="输入想搜索的商品"/>
+        </view>
+    </view>
+</view>

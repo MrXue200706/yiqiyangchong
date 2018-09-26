@@ -33,48 +33,13 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 6,
+			"current": 0,
 			"list": [
 				{
-					"id": 0,
-					"name": "goodsDetail",
-					"pathName": "pages/goodsDetail/goodsDetail",
-					"query": ""
-				},
-				{
 					"id": -1,
-					"name": "goodsTogether",
-					"pathName": "pages/goodsTogether/goodsTogether",
+					"name": "search",
+					"pathName": "pages/search/search",
 					"query": ""
-				},
-				{
-					"id": -1,
-					"name": "superShop",
-					"pathName": "pages/superShop/superShop",
-					"query": ""
-				},
-				{
-					"id": -1,
-					"name": "checkPay",
-					"pathName": "pages/checkPay/checkPay",
-					"query": ""
-				},
-				{
-					"id": -1,
-					"name": "intergral",
-					"pathName": "pages/integral/integral",
-					"query": ""
-				},
-				{
-					"id": -1,
-					"name": "unpay",
-					"pathName": "pages/unpay/unpay",
-					"query": ""
-				},
-				{
-					"id": -1,
-					"name": "orderList",
-					"pathName": "pages/orderList/orderList"
 				}
 			]
 		}
