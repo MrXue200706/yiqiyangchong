@@ -16,12 +16,10 @@
 }
 
 /*订单*/
-.orderList_content{
-    background-color: #fff;
-}
 .orderList_content_item{
     padding: 10rpx;
     margin-top: 14rpx;
+    background-color: #fff;
 }
 .orderList_content_item_head{
     display: flex;
@@ -65,20 +63,14 @@
     font-size: 26rpx;
     margin-left: 30rpx;
 }
-
-/*合计*/
 .orderList_total{
     font-size: 26rpx;
     padding: 20rpx;
-    background-color: #fff;
     text-align: right;
     border-bottom: 1px solid #bcbcbc;
 }
-
-/*按钮*/
 .orderList_buttons{
     padding: 20rpx;
-    background-color: #fff;
     text-align: right;
 }
 .orderList_buttons_cancel{

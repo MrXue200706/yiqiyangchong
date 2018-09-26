@@ -1,11 +1,12 @@
 <view class="orderList">
     <!--顶部tab栏-->
     <view class="orderList_tab">
-        <view class="orderList_tab_item orderList_tab_item_active">全部</view>
-        <view class="orderList_tab_item">待付款</view>
-        <view class="orderList_tab_item">待成团</view>
-        <view class="orderList_tab_item">待收货</view>
-        <view class="orderList_tab_item">已完成</view>
+        <view class="{{tab_selected_id == index? 'orderList_tab_item_active':'orderList_tab_item'}}"
+            wx:for="{{tab_list}}" wx:key="{{index}}"
+            id="{{index}}"
+            bindtap="tab_select_fn">
+            <text>{{item}}</text>
+        </view>
     </view>
 
     <!--订单-->
@@ -31,21 +32,51 @@
                     <text>X1</text>
                 </view>
             </view>
+            <view class="orderList_total">
+                <text>合计：￥58.00(免运费)</text>
+            </view>
+            <view class="orderList_buttons">
+                <view class="orderList_buttons_cancel">
+                    <text>取消订单</text>
+                </view>
+                <view class="orderList_buttons_check">
+                    <text>邀请参团</text>
+                </view>
+            </view>
         </view>
-    </view>
 
-    <!--合计-->
-    <view class="orderList_total">
-        <text>合计：￥58.00(免运费)</text>
-    </view>
-
-    <!--按钮-->
-    <view class="orderList_buttons">
-        <view class="orderList_buttons_cancel">
-            <text>取消订单</text>
-        </view>
-        <view class="orderList_buttons_check">
-            <text>邀请参团</text>
+        <view class="orderList_content_item">
+            <view class="orderList_content_item_head">
+                <text>订单号：15643156743465434</text>
+                <text>拼团中</text>
+            </view>
+            <view class="orderList_content_item_body">
+                <view class="orderList_content_item_body_img"></view>
+                <view class="orderList_content_item_body_text">
+                    <view class="orderList_content_item_body_text_tittle">
+                        <text>你大家安静地方啦放ffdfdfdfdf假啊打开链接安抚发打卡练腹肌</text>
+                    </view>
+                    <view class="orderList_content_item_body_text_detail">
+                        <text>重量:10kg；</text>
+                        <text>重量:10kg；</text>
+                        <text>重量:10kg；</text>
+                    </view>
+                </view>
+                <view class="orderList_content_item_body_numb">
+                    <text>X1</text>
+                </view>
+            </view>
+            <view class="orderList_total">
+                <text>合计：￥58.00(免运费)</text>
+            </view>
+            <view class="orderList_buttons">
+                <view class="orderList_buttons_cancel">
+                    <text>取消订单</text>
+                </view>
+                <view class="orderList_buttons_check">
+                    <text>邀请参团</text>
+                </view>
+            </view>
         </view>
     </view>
 </view>
