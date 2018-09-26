@@ -16,7 +16,11 @@ Page({
     order_no: null, //参与团购的开团orderNo
     couponId: "", //优惠券ID
     subprice: 0, //优惠券减免价格
+<<<<<<< HEAD
     defaultAddress: null, //默认地址
+=======
+    defaultAddress: null,//默认地址
+>>>>>>> fcbdaad8955754fa1cd169fc16aaae3f2dd21302
   },
   onLoad: function(options) {
     if (options.type_selected1 == undefined || options.type_selected2 == undefined) { //如果不选规格，直接return
@@ -183,6 +187,11 @@ Page({
           let paySignStr = util.hexMD5("appId=wxc7bf060c95b1645b&nonceStr=" + payData.nonceStr + "&package=" + packageStr + "&signType=MD5&timeStamp=" + payData.timeStamp + "&key=dbsDggC8AMXk8LBo30hlHvZ5GBtnjybx")
           let order_no = payData.order_no;
 
+<<<<<<< HEAD
+=======
+          console.log(that.data.shopping)
+          // debugger;
+>>>>>>> fcbdaad8955754fa1cd169fc16aaae3f2dd21302
           //跳转微信支付
           wx.requestPayment({
             'timeStamp': String(payData.timeStamp),

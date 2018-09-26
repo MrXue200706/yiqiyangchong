@@ -33,36 +33,16 @@
 			"list": []
 		},
 		"miniprogram": {
+<<<<<<< HEAD
 			"current": 6,
+=======
+			"current": 0,
+>>>>>>> fcbdaad8955754fa1cd169fc16aaae3f2dd21302
 			"list": [
 				{
-					"id": 0,
-					"name": "goodsDetail",
-					"pathName": "pages/goodsDetail/goodsDetail",
-					"query": ""
-				},
-				{
 					"id": -1,
-					"name": "goodsTogether",
-					"pathName": "pages/goodsTogether/goodsTogether",
-					"query": ""
-				},
-				{
-					"id": -1,
-					"name": "superShop",
-					"pathName": "pages/superShop/superShop",
-					"query": ""
-				},
-				{
-					"id": -1,
-					"name": "checkPay",
-					"pathName": "pages/checkPay/checkPay",
-					"query": ""
-				},
-				{
-					"id": -1,
-					"name": "intergral",
-					"pathName": "pages/integral/integral",
+					"name": "search",
+					"pathName": "pages/search/search",
 					"query": ""
 				},
 				{

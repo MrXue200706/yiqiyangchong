@@ -1,7 +1,9 @@
 <view class="mine">
     <!--头像-->
     <view class="avatar">
-        <view class="avatar_avatar"><!--  img:  {{userInfo.member.avatarUrl}} --></view>
+        <view class="avatar_avatar">
+            <image src="{{userInfo.member.avatarUrl}}" mode="widthFix"></image>    
+        </view>
         <view class="avatar_name">{{userInfo.member.nickName}}</view>
         <view class="avatar_fallow">
             <navigator url="../petFriends/petFriends?pageType=mine&petType=follow&uid={{userInfo.member.id}}" class="avatar_fallow_left">关注 {{userInfo.follow_count}}</navigator>
