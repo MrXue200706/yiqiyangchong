@@ -14,19 +14,20 @@
 
     <!--状态-->
     <view class="state">
-        <navigator url="../unpay/unpay?type=unpay" class="state_item">
+        <navigator url="../orderList/orderList?ptype=unpay" class="state_item">
+        <!-- url="../unpay/unpay?type=unpay" -->
             <view class="state_item_img"></view>
             <text>待付款</text>
         </navigator>
-        <navigator url="../unpay/unpay?type=untogether" class="state_item">
+        <navigator url="../orderList/orderList?ptype=untogether" class="state_item">
             <view class="state_item_img"></view>
             <text>待成团</text>
         </navigator>
-        <navigator url="../unpay/unpay?type=unpick" class="state_item">
+        <navigator url="../orderList/orderList?ptype=unpick" class="state_item">
             <view class="state_item_img"></view>
             <text>待收货</text>
         </navigator>
-        <navigator url="../unpay/unpay?type=done" class="state_item">
+        <navigator url="../orderList/orderList?ptype=done" class="state_item">
             <view class="state_item_img"></view>
             <text>已完成</text>
         </navigator>

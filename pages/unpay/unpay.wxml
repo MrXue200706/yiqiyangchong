@@ -8,11 +8,11 @@
     <view class="unpay_address">
         <view class="unpay_address_content">
             <view class="unpay_address_content_up">
-                <text>林小姐</text>
-                <text>122****5644</text>
+                <text>{{orderDetail.order_address_name}}</text>
+                <text>{{orderDetail.order_address_phone}}</text>
             </view>
             <view class="unpay_address_content_down">
-                <text>广东省广州市时代的费时费力分类地接受了dsfdsfsd dsfdsf附近路附近</text>
+                <text>{{orderDetail.order_address}}</text>
             </view>
         </view>
         <view class="unpay_address_button">
@@ -25,11 +25,11 @@
     <view class="unpay_order">
         <view class="unpay_order_content">
             <view class="unpay_order_content_item">
-                <text>订单号：45675467534168745634156446</text>
+                <text>订单号：{{orderDetail.order_no}}</text>
             </view>
             <view class="unpay_order_content_item">
-                <text>下单时间：2018-05-05</text>
-                <text>12:02:15</text>
+                <text>下单时间：{{orderDetail.order_time}}</text>
+                <!-- <text>12:02:15</text> -->
             </view>
         </view>
         <view class="unpay_order_button">
@@ -43,15 +43,15 @@
             <view class="unpay_goods_content_img"></view>
             <view class="unpay_goods_content_text">
                 <view class="unpay_goods_content_text_title">
-                    <text>撒旦萨芬的的广泛大使馆是豆腐干反对恢复受到广泛但是地方官大使馆地方</text>
+                    <text>{{orderDetail.goods_name}}</text>
                 </view>
                 <view class="unpay_goods_content_text_detail">
-                    <text>颜色：21321321；重量：42KG；尺码：1213；</text>
+                    <!-- <text>颜色：21321321；重量：42KG；尺码：1213；</text> -->
                 </view>
             </view>
         </view>
         <view class="unpay_goods_price">
-            <text class="unpay_goods_price_left">共计1件商品 合计：</text>
+            <text class="unpay_goods_price_left">共计{{orderDetail.goods_number}}件商品 合计：</text>
             <text class="unpay_goods_price_right">￥58.68</text>
         </view>
         <view class="unpay_goods_price">
@@ -70,7 +70,7 @@
 
     <!--总金额-->
     <view class="unpay_totle">
-        <text class="unpay_totle_red">￥48.68</text>
+        <text class="unpay_totle_red">￥{{orderDetail.order_money}}</text>
         <text class="unpay_totle_text">需付款：</text>
     </view>
 

@@ -138,7 +138,7 @@ Page({
     let that = this;
     console.log("user_id: " + app.globalData.userInfo.data.data.user_id)
     console.log("goods_id: " + that.data.goods_detail.id)
-    console.log("coupons_id: " + "")
+    console.log("coupons_id: " + that.data.couponId)
     console.log("address_id: " + that.data.address_id)
     console.log("number: " + that.data.selected_numb)
     console.log("spec_1: " + that.data.type_selected1)
@@ -191,10 +191,9 @@ Page({
             'signType': 'MD5',
             'paySign': paySignStr,
             'success': function(res2) {
+              console.log("支付成功！！")
               //判断是否为团购，如果团购，则跳到邀请团友页面/待成团界面
-              // debugger;
               if (that.data.shopping == "together") {
-                // debugger
                 if (that.data.ct = 'n') {
                   //开团
                   wx.navigateTo({
@@ -222,14 +221,11 @@ Page({
                 })
               }
 
-              console.log("支付成功！！")
-              // debugger;
-
             },
             'fail': function(res) {
-              //跳转到待支付页面
+              //跳转到待支付页面列表
               wx.navigateTo({
-                url: "../unpay/unpay?order_status=1"
+                url: "../orderList/orderList"
               })
               console.log("支付失败！！")
               // debugger;
