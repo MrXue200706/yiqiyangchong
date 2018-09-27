@@ -19,7 +19,7 @@ Page({
     defaultAddress: null, //默认地址
   },
   onLoad: function(options) {
-    console.log(options)
+    // console.log(options)
     if (options.type_selected1 == undefined || options.type_selected2 == undefined) { //如果不选规格，直接return
       wx.showToast({
         title: '加载页面出错',
@@ -63,7 +63,7 @@ Page({
         that.setData({
           goods_detail: res.data.data
         })
-        console.log(that.data.goods_detail)
+        // console.log(that.data.goods_detail)
         that.totalPayCount(); //更新价格
       },
     })
@@ -93,23 +93,42 @@ Page({
   totalPayCount() { //计算价格，重新设置价格
     //获取当前选择规格的价钱
     let list = this.data.goods_detail.goods_spec_list;
-    console.log(list)
-    for (var i = 0; i < list.length; i++) {
-      if (list[i].spec_value == this.data.type_selected1 && list[i].spec_value_2 == this.data.type_selected2) {
-        let pice;
-        if (this.data.shopping == "normal") { //普通购买
-          pice = list[i].spec_price
-        } else if (this.data.shopping == "together") { //团购价格
-          pice = list[i].group_price
-        } else { //默认为普通购买
-          pice = list[i].spec_price
+    if(this.data.type_selected2 != "0"){
+      for (var i = 0; i < list.length; i++) {
+        if (list[i].spec_value == this.data.type_selected1 && list[i].spec_value_2 == this.data.type_selected2) {
+          let pice;
+          if (this.data.shopping == "normal") { //普通购买
+            pice = list[i].spec_price
+          } else if (this.data.shopping == "together") { //团购价格
+            pice = list[i].group_price
+          } else { //默认为普通购买
+            pice = list[i].spec_price
+          }
+          this.setData({
+            totalPay: (Number(pice) * Number(this.data.selected_numb)).toFixed(2)
+          });
+          console.log("价格：" + this.data.totalPay);
         }
-        this.setData({
-          totalPay: (Number(pice) * Number(this.data.selected_numb)).toFixed(2)
-        });
-        console.log("价格：" + this.data.totalPay);
+      }
+    }else{
+      for (var i = 0; i < list.length; i++) {
+        if (list[i].spec_value == this.data.type_selected1) {
+          let pice;
+          if (this.data.shopping == "normal") { //普通购买
+            pice = list[i].spec_price
+          } else if (this.data.shopping == "together") { //团购价格
+            pice = list[i].group_price
+          } else { //默认为普通购买
+            pice = list[i].spec_price
+          }
+          this.setData({
+            totalPay: (Number(pice) * Number(this.data.selected_numb)).toFixed(2)
+          });
+          console.log("价格：" + this.data.totalPay);
+        }
       }
     }
+    
   },
   chooseAdr() { //选择地址
     wx.navigateTo({
@@ -270,7 +289,6 @@ Page({
         }
       },
     })
-    console.log(this.data)
   },
   chooseVxAddr() { //获取微信地址
     if (wx.chooseAddress) {

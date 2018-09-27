@@ -146,7 +146,7 @@
                     <text>{{item.spec_name}}</text>
                 </view>
             </view>
-            <view class="goodsDetail_iframe_type" wx:if="{{type_one_selected.spec_option.length > 0}}">
+            <view class="goodsDetail_iframe_type" wx:if="{{type_one_selected.spec_option.length > 0 && type_one_selected.spec_option[0].spec_value_2}}">
                 <view class="goodsDetail_iframe_type_title">
                     <text>规格</text>
                 </view>

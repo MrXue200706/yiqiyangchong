@@ -27,7 +27,7 @@ Page({
     });
   },
   typeOneFn(event) { //规格1选择
-    let type_select = event.currentTarget.dataset.spec;
+    let type_select = event.currentTarget.dataset.type;
     let id = event.currentTarget.id;
     this.setData({
       type_one_selected: type_select,
@@ -71,7 +71,6 @@ Page({
         goods_id: id
       },
       success(res) {
-        console.log(res.data)
         that.setData({
           goods_detail: res.data.data
         });
@@ -79,9 +78,9 @@ Page({
           descript: res.data.data.goods_desc
         });
         that.setData({
-          type_one_selected: res.data.data.display_spec[0],
-          type_one_active: 0
+          type_one_selected: res.data.data.display_spec[0]
         });
+        console.log(res.data.data)
         //检查是否已收藏
         that.checkCollect();
       },
@@ -102,16 +101,27 @@ Page({
     })
   },
   submitOrder() { 
-    console.log(this.data)
     //数据校验
-    if (this.data.spec1 == "0" || this.data.spec2 == "0") {
-      wx.showToast({
-        title: '请填写商品规格',
-        icon: 'none',
-        duration: 2000
-      })
-      return;
+    if(this.data.type_one_selected.spec_option[0].spec_value_2){
+      if (this.data.spec1 == "0" || this.data.spec2 == "0") {
+        wx.showToast({
+          title: '请填写商品规格',
+          icon: 'none',
+          duration: 2000
+        })
+        return;
+      }
+    }else{
+      if (this.data.spec1 == "0") {
+        wx.showToast({
+          title: '请填写商品规格',
+          icon: 'none',
+          duration: 2000
+        })
+        return;
+      }
     }
+    
     wx.navigateTo({
       url: "../checkPay/checkPay?shopping=" + this.data.shopping + "&goods_id=" + this.data.goods_detail.id + "&type_selected1=" + this.data.spec1 + "&type_selected2=" + this.data.spec2 + "&selected_numb=" + this.data.selected_numb + "&ct=" + this.data.ct + "&order_no=" + this.data.order_no
     })
