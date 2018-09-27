@@ -23,6 +23,7 @@ Page({
       "未付款":"立即支付",
       "拼团待支付": "邀请参团",
       "待收货": "邀请参团",
+      "已发货": "确认收货",
     },
     tab_selected_id: 0,
     ptype: "all", //页面类型，默认全部订单，unpay：待付款，untogether：待成团，unpick：待收货，done：已完成
@@ -98,6 +99,8 @@ Page({
       wx.navigateTo({
         url: '../goodsTogether/goodsTogether?ct=n&param_id=23'
       })
+    } else if (btnType == "确认收货"){
+      //确认收货
     }
   }
 })
