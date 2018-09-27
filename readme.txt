@@ -20,3 +20,4 @@
 "pages/superShop/superShop",//超级内购
 "pages/checkPay/checkPay"//确认订单
 "pages/orderList/orderList"//订单列表
+"pages/search/search"//搜索页
