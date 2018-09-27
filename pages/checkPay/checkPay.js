@@ -19,6 +19,7 @@ Page({
     defaultAddress: null, //默认地址
   },
   onLoad: function(options) {
+    console.log(options)
     if (options.type_selected1 == undefined || options.type_selected2 == undefined) { //如果不选规格，直接return
       wx.showToast({
         title: '加载页面出错',
@@ -91,7 +92,8 @@ Page({
   },
   totalPayCount() { //计算价格，重新设置价格
     //获取当前选择规格的价钱
-    let list = this.data.goods_detail.goods_spec_list
+    let list = this.data.goods_detail.goods_spec_list;
+    console.log(list)
     for (var i = 0; i < list.length; i++) {
       if (list[i].spec_value == this.data.type_selected1 && list[i].spec_value_2 == this.data.type_selected2) {
         let pice;

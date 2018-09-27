@@ -27,7 +27,7 @@ Page({
     });
   },
   typeOneFn(event) { //规格1选择
-    let type_select = event.currentTarget.dataset.type;
+    let type_select = event.currentTarget.dataset.spec;
     let id = event.currentTarget.id;
     this.setData({
       type_one_selected: type_select,
@@ -71,6 +71,7 @@ Page({
         goods_id: id
       },
       success(res) {
+        console.log(res.data)
         that.setData({
           goods_detail: res.data.data
         });
@@ -78,9 +79,9 @@ Page({
           descript: res.data.data.goods_desc
         });
         that.setData({
-          type_one_selected: res.data.data.display_spec[0]
+          type_one_selected: res.data.data.display_spec[0],
+          type_one_active: 0
         });
-        console.log(res.data.data)
         //检查是否已收藏
         that.checkCollect();
       },
@@ -101,6 +102,7 @@ Page({
     })
   },
   submitOrder() { 
+    console.log(this.data)
     //数据校验
     if (this.data.spec1 == "0" || this.data.spec2 == "0") {
       wx.showToast({
