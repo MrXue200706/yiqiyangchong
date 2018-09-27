@@ -10,7 +10,8 @@ Page({
     type: null,
     adressList: {},
     goods_id: null, //商品id，临时存储
-    type_selected: null, //选择规格，临时存储
+    type_selected1: null, //选择规格1，临时存储
+    type_selected2: null, //选择规格2，临时存储
     selected_numb: 1, //选择数量，临时存储
     couponId: null, //优惠券id
     order_no: null, //订单ID
@@ -20,7 +21,8 @@ Page({
     this.setData({
       type: options.type == undefined ? 'editAdr' : options.type,
       goods_id: options.goods_id == undefined ? null : options.goods_id,
-      type_selected: options.type_selected == undefined ? null : options.type_selected,
+      type_selected1: options.type_selected1 == undefined ? null : options.type_selected1,
+      type_selected2: options.type_selected1 == undefined ? null : options.type_selected2,
       selected_numb: options.selected_numb == undefined ? null : options.selected_numb,
       ct: options.ct == undefined ? null : options.ct,
       order_no: options.order_no == undefined ? null : options.order_no,
@@ -47,7 +49,7 @@ Page({
     if (this.data.type == "shopping" || this.data.type == "together" || this.data.type == "normal") {
       //如果是在购买页面跳转过来的，单击直接填充地址
       wx.navigateTo({
-        url: "../checkPay/checkPay?shopping=" + this.data.type + "&adrId=" + adrId + "&goods_id=" + this.data.goods_id + "&type_selected=" + this.data.type_selected + "&selected_numb=" + this.data.selected_numb + "&order_no=" + this.data.order_no + "&ct=" + this.data.ct + "&couponId=" + this.data.couponId
+        url: "../checkPay/checkPay?shopping=" + this.data.type + "&adrId=" + adrId + "&goods_id=" + this.data.goods_id + "&type_selected1=" + this.data.type_selected1 + "&type_selected2=" + this.data.type_selected2 + "&selected_numb=" + this.data.selected_numb + "&order_no=" + this.data.order_no + "&ct=" + this.data.ct + "&couponId=" + this.data.couponId
       });
     } else {
       //进入编辑页面

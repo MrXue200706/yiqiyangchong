@@ -19,6 +19,7 @@
   margin-left: 20rpx;
 }
 .search_box_in input{
+  width: 100%;
   font-size: 20rpx;
   margin-left: 30rpx;
   color: #989898;

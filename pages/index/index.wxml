@@ -1,5 +1,13 @@
 <!--index.wxml-->
 <view class="index">
+  <!--搜索框-->
+  <view class="search_box">
+      <navigator url="../search/search" class="search_box_in">
+          <image src="../../images/搜索栏搜索.png" mode="widthFix"></image>
+          <input type="search" placeholder="输入想搜索的商品"/>
+      </navigator>
+  </view>
+
   <!--头部轮播图-->
   <swiper class="head_swiper" 
     indicator-color="#fff" indicator-active-color="#fd9805" 

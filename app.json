@@ -22,6 +22,7 @@
     "pages/superShop/superShop",
     "pages/checkPay/checkPay",
     "pages/orderList/orderList",
+    "pages/search/search",
     "pages/login/login",
     "login"
   ],
@@ -37,14 +38,20 @@
     "list": [
       {
         "pagePath": "pages/index/index",
+        "iconPath": "images/发现-1.png",
+        "selectedIconPath": "images/发现.png",
         "text": "发现"
       },
       {
         "pagePath": "pages/shoping/shoping",
+        "iconPath": "images/抢购-1.png",
+        "selectedIconPath": "images/抢购.png",
         "text": "抢购"
       },
       {
         "pagePath": "pages/mine/mine",
+        "iconPath": "images/我的-1.png",
+        "selectedIconPath": "images/我的.png",
         "text": "我的 "
       }
     ]
