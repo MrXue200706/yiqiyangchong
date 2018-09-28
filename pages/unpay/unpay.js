@@ -31,6 +31,7 @@ Page({
         user_id: app.globalData.userInfo.data.data.user_id,
         order_id: oid
       }, success(res) {
+        console.log(res)
         if (res.data.result == 1) {
           that.setData({
             orderDetail: res.data.data

@@ -18,7 +18,9 @@
     <!-- <view class="unpay_address_button" hidden="{{ptype!='unpay'}}" bindtap="chooseAdr">
       <text>修改地址</text>
     </view> -->
-    <view class="unpay_address_icon"></view>
+    <view class="unpay_address_icon">
+      <image src="../../images/订单信息-地址.png" mode="widthFix"></image>
+    </view>
   </view>
 
   <!--订单号-->
@@ -40,7 +42,9 @@
   <!--商品-->
   <view class="unpay_goods">
     <view class="unpay_goods_content">
-      <view class="unpay_goods_content_img"></view>
+      <view class="unpay_goods_content_img">
+        <image mode="widthFix" src="{{orderDetail.goods_img}}"></image>
+      </view>
       <view class="unpay_goods_content_text">
         <view class="unpay_goods_content_text_title">
           <text>{{orderDetail.goods_name}}</text>

@@ -2,6 +2,9 @@
     <!--萌宠框-->
     <view class="myPets_items">
         <navigator url="../petsDetail/petsDetail?pet_id={{item.id}}" class="myPets_item" wx:for="{{myPetList}}" wx:key="item.id">
+            <view class="myPets_item_img">
+                <image mode="widthFix" src="{{item.pet_img}}"></image>
+            </view>
             <view class="myPets_item_content">
                 <view>
                     <text class="myPets_item_content_item myPets_item_content_item_blue">

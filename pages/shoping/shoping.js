@@ -45,7 +45,7 @@ Page({
   getTimeList(){//获取时间段信息
     let that = this;
     wx.request({
-      url: 'http://wechatapi.vipcsg.com/index/flashsale/time_list',
+      url: 'https://wechatapi.vipcsg.com/index/flashsale/time_list',
       method: 'GET',
       data: {}, 
       success(res) {

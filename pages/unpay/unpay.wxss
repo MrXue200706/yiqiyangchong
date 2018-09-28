@@ -5,7 +5,8 @@
 /*标题*/
 .unpay_title{
     height: 128rpx;
-    background-color: #888;
+    /*background-color: #888;*/
+    background:linear-gradient(to bottom,#ff8900,#fdbe2b);
     display: flex;
     align-items: center;
     font-size: 32rpx;
@@ -51,10 +52,13 @@
 .unpay_address_icon{
     width: 32rpx;
     height: 32rpx;
-    background-color: #888;
+    /*background-color: #888;*/
     position: absolute;
-    top: 22rpx;
-    left: 28rpx;
+    top: 40rpx;
+    left: 18rpx;
+}
+.unpay_address_icon image{
+    width: 100%;
 }
 
 /*订单号*/
@@ -109,6 +113,9 @@
     height: 120rpx;
     background-color: #888;
     flex-shrink: 0;
+}
+.unpay_goods_content_img image{
+    width: 100%;
 }
 .unpay_goods_content_text{
     height: 100%;

@@ -17,7 +17,9 @@
                 <text>{{item.status_name}}</text>
             </view>
             <view class="orderList_content_item_body">
-                <view class="orderList_content_item_body_img"></view>
+                <view class="orderList_content_item_body_img">
+                    <image mode="widthFix" src="{{item.goods_img}}"></image>
+                </view>
                 <view class="orderList_content_item_body_text">
                     <view class="orderList_content_item_body_text_tittle">
                         <text>{{item.goods_name}}</text>

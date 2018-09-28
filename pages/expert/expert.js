@@ -12,7 +12,7 @@ Page({
   getDetail(key){
     let that = this;
     wx.request({
-      url: 'http://wechatapi.vipcsg.com/index/member/info',
+      url: 'https://wechatapi.vipcsg.com/index/member/info',
       method: 'GET',
       data: {
         user_id: key

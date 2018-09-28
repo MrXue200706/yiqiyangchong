@@ -17,6 +17,7 @@ Page({
 		  data: {
 			  user_id: app.globalData.userInfo.data.data.user_id
 		  }, success(res) {
+				console.log(res)
 			  that.setData({
 				  myPetList: res.data.data
 			  })

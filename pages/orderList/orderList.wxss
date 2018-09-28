@@ -45,6 +45,9 @@
     background-color: #888;
     flex-shrink: 0;
 }
+.orderList_content_item_body_img image{
+    width: 100%;
+}
 .orderList_content_item_body_text{
     width: 480rpx;
     margin-left: 20rpx;

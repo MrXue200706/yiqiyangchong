@@ -66,7 +66,7 @@ Page({
   },
   setPageDetail() { //设置页面内容
     let that = this;
-    console.log("状态码: " + that.data.orderStatusDict[that.data.ptype])
+    // console.log("状态码: " + that.data.orderStatusDict[that.data.ptype])
     wx.request({
       url: 'https://wechatapi.vipcsg.com/index/order/order_list',
       method: 'GET',

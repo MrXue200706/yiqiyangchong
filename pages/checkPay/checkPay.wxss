@@ -55,6 +55,9 @@
     left:16rpx;
     transform: translateY(-50%);
 }
+.checkPay_goods_img image{
+    width: 100%;
+}
 .checkPay_adress_img image{
     width: 100%;
 }

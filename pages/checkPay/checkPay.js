@@ -8,6 +8,7 @@ Page({
     goods_detail: {}, //详情
     type_selected1: null, //选择规格1
     type_selected2: null, //选择规格2
+    selected_img: null,//商品图片
     selected_numb: 1, //选择数量
     totalPay: 100000, //费用合计
     address_id: 0, //地址ID
@@ -35,6 +36,7 @@ Page({
       goods_id: options.goods_id,
       type_selected1: options.type_selected1,
       type_selected2: options.type_selected2,
+      selected_img: options.image,
       selected_numb: options.selected_numb,
       ct: options.ct == undefined ? null : options.ct,
       order_no: options.order_no == undefined ? null : options.order_no,

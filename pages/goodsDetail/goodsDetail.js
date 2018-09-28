@@ -123,7 +123,10 @@ Page({
     }
     
     wx.navigateTo({
-      url: "../checkPay/checkPay?shopping=" + this.data.shopping + "&goods_id=" + this.data.goods_detail.id + "&type_selected1=" + this.data.spec1 + "&type_selected2=" + this.data.spec2 + "&selected_numb=" + this.data.selected_numb + "&ct=" + this.data.ct + "&order_no=" + this.data.order_no
+      url: "../checkPay/checkPay?shopping=" + this.data.shopping + "&goods_id=" + 
+        this.data.goods_detail.id + "&type_selected1=" + this.data.spec1 + "&type_selected2=" + 
+        this.data.spec2 + "&selected_numb=" + this.data.selected_numb + "&ct=" + 
+        this.data.ct + "&order_no=" + this.data.order_no + "&image=" + this.data.type_one_selected.spec_img
     })
 
     //this.subMitOrderFun();
