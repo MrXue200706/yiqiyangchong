@@ -19,7 +19,7 @@ Page({
     defaultAddress: null, //默认地址
   },
   onLoad: function(options) {
-    console.log(options)
+    // console.log(options)
     if (options.type_selected1 == undefined || options.type_selected2 == undefined) { //如果不选规格，直接return
       wx.showToast({
         title: '加载页面出错',
@@ -186,8 +186,9 @@ Page({
       //一般订单提交入口
       queryUrl = 'https://wechatapi.vipcsg.com/index/order/submit'
     }
+    console.log("接口url: " + queryUrl)
 
-    //提交团购订单
+    //提交订单
     wx.request({
       url: queryUrl,
       method: 'POST',
@@ -207,7 +208,7 @@ Page({
           let packageStr = "prepay_id=" + payData.prepay_id
           let paySignStr = util.hexMD5("appId=wxc7bf060c95b1645b&nonceStr=" + payData.nonceStr + "&package=" + packageStr + "&signType=MD5&timeStamp=" + payData.timeStamp + "&key=dbsDggC8AMXk8LBo30hlHvZ5GBtnjybx")
           let order_no = payData.order_no;
-
+          let order_id = payData.order_id;
           //跳转微信支付
           wx.requestPayment({
             'timeStamp': String(payData.timeStamp),
@@ -239,21 +240,19 @@ Page({
                   });
                 }
               } else {
-                // debugger
                 //跳转到待收货页面
                 wx.navigateTo({
-                  url: "../unpay/unpay?order_status=1"
+                  url: "../unpay/unpay?ptype=takegoods&order_id=" + order_id
                 })
               }
 
             },
             'fail': function(res) {
-              //跳转到待支付页面列表
+              //跳转到待支付页面
               wx.navigateTo({
-                url: "../orderList/orderList"
+                url: '../unpay/unpay?ptype=unpay&order_id=' + order_id
               })
               console.log("支付失败！！")
-              // debugger;
             },
             'complete': function(res) {
               console.log("最终路线！！")
@@ -265,10 +264,9 @@ Page({
 
   },
   fullDefaultAddress() { //填充默认用户地址
-
     let that = this;
     wx.request({
-      url: 'https://wechatapi.vipcsg.com/index/member/default_address',
+      url: 'http://wechatapi.vipcsg.com/index/member/default_address',
       method: 'GET',
       data: {
         user_id: app.globalData.userInfo.data.data.user_id

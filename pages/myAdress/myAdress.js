@@ -14,8 +14,9 @@ Page({
     type_selected2: null, //选择规格2，临时存储
     selected_numb: 1, //选择数量，临时存储
     couponId: null, //优惠券id
-    order_no: null, //订单ID
+    order_no: null, //订单NO
     ct: 'n', //参团情况
+    order_id: null, //订单id，如果不为null，则是支付页跳过来选择地址
   },
   onLoad(options) {
     this.setData({
@@ -26,6 +27,7 @@ Page({
       selected_numb: options.selected_numb == undefined ? null : options.selected_numb,
       ct: options.ct == undefined ? null : options.ct,
       order_no: options.order_no == undefined ? null : options.order_no,
+      order_id: options.order_id == undefined ? null : options.order_id,
     })
     this.getAddressList();
   },
@@ -46,7 +48,12 @@ Page({
   },
   chooseAdr(e) {
     let adrId = e.currentTarget.dataset.id;
-    if (this.data.type == "shopping" || this.data.type == "together" || this.data.type == "normal") {
+    if (this.data.order_id != null){
+      //待支付页面跳转过来
+      wx.navigateTo({
+        url: "../unpay/unpay?ptype=unpay&order_id=" + this.data.order_id + "&adrId=" + adrId
+      })
+    } else if (this.data.type == "shopping" || this.data.type == "together" || this.data.type == "normal") {
       //如果是在购买页面跳转过来的，单击直接填充地址
       wx.navigateTo({
         url: "../checkPay/checkPay?shopping=" + this.data.type + "&adrId=" + adrId + "&goods_id=" + this.data.goods_id + "&type_selected1=" + this.data.type_selected1 + "&type_selected2=" + this.data.type_selected2 + "&selected_numb=" + this.data.selected_numb + "&order_no=" + this.data.order_no + "&ct=" + this.data.ct + "&couponId=" + this.data.couponId

@@ -58,7 +58,7 @@
   <!--养宠达人-->
   <view class="pet_expert">
     <text class="pet_expert_title">养宠达人</text>
-    <text class="pet_expert_reflesh">换一组</text>
+    <text class="pet_expert_reflesh" bindtap="getPetExpert">换一组</text>
     <scroll-view scroll-x="true">
       <view class="pet_expert_scroll">
           <view class="pet_expert_item" wx:for="{{pet_expert}}" wx:key="item.friend_id">

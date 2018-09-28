@@ -22,12 +22,13 @@ Page({
     orderShowBtn:{
       "未付款":"立即支付",
       "拼团待支付": "邀请参团",
-      "待收货": "邀请参团",
+      "未发货": "查看订单",
       "已发货": "确认收货",
     },
     tab_selected_id: 0,
     ptype: "all", //页面类型，默认全部订单，unpay：待付款，untogether：待成团，unpick：待收货，done：已完成
-    pageList: null, //页面内容列表
+    pageList: [], //页面内容列表
+    pageNo: 1,
   },
   onLoad(options) {
     this.setData({
@@ -55,9 +56,10 @@ Page({
         })
       }
     }
-    //设置高亮
     this.setData({
-      tab_selected_id: id
+      tab_selected_id: id,//设置高亮
+      pageNo: 1, //重置pageNo
+      pageList: [], 
     });
     //设置页面数据
     this.setPageDetail();
@@ -71,36 +73,171 @@ Page({
       data: {
         user_id: app.globalData.userInfo.data.data.user_id,
         order_status: that.data.orderStatusDict[that.data.ptype], //状态码
-        page: "", //分页
+        page: that.data.pageNo, //分页
       },
       success(res) {
         if (res.data.result == 1) {
-          console.log(res.data.data)
+          let pageLists = that.data.pageList
           that.setData({
-            pageList: res.data.data
+            pageNo: that.data.pageNo+1,
+            pageList: pageLists.concat(res.data.data) 
           })
+          console.log(that.data.pageList)
         }
       },
     })
   },
   payBtn(event){
+    let that = this;
     //根据按钮类型，进行相应的处理
-    //event.currentTarget.
-    console.log(event.currentTarget.dataset.btntype)
-    console.log(event.currentTarget.dataset.item)
     let btnType = event.currentTarget.dataset.btntype
     if(btnType=="立即支付"){
       //跳转到支付页面
       wx.navigateTo({
-        url: '../unpay/unpay?order_id=' + event.currentTarget.dataset.item.id
+        url: '../unpay/unpay?ptype=unpay&order_id=' + event.currentTarget.dataset.item.id
       })
     } else if (btnType == "邀请参团"){
+      //确认是否团长
+      if (event.currentTarget.dataset.item.member_id == null || event.currentTarget.dataset.item.member_id == undefined || event.currentTarget.dataset.item.member_id == ""){
+        //跳转到邀请页面
+        wx.navigateTo({
+          url: '../goodsTogether/goodsTogether?ct=n&param_id=' + event.currentTarget.dataset.item.goods_id +'&order_no=' + event.currentTarget.dataset.item.order_no
+        })
+      } else{
+        //团员拼团
+        wx.navigateTo({
+          url: '../goodsTogether/goodsTogether?ct=n&param_id=' + event.currentTarget.dataset.item.goods_id +'&order_no=' + event.currentTarget.dataset.item.member_id
+        })
+      }
       //跳转到邀请页面
-      wx.navigateTo({
-        url: '../goodsTogether/goodsTogether?ct=n&param_id=23'
-      })
+      // wx.navigateTo({
+      //   url: '../goodsTogether/goodsTogether?ct=n&param_id=23'
+      // })
     } else if (btnType == "确认收货"){
       //确认收货
+      wx.showModal({
+        title: '确认收货提示',
+        content: '是否确认收货？',
+        success:function(res){
+          if(res.confirm){
+            console.log("确认")
+            wx.request({
+              url: 'https://wechatapi.vipcsg.com/index/order/order_complete',
+              method: 'POST',
+              data: {
+                user_id: app.globalData.userInfo.data.data.user_id,
+                order_id: event.currentTarget.dataset.item.id
+              }, success(res) {
+                if (res.data.result == 1) {
+                  that.setData({
+                    pageNo: 1, //重置pageNo
+                    pageList: [], 
+                  })
+                  that.setPageDetail()
+                  wx.showToast({
+                    title: '收货成功',
+                    icon: 'succes',
+                    duration: 2000,
+                    mask: true,
+                    success: function () { }
+                  })
+                }else{
+                  console.log(res.data)
+                  wx.showToast({
+                    title: '收货失败' + res.data.msg == null ? "" : "，" + res.data.msg,
+                    icon: 'none',
+                    duration: 2000,
+                    mask: true,
+                    success: function () { }
+                  })
+                }
+              },
+            })
+          }else{
+            console.log("取消")
+          }
+        },
+      })
+      // wx.navigateTo({
+      //   url: '../unpay/unpay?ptype=takegood&order_id=' + event.currentTarget.dataset.item.id
+      // })
     }
-  }
+  },
+  delOrder(event){//取消订单
+    let oid = event.currentTarget.dataset.oid
+    let ostatus = event.currentTarget.dataset.ostatus
+    let that = this;
+    if (ostatus == 1) {
+      wx.request({
+        url: 'https://wechatapi.vipcsg.com/index/order/cancel_order',
+        method: 'POST',
+        data: {
+          user_id: app.globalData.userInfo.data.data.user_id,
+          order_id: oid
+        }, success(res) {
+          if (res.data.result == 1) {
+            wx.showToast({
+              title: '取消成功',
+              icon: 'succes',
+              duration: 2000,
+              mask: true,
+              success: function () {
+                that.setData({
+                  pageNo: 1, //重置pageNo
+                  pageList: [], 
+                })
+                //刷新列表
+                that.setPageDetail();
+              }
+            })
+          }
+        },
+      })
+    } else {
+      wx.showToast({
+        title: '该订单无法取消',
+        icon: 'none',
+        duration: 1000,
+        mask: true,
+        success: function () {
+          that.setData({
+            pageNo: 1, //重置pageNo
+            pageList: [], 
+          })
+          //刷新数据
+          that.setPageDetail();
+        }
+      })
+    }
+  },
+  onReachBottom: function () { // 下拉底部刷新
+    console.log('--------下拉底部刷新-------')
+    // 显示顶部刷新图标
+    wx.showNavigationBarLoading();
+    this.setPageDetail();
+    // var that = this;
+    // wx.request({
+    //   url: 'https://xxx/?page=0',
+    //   method: "GET",
+    //   success: function (res) {
+    //     that.setData({
+    //       moment: res.data.data
+    //     });
+    //     // 设置数组元素
+    //     that.setData({
+    //       moment: that.data.moment
+    //     });
+    //     console.log(that.data.moment);
+    //     // 隐藏导航栏加载框
+    //     wx.hideNavigationBarLoading();
+    //     // 停止下拉动作
+    //     wx.stopPullDownRefresh();
+    //   }
+    // })
+    // 隐藏导航栏加载框
+    wx.hideNavigationBarLoading();
+    // 停止下拉动作
+    wx.stopPullDownRefresh();
+  },
+
 })

@@ -1,95 +1,96 @@
 <view class="unpay">
-    <!--标题-->
-    <view class="unpay_title">
-        <text>待付款</text>
-    </view>
-	
-    <!--地址-->
-    <view class="unpay_address">
-        <view class="unpay_address_content">
-            <view class="unpay_address_content_up">
-                <text>{{orderDetail.order_address_name}}</text>
-                <text>{{orderDetail.order_address_phone}}</text>
-            </view>
-            <view class="unpay_address_content_down">
-                <text>{{orderDetail.order_address}}</text>
-            </view>
-        </view>
-        <view class="unpay_address_button">
-            <text>修改地址</text>
-        </view>
-        <view class="unpay_address_icon"></view>
-    </view>
+  <!--标题-->
+  <view class="unpay_title">
+    <text>{{ptype=='unpay'?"待付款":"待收货"}}</text>
+  </view>
 
-    <!--订单号-->
-    <view class="unpay_order">
-        <view class="unpay_order_content">
-            <view class="unpay_order_content_item">
-                <text>订单号：{{orderDetail.order_no}}</text>
-            </view>
-            <view class="unpay_order_content_item">
-                <text>下单时间：{{orderDetail.order_time}}</text>
-                <!-- <text>12:02:15</text> -->
-            </view>
-        </view>
-        <view class="unpay_order_button">
-            <text>复制</text>
-        </view>
+  <!--地址-->
+  <view class="unpay_address">
+    <view class="unpay_address_content">
+      <view class="unpay_address_content_up">
+        <text>{{orderDetail.order_address_name}}</text>
+        <text>{{orderDetail.order_address_phone}}</text>
+      </view>
+      <view class="unpay_address_content_down">
+        <text>{{orderDetail.order_address}}</text>
+      </view>
     </view>
+    <!-- <view class="unpay_address_button" hidden="{{ptype!='unpay'}}" bindtap="chooseAdr">
+      <text>修改地址</text>
+    </view> -->
+    <view class="unpay_address_icon"></view>
+  </view>
 
-    <!--商品-->
-    <view class="unpay_goods">
-        <view class="unpay_goods_content">
-            <view class="unpay_goods_content_img"></view>
-            <view class="unpay_goods_content_text">
-                <view class="unpay_goods_content_text_title">
-                    <text>{{orderDetail.goods_name}}</text>
-                </view>
-                <view class="unpay_goods_content_text_detail">
-                    <!-- <text>颜色：21321321；重量：42KG；尺码：1213；</text> -->
-                </view>
-            </view>
-        </view>
-        <view class="unpay_goods_price">
-            <text class="unpay_goods_price_left">共计{{orderDetail.goods_number}}件商品 合计：</text>
-            <text class="unpay_goods_price_right">￥58.68</text>
-        </view>
-        <view class="unpay_goods_price">
-            <text class="unpay_goods_price_left">运费</text>
-            <text class="unpay_goods_price_free">免运费</text>
-        </view>
+  <!--订单号-->
+  <view class="unpay_order">
+    <view class="unpay_order_content">
+      <view class="unpay_order_content_item">
+        <text>订单号：{{orderDetail.order_no}}</text>
+      </view>
+      <view class="unpay_order_content_item">
+        <text>下单时间：{{orderDetail.order_time}}</text>
+        <!-- <text>12:02:15</text> -->
+      </view>
     </view>
+    <view class="unpay_order_button"  bindtap="copyONo">
+      <text>复制订单号</text>
+    </view>
+  </view>
 
-    <!--积分-->
-    <view class="unpay_integral">
-        <view class="unpay_integral_content">
-            <text class="unpay_integral_content_left">可用100积分抵扣10元</text>
-            <icon class="unpay_integral_content_right" type="success" size="12" color="#e72f28"/>
+  <!--商品-->
+  <view class="unpay_goods">
+    <view class="unpay_goods_content">
+      <view class="unpay_goods_content_img"></view>
+      <view class="unpay_goods_content_text">
+        <view class="unpay_goods_content_text_title">
+          <text>{{orderDetail.goods_name}}</text>
         </view>
-    </view>
-
-    <!--总金额-->
-    <view class="unpay_totle">
-        <text class="unpay_totle_red">￥{{orderDetail.order_money}}</text>
-        <text class="unpay_totle_text">需付款：</text>
-    </view>
-
-    <!--积分提示-->
-    <view class="unpay_notice">
-        <view class="unpay_notice_spot">
-            <text>积分</text>
+        <view class="unpay_goods_content_text_detail">
+          <!-- <text>颜色：21321321；重量：42KG；尺码：1213；</text> -->
         </view>
-        <view class="unpay_notice_content">
-            <text>本次确认收货后可获得4800积分</text>
-        </view>
+      </view>
     </view>
-
-    <!--占位-->
-    <view class="unpay_placeholder"></view>
-
-    <!--底部-->
-    <view class="unpay_foot">
-        <view class="unpay_foot_cancel">取消订单</view>
-        <view class="unpay_foot_pay">立即支付</view>
+    <view class="unpay_goods_price">
+      <text class="unpay_goods_price_left">共计{{orderDetail.goods_number}}件商品 合计：</text>
+      <text class="unpay_goods_price_right">￥58.68</text>
     </view>
+    <view class="unpay_goods_price">
+      <text class="unpay_goods_price_left">运费</text>
+      <text class="unpay_goods_price_free">免运费</text>
+    </view>
+  </view>
+
+  <!--积分-->
+  <view class="unpay_integral">
+    <view class="unpay_integral_content">
+      <text class="unpay_integral_content_left">可用100积分抵扣10元</text>
+      <!-- <icon class="unpay_integral_content_right" type="success" size="12" color="#e72f28" /> -->
+    </view>
+  </view>
+
+  <!--总金额-->
+  <view class="unpay_totle">
+    <text class="unpay_totle_red">￥{{orderDetail.order_money}}</text>
+    <text class="unpay_totle_text">{{ptype=="unpay"?"需付款":"已支付"}}：</text>
+  </view>
+
+  <!--积分提示-->
+  <view class="unpay_notice">
+    <view class="unpay_notice_spot">
+      <text>积分</text>
+    </view>
+    <view class="unpay_notice_content">
+      <text>本次确认收货后可获得4800积分</text>
+    </view>
+  </view>
+
+  <!--占位-->
+  <view class="unpay_placeholder"></view>
+
+  <!--底部-->
+  <view class="unpay_foot">
+      <view class="unpay_foot_cancel" bindtap="delOrder" wx:if="{{ptype=='unpay'}}">取消订单</view>
+      <view class="unpay_foot_pay" bindtap="payNow" wx:if="{{ptype=='unpay'}}">立即支付</view>
+      <view class="unpay_foot_pay" bindtap="takegoods" wx:else>确认收货</view>
+  </view>
 </view>

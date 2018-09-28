@@ -36,12 +36,13 @@
                 <text>合计：￥{{item.order_money}}</text>
             </view>
             <view class="orderList_buttons">
-                <view class="orderList_buttons_cancel">
+                <view class="orderList_buttons_cancel" data-ostatus="{{item.order_status}}" data-oid="{{item.id}}" hidden="{{orderStatusDict[ptype]!=1}}" bindtap="delOrder">
                     <text>取消订单</text>
                 </view>
-                <view class="orderList_buttons_check" data-item="{{item}}" data-btntype='{{orderShowBtn[item.status_name]}}' bindtap='payBtn'>
+                <view class="orderList_buttons_check" data-item="{{item}}" data-btntype='{{orderShowBtn[item.status_name]}}' bindtap='payBtn' hidden="{{item.status_name=='已退款' || item.status_name=='已完成'}}">
                     <text>{{orderShowBtn[item.status_name]}}</text>
                 </view>
+                <view hidden="{{item.status_name!='已退款' && item.status_name!='已完成'}}">{{item.status_name}}</view>
             </view>
         </view>
         <!-- 

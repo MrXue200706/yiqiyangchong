@@ -43,31 +43,36 @@ Page({
       },
     })
   },
-  focusOn(e) {//关注
-    let fid = e.currentTarget.dataset.id
-    let that = this;
-    wx.request({
-      url: 'https://wechatapi.vipcsg.com/index/member/follow',
-      method: 'POST',
-      data: {
-        user_id: app.globalData.userInfo.data.data.user_id,
-        follow_id: fid
-      }, success(res) {
-        if (res.data.result == 1) {
-          //弹窗提示
-          wx.showToast({
-            title: '关注成功',
-            icon: 'succes',
-            duration: 1000,
-            mask: true,
-            success: function () {
-              //按钮变黑
-
-            }
-          })
-        }
-      },
-    })
+  fansFocus(e) {//粉丝列表按钮
+    let txt = e.currentTarget.dataset.txt
+    if (txt =="取消关注"){
+      this.unFocusOn(e)
+    }else{
+      let fid = e.currentTarget.dataset.id
+      let that = this;
+      wx.request({
+        url: 'https://wechatapi.vipcsg.com/index/member/follow',
+        method: 'POST',
+        data: {
+          user_id: app.globalData.userInfo.data.data.user_id,
+          follow_id: fid
+        }, success(res) {
+          if (res.data.result == 1) {
+            //弹窗提示
+            wx.showToast({
+              title: '关注成功',
+              icon: 'succes',
+              duration: 1000,
+              mask: true,
+              success: function () {
+                //按钮变黑
+                that.getFriendList()
+              }
+            })
+          }
+        },
+      })
+    }
   },
   unFocusOn(e) {//取消关注
     let fid = e.currentTarget.dataset.id
