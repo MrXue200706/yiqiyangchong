@@ -266,7 +266,7 @@ Page({
   fullDefaultAddress() { //填充默认用户地址
     let that = this;
     wx.request({
-      url: 'http://wechatapi.vipcsg.com/index/member/default_address',
+      url: 'https://wechatapi.vipcsg.com/index/member/default_address',
       method: 'GET',
       data: {
         user_id: app.globalData.userInfo.data.data.user_id
