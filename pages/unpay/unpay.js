@@ -20,7 +20,7 @@ Page({
     this.getOrderDetail(options.order_id);
 
     //设置导航头
-    wx.setNavigationBarTitle({ title: this.data.ptype == 'unpay' ? "待付款" : "待收货" }) 
+    wx.setNavigationBarTitle({ title: this.data.ptype == 'unpay' ? "待付款" : "待收货" })  
   },
   getOrderDetail(oid){
     let that = this;
