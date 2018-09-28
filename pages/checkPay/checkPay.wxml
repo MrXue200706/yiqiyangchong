@@ -18,14 +18,18 @@
     </view>
 
     <!--地址-->
-    <view class="checkPay_adress" wx:if="{{defaultAddress != null}}">
+    <view class="checkPay_adress" wx:if="{{defaultAddress != null}}" bindtap="chooseAdr">
+        <view class="checkPay_adress_img">
+            <image src="../../images/订单信息-地址.png" mode="widthFix"></image>
+        </view>
         <view class="checkPay_adress_name">
-            <text>{{defaultAddress.name}}</text>
+            <text>收货人：{{defaultAddress.name}}</text>
             <text>{{defaultAddress.phone}}</text>
         </view>
         <view class="checkPay_adress_adress">
-            <text>地址：{{defaultAddress.addres}}</text>
+            <text>收货地址：{{defaultAddress.addres}}</text>
         </view>
+        <text class="checkPay_adress_icon">></text>
     </view>
 
     <!--商品-->

@@ -43,24 +43,40 @@
 
 /*地址*/
 .checkPay_adress{
-    height: 154rpx;
     background-color: #fff;
     margin-top: 16rpx;
-    padding: 0 28rpx;
-    display: flex;
-    flex-wrap: wrap;
-    align-content: center;
+    padding: 20rpx 60rpx;
+    position: relative;
+}
+.checkPay_adress_img{
+    width:22rpx;
+    position:absolute;
+    top:50%;
+    left:16rpx;
+    transform: translateY(-50%);
+}
+.checkPay_adress_img image{
+    width: 100%;
 }
 .checkPay_adress_name{
     width: 100%;
     font-size: 26rpx;
     color: #333;
+    display: flex;
+    justify-content: space-between;
 }
 .checkPay_adress_adress{
     width: 100%;
     font-size: 24rpx;
     color: #888;
     margin-top: 1em;
+}
+.checkPay_adress_icon{
+    position:absolute;
+    top:50%;
+    right:20rpx;
+    transform: translateY(-50%);
+    color: #888;
 }
 
 /*商品*/

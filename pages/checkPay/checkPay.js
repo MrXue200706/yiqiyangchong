@@ -19,7 +19,7 @@ Page({
     defaultAddress: null, //默认地址
   },
   onLoad: function(options) {
-    // console.log(options)
+    console.log(options)
     if (options.type_selected1 == undefined || options.type_selected2 == undefined) { //如果不选规格，直接return
       wx.showToast({
         title: '加载页面出错',
