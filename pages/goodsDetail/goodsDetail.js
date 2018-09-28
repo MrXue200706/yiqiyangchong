@@ -131,7 +131,7 @@ Page({
   checkCollect() { //检查是否已收藏
     let that = this;
     wx.request({
-      url: 'http://wechatapi.vipcsg.com/index/goods/is_collection',
+      url: 'https://wechatapi.vipcsg.com/index/goods/is_collection',
       method: 'GET',
       data: {
         user_id: app.globalData.userInfo.data.data.user_id,

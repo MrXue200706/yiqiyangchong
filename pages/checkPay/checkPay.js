@@ -49,9 +49,13 @@ Page({
     }
     //商品详情
     this.getGoodsDetail(options.goods_id);
+    
+  },
+  onReady(){
     //填充默认收货地址
     this.fullDefaultAddress();
   },
+
   getGoodsDetail(id) { //获取页面细节
     let that = this;
     wx.request({
@@ -264,7 +268,7 @@ Page({
 
     let that = this;
     wx.request({
-      url: 'http://wechatapi.vipcsg.com/index/member/default_address',
+      url: 'https://wechatapi.vipcsg.com/index/member/default_address',
       method: 'GET',
       data: {
         user_id: app.globalData.userInfo.data.data.user_id

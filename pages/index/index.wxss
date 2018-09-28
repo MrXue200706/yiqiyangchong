@@ -130,6 +130,8 @@
   width: 140rpx;
   height: 140rpx;
   border-radius: 50%;
+  -webkit-border-radius:50%;
+  -moz-border-radius:50%;
   background-color: grey;
   margin-left: 50%;
   transform: translateX(-50%);
