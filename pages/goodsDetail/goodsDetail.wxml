@@ -115,7 +115,7 @@
     </view>
 
     <!--弹出层-->
-    <view class="goodsDetail_iframe" wx:if="{{is_iframe}}">
+    <view class="goodsDetail_iframe" wx:if="{{is_iframe}}" catchtouchmove="ture">
         <view class="goodsDetail_iframe_opacity"></view>
         <view class="goodsDetail_iframe_white">
             <view class="goodsDetail_iframe_goods">
