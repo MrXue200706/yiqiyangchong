@@ -61,8 +61,11 @@
 .shoping_goods_time_t_b{
     background-color: #222;
     color: #fff;
-    padding: 4rpx 10rpx;
+    padding: 2rpx 8rpx;
     border-radius: 4rpx;
+}
+.shoping_goods_time_t_icon{
+    font-weight: 700;
 }
 .shoping_goods{
     padding: 28rpx 0;
