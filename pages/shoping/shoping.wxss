@@ -1,32 +1,3 @@
-.shoping_time_d{
-    background-color: #333;
-    overflow: hidden;
-}
-.shoping_time{
-    height: 84rpx;
-    display: flex;
-    flex-wrap: nowrap;
-}
-.shoping_time_item{
-    width: 142rpx;
-    height: 84rpx;
-    flex-shrink: 0;
-    color: #fefefe;
-    padding-top: 10rpx;
-    box-sizing: border-box;
-}
-.shoping_time_item_active{
-    background-color: #ffe32a;
-    color: #333;
-}
-.shoping_time_item_time{
-    font-size: 30rpx;
-    text-align: center;
-}
-.shoping_time_item_notice{
-    font-size: 20rpx;
-    text-align: center;
-}
 
 /*广播*/
 .shoping_radio_d{
@@ -52,25 +23,46 @@
     100% { transform: translateX(-200%); } 
 }
 
-/*时间提醒*/
-.shoping_time_notice{
-    height: 60rpx;
-    line-height: 60rpx;
-    padding: 0 28rpx;
-    font-size: 24rpx;
-    border-bottom: 1px solid #d5d5d5;
-}
-.shoping_time_notice_gray{
-    color: #797979;
-    margin-left: 250rpx;
-}
-.shoping_time_notice_red{
-    color: #fe2529;
-}
-
 /*商品*/
 .shoping_goods_d{
     padding:0 28rpx;
+}
+.shoping_goods_time{
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+    padding: 20rpx 0;
+}
+.shoping_goods_time_title_ing{
+    font-size: 32rpx;
+    color: red;
+    padding: 10rpx;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.shoping_goods_time_title_ing image{
+    width: 30rpx;
+}
+.shoping_goods_time_title_un{
+    font-size: 32rpx;
+    color: limegreen;
+    padding: 10rpx;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.shoping_goods_time_title_un image{
+    width: 30rpx;
+}
+.shoping_goods_time_t{
+    font-size: 26rpx;
+    padding: 10rpx;
+}
+.shoping_goods_time_t_b{
+    background-color: #222;
+    color: #fff;
+    padding: 4rpx 10rpx;
+    border-radius: 4rpx;
 }
 .shoping_goods{
     padding: 28rpx 0;
@@ -139,6 +131,19 @@
     width: 136rpx;
     text-align: center;
     background-color: #ff920a;
+    color: #fff;
+    border-radius: 28rpx;
+    font-size: 28rpx;
+    flex-shrink: 0;
+    margin-left: 100rpx;
+}
+.shoping_goods_text_bottom_button_un{
+    display: inline-block;
+    height: 54rpx;
+    line-height: 54rpx;
+    width: 136rpx;
+    text-align: center;
+    background-color: limegreen;
     color: #fff;
     border-radius: 28rpx;
     font-size: 28rpx;
