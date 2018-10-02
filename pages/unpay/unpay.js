@@ -9,6 +9,12 @@ Page({
     orderDetail: null, //订单详情
     ptype: "unpay", //页面类型。 takegoods: 待收货页面，unpay: 待付款
     adrId: null,
+    ptypeDict: {
+      "unpay":"待付款",
+      "takegoods": "待收货",
+      "done": "已完成订单",
+      "detail": "订单详情",
+    }
   },
   onLoad(options){
     this.setData({
@@ -20,7 +26,7 @@ Page({
     this.getOrderDetail(options.order_id);
 
     //设置导航头
-    wx.setNavigationBarTitle({ title: this.data.ptype == 'unpay' ? "待付款" : "待收货" })  
+    wx.setNavigationBarTitle({ title: this.data.ptypeDict[this.data.ptype]})  
   },
   getOrderDetail(oid){
     let that = this;
@@ -182,6 +188,11 @@ Page({
           success: function () { }
         })
       }
+    })
+  },
+  retOrderList(){//返回订单列表
+    wx.navigateTo({
+      url: '../orderList/orderList?ptype=all',
     })
   }
 })

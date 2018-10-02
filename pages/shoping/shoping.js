@@ -6,7 +6,7 @@ Page({
   data: {
     shopList: null, //列表
     dateListNum: [], //时间段num列表
-    endHours: 14, //结束抢购的时间（小时）
+    endHours: 22, //结束抢购的时间（小时）
     timerNo: null, //定时器No，计算时间
     showH: null, //显示倒计时，时
     showM: null, //显示倒计时，分

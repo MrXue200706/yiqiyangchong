@@ -52,7 +52,8 @@ Page({
       method: 'GET',
       data: {
         order_no: that.data.order_no
-      }, success(res) {
+      }, 
+      success(res) {
         if (res.data.result==1){
           //可拼团，跳转商品规格选择页面
           console.log("可拼团~~~")
@@ -153,9 +154,11 @@ Page({
       method: 'GET',
       data: {
         order_no: that.data.order_no
-      }, success(res) {
+      }, 
+      success(res) {
         if (res.data.result == 1) {
-          if (that.ct == 'y') {
+          if (that.data.ct == 'y') {
+            debugger;
             //参团操作
             that.setData({
               showShare: false,

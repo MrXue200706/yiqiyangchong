@@ -90,13 +90,13 @@ Page({
   payBtn(event){
     let that = this;
     //根据按钮类型，进行相应的处理
-    let btnType = event.currentTarget.dataset.btntype
-    if(btnType=="立即支付"){
+    let btnType = event.currentTarget.dataset.item.status_name
+    if(btnType=="未付款"){
       //跳转到支付页面
       wx.navigateTo({
         url: '../unpay/unpay?ptype=unpay&order_id=' + event.currentTarget.dataset.item.id
       })
-    } else if (btnType == "邀请参团"){
+    } else if (btnType == "拼团待支付"){
       //确认是否团长
       if (event.currentTarget.dataset.item.member_id == null || event.currentTarget.dataset.item.member_id == undefined || event.currentTarget.dataset.item.member_id == ""){
         //跳转到邀请页面
@@ -113,7 +113,7 @@ Page({
       // wx.navigateTo({
       //   url: '../goodsTogether/goodsTogether?ct=n&param_id=23'
       // })
-    } else if (btnType == "确认收货"){
+    } else if (btnType == "待收货"){
       //确认收货
       wx.showModal({
         title: '确认收货提示',
@@ -161,7 +161,19 @@ Page({
       // wx.navigateTo({
       //   url: '../unpay/unpay?ptype=takegood&order_id=' + event.currentTarget.dataset.item.id
       // })
+    } else if (btnType == "已完成") {
+      //跳转到支付页面
+      wx.navigateTo({
+        url: '../unpay/unpay?ptype=done&order_id=' + event.currentTarget.dataset.item.id
+      })
+    }else{
+      //跳转到订单详情
+      wx.navigateTo({
+        url: '../unpay/unpay?ptype=detail&order_id=' + event.currentTarget.dataset.item.id
+      })
     }
+
+
   },
   delOrder(event){//取消订单
     let oid = event.currentTarget.dataset.oid

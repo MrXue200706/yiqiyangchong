@@ -1,7 +1,7 @@
 <view class="unpay">
   <!--标题-->
   <view class="unpay_title">
-    <text>{{ptype=='unpay'?"待付款":"待收货"}}</text>
+    <text>{{ptypeDict[ptype]}}</text>
   </view>
 
   <!--地址-->
@@ -95,6 +95,7 @@
   <view class="unpay_foot">
       <view class="unpay_foot_cancel" bindtap="delOrder" wx:if="{{ptype=='unpay'}}">取消订单</view>
       <view class="unpay_foot_pay" bindtap="payNow" wx:if="{{ptype=='unpay'}}">立即支付</view>
-      <view class="unpay_foot_pay" bindtap="takegoods" wx:else>确认收货</view>
+      <view class="unpay_foot_pay" bindtap="takegoods" wx:elif="{{ptype=='takegoods'}}">确认收货</view>
+      <view class="unpay_foot_cancel" bindtap="retOrderList" wx:else>返回订单列表</view>
   </view>
 </view>

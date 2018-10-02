@@ -2,7 +2,7 @@
     <!--获取地址-->
     <view class="checkPay_getAdress" wx:if="{{defaultAddress == null}}">
         <view class="checkPay_getAdress_item checkPay_getAdress_item_green" bindtap='chooseVxAddr'>
-            <view class="checkPay_getAdress_item_left">
+            <view class="checkPay_getAdress_deitem_left">
                 <view class="checkPay_getAdress_item_avatar"></view>
                 <text>获取微信地址</text>
             </view>
