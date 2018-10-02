@@ -78,7 +78,7 @@
                 <icon type="clear" size="20" color="#f73227"/>
             </view>
         </view>
-        <view class="checkPay_ticket_item" bindtap='chooseCoupon'>
+        <view class="checkPay_ticket_item" bindtap='chooseCoupon' wx:if="{{shopping!='shopping'}}">
             <view class="checkPay_ticket_item_left">
                 <text>请选择优惠券</text>
             </view>
@@ -87,7 +87,7 @@
                 <text class="checkPay_ticket_item_right_more">></text>
             </view>
         </view>
-        <view class="checkPay_ticket_item">
+        <view class="checkPay_ticket_item" wx:else>
             <view class="checkPay_ticket_item_left">
                 <view class="checkPay_ticket_item_left_icon">
                     <text>积分</text>

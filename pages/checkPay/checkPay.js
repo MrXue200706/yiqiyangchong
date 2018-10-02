@@ -44,20 +44,14 @@ Page({
       address_id: options.address_id == undefined ? null : options.address_id,
       subprice: options.subprice == undefined ? 0 : options.subprice,
     });
-    if (options.adrId != undefined) {
-      this.setData({
-        address_id: options.adrId
-      });
-    }
+    
     //商品详情
     this.getGoodsDetail(options.goods_id);
-    
   },
   onReady(){
     //填充默认收货地址
     this.fullDefaultAddress();
   },
-
   getGoodsDetail(id) { //获取页面细节
     let that = this;
     wx.request({
@@ -310,7 +304,7 @@ Page({
   },
   chooseCoupon() { //选择优惠券
     wx.navigateTo({
-      url: "../cuopon/cuopon?type=" + this.data.shopping + "&goods_id=" + this.data.goods_detail.id + "&type_selected1=" + this.data.type_selected1 + "&type_selected2=" + this.data.type_selected2 + "&selected_numb=" + this.data.selected_numb + "&ct=" + this.data.ct + "&order_no=" + this.data.order_no + "&address_id=" + this.data.address_id + "&totalPay=" + this.data.totalPay
+      url: "../cuopon/cuopon?type=" + this.data.shopping
     })
   }
 })

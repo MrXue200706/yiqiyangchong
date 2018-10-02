@@ -6,9 +6,9 @@ Page({
   data: {
     swiper: [], //轮播图片
     goods_index: [], //首页商品列表
-    pet_expert:[],//养宠达人列表
-    special_topic:[],//专题
-    goods_recommend:[],//活动
+    pet_expert: [], //养宠达人列表
+    special_topic: [], //专题
+    goods_recommend: [], //活动
 
   },
   onLoad() {
@@ -18,7 +18,7 @@ Page({
     this.getPetExpert();
     this.getSpecialTopic();
     this.getGoodsRecommend();
-	this.loginApp();
+    this.loginApp();
   },
 
   //请求轮播图
@@ -37,7 +37,7 @@ Page({
   },
 
   //请求商品列表
-  getGoodsIndex(){
+  getGoodsIndex() {
     let that = this;
     wx.request({
       url: 'https://wechatapi.vipcsg.com/index/goods/index',
@@ -52,7 +52,7 @@ Page({
   },
 
   //养宠达人
-  getPetExpert(){
+  getPetExpert() {
     let that = this;
     wx.request({
       url: 'https://wechatapi.vipcsg.com/index/friend/index',
@@ -68,7 +68,7 @@ Page({
   },
 
   //专题
-  getSpecialTopic(){
+  getSpecialTopic() {
     let that = this;
     wx.request({
       url: 'https://wechatapi.vipcsg.com/index/project/index',
@@ -83,7 +83,7 @@ Page({
   },
 
   //活动
-  getGoodsRecommend(){
+  getGoodsRecommend() {
     let that = this;
     wx.request({
       url: 'https://wechatapi.vipcsg.com/index/events/index',
@@ -96,64 +96,68 @@ Page({
       },
     })
   },
-  
+
   //用户登录
-  loginApp(){
-	  var that = this;
-        // 查看是否授权
-        wx.getSetting({
-            success: function (res1) {
-                if (res1.authSetting['scope.userInfo']) {
-				    //已授权过的，直接登录跳转
-				    that.loginUser();
-                }else{
-					//跳转到授权页面
-					wx.navigateTo({
-					   url: '../login/login', 
-					})
-				}
-            }
-        })
+  loginApp() {
+    var that = this;
+    // 查看是否授权
+    wx.getSetting({
+      success: function(res1) {
+        if (res1.authSetting['scope.userInfo']) {
+          //已授权过的，直接登录跳转
+          that.loginUser();
+        } else {
+          //跳转到授权页面
+          wx.navigateTo({
+            url: '../login/login',
+          })
+        }
+      }
+    })
   },
-  loginUser(){
-		wx.login({
-		  success: function (res) {
-			if (res.code) {
-				var code = res.code;
-				wx.getUserInfo({//getUserInfo流程
-				success: function (res2) {//获取userinfo成功
-				  var encryptedData = encodeURIComponent(res2.encryptedData);
-				  var iv = res2.iv;
-				  //发起网络请求
-				  wx.request({
-						url: 'https://wechatapi.vipcsg.com/index/member/login',
-						method: 'POST',
-						data: {
-						  code: res.code,
-						  encryptedData: encryptedData,
-						  iv: iv
-						},success(resUser) {
-							  app.globalData.userInfo = resUser
-							  console.log(resUser);
-							  wx.setStorageSync('LoginSessionKey', resUser.data.data.user_id)  //保存在session中
-						  },
-							  })
-						}
-				  })
-					  
-			} else {
-				console.log('登录失败！' + res.errMsg)
-				//跳转到授权页面
-				wx.navigateTo({
-				   url: '../login/login', 
-				})
-			}
-		  }
-		})	
-	},
+  loginUser() {
+    var that = this;
+    wx.login({
+      success: function(res) {
+        if (res.code) {
+          var code = res.code;
+          wx.getUserInfo({ //getUserInfo流程
+            success: function(res2) { //获取userinfo成功
+              var encryptedData = encodeURIComponent(res2.encryptedData);
+              var iv = res2.iv;
+              //发起网络请求
+              wx.request({
+                url: 'https://wechatapi.vipcsg.com/index/member/login',
+                method: 'POST',
+                data: {
+                  code: res.code,
+                  encryptedData: encryptedData,
+                  iv: iv
+                },
+                success(resUser) {
+                  app.globalData.userInfo = resUser
+                  console.log(resUser);
+                  //wx.setStorageSync('LoginSessionKey', resUser.data.data.user_id)  //保存在session中
+                  //每日登陆积分
+                  that.loginIntegral()
+                },
+              })
+            }
+          })
+
+        } else {
+          console.log('登录失败！' + res.errMsg)
+          //跳转到授权页面
+          wx.navigateTo({
+            url: '../login/login',
+          })
+        }
+      }
+    })
+  },
 
   //关注
-  focusOn(e){
+  focusOn(e) {
     let friend_id = e.currentTarget.dataset.friendid
     let that = this;
     wx.request({
@@ -162,18 +166,48 @@ Page({
       data: {
         user_id: app.globalData.userInfo.data.data.user_id,
         follow_id: friend_id
-      }, success(res) {
-        if(res.data.result==1){
+      },
+      success(res) {
+        if (res.data.result == 1) {
           //弹窗提示
           wx.showToast({
             title: '关注成功',
             icon: 'succes',
             duration: 1000,
             mask: true,
-            success: function () {
+            success: function() {
               //按钮变黑
-              
+
             }
+          })
+        }
+      },
+    })
+  },
+  loginIntegral() { //每日登陆积分
+    let that = this;
+    wx.request({
+      url: 'https://wechatapi.vipcsg.com/index/integral/sign_day',
+      method: 'POST',
+      data: {
+        user_id: app.globalData.userInfo.data.data.user_id
+      },
+      success(res) {
+        if (res.data.result == 1) {
+          wx.showToast({
+            title: '已领取每日登陆积分',
+            icon: 'succes',
+            duration: 2000,
+            mask: true,
+            success: function () { }
+          })
+        }else{
+          wx.showToast({
+            title: '积分已领取',
+            icon: 'none',
+            duration: 2000,
+            mask: true,
+            success: function () { }
           })
         }
       },

@@ -16,11 +16,11 @@
             </view>
             <view class="shoping_goods_time_t">
                 <text>距结束 </text>
-                <text class="shoping_goods_time_t_b">00</text>
+                <text class="shoping_goods_time_t_b">{{showH}}</text>
                 <text class="shoping_goods_time_t_icon"> : </text>
-                <text class="shoping_goods_time_t_b">00</text>
+                <text class="shoping_goods_time_t_b">{{showM}}</text>
                 <text class="shoping_goods_time_t_icon"> : </text>
-                <text class="shoping_goods_time_t_b">00</text>
+                <text class="shoping_goods_time_t_b">{{showS}}</text>
             </view>
         </view>
         <navigator url="../goodsDetail/goodsDetail?type=shopping" class="shoping_goods">

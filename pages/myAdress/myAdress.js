@@ -55,9 +55,20 @@ Page({
       })
     } else if (this.data.type == "shopping" || this.data.type == "together" || this.data.type == "normal") {
       //如果是在购买页面跳转过来的，单击直接填充地址
+      //获取页面栈
+      var pages = getCurrentPages();
+      //获取上一页
+      var prePage = pages[pages.length - 2]
+      prePage.setData({
+        address_id: adrId
+      })
+      //返回上一页
+      wx.navigateBack();
+      /*
       wx.navigateTo({
         url: "../checkPay/checkPay?shopping=" + this.data.type + "&adrId=" + adrId + "&goods_id=" + this.data.goods_id + "&type_selected1=" + this.data.type_selected1 + "&type_selected2=" + this.data.type_selected2 + "&selected_numb=" + this.data.selected_numb + "&order_no=" + this.data.order_no + "&ct=" + this.data.ct + "&couponId=" + this.data.couponId
       });
+      */
     } else {
       //进入编辑页面
       wx.navigateTo({
