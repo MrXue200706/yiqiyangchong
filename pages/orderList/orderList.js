@@ -24,6 +24,7 @@ Page({
       "拼团待支付": "邀请参团",
       "未发货": "查看订单",
       "已发货": "确认收货",
+      "拼团已支付": "邀请参团"
     },
     tab_selected_id: 0,
     ptype: "all", //页面类型，默认全部订单，unpay：待付款，untogether：待成团，unpick：待收货，done：已完成
@@ -96,7 +97,7 @@ Page({
       wx.navigateTo({
         url: '../unpay/unpay?ptype=unpay&order_id=' + event.currentTarget.dataset.item.id
       })
-    } else if (btnType == "拼团待支付"){
+    } else if (btnType == "拼团待支付" || btnType == "拼团已支付"){
       //确认是否团长
       if (event.currentTarget.dataset.item.member_id == null || event.currentTarget.dataset.item.member_id == undefined || event.currentTarget.dataset.item.member_id == ""){
         //跳转到邀请页面
@@ -109,10 +110,6 @@ Page({
           url: '../goodsTogether/goodsTogether?ct=n&param_id=' + event.currentTarget.dataset.item.goods_id +'&order_no=' + event.currentTarget.dataset.item.member_id
         })
       }
-      //跳转到邀请页面
-      // wx.navigateTo({
-      //   url: '../goodsTogether/goodsTogether?ct=n&param_id=23'
-      // })
     } else if (btnType == "待收货"){
       //确认收货
       wx.showModal({
@@ -180,30 +177,43 @@ Page({
     let ostatus = event.currentTarget.dataset.ostatus
     let that = this;
     if (ostatus == 1) {
-      wx.request({
-        url: 'https://wechatapi.vipcsg.com/index/order/cancel_order',
-        method: 'POST',
-        data: {
-          user_id: app.globalData.userInfo.data.data.user_id,
-          order_id: oid
-        }, success(res) {
-          if (res.data.result == 1) {
-            wx.showToast({
-              title: '取消成功',
-              icon: 'succes',
-              duration: 2000,
-              mask: true,
-              success: function () {
-                that.setData({
-                  pageNo: 1, //重置pageNo
-                  pageList: [], 
-                })
-                //刷新列表
-                that.setPageDetail();
-              }
+      //提示
+      wx.showModal({
+        title: '提示',
+        content: '是否取消该订单',
+        success: function (res) {
+          if (res.confirm) {
+            console.log('用户点击确定')
+            wx.request({
+              url: 'https://wechatapi.vipcsg.com/index/order/cancel_order',
+              method: 'POST',
+              data: {
+                user_id: app.globalData.userInfo.data.data.user_id,
+                order_id: oid
+              }, success(res) {
+                if (res.data.result == 1) {
+                  wx.showToast({
+                    title: '取消成功',
+                    icon: 'succes',
+                    duration: 2000,
+                    mask: true,
+                    success: function () {
+                      that.setData({
+                        pageNo: 1, //重置pageNo
+                        pageList: [],
+                      })
+                      //刷新列表
+                      that.setPageDetail();
+                    }
+                  })
+                }
+              },
             })
+          } else {
+            console.log('用户点击取消')
           }
-        },
+
+        }
       })
     } else {
       wx.showToast({

@@ -1,109 +1,117 @@
 <view class="goodsTogether">
-    <!--商品-->
-    <view class="goodsTogether_goods_d">
-        <navigator url="../goodsDetail/goodsDetail?id={{goods_detail.id}}" class="goodsTogether_goods">
-            <view class="goodsTogether_goods_img"></view>
-            <view class="goodsTogether_goods_text">
-                <view class="goodsTogether_goods_text_title">{{goods_detail.goods_name}}</view>
-                <view class="goodsTogether_goods_recommend">
-                    <text>2人团</text>
-                    <text>已团3232件</text>
-                </view>
-                <view class="goodsTogether_goods_text_bottom">
-                    <text class="goodsTogether_goods_text_bottom_red">￥{{goods_detail.group_price}}</text>
-                    <text class="goodsTogether_goods_text_bottom_gray">￥{{goods_detail.market_price}}</text>
-                </view>
-            </view>
-        </navigator>
-    </view>
+  <!--商品-->
+  <view class="goodsTogether_goods_d">
+    <navigator url="../goodsDetail/goodsDetail?type=together&id={{goods_detail.id}}" class="goodsTogether_goods">
+      <view class="goodsTogether_goods_img"></view>
+      <view class="goodsTogether_goods_text">
+        <view class="goodsTogether_goods_text_title">{{goods_detail.goods_name}}</view>
+        <view class="goodsTogether_goods_recommend">
+          <text>2人团</text>
+          <text>已团3232件</text>
+        </view>
+        <view class="goodsTogether_goods_text_bottom">
+          <text class="goodsTogether_goods_text_bottom_red">￥{{goods_detail.group_price}}</text>
+          <text class="goodsTogether_goods_text_bottom_gray">￥{{goods_detail.market_price}}</text>
+        </view>
+      </view>
+    </navigator>
+  </view>
 
-    <!--推荐-->
-    <view class="goodsTogether_recommend">
-        <text>{{goods_detail.pet_friend_count}}名宠友推荐</text>
-        <navigator url="../petFriends/petFriends" class="goodsTogether_recommend_avatar">
-            <view class="goodsTogether_recommend_avatar_item specialTopicDetail_goods_recommend_avatar_first"></view>
-            <view class="goodsTogether_recommend_avatar_item"></view>
-            <view class="goodsTogether_recommend_avatar_item"></view>
-            <view class="goodsTogether_recommend_avatar_item"></view>
-            <view class="goodsTogether_recommend_avatar_item"></view>
-            <view class="goodsTogether_recommend_avatar_item"></view>
-            <view class="goodsTogether_recommend_avatar_item"></view>
-            <view class="goodsTogether_recommend_avatar_item"></view>
-            <view class="goodsTogether_recommend_avatar_item"></view>
-        </navigator>
-    </view>
+  <!--推荐-->
+  <view class="goodsTogether_recommend">
+    <text>{{goods_detail.pet_friend_count}}名宠友推荐</text>
+    <navigator url="../petFriends/petFriends" class="goodsTogether_recommend_avatar">
+      <view class="goodsTogether_recommend_avatar_item specialTopicDetail_goods_recommend_avatar_first"></view>
+      <view class="goodsTogether_recommend_avatar_item"></view>
+      <view class="goodsTogether_recommend_avatar_item"></view>
+      <view class="goodsTogether_recommend_avatar_item"></view>
+      <view class="goodsTogether_recommend_avatar_item"></view>
+      <view class="goodsTogether_recommend_avatar_item"></view>
+      <view class="goodsTogether_recommend_avatar_item"></view>
+      <view class="goodsTogether_recommend_avatar_item"></view>
+      <view class="goodsTogether_recommend_avatar_item"></view>
+    </navigator>
+  </view>
 
-    <!--拼团-->
-    <view class="goodsTogether_person">
-        <view class="goodsTogether_person_avatar">
-            <view class="goodsTogether_person_avatar_left"></view>
-            <view class="goodsTogether_person_avatar_icon">+</view>
-            <view class="goodsTogether_person_avatar_right"></view>
-        </view>
-        <view class="goodsTogether_person_info">
-            <view class="goodsTogether_person_info_text">
-                <text>仅剩1个名额,12:01：21后结束</text>
-            </view>
-            <view wx:if="{{fullTogether}}">
-                <!-- 团购已满的样式 -->
-                <view class="goodsTogether_person_info_button">
-                  <text>该团购已满</text>
-                </view>
-            </view>
-            <view wx:else>
-              <view wx:if="{{showShare}}">
-                <button class="goodsTogether_person_info_button" data-paramId="{{goods_detail.id}}" data-shareId="{{app.globalData.userInfo.data.data.user_id}}" open-type="share">
-                  <text>邀请宠友参团</text>
-                </button>
-              </view>
-              <view wx:else>
-                <button class="goodsTogether_person_info_button" bindtap="buyTogether">
-                  <text>参与团购</text>
-                </button>
-              </view>
-            </view>
-        </view>
+  <!--拼团-->
+  <view class="goodsTogether_person">
+    <view class="goodsTogether_person_avatar">
+      <view class="goodsTogether_person_avatar_left">
+        <!-- 团长头像{{group_info.avatarUrl}} -->
+      </view>
+      <view class="goodsTogether_person_avatar_icon">+</view>
+      <view class="goodsTogether_person_avatar_right"></view>
     </view>
+    <view class="goodsTogether_person_info">
+      <view class="goodsTogether_person_info_text">
+        <text wx:if="{{groupMsg=='拼团已超过24小时'}}">团购已结束</text>
+        <text wx:else>仅剩1个名额,{{countdown}}后结束</text>
+      </view>
+      <view wx:if="{{fullTogether}}">
+        <!-- 团购已满的样式 -->
+        <view class="goodsTogether_person_info_button">
+          <text>该团购已满</text>
+        </view>
+      </view>
+      <view wx:elif="{{groupMsg=='拼团已超过24小时'}}">
+        <view class="goodsTogether_person_info_button">
+          <text>团购已结束</text>
+        </view>
+      </view>
+      <view wx:else>
+        <view wx:if="{{showShare}}">
+          <button class="goodsTogether_person_info_button" data-paramId="{{goods_detail.id}}" data-shareId="{{app.globalData.userInfo.data.data.user_id}}" open-type="share">
+            <text>邀请宠友参团</text>
+          </button>
+        </view>
+        <view wx:else>
+          <button class="goodsTogether_person_info_button" bindtap="buyTogether">
+            <text>参与团购</text>
+          </button>
+        </view>
+      </view>
+    </view>
+  </view>
 
-    <!--更多-->
-    <view class="goodsTogether_more">
-        <view class="goodsTogether_more_title">
-            <text>限时抢购</text>
-            <navigator url="" class="goodsTogether_more_title_more">更多></navigator>
-        </view>
-        <view class="goodsTogether_more_goods_d">
-            <navigator url="../goodsDetail/goodsDetail" class="goodsTogether_more_goods">
-                <view class="goodsTogether_more_goods_img"></view>
-                <view class="goodsTogether_more_goods_text">
-                    <view class="goodsTogether_more_goods_text_title">狗粮狗粮狗粮狗粮狗粮狗粮狗粮狗粮狗粮狗粮狗粮狗粮狗粮</view>
-                    <view class="goodsTogether_more_goods_text_middle">
-                        <text class="goodsTogether_more_goods_text_middle_orange">积分抵10%</text>
-                        <text class="goodsTogether_more_goods_text_middle_red">限时限量</text>
-                        <text class="goodsTogether_more_goods_text_middle_gray">仅剩323件</text>
-                    </view>
-                    <view class="goodsTogether_more_goods_text_bottom">
-                        <text class="goodsTogether_more_goods_text_bottom_red">￥58.88</text>
-                        <text class="goodsTogether_more_goods_text_bottom_gray">￥98.88</text>
-                        <text class="goodsTogether_more_goods_text_bottom_button">马上抢</text>
-                    </view>
-                </view>
-            </navigator>
-            <navigator url="../goodsDetail/goodsDetail" class="goodsTogether_more_goods">
-                <view class="goodsTogether_more_goods_img"></view>
-                <view class="goodsTogether_more_goods_text">
-                    <view class="goodsTogether_more_goods_text_title">狗粮狗粮狗粮狗粮狗粮狗粮狗粮狗粮狗粮狗粮狗粮狗粮狗粮</view>
-                    <view class="goodsTogether_more_goods_text_middle">
-                        <text class="goodsTogether_more_goods_text_middle_orange">积分抵10%</text>
-                        <text class="goodsTogether_more_goods_text_middle_red">限时限量</text>
-                        <text class="goodsTogether_more_goods_text_middle_gray">仅剩323件</text>
-                    </view>
-                    <view class="goodsTogether_more_goods_text_bottom">
-                        <text class="goodsTogether_more_goods_text_bottom_red">￥58.88</text>
-                        <text class="goodsTogether_more_goods_text_bottom_gray">￥98.88</text>
-                        <text class="goodsTogether_more_goods_text_bottom_button">马上抢</text>
-                    </view>
-                </view>
-            </navigator>
-        </view>
+  <!--更多-->
+  <view class="goodsTogether_more">
+    <view class="goodsTogether_more_title">
+      <text>限时抢购</text>
+      <view bindtap='goShopping' class="goodsTogether_more_title_more">更多></view>
     </view>
+    <view class="goodsTogether_more_goods_d">
+      <navigator url="../goodsDetail/goodsDetail" class="goodsTogether_more_goods">
+        <view class="goodsTogether_more_goods_img"></view>
+        <view class="goodsTogether_more_goods_text">
+          <view class="goodsTogether_more_goods_text_title">狗粮狗粮狗粮狗粮狗粮狗粮狗粮狗粮狗粮狗粮狗粮狗粮狗粮</view>
+          <view class="goodsTogether_more_goods_text_middle">
+            <text class="goodsTogether_more_goods_text_middle_orange">积分抵10%</text>
+            <text class="goodsTogether_more_goods_text_middle_red">限时限量</text>
+            <text class="goodsTogether_more_goods_text_middle_gray">仅剩323件</text>
+          </view>
+          <view class="goodsTogether_more_goods_text_bottom">
+            <text class="goodsTogether_more_goods_text_bottom_red">￥58.88</text>
+            <text class="goodsTogether_more_goods_text_bottom_gray">￥98.88</text>
+            <text class="goodsTogether_more_goods_text_bottom_button">马上抢</text>
+          </view>
+        </view>
+      </navigator>
+      <navigator url="../goodsDetail/goodsDetail" class="goodsTogether_more_goods">
+        <view class="goodsTogether_more_goods_img"></view>
+        <view class="goodsTogether_more_goods_text">
+          <view class="goodsTogether_more_goods_text_title">狗粮狗粮狗粮狗粮狗粮狗粮狗粮狗粮狗粮狗粮狗粮狗粮狗粮</view>
+          <view class="goodsTogether_more_goods_text_middle">
+            <text class="goodsTogether_more_goods_text_middle_orange">积分抵10%</text>
+            <text class="goodsTogether_more_goods_text_middle_red">限时限量</text>
+            <text class="goodsTogether_more_goods_text_middle_gray">仅剩323件</text>
+          </view>
+          <view class="goodsTogether_more_goods_text_bottom">
+            <text class="goodsTogether_more_goods_text_bottom_red">￥58.88</text>
+            <text class="goodsTogether_more_goods_text_bottom_gray">￥98.88</text>
+            <text class="goodsTogether_more_goods_text_bottom_button">马上抢</text>
+          </view>
+        </view>
+      </navigator>
+    </view>
+  </view>
 </view>

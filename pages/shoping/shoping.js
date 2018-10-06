@@ -4,87 +4,75 @@ const app = getApp()
 
 Page({
   data: {
-    shopList: null, //列表
-    dateListNum: [], //时间段num列表
+    shopData: null, //抢购数据
     endHours: 22, //结束抢购的时间（小时）
     timerNo: null, //定时器No，计算时间
     showH: null, //显示倒计时，时
     showM: null, //显示倒计时，分
     showS: null, //显示倒计时，秒
   },
-  onLoad() {
-    this.getTimeList();
-  },
   onShow() {
-    this.getShopList(Number(new Date().getHours()));
+    this.getListDetail();
     let that = this;
     //启动定时器
     this.data.timerNo = setInterval(function() {
       var nowTimed = new Date();
       var nowTime = nowTimed.getTime()
-      var eTime = nowTimed.getFullYear() + "-" + (nowTimed.getMonth() + 1) + "-" + nowTimed.getDate() + " " + that.data.endHours + ":00:00";
+      var eTime;
+      if (that.data.shopData.allshop.allFlag == "Y") {
+        eTime = nowTimed.getFullYear() + "-" + (nowTimed.getMonth() + 1) + "-" + (nowTimed.getDate() + 1) + " " + "00:00:00";
+      } else {
+        eTime = nowTimed.getFullYear() + "-" + (nowTimed.getMonth() + 1) + "-" + nowTimed.getDate() + " " + that.data.endHours + ":00";
+      }
       var etimes = Date.parse(new Date(eTime.replace(/-/g, "/")));
       var poorTime = etimes - nowTime
       var fTimeStr = that.dateformatOut(poorTime)
       //console.log("倒计时时间：" + fTimeStr)
       //判断当前是否为整点
-      var min = Math.floor(nowTime / 1000 / 60 % 60);
-      var sec = Math.floor(nowTime/1000 % 60);
-      if(min==0 && sec==0){
+      var minutes = parseInt((nowTime % (1000 * 60 * 60)) / (1000 * 60))
+      var seconds = (nowTime % (1000 * 60)) / 1000
+      if (minutes == 0 && seconds == 0) {
         //整点刷新列表
-        //TODO
+        that.getListDetail()
       }
     }, 1000);
-  },
-  chooseTimeShow(e) { //选择时间段，展示列表
-    this.getShopList(e.currentTarget.dataset.timenum);
   },
   onHide() {
     //关闭定时器
     clearInterval(this.data.timerNo);
   },
-  getTimeList() { //获取时间段信息
+  getListDetail() { //获取列表数据
     let that = this;
     wx.request({
-      url: 'https://wechatapi.vipcsg.com/index/flashsale/time_list',
-      method: 'GET',
-      data: {},
-      success(res) {
-        let dataListTemp = res.data.data
-        console.log(dataListTemp)
-        let tempNumList = []
-        for (var i in dataListTemp) {
-          if (dataListTemp[i] == '全天') continue
-          let tempStr = String(dataListTemp[i]).replace(/:.*/g, '');
-          tempNumList.push(Number(tempStr))
-        }
-        that.setData({
-          dateListNum: tempNumList
-        })
-      },
-    })
-  },
-  getShopList(timeNum) { //获取给定时间数字的抢购列表
-    timeNum = timeNum % 2 > 0 ? timeNum - 1 : timeNum;
-    let timeStr = timeNum < 10 ? '0' + timeNum + ':00' : timeNum + ':00';
-    //设置当前列表区间
-    this.setData({
-      chooseTimeNum: timeNum
-    })
-    let that = this;
-    wx.request({
-      url: 'https://wechatapi.vipcsg.com/index/flashsale/index',
+      url: 'https://wechatapi.vipcsg.com/index/flashsale/flashsale_list',
       method: 'GET',
       data: {
-        time: timeStr
+        user_id: app.globalData.userInfo.data.data.user_id
       },
       success(res) {
-        that.setData({
-          shopList: res.data.data
-        })
+        if (res.data.result == 1) {
+          that.setData({
+            shopData: res.data.data,
+          })
+          if (res.data.data.currentshop.nowFlag == "Y" && res.data.data.allshop.allFlag != "Y") {
+            var nowSTime = res.data.data.currentshop.nowSTime
+            var temp = nowSTime.replace(/.+-/g, "")
+            that.setData({
+              endHours: temp
+            })
+          }
+          console.log(that.data.shopData)
+        }
       },
     })
   },
+  callMe(){//提醒我
+    console.log("callMe")
+  },
+
+
+
+
   dateformatOut(micro_second, t = 1) { // 时间格式化输出
     // 总秒数
     var second = Math.floor(micro_second / 1000);

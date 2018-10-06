@@ -10,9 +10,9 @@ Page({
     //由于onLoad只加载一次数据，所以改用onShow每次都刷新数据
   },
   onShow() {
-    this.getUserInfoDetail();//获取用户数据，刷新数据
+    this.getUserInfoDetail(); //获取用户数据，刷新数据
   },
-  bindGetUserInfo: function (e) {
+  bindGetUserInfo: function(e) {
     console.log(e.detail.userinfo);
     if (e.detail.userinfo) {
       //用户点击了授权
@@ -21,14 +21,15 @@ Page({
       console.log("取消授权xxx")
     }
   },
-  getUserInfoDetail: function () {
+  getUserInfoDetail: function() {
     let that = this;
     wx.request({
       url: 'https://wechatapi.vipcsg.com/index/member/my_info',
       method: 'GET',
       data: {
         user_id: app.globalData.userInfo.data.data.user_id
-      }, success(res) {
+      },
+      success(res) {
         if (res.data.result == 1) {
           console.log(res.data.data)
           that.setData({
@@ -38,7 +39,12 @@ Page({
       },
     })
   },
-  cooperation(){//合作
-    
+  cooperation() { //合作
+    wx.navigateTo({
+      url: '../goodsTogether/goodsTogether?order_no=G201810021745339835&ct=y&param_id=23&share_id=5&share_type=goods&share_date=2018-10-2',
+      success: function(res) {},
+      fail: function(res) {},
+      complete: function(res) {},
+    })
   }
 })

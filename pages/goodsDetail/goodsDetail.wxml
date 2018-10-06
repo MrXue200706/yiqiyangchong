@@ -90,7 +90,7 @@
         
         <view class="goodsDetail_foot_right" bindtap="iframeFn">
             <text>￥52.23</text>
-            <text>(最多可立减12元)</text>
+            <text>(最多可立减12元)</text><!-- 抵扣比例{{integralDK}} -->
         </view>
     </view>
     <view class="goodsDetail_foot" wx:else>

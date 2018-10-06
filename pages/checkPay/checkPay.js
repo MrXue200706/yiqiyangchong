@@ -8,7 +8,7 @@ Page({
     goods_detail: {}, //详情
     type_selected1: null, //选择规格1
     type_selected2: null, //选择规格2
-    selected_img: null,//商品图片
+    selected_img: null, //商品图片
     selected_numb: 1, //选择数量
     totalPay: 100000, //费用合计
     address_id: 0, //地址ID
@@ -18,9 +18,12 @@ Page({
     couponId: "", //优惠券ID
     subprice: 0, //优惠券减免价格
     defaultAddress: null, //默认地址
+    flashsale_id: null, //抢购ID
+    is_integral: null, //是否使用积分
+    useIntegralFlag: false, //是否使用
+    integralDK: null, //积分抵扣比例
   },
   onLoad: function(options) {
-    // console.log(options)
     if (options.type_selected1 == undefined || options.type_selected2 == undefined) { //如果不选规格，直接return
       wx.showToast({
         title: '加载页面出错',
@@ -38,17 +41,19 @@ Page({
       type_selected2: options.type_selected2,
       selected_img: options.image,
       selected_numb: options.selected_numb,
-      ct: options.ct == undefined ? null : options.ct,
+      ct: options.ct == undefined ? 'n' : options.ct,
       order_no: options.order_no == undefined ? null : options.order_no,
       couponId: options.couponId == undefined ? null : options.couponId,
       address_id: options.address_id == undefined ? null : options.address_id,
       subprice: options.subprice == undefined ? 0 : options.subprice,
+      flashsale_id: options.flashsale_id == undefined ? null : options.flashsale_id,
+      integralDK: options.integralDK == undefined ? null : options.integralDK
     });
-    
+
     //商品详情
     this.getGoodsDetail(options.goods_id);
   },
-  onReady(){
+  onReady() {
     //填充默认收货地址
     this.fullDefaultAddress();
   },
@@ -93,7 +98,7 @@ Page({
   totalPayCount() { //计算价格，重新设置价格
     //获取当前选择规格的价钱
     let list = this.data.goods_detail.goods_spec_list;
-    if(this.data.type_selected2 != "0"){
+    if (this.data.type_selected2 != "0") {
       for (var i = 0; i < list.length; i++) {
         if (list[i].spec_value == this.data.type_selected1 && list[i].spec_value_2 == this.data.type_selected2) {
           let pice;
@@ -110,7 +115,7 @@ Page({
           console.log("价格：" + this.data.totalPay);
         }
       }
-    }else{
+    } else {
       for (var i = 0; i < list.length; i++) {
         if (list[i].spec_value == this.data.type_selected1) {
           let pice;
@@ -128,7 +133,7 @@ Page({
         }
       }
     }
-    
+
   },
   chooseAdr() { //选择地址
     wx.navigateTo({
@@ -136,13 +141,13 @@ Page({
     })
   },
   payNow() { //立即支付
-    if (this.data.type_selected1 == undefined){
+    if (this.data.type_selected1 == undefined) {
       wx.showToast({
         title: '数据丢失，请重新进行选择购买',
         icon: 'none',
         duration: 1000,
         mask: true,
-        success: function () { }
+        success: function() {}
       })
       return;
     }
@@ -164,6 +169,7 @@ Page({
     console.log("number: " + that.data.selected_numb)
     console.log("spec_1: " + that.data.type_selected1)
     console.log("spec_2: " + that.data.type_selected2)
+    
 
     var queryUrl = '';
     //确认订单类型
@@ -177,13 +183,12 @@ Page({
       }
     } else if (this.data.shopping == 'shopping') {
       //抢购商品
-      //queryUrl = 'https://wechatapi.vipcsg.com/index/order/group_submit'
+      queryUrl = 'https://wechatapi.vipcsg.com/index/order/flash_submit'
     } else {
       //一般订单提交入口
       queryUrl = 'https://wechatapi.vipcsg.com/index/order/submit'
     }
-    console.log("接口url: " + queryUrl)
-
+    console.log("urlStr; " + queryUrl)
     //提交订单
     wx.request({
       url: queryUrl,
@@ -197,6 +202,8 @@ Page({
         number: that.data.selected_numb,
         spec_1: that.data.type_selected1,
         spec_2: that.data.type_selected2,
+        flashsale_id: that.data.flashsale_id,
+        is_integral: that.data.is_integral,
       },
       success(res) {
         if (res.data.result == 1) {
@@ -216,7 +223,7 @@ Page({
               console.log("支付成功！！")
               //判断是否为团购，如果团购，则跳到邀请团友页面/待成团界面
               if (that.data.shopping == "together") {
-                if (that.data.ct = 'n') {
+                if (that.data.ct == 'n') {
                   //开团
                   wx.navigateTo({
                     url: "../goodsTogether/goodsTogether?ct=n&order_no=" + order_no + "&param_id=" + that.data.goods_detail.id
@@ -253,6 +260,14 @@ Page({
             'complete': function(res) {
               console.log("最终路线！！")
             }
+          })
+        } else { //下订单失败
+          wx.showToast({
+            title: "订单购买失败，请稍后再试",
+            icon: 'none',
+            duration: 2000,
+            mask: true,
+            success: function() {}
           })
         }
       },
@@ -306,5 +321,16 @@ Page({
     wx.navigateTo({
       url: "../cuopon/cuopon?type=" + this.data.shopping
     })
+  },
+  useIntegral(){//使用积分
+    if (this.data.is_integral!=1){
+      this.setData({
+        is_integral: 1
+      })
+    }else{
+      this.setData({
+        is_integral: 0
+      })
+    }
   }
 })

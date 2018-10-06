@@ -20,6 +20,8 @@ Page({
     collectId: null, //收藏id
     order_no: null, //参与团购的开团orderNo
     ct: 'n', //是否参与团购,n:不参团, y:参与团购
+    flashsale_id: null, //抢购ID
+    integralDK: "0%" , //积分抵扣比例
   },
   iframeFn() { //规格选择弹出
     this.setData({
@@ -49,18 +51,25 @@ Page({
     });
   },
   onLoad(o) {
-    if (o.type == 'shopping') {
+    this.setData({
+      shopping: o.type, //购买类别
+      order_no: o.order_no == undefined ? null : o.order_no,
+      ct: o.ct == undefined ? "n" : o.ct,
+      flashsale_id: o.flashsale_id == undefined ? null : o.flashsale_id
+    })
+    
+    if(o.type=="shopping"){
       this.setData({
-        shopping: 'shopping'
+        integralDK: o.integralDK
       })
-    } else if (o.type == 'together') {
-      this.setData({
-        shopping: 'together',
-        order_no: o.order_no,
-        ct: 'y'
-      })
+      if(o.start=="n"){
+        //抢购尚未给开始
+        
+      }else{
+        //integralDK
+      }
     }
-    //请求
+
     this.getGoodsDetail(o.id);
   },
   getGoodsDetail(id) { //获取页面细节
@@ -71,6 +80,7 @@ Page({
         goods_id: id
       },
       success(res) {
+        console.log(res.data.data)
         that.setData({
           goods_detail: res.data.data
         });
@@ -80,7 +90,7 @@ Page({
         that.setData({
           type_one_selected: res.data.data.display_spec[0]
         });
-        console.log(res.data.data)
+        
         //检查是否已收藏
         that.checkCollect();
       },
@@ -100,9 +110,9 @@ Page({
       selected_numb: this.data.selected_numb + 1
     })
   },
-  submitOrder() { 
+  submitOrder() {
     //数据校验
-    if(this.data.type_one_selected.spec_option[0].spec_value_2){
+    if (this.data.type_one_selected.spec_option[0].spec_value_2) {
       if (this.data.spec1 == "0" || this.data.spec2 == "0") {
         wx.showToast({
           title: '请填写商品规格',
@@ -111,7 +121,7 @@ Page({
         })
         return;
       }
-    }else{
+    } else {
       if (this.data.spec1 == "0") {
         wx.showToast({
           title: '请填写商品规格',
@@ -121,13 +131,14 @@ Page({
         return;
       }
     }
-    
+
     wx.navigateTo({
-      url: "../checkPay/checkPay?shopping=" + this.data.shopping + "&goods_id=" + 
-        this.data.goods_detail.id + "&type_selected1=" + this.data.spec1 + "&type_selected2=" + 
-        this.data.spec2 + "&selected_numb=" + this.data.selected_numb + "&ct=" + 
-        this.data.ct + "&order_no=" + this.data.order_no + "&image=" + this.data.type_one_selected.spec_img
+      url: "../checkPay/checkPay?shopping=" + this.data.shopping + "&goods_id=" +
+        this.data.goods_detail.id + "&type_selected1=" + this.data.spec1 + "&type_selected2=" +
+        this.data.spec2 + "&selected_numb=" + this.data.selected_numb + "&ct=" +
+        this.data.ct + "&order_no=" + this.data.order_no + "&image=" + this.data.type_one_selected.spec_img + "&flashsale_id=" + this.data.flashsale_id + "&integralDK=" + this.data.integralDK
     })
+
 
     //this.subMitOrderFun();
   },
@@ -228,16 +239,16 @@ Page({
       url: '../index/index',
     })
   },
-  buyTogether(){//团购订单修改入口
+  buyTogether() { //团购订单修改入口
     this.setData({
       shopping: 'together'
     });
     this.iframeFn();
   },
-  buyOwn(){
+  buyOwn() {
     this.setData({
       shopping: 'normal'
     });
     this.iframeFn();
-  }
+  },
 })
