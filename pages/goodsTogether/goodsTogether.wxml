@@ -44,18 +44,18 @@
     </view>
     <view class="goodsTogether_person_info">
       <view class="goodsTogether_person_info_text">
-        <text wx:if="{{groupMsg=='拼团已超过24小时'}}">团购已结束</text>
+        <text wx:if="{{groupMsg=='该团购已结束'}}">该团购已结束</text>
         <text wx:else>仅剩1个名额,{{countdown}}后结束</text>
       </view>
-      <view wx:if="{{fullTogether}}">
+      <view wx:if="{{groupMsg=='该团购已结束'}}">
+        <view class="goodsTogether_person_info_button">
+          <text>团购已结束</text>
+        </view>
+      </view>
+      <view wx:elif="{{groupMsg=='该团购已满'}}">
         <!-- 团购已满的样式 -->
         <view class="goodsTogether_person_info_button">
           <text>该团购已满</text>
-        </view>
-      </view>
-      <view wx:elif="{{groupMsg=='拼团已超过24小时'}}">
-        <view class="goodsTogether_person_info_button">
-          <text>团购已结束</text>
         </view>
       </view>
       <view wx:else>

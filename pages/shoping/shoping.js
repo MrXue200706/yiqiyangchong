@@ -7,9 +7,10 @@ Page({
     shopData: null, //抢购数据
     endHours: 22, //结束抢购的时间（小时）
     timerNo: null, //定时器No，计算时间
-    showH: null, //显示倒计时，时
-    showM: null, //显示倒计时，分
-    showS: null, //显示倒计时，秒
+    timerNo2: null, //定时器No2，定时刷新数据
+    showH: '00', //显示倒计时，时
+    showM: '00', //显示倒计时，分
+    showS: '00', //显示倒计时，秒
   },
   onShow() {
     this.getListDetail();
@@ -36,10 +37,25 @@ Page({
         that.getListDetail()
       }
     }, 1000);
+
+    //定时器2：每10秒刷新一次数据
+    this.data.timerNo2 = setInterval(function () {
+      console.log("定时刷新数据：" + that.dateformatOut(new Date().getTime()))
+        that.getListDetail()
+    }, 10000);
+
+
   },
   onHide() {
     //关闭定时器
     clearInterval(this.data.timerNo);
+    clearInterval(this.data.timerNo2);
+  },
+  onPullDownRefresh() {//下拉刷新
+    console.log("上啦刷新数据")
+    this.getListDetail()
+    wx.showNavigationBarLoading() //在标题栏中显示加载
+    wx.hideNavigationBarLoading() //关闭加载
   },
   getListDetail() { //获取列表数据
     let that = this;
@@ -69,10 +85,6 @@ Page({
   callMe(){//提醒我
     console.log("callMe")
   },
-
-
-
-
   dateformatOut(micro_second, t = 1) { // 时间格式化输出
     // 总秒数
     var second = Math.floor(micro_second / 1000);
@@ -95,5 +107,5 @@ Page({
     } else {
       return hr + "小时" + min + "分钟" + sec + "秒";
     }
-  }
+  },
 })

@@ -19,9 +19,9 @@
         <view class="goodsDetail_title_content">
             <text>{{goods_detail.goods_name}}</text>
         </view>
-        <navigator url="../goodsTogether/goodsTogether?ct=n&param_id={{goods_detail.id}}" class="goodsDetail_title_get">
+        <button class="goodsDetail_title_get" open-type='share'>
             <text>赚积分</text>
-        </navigator>
+        </button>
     </view>
 
     <!--服务-->
@@ -89,8 +89,8 @@
         </view>
         
         <view class="goodsDetail_foot_right" bindtap="iframeFn">
-            <text>￥52.23</text>
-            <text>(最多可立减12元)</text><!-- 抵扣比例{{integralDK}} -->
+            <text>￥{{goods_detail.price}}</text>
+            <text>(最多可立减{{goods_detail.price*integralDK/100}}元)</text><!-- 抵扣比例{{integralDK}} -->
         </view>
     </view>
     <view class="goodsDetail_foot" wx:else>

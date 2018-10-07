@@ -138,10 +138,9 @@ Page({
             });
           }
         } else {
-          // debugger
           //跳转到待收货页面
           wx.navigateTo({
-            url: "../unpay/unpay?ptype=takegoods&order_id=" + this.data.orderDetail.id
+            url: "../unpay/unpay?ptype=takegoods&order_id=" + that.data.orderDetail.id
           })
         }
 

@@ -21,7 +21,9 @@ Page({
     order_no: null, //参与团购的开团orderNo
     ct: 'n', //是否参与团购,n:不参团, y:参与团购
     flashsale_id: null, //抢购ID
-    integralDK: "0%" , //积分抵扣比例
+    integralDK: 0 , //积分抵扣比例
+    callback_id: null, //分享积分会掉获取
+    receive_integral: null, //可领取的积分数 
   },
   iframeFn() { //规格选择弹出
     this.setData({
@@ -57,20 +59,25 @@ Page({
       ct: o.ct == undefined ? "n" : o.ct,
       flashsale_id: o.flashsale_id == undefined ? null : o.flashsale_id
     })
-    
-    if(o.type=="shopping"){
+    //积分入口
+    this.shareIntegralIn(o)
+    //页面详情
+    this.getGoodsDetail(o.id)
+
+
+
+
+    if (o.type == "shopping") {
       this.setData({
-        integralDK: o.integralDK
+        integralDK: Number(o.integralDK.replace(/%/g, ""))
       })
-      if(o.start=="n"){
+      if (o.start == "n") {
         //抢购尚未给开始
-        
-      }else{
+
+      } else {
         //integralDK
       }
     }
-
-    this.getGoodsDetail(o.id);
   },
   getGoodsDetail(id) { //获取页面细节
     let that = this;
@@ -136,7 +143,7 @@ Page({
       url: "../checkPay/checkPay?shopping=" + this.data.shopping + "&goods_id=" +
         this.data.goods_detail.id + "&type_selected1=" + this.data.spec1 + "&type_selected2=" +
         this.data.spec2 + "&selected_numb=" + this.data.selected_numb + "&ct=" +
-        this.data.ct + "&order_no=" + this.data.order_no + "&image=" + this.data.type_one_selected.spec_img + "&flashsale_id=" + this.data.flashsale_id + "&integralDK=" + this.data.integralDK
+        this.data.ct + "&order_no=" + this.data.order_no + "&image=" + this.data.type_one_selected.spec_img + "&flashsale_id=" + this.data.flashsale_id + "&callback_id=" + this.data.callback_id 
     })
 
 
@@ -251,4 +258,114 @@ Page({
     });
     this.iframeFn();
   },
+  onShareAppMessage: function (options) {
+    //生成分享日期
+    var date = new Date();
+    var dataStr = date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate();
+    var that = this;
+    //设置菜单中的转发按钮触发转发事件时的转发内容
+    var shareObj = {
+      title: this.data.goods_detail.goods_name, //转发标题
+      path: '/pages/goodsDetail/goodsDetail?oldshare_id=' + app.globalData.userInfo.data.data.user_id + '&id=' + this.data.goods_detail.id + '&share_type=' + this.data.shopping + '&share_date=' + dataStr, 
+      imgUrl: this.data.goods_detail.goods_img_list[0].goods_img, //图片路径
+      success: function (res) {
+        // 转发成功之后的回调
+        if (res.errMsg == 'shareAppMessage:ok') {
+          wx.showToast({
+            title: '分享成功',
+            icon: 'succes',
+            duration: 1000,
+            mask: true,
+            success: function () { }
+          });
+          //记录积分
+          wx.request({
+            url: 'https://wechatapi.vipcsg.com/index/share/callback',
+            method: 'POST',
+            data: {
+              share_id: app.globalData.userInfo.data.data.user_id,
+              share_type: this.data.shopping,
+              param_id: this.data.goods_detail.id
+            },
+            success(res) {
+              if (res.data.result) {
+                wx.showToast({
+                  title: '积分+' + res.data.data.share_integral,
+                  icon: 'succes',
+                  duration: 2000,
+                  mask: true,
+                  success: function () { }
+                });
+              }
+            },
+          })
+        }
+      },
+      fail: function () {
+        //转发失败之后的回调
+        if (res.errMsg == 'shareAppMessage:fail cancel') {
+          wx.showToast({
+            title: '分享已取消',
+            icon: 'none',
+            duration: 1000,
+            mask: true,
+            success: function () { }
+          });
+        } else if (res.errMsg == 'shareAppMessage:fail') {
+          wx.showToast({
+            title: '分享失败，请稍后再试',
+            icon: 'none',
+            duration: 1000,
+            mask: true,
+            success: function () { }
+          });
+        }
+      },
+      complete: function () {
+        // 转发结束之后的回调（转发成不成功都会执行）
+      }
+    };
+    // 返回shareObj
+    return shareObj;
+  },
+  shareIntegralIn(o){
+    if (o.oldshare_id != undefined && o.share_date.length > 0) {
+      let that = this;
+      wx.request({
+        url: 'https://wechatapi.vipcsg.com/index/share/receive_integral',
+        data: {
+          receive_id: app.globalData.userInfo.data.data.user_id,
+          share_id: o.oldshare_id,
+          share_type: o.share_type,
+          param_id: o.id,
+          share_date: o.dataStr,
+        },
+        success(res) {
+          wx.showToast({
+            title: 'msg: ' + res.data.msg,
+            icon: 'none',
+            duration: 5000
+          })
+          if(res.data.result==1){
+            that.setData({
+              receive_integral: res.data.data.receive_integral,
+              callback_id: res.data.data.callback_id,
+            })
+
+
+            wx.showToast({
+              title: 'callback_id: ' + this.data.callback_id,
+              icon: 'none',
+              duration: 5000
+            })
+
+
+
+
+
+          }
+        },
+      })
+    }
+  }
 })

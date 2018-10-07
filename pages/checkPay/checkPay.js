@@ -5,7 +5,7 @@ var util = require('../../utils/md5.js')
 
 Page({
   data: {
-    goods_detail: {}, //详情
+    goods_detail: {}, //详情 
     type_selected1: null, //选择规格1
     type_selected2: null, //选择规格2
     selected_img: null, //商品图片
@@ -20,8 +20,9 @@ Page({
     defaultAddress: null, //默认地址
     flashsale_id: null, //抢购ID
     is_integral: null, //是否使用积分
-    useIntegralFlag: false, //是否使用
-    integralDK: null, //积分抵扣比例
+    integralDetail: null, //积分
+    callback_id: null, //分享积分会掉获取
+    events_id: null, //活动ID，暂未使用
   },
   onLoad: function(options) {
     if (options.type_selected1 == undefined || options.type_selected2 == undefined) { //如果不选规格，直接return
@@ -47,7 +48,7 @@ Page({
       address_id: options.address_id == undefined ? null : options.address_id,
       subprice: options.subprice == undefined ? 0 : options.subprice,
       flashsale_id: options.flashsale_id == undefined ? null : options.flashsale_id,
-      integralDK: options.integralDK == undefined ? null : options.integralDK
+      callback_id: options.callback_id == undefined ?null : options.callback_id,
     });
 
     //商品详情
@@ -68,8 +69,11 @@ Page({
         that.setData({
           goods_detail: res.data.data
         })
-        // console.log(that.data.goods_detail)
         that.totalPayCount(); //更新价格
+        //刷新积分显示
+        if (that.data.shopping == "shopping") {
+          that.countIntegral()
+        }
       },
     })
   },
@@ -82,18 +86,21 @@ Page({
         selected_numb: 1
       }) : null;
     this.totalPayCount();
+    this.countIntegral();
   },
   numberAddFn() { //加
     this.setData({
       selected_numb: Number(this.data.selected_numb) + 1
     });
     this.totalPayCount();
+    this.countIntegral();
   },
   selecrInputNum(event) { //用户输入数字
     this.setData({
       selected_numb: event.detail.value == 0 ? 1 : event.detail.value
     })
     this.totalPayCount();
+    this.countIntegral();
   },
   totalPayCount() { //计算价格，重新设置价格
     //获取当前选择规格的价钱
@@ -169,7 +176,10 @@ Page({
     console.log("number: " + that.data.selected_numb)
     console.log("spec_1: " + that.data.type_selected1)
     console.log("spec_2: " + that.data.type_selected2)
-    
+    console.log("is_integral: " + that.data.is_integral)
+    console.log("flashsale_id: " + that.data.flashsale_id)
+    console.log("spec_2: " + that.data.type_selected2)
+
 
     var queryUrl = '';
     //确认订单类型
@@ -204,6 +214,8 @@ Page({
         spec_2: that.data.type_selected2,
         flashsale_id: that.data.flashsale_id,
         is_integral: that.data.is_integral,
+        callback_id: that.data.callback_id,
+        events_id: that.data.events_id	
       },
       success(res) {
         if (res.data.result == 1) {
@@ -262,13 +274,23 @@ Page({
             }
           })
         } else { //下订单失败
-          wx.showToast({
-            title: "订单购买失败，请稍后再试",
-            icon: 'none',
-            duration: 2000,
-            mask: true,
-            success: function() {}
-          })
+          if (res.msg != "" && res.msg != undefined) {
+            wx.showToast({
+              title: "下单失败，" + res.msg,
+              icon: 'none',
+              duration: 2000,
+              mask: true,
+              success: function() {}
+            })
+          } else {
+            wx.showToast({
+              title: "订单购买失败，请稍后再试",
+              icon: 'none',
+              duration: 2000,
+              mask: true,
+              success: function() {}
+            })
+          }
         }
       },
     })
@@ -322,15 +344,35 @@ Page({
       url: "../cuopon/cuopon?type=" + this.data.shopping
     })
   },
-  useIntegral(){//使用积分
-    if (this.data.is_integral!=1){
+  useIntegral() { //使用积分
+    if (this.data.is_integral != 1) {
       this.setData({
         is_integral: 1
       })
-    }else{
+    } else {
       this.setData({
         is_integral: 0
       })
     }
+  },
+  countIntegral() { //计算积分
+    let that = this;
+    wx.request({
+      url: 'https://wechatapi.vipcsg.com/index/order/flash_integral',
+      method: 'GET',
+      data: {
+        user_id: app.globalData.userInfo.data.data.user_id,
+        goods_id: this.data.goods_detail.id,
+        flashsale_id: this.data.flashsale_id,
+        money: this.data.totalPay,
+      },
+      success(res) {
+        if (res.data.result == 1) {
+          that.setData({
+            integralDetail: res.data.data
+          })
+        }
+      },
+    })
   }
 })

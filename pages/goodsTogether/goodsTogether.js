@@ -13,7 +13,6 @@ Page({
     share_date: null, //分享日期，分享后，别人点进来的入口参数
     showShare: true, //预置分享样式
     order_no: null, //开团团长团购订单NO
-    fullTogether: false, //团购商品是否满员
     endTime: null, //拼团结束倒计时
     countdown: null, //倒计时显示
     timerNo: null, //定时器NO
@@ -70,10 +69,6 @@ Page({
               countdown: countdown
             })
           }, 1000);
-        }else{
-          that.setData({
-            groupMsg: res.data.msg
-          })
         }
       },
     })
@@ -110,14 +105,31 @@ Page({
             url: "../goodsDetail/goodsDetail?type=together&id=" + that.data.goods_detail.id + "&ct=y&order_no=" + that.data.order_no
           })
         } else {
-          //弹窗提示
-          wx.showToast({
-            title: '该团购已满员',
-            icon: 'none',
-            duration: 2000,
-            mask: true,
-            success: function() {}
-          })
+          if (res.data.msg == "拼团已超过24小时" || res.data.msg == "拼团不存在或拼团已完成") {
+            that.setData({
+              groupMsg: '该团购已结束'
+            })
+            //弹窗提示
+            wx.showToast({
+              title: '该团购已结束',
+              icon: 'none',
+              duration: 2000,
+              mask: true,
+              success: function () { }
+            })
+          } else {
+            that.setData({
+              groupMsg: '该团购已满员'
+            })
+            //弹窗提示
+            wx.showToast({
+              title: '该团购已满员',
+              icon: 'none',
+              duration: 2000,
+              mask: true,
+              success: function () { }
+            })
+          }
         }
       },
     })
@@ -192,9 +204,7 @@ Page({
         // 转发结束之后的回调（转发成不成功都会执行）
       }
     };
-
     // 返回shareObj
-    console.log(shareObj)
     return shareObj;
   },
   groupCheck() { //检查是否满团
@@ -212,27 +222,40 @@ Page({
             //参团操作
             that.setData({
               showShare: false,
-              fullTogether: false,
             })
           } else {
             //开团操作
             that.setData({
               showShare: true,
-              fullTogether: false,
             })
           }
         } else {
-          that.setData({
-            fullTogether: true
-          })
-          //弹窗提示
-          wx.showToast({
-            title: '该团购已满员',
-            icon: 'none',
-            duration: 2000,
-            mask: true,
-            success: function() {}
-          })
+          if (res.data.msg == "拼团已超过24小时" || res.data.msg == "拼团不存在或拼团已完成") {
+            that.setData({
+              groupMsg: '该团购已结束'
+            })
+            //弹窗提示
+            wx.showToast({
+              title: '该团购已结束',
+              icon: 'none',
+              duration: 2000,
+              mask: true,
+              success: function () { }
+            })
+          } else {
+            that.setData({
+              groupMsg: '该团购已满员'
+            })
+            //弹窗提示
+            wx.showToast({
+              title: '该团购已满员',
+              icon: 'none',
+              duration: 2000,
+              mask: true,
+              success: function () { }
+            })
+          }
+          console.log("groupMsg: " + that.data.groupMsg)
         }
       },
     })

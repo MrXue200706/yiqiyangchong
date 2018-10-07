@@ -30,8 +30,11 @@
         <view class="shoping_goods_text_title">{{item.goods_name}}</view>
         <view class="shoping_goods_text_middle">
           <text class="shoping_goods_text_middle_orange">积分抵{{item.integral}}</text>
-          <text class="shoping_goods_text_middle_red">限时限量</text>
-          <text class="shoping_goods_text_middle_gray">仅剩{{item.residue_inventory}}件</text>
+          <text wx:if="{{item.residue_inventory==-1}}" class="shoping_goods_text_middle_red">不限量抢购</text>
+          <view wx:else>
+            <text class="shoping_goods_text_middle_red">限时限量</text>
+            <text class="shoping_goods_text_middle_gray">仅剩{{item.residue_inventory}}件</text>
+          </view>
         </view>
         <view class="shoping_goods_text_bottom">
           <text class="shoping_goods_text_bottom_red">￥{{item.price}}</text>
@@ -58,8 +61,11 @@
           <view class="shoping_goods_text_title">{{item.goods_name}}</view>
           <view class="shoping_goods_text_middle">
             <text class="shoping_goods_text_middle_orange">积分抵{{item.integral}}</text>
-            <text class="shoping_goods_text_middle_red">限时限量</text>
-            <text class="shoping_goods_text_middle_gray">仅剩{{item.residue_inventory}}件</text>
+            <text wx:if="{{item.residue_inventory==-1}}" class="shoping_goods_text_middle_red">不限量抢购</text>
+            <view wx:else>
+              <text class="shoping_goods_text_middle_red">限时限量</text>
+              <text class="shoping_goods_text_middle_gray">仅剩{{item.residue_inventory}}件</text>
+            </view>
           </view>
         </navigator>
         <view class="shoping_goods_text_bottom">
@@ -80,18 +86,21 @@
       </view>
     </view>
     <view wx:for="{{item1.startGoods}}" wx:for-item="item" wx:key="{{item.goods_id}}" class="shoping_goods">
-      <navigator url="../goodsDetail/goodsDetail?type=shopping&start=n&integralDK={{item.integral}}&flashsale_id={{item.flashsale_id}}&id={{item.goods_id}}" >
-      <view class="shoping_goods_img"></view>
+      <navigator url="../goodsDetail/goodsDetail?type=shopping&start=n&integralDK={{item.integral}}&flashsale_id={{item.flashsale_id}}&id={{item.goods_id}}">
+        <view class="shoping_goods_img"></view>
       </navigator>
       <view class="shoping_goods_text">
-      <navigator url="../goodsDetail/goodsDetail?type=shopping&start=n&integralDK={{item.integral}}&flashsale_id={{item.flashsale_id}}&id={{item.goods_id}}" >
-        <view class="shoping_goods_text_title">{{item.goods_name}}</view>
-        <view class="shoping_goods_text_middle">
-          <text class="shoping_goods_text_middle_orange">积分抵{{item.integral}}</text>
-          <text class="shoping_goods_text_middle_red">限时限量</text>
-          <text class="shoping_goods_text_middle_gray">仅剩{{item.residue_inventory}}件</text>
-        </view>
-         </navigator>
+        <navigator url="../goodsDetail/goodsDetail?type=shopping&start=n&integralDK={{item.integral}}&flashsale_id={{item.flashsale_id}}&id={{item.goods_id}}">
+          <view class="shoping_goods_text_title">{{item.goods_name}}</view>
+          <view class="shoping_goods_text_middle">
+            <text class="shoping_goods_text_middle_orange">积分抵{{item.integral}}</text>
+            <text wx:if="{{item.residue_inventory==-1}}" class="shoping_goods_text_middle_red">不限量抢购</text>
+            <view wx:else>
+              <text class="shoping_goods_text_middle_red">限时限量</text>
+              <text class="shoping_goods_text_middle_gray">仅剩{{item.residue_inventory}}件</text>
+            </view>
+          </view>
+        </navigator>
         <view class="shoping_goods_text_bottom">
           <text class="shoping_goods_text_bottom_red">￥{{item.price}}</text>
           <text class="shoping_goods_text_bottom_gray">￥{{item.market_price}}</text>
