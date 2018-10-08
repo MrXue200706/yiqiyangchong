@@ -4,7 +4,8 @@
 /*标题*/
 .integral_title{
     height: 266rpx;
-    background-color: #888;
+    /*background-color: #888;*/
+    background:linear-gradient(to bottom,#ff8900,#fdbe2b);
     overflow: hidden;
     position: relative;
 }

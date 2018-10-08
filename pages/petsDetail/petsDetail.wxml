@@ -2,9 +2,9 @@
     <!--头部轮播-->
     <view class="petsDetail_imgs">
         <swiper class="petsDetail_imgs_swiper" autoplay="true">
-            <swiper-item class="petsDetail_imgs_bc_blue"></swiper-item>
-            <swiper-item class="petsDetail_imgs_bc_red"></swiper-item>
-            <swiper-item class="bpetsDetail_imgs_c_black"></swiper-item>
+            <swiper-item wx:for="{{petDetail.pet_img}}" wx:key="item.index">
+                <image mode="widthFix" src="{{item.pet_img}}"></image>
+            </swiper-item>
         </swiper>
         <view class="petsDetail_imgs_content">
             <view>
@@ -43,11 +43,19 @@
 
     <!--底部-->
     <view class="petsDetail_foot">
-        <view class="petsDetail_foot_left"></view>
+        <view class="petsDetail_foot_left">
+            <image mode="widthFix" src="../../images/首页（二级返回）.png"></image>
+        </view>
         <view class="petsDetail_foot_right">
-            <text class="petsDetail_foot_right_follow">点赞{{petDetail.like}}</text>
-            |
-            <text class="petsDetail_foot_right_share">分享</text>
+            <view class="petsDetail_foot_right_item">
+                <image mode="widthFix" src="../../images/点赞.png"></image>
+                <text>点赞</text>
+            </view>
+            <text>|</text>
+            <view class="petsDetail_foot_right_item">
+                <image mode="widthFix" src="../../images/分享.png"></image>
+                <text>分享</text>
+            </view>
         </view>
     </view>
 </view>

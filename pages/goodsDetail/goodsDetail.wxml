@@ -70,9 +70,10 @@
                 </text>
             </view>
         </view>
-        <view class="goodsDetail_main_img" wx:for="{{goods_detail.goods_desc}}" wx:key="item.index">
+        <!--<view class="goodsDetail_main_img" wx:for="{{goods_detail.goods_desc}}" wx:key="item.index">
             <image mode="widthFix" src="{{item}}" class="goodsDetail_main_img_item"></image>
-        </view>
+        </view>-->
+        <image mode="widthFix" src="{{item}}" class="goodsDetail_main_img_item" wx:for="{{goods_detail.goods_desc}}" wx:key="item.index"></image>        
     </view>
 
     <!--占位-->

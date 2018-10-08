@@ -156,10 +156,11 @@
     margin-top: -10rpx;
     word-break:break-all;
 }
-/* .goodsDetail_main_img{
-    width: 100%;
-} */
+.goodsDetail_main_img{
+    height: auto;
+} 
 .goodsDetail_main_img_item{
+    display: block;
     width: 100%;
 }
 

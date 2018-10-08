@@ -14,18 +14,19 @@ Page({
 	  this.loadPetDetail(options.pet_id);
   },
   loadPetDetail(pId){
-	let that = this;
-	wx.request({
-	  url: 'https://wechatapi.vipcsg.com/index/member/pet_details',
-	  method: 'GET',
-	  data: {
-		user_id: app.globalData.userInfo.data.data.user_id,
-		pet_id: pId
-	  }, success(res) {
-		  that.setData({
-			  petDetail: res.data.data
-		  })
-	  },
-	})
+		let that = this;
+		wx.request({
+			url: 'https://wechatapi.vipcsg.com/index/member/pet_details',
+			method: 'GET',
+			data: {
+			user_id: app.globalData.userInfo.data.data.user_id,
+			pet_id: pId
+			}, success(res) {
+				console.log(res)
+				that.setData({
+					petDetail: res.data.data
+				})
+			},
+		})
   }
 })

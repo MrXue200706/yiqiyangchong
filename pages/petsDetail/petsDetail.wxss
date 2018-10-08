@@ -6,6 +6,9 @@
   background-color: #fff;
   height: 750rpx;
 }
+.petsDetail_imgs_swiper image{
+    width: 100%;
+}
 .petsDetail_imgs_bc_blue{
   background-color: rgba(121, 120, 24, .3);
 }
@@ -79,14 +82,34 @@
     justify-content: space-between;
     background-color: #fff;
 }
+.petsDetail_foot_left{
+    width: 100rpx;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.petsDetail_foot_left image{
+    width: 35%;
+}
 .petsDetail_foot_right{
+    width: 400rpx;
     height: 100rpx;
     line-height: 100rpx;
     font-size: 24rpx;
     color: #666;
+    display: flex;
+    justify-content: space-around;
+    align-content: center;
 }
-.petsDetail_foot_right_follow,.petsDetail_foot_right_share{
-    padding: 0 46rpx;
+.petsDetail_foot_right_item{
+    width: 40%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    font-size: 24rpx;
+}
+.petsDetail_foot_right_item image{
+    width: 15%;
 }
 
 /*占位*/
