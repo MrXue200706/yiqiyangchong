@@ -132,13 +132,16 @@
 .pet_expert_avatar{
   width: 140rpx;
   height: 140rpx;
-  border-radius: 50%;
-  -webkit-border-radius:50%;
-  -moz-border-radius:50%;
-  background-color: grey;
   margin-left: 50%;
   transform: translateX(-50%);
   margin-top: 12rpx;
+}
+.pet_expert_avatar_container{
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  -webkit-border-radius:50%;
+  -moz-border-radius:50%;
   overflow: hidden;
 }
 .pet_expert_avatar_img{

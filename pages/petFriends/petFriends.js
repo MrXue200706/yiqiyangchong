@@ -37,6 +37,7 @@ Page({
       data: {
         user_id: this.data.uid
       }, success(res) {
+        console.log(res)
         that.setData({
           petList: res.data.data
         })

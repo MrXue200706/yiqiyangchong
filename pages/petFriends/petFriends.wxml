@@ -3,7 +3,7 @@
     <navigator url="../expert/expert?key={{item.follow_id}}" class="petFriends_item_left">
       <!-- <navigator url="../expert/expert?key={{item.follow_id}}" class="petFriends_item_left"> -->
       <view class="petFriends_item_avatar">
-        <!-- 头像{{item.avatarUrl}} -->
+        <image mode="widthFix" src="{{item.avatarUrl}}"></image>
       </view>
       <!-- <view class="petFriends_item_content">
           <view class="petFriends_item_content_name">

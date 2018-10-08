@@ -19,7 +19,11 @@
     width: 112rpx;
     height: 112rpx;
     border-radius: 50%;
-    background-color: #888;
+    overflow: hidden;
+    /*background-color: #888;*/
+}
+.petFriends_item_avatar image{
+    width: 100%;
 }
 .petFriends_item_content{
     margin-left: 28rpx;
