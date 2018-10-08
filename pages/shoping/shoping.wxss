@@ -76,8 +76,11 @@
 .shoping_goods_img{
     width: 220rpx;
     height: 228rpx;
-    background-color: #888;
+    /*background-color: #888;*/
     flex-shrink: 0;
+}
+.shoping_goods_img image{
+    width: 100%;
 }
 .shoping_goods_text{
     padding-left: 20rpx;

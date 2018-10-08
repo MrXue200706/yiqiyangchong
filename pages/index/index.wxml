@@ -22,19 +22,27 @@
   <!--商品分类-->
   <view class="goods_class">
     <navigator url="../dogGoods/dogGoods" class="goods_class_item">
-      <view class="goods_class_item_img"></view>
+      <view class="goods_class_item_img">
+        <image src="../../images/狗狗.png" mode="widthFix"></image>
+      </view>
       <text class="goods_class_item_title">狗狗</text>
     </navigator>
     <navigator url="../dogGoods/dogGoods" class="goods_class_item">
-      <view class="goods_class_item_img"></view>
+      <view class="goods_class_item_img">
+        <image src="../../images/猫咪.png" mode="widthFix"></image>
+      </view>
       <text class="goods_class_item_title">猫猫</text>
     </navigator>
     <navigator url="../dogGoods/dogGoods" class="goods_class_item">
-      <view class="goods_class_item_img"></view>
+      <view class="goods_class_item_img">
+        <image src="../../images/小宠.png" mode="widthFix"></image>
+      </view>
       <text class="goods_class_item_title">小宠</text>
     </navigator>
     <navigator url="../dogGoods/dogGoods" class="goods_class_item">
-      <view class="goods_class_item_img"></view>
+      <view class="goods_class_item_img">
+        <image src="../../images/周边.png" mode="widthFix"></image>
+      </view>
       <text class="goods_class_item_title">周边</text>
     </navigator>
   </view>

@@ -25,7 +25,9 @@
     </view>
     <navigator url="../goodsDetail/goodsDetail?type=shopping&start=y&integralDK={{item.integral}}&id={{item.goods_id}}&flashsale_id={{item.flashsale_id}}" class="shoping_goods" wx:for="{{shopData.allshop.allFlag=='Y'?shopData.allshop.allSGoods: shopData.currentshop.nowFlag=='Y'?shopData.currentshop.nowSGoods: []}}"
       wx:key="item.goods_id">
-      <view class="shoping_goods_img"></view>
+      <view class="shoping_goods_img">
+        <image mode="widthFix" src="{{item.goods_img}}"></image>
+      </view>
       <view class="shoping_goods_text">
         <view class="shoping_goods_text_title">{{item.goods_name}}</view>
         <view class="shoping_goods_text_middle">
@@ -54,7 +56,9 @@
     </view>
     <view wx:for="{{shopData.preshop.nxtSGoods}}" wx:key="{{item.goods_id}}" class="shoping_goods">
       <navigator url="../goodsDetail/goodsDetail?type=shopping&start=n&integralDK={{item.integral}}&flashsale_id={{item.flashsale_id}}&id={{item.goods_id}}">
-        <view class="shoping_goods_img"></view>
+        <view class="shoping_goods_img">
+          <image mode="widthFix" src="{{item.goods_img}}"></image>
+        </view>
       </navigator>
       <view class="shoping_goods_text">
         <navigator url="../goodsDetail/goodsDetail?type=shopping&start=n&integralDK={{item.integral}}&flashsale_id={{item.flashsale_id}}&id={{item.goods_id}}">
@@ -87,7 +91,9 @@
     </view>
     <view wx:for="{{item1.startGoods}}" wx:for-item="item" wx:key="{{item.goods_id}}" class="shoping_goods">
       <navigator url="../goodsDetail/goodsDetail?type=shopping&start=n&integralDK={{item.integral}}&flashsale_id={{item.flashsale_id}}&id={{item.goods_id}}">
-        <view class="shoping_goods_img"></view>
+        <view class="shoping_goods_img">
+          <image mode="widthFix" src="{{item.goods_img}}"></image>
+        </view>
       </navigator>
       <view class="shoping_goods_text">
         <navigator url="../goodsDetail/goodsDetail?type=shopping&start=n&integralDK={{item.integral}}&flashsale_id={{item.flashsale_id}}&id={{item.goods_id}}">

@@ -60,15 +60,21 @@
     position: absolute;
     top: 32rpx;
     right: 0;
-    font-size: 24rpx;
+    font-size: 20rpx;
     color: #fff;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    align-content: center;
     background-color: #ff9305;
     border-top-left-radius: 10rpx;
     border-bottom-left-radius: 10rpx;
+    padding:10rpx 0;
+}
+.goodsDetail_title_get image{
+    width: 40%;
+}
+.goodsDetail_title_get text{
+    width: 100%;
 }
 
 /*服务*/
@@ -172,6 +178,14 @@
     color: #666;
     display: flex;
     justify-content: space-around;
+}
+.goodsDetail_foot_left_home{
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+}
+.goodsDetail_foot_left_home image{
+    width: 100%;
 }
 .goodsDetail_foot_right{
     width: 510rpx;

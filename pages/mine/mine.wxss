@@ -60,10 +60,13 @@
 .state_item_img{
     width: 42rpx;
     height: 42rpx;
-    background-color: #888;
+    /*background-color: #888;*/
     margin: 34rpx 0;
     margin-left: 50%;
     transform: translateX(-50%);
+}
+.state_item_img image{
+    width: 100%;
 }
 
 /*事项*/
@@ -83,10 +86,13 @@
 .official_item_img{
     width: 68rpx;
     height: 68rpx;
-    background-color: #888;
+    /*background-color: #888;*/
     margin-left: 50%;
     transform: translateX(-50%);
     margin-top: 30rpx;
+}
+.official_item_img image{
+    width: 100%;
 }
 .official_item_title{
     font-size: 28rpx;

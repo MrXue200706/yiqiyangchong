@@ -16,23 +16,33 @@
     <view class="state">
         <navigator url="../orderList/orderList?ptype=unpay" class="state_item">
         <!-- url="../unpay/unpay?type=unpay" -->
-            <view class="state_item_img"></view>
+            <view class="state_item_img">
+                <image mode="widthFix" src="../../images/我的待付款.png"></image>
+            </view>
             <text>待付款</text>
         </navigator>
         <navigator url="../orderList/orderList?ptype=untogether" class="state_item">
-            <view class="state_item_img"></view>
+            <view class="state_item_img">
+                <image mode="widthFix" src="../../images/我的待成团.png"></image>
+            </view>
             <text>待成团</text>
         </navigator>
         <navigator url="../orderList/orderList?ptype=unpick" class="state_item">
-            <view class="state_item_img"></view>
+            <view class="state_item_img">
+                <image mode="widthFix" src="../../images/我的待收货.png"></image>
+            </view>
             <text>待收货</text>
         </navigator>
         <navigator url="../orderList/orderList?ptype=done" class="state_item">
-            <view class="state_item_img"></view>
+            <view class="state_item_img">
+                <image mode="widthFix" src="../../images/我的已完成.png"></image>
+            </view>
             <text>已完成</text>
         </navigator>
         <view class="state_item">
-            <view class="state_item_img"></view>
+            <view class="state_item_img">
+                <image mode="widthFix" src="../../images/我的售后服务.png"></image>
+            </view>
             <text>售后服务</text>
         </view>
     </view>
@@ -40,33 +50,45 @@
     <!--事项-->
     <view class="official">
         <navigator url="../integral/integral?integral={{userInfo.member.integral}}" class="official_item">
-            <view class="official_item_img"></view>
+            <view class="official_item_img">
+                <image mode="widthFix" src="../../images/我的积分.png"></image>
+            </view>
             <view class="official_item_title">积分</view>
             <view class="official_item_under">可用积分：{{userInfo.member.integral}}</view>
         </navigator>
         <navigator url="../myPets/myPets" class="official_item">
-            <view class="official_item_img"></view>
+            <view class="official_item_img">
+                <image mode="widthFix" src="../../images/我的宠物.png"></image>
+            </view>
             <view class="official_item_title">萌宠</view>
             <view class="official_item_under">已添加：{{userInfo.pet_count}}</view>
         </navigator>
         <navigator url="../cuopon/cuopon" class="official_item">
-            <view class="official_item_img"></view>
+            <view class="official_item_img">
+                <image mode="widthFix" src="../../images/我的优惠卷.png"></image>
+            </view>
             <view class="official_item_title">优惠券</view>
             <view class="official_item_under">积分兑换优惠券</view>
         </navigator>
         <navigator url="../collect/collect?ptype=collect&uid={{userInfo.member.id}}" class="official_item">
-            <view class="official_item_img"></view>
+            <view class="official_item_img">
+                <image mode="widthFix" src="../../images/我的收藏.png"></image>
+            </view>
             <view class="official_item_title">收藏</view>
             <view class="official_item_under">已收藏：{{userInfo.goods_collection_count}}</view>
         </navigator>
         <navigator url="../myAdress/myAdress" class="official_item">
-            <view class="official_item_img"></view>
+            <view class="official_item_img">
+                <image mode="widthFix" src="../../images/我的地址.png"></image>
+            </view>
             <view class="official_item_title">地址</view>
             <view class="official_item_under">已存在：{{userInfo.address_count}}</view>
         </navigator>
         <!-- <button open-type='getUserInfo' bindgetuserinfo="bindGetUserInfo"></button> -->
         <view class="official_item" bindtap='cooperation'>
-            <view class="official_item_img"></view>
+            <view class="official_item_img">
+                <image mode="widthFix" src="../../images/我的合作.png"></image>
+            </view>
             <view class="official_item_title">合作</view>
             <view class="official_item_under">商务合作</view>
         </view>

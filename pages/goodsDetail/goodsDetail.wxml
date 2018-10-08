@@ -20,6 +20,7 @@
             <text>{{goods_detail.goods_name}}</text>
         </view>
         <button class="goodsDetail_title_get" open-type='share'>
+            <image mode="widthFix" src="../../images/赚积分-商品详情.png"></image>
             <text>赚积分</text>
         </button>
     </view>
@@ -81,9 +82,11 @@
     <view class="goodsDetail_foot" wx:if="{{shopping=='shopping'}}">
         <view class="goodsDetail_foot_left">
             <view class="goodsDetail_foot_left_home" bindtap="gotoIndex">
+                <image mode="widthFix" src="../../images/首页（二级返回）.png"></image>
                 <text>首页</text>
             </view>
-            <view class="goodsDetail_foot_left_collect" bindtap="collectProduct">
+            <view class="goodsDetail_foot_left_home" bindtap="collectProduct">
+                <image mode="widthFix" src="../../images/收藏（商品详情）.png"></image>
                 <text>{{collectTxt}}</text>
             </view>
         </view>
@@ -96,9 +99,11 @@
     <view class="goodsDetail_foot" wx:else>
         <view class="goodsDetail_foot_left">
             <view class="goodsDetail_foot_left_home" bindtap="gotoIndex">
+                <image mode="widthFix" src="../../images/首页（二级返回）.png"></image>
                 <text>首页</text>
             </view>
-            <view class="goodsDetail_foot_left_collect" bindtap="collectProduct">
+            <view class="goodsDetail_foot_left_home" bindtap="collectProduct">
+                <image mode="widthFix" src="../../images/收藏（商品详情）.png"></image>
                 <text>{{collectTxt}}</text>
             </view>
         </view>

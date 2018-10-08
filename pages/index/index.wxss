@@ -72,6 +72,9 @@
   margin-left: 50%;
   transform: translateX(-50%);
 }
+.goods_class_item_img image{
+  width: 100%;
+}
 
 /*活动*/
 .goods_recommend{
