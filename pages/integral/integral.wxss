@@ -65,6 +65,12 @@
     font-size: 28rpx;
 }
 .integral_detail_item_up_right{
+    color: green;
+    font-size: 24rpx;
+    float: right;
+    padding-right: 28rpx;
+}
+.integral_detail_item_up_right_del{
     color: #e53018;
     font-size: 24rpx;
     float: right;

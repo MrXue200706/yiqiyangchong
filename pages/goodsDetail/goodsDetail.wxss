@@ -239,7 +239,7 @@
 .goodsDetail_iframe_white{
     width: 100%;
     background-color: #fff;
-    min-height: 868rpx;
+    /*min-height: 868rpx;*/
     position: relative;
     flex-shrink: 0;
 }

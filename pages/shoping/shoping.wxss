@@ -71,7 +71,7 @@
     padding: 28rpx 0;
     display: flex;
     flex-wrap: nowrap;
-    border-bottom: 1px solid #d5d5d5;
+    /*border-bottom: 1px solid #d5d5d5;*/
 }
 .shoping_goods_img{
     width: 220rpx;
@@ -92,10 +92,20 @@
 .shoping_goods_text_title{
     font-size: 28rpx;
 }
+.shoping_goods_text_middle{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.shoping_goods_text_middle_text{
+    display: flex;
+    align-items: center;
+}
 .shoping_goods_text_middle_orange{
     height: 36rpx;
     line-height: 36rpx;
-    width: 110rpx;
+    min-width: 130rpx;
     text-align: center;
     font-size: 22rpx;
     background-color: #f58b00;
@@ -103,11 +113,12 @@
     border-radius: 5rpx;
     vertical-align: middle;
     padding: 0 10rpx;
+    flex-shrink: 0;
 }
 .shoping_goods_text_middle_red{
     height: 36rpx;
     line-height: 36rpx;
-    width: 90rpx;
+    /*width: 90rpx;*/
     text-align: center;
     font-size: 22rpx;
     border: 1px solid #f73227;
@@ -119,7 +130,10 @@
 .shoping_goods_text_middle_gray{
     font-size: 26rpx;
     color: #89898c;
-    margin-left: 30rpx;
+    /*margin-left: 30rpx;*/
+}
+.shoping_goods_text_bottom{
+    width: 100%;
 }
 .shoping_goods_text_bottom_red{
     font-size: 28rpx;
@@ -131,7 +145,7 @@
     text-decoration: line-through;
 }
 .shoping_goods_text_bottom_button{
-    display: inline-block;
+    /*display: inline-block;*/
     height: 54rpx;
     line-height: 54rpx;
     width: 136rpx;
@@ -142,9 +156,10 @@
     font-size: 28rpx;
     flex-shrink: 0;
     margin-left: 100rpx;
+    float: right;
 }
 .shoping_goods_text_bottom_button_un{
-    display: inline-block;
+    /*display: inline-block;*/
     height: 54rpx;
     line-height: 54rpx;
     width: 136rpx;
@@ -155,4 +170,5 @@
     font-size: 28rpx;
     flex-shrink: 0;
     margin-left: 100rpx;
+    float: right;
 }
