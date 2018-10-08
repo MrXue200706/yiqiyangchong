@@ -1,15 +1,15 @@
 <view class="collect">
     <navigator url="../goodsDetail/goodsDetail?type=normal&id={{item.goods_id}}" class="collect_goods" wx:for="{{collectList}}" wx:key="item.id">
-        <view class="collect_goods_img"><!-- 图片填充{{item.goods_img}}  --></view>
+        <view class="collect_goods_img"><!-- 图片填充{{item.goods_img}}  -->
+            <image mode="widthFix" src="{{item.goods_img}}"></image>
+        </view>
         <view class="collect_goods_text">
             <view class="collect_goods_text_title">{{item.goods_name}}</view>
             <view class="collect_goods_recommend">
                 <view class="collect_goods_recommend_avatar">
-                    <view class="collect_goods_recommend_avatar_item collect_goods_recommend_avatar_first"></view>
-                    <view class="collect_goods_recommend_avatar_item"></view>
-                    <view class="collect_goods_recommend_avatar_item"></view>
-                    <view class="collect_goods_recommend_avatar_item"></view>
-                    <view class="collect_goods_recommend_avatar_item"></view>
+                    <view class="collect_goods_recommend_avatar_item" wx:for="{{item.member}}" wx:for-item="items" wx:key="items">
+                        <image mode="widthFix" src="{{items.avatarUrl}}"></image>
+                    </view>
                 </view>
                 <text class="collect_goods_recommend_content">{{item.count}}推荐</text>
             </view>

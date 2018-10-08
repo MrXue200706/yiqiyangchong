@@ -24,6 +24,7 @@ Page({
         user_id: uid,
         page: pageNo
       }, success(res) {
+        console.log(res)
         that.setData({
           collectList: res.data.data
         })
