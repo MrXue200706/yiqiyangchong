@@ -34,7 +34,7 @@
 
   <!--商品-->
   <view class="checkPay_goods_d">
-    <navigator url="../goodsDetail/goodsDetail?type={{shopping}}&id={{goods_detail.id}}" class="checkPay_goods">
+    <navigator url="../goodsDetail/goodsDetail?type={{shopping}}&id={{goods_detail.id}}&flashsale_id={{flashsale_id}}&events_id=={{events_id}}" class="checkPay_goods">
       <view class="checkPay_goods_img">
         <image src="{{selected_img}}" mode="widthFix"></image>
       </view>

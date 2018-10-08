@@ -40,8 +40,9 @@ Page({
     })
   },
   cooperation() { //合作
+    //(临时测试用)
     wx.navigateTo({
-      url: '../goodsTogether/goodsTogether?order_no=G201810021745339835&ct=y&param_id=23&share_id=5&share_type=goods&share_date=2018-10-2',
+      url: '../goodsDetail/goodsDetail?oldshare_id=4&id=23&type=normal&share_date=2018-10-8',
       success: function(res) {},
       fail: function(res) {},
       complete: function(res) {},

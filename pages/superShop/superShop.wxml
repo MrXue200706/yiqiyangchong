@@ -5,7 +5,7 @@
     </view>
 
     <!--商品-->
-    <navigator url="../goodsDetail/goodsDetail?type=shopping&id={{item.id}}" class="surperShop_goods" wx:for="{{superShop.goods_list}}" wx:key="item.id">
+    <navigator url="../goodsDetail/goodsDetail?type=activity&id={{item.id}}&events_id={{events_id}}" class="surperShop_goods" wx:for="{{superShop.goods_list}}" wx:key="item.id">
         <view class="surperShop_goods_img">
             <image class="surperShop_goods_img_image" mode="widthFix" src="{{item.goods_img}}"></image>
         </view>

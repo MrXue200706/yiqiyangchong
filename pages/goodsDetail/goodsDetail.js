@@ -12,7 +12,7 @@ Page({
     type_one_selected: null, //选中的规格
     spec1: "0", //规格1
     spec2: "0", //规格2
-    shopping: 'normal', //是否抢购，shopping：抢购商品，together：团购商品，normal：一般订单
+    shopping: 'normal', //是否抢购，shopping：抢购商品，together：团购商品，normal：一般订单，activity：活动栏
     goods_detail: {}, //详情
     selected_numb: 1, //选择的数量
     descript: null, //描述
@@ -23,7 +23,8 @@ Page({
     flashsale_id: null, //抢购ID
     integralDK: 0 , //积分抵扣比例
     callback_id: null, //分享积分会掉获取
-    receive_integral: null, //可领取的积分数 
+    receive_integral: null, //可领取的积分数
+    events_id: null, //活动ID
   },
   iframeFn() { //规格选择弹出
     this.setData({
@@ -57,34 +58,39 @@ Page({
       shopping: o.type, //购买类别
       order_no: o.order_no == undefined ? null : o.order_no,
       ct: o.ct == undefined ? "n" : o.ct,
-      flashsale_id: o.flashsale_id == undefined ? null : o.flashsale_id
+      flashsale_id: o.flashsale_id == undefined ? null : o.flashsale_id,
+      events_id: o.events_id == undefined ? null : o.events_id,
     })
     //积分入口
     this.shareIntegralIn(o)
-    //页面详情
-    this.getGoodsDetail(o.id)
-
-
-
 
     if (o.type == "shopping") {
-      this.setData({
-        integralDK: Number(o.integralDK.replace(/%/g, ""))
-      })
       if (o.start == "n") {
-        //抢购尚未给开始
-
-      } else {
-        //integralDK
+        //抢购尚未给开始，查看商品详情，显示尚未开始按钮
+        
       }
+      //抢购商品页面详情
+      this.getGoodsDetail(o.id)
+    }else{
+      //页面详情
+      this.getGoodsDetail(o.id)
     }
   },
-  getGoodsDetail(id) { //获取页面细节
+  getGoodsDetail(id, flashsaleId, eventsId) { //获取页面细节
+    let queryUrl = "https://wechatapi.vipcsg.com/index/goods/details"
+    if (this.data.shopping =="shopping"){
+      queryUrl ="https://wechatapi.vipcsg.com/index/flashsale/details"
+    } else if (this.data.shopping == "activity"){
+      queryUrl = "https://wechatapi.vipcsg.com/index/events/details"
+    }
+
     let that = this;
     wx.request({
-      url: 'https://wechatapi.vipcsg.com/index/goods/details',
+      url: queryUrl,
       data: {
-        goods_id: id
+        goods_id: id,
+        flashsale_id: this.data.flashsale_id,
+        events_id: this.data.events_id
       },
       success(res) {
         console.log(res.data.data)
@@ -97,7 +103,12 @@ Page({
         that.setData({
           type_one_selected: res.data.data.display_spec[0]
         });
-        
+        if(that.data.shopping=="shopping"){
+          that.setData({
+            integralDK: Number(res.data.data.integral.replace(/%/g, ""))
+          })
+        }
+
         //检查是否已收藏
         that.checkCollect();
       },
@@ -143,7 +154,7 @@ Page({
       url: "../checkPay/checkPay?shopping=" + this.data.shopping + "&goods_id=" +
         this.data.goods_detail.id + "&type_selected1=" + this.data.spec1 + "&type_selected2=" +
         this.data.spec2 + "&selected_numb=" + this.data.selected_numb + "&ct=" +
-        this.data.ct + "&order_no=" + this.data.order_no + "&image=" + this.data.type_one_selected.spec_img + "&flashsale_id=" + this.data.flashsale_id + "&callback_id=" + this.data.callback_id 
+        this.data.ct + "&order_no=" + this.data.order_no + "&image=" + this.data.type_one_selected.spec_img + "&flashsale_id=" + this.data.flashsale_id + "&callback_id=" + this.data.callback_id + "&events_id = " + this.data.events_id
     })
 
 
@@ -266,33 +277,26 @@ Page({
     //设置菜单中的转发按钮触发转发事件时的转发内容
     var shareObj = {
       title: this.data.goods_detail.goods_name, //转发标题
-      path: '/pages/goodsDetail/goodsDetail?oldshare_id=' + app.globalData.userInfo.data.data.user_id + '&id=' + this.data.goods_detail.id + '&share_type=' + this.data.shopping + '&share_date=' + dataStr, 
+      path: '/pages/goodsDetail/goodsDetail?oldshare_id=' + app.globalData.userInfo.data.data.user_id + '&id=' + that.data.goods_detail.id + '&type=' + that.data.shopping + '&share_date=' + dataStr + '&flashsale_id=' + that.data.flashsale_id + '&events_id=' + that.data.events_id , 
       imgUrl: this.data.goods_detail.goods_img_list[0].goods_img, //图片路径
       success: function (res) {
-        // 转发成功之后的回调
+        // 分享成功之后的回调
         if (res.errMsg == 'shareAppMessage:ok') {
-          wx.showToast({
-            title: '分享成功',
-            icon: 'succes',
-            duration: 1000,
-            mask: true,
-            success: function () { }
-          });
           //记录积分
           wx.request({
             url: 'https://wechatapi.vipcsg.com/index/share/callback',
             method: 'POST',
             data: {
               share_id: app.globalData.userInfo.data.data.user_id,
-              share_type: this.data.shopping,
-              param_id: this.data.goods_detail.id
+              share_type: that.data.shopping,
+              param_id: that.data.goods_detail.id
             },
             success(res) {
-              if (res.data.result) {
+              if (res.data.result==1) {
                 wx.showToast({
-                  title: '积分+' + res.data.data.share_integral,
+                  title: '分享成功',
                   icon: 'succes',
-                  duration: 2000,
+                  duration: 1000,
                   mask: true,
                   success: function () { }
                 });
@@ -329,43 +333,98 @@ Page({
     return shareObj;
   },
   shareIntegralIn(o){
+    let that = this;
     if (o.oldshare_id != undefined && o.share_date.length > 0) {
-      let that = this;
+      //TODO 注：由于领取积分需要登录，所以该处需要处理登录信息(貌似我点进来就自己自动登录了。) cao
+      if (app.globalData.userInfo == null || app.globalData.userInfo.data.data.user_id == undefined ){
+        // 查看是否授权
+        wx.getSetting({
+          success: function (res1) {
+            if (res1.authSetting['scope.userInfo']) {
+              //已授权过的，直接登录跳转
+              that.loginUser();
+            } else {
+              //跳转到授权页面
+              wx.navigateTo({
+                url: '../login/login',
+              })
+            }
+          }
+        })
+      }
+      
+      wx.showToast({
+        title: '进入分享接口（test）',
+        icon: 'none',
+        duration: 5000
+      })
+
       wx.request({
         url: 'https://wechatapi.vipcsg.com/index/share/receive_integral',
+        method:'POST',
         data: {
           receive_id: app.globalData.userInfo.data.data.user_id,
           share_id: o.oldshare_id,
-          share_type: o.share_type,
+          share_type: o.type,
           param_id: o.id,
-          share_date: o.dataStr,
+          share_date: o.share_date,
         },
         success(res) {
-          wx.showToast({
-            title: 'msg: ' + res.data.msg,
-            icon: 'none',
-            duration: 5000
-          })
+          // wx.showToast({
+          //   title: 'msg: ' + res.data.msg,
+          //   icon: 'none',
+          //   duration: 5000
+          // })
           if(res.data.result==1){
             that.setData({
               receive_integral: res.data.data.receive_integral,
               callback_id: res.data.data.callback_id,
             })
-
-
-            wx.showToast({
-              title: 'callback_id: ' + this.data.callback_id,
-              icon: 'none',
-              duration: 5000
-            })
-
-
-
-
-
           }
         },
       })
     }
-  }
+  },
+
+  //用于处理积分入口没登录的情况
+  loginUser() {
+    var that = this;
+    wx.login({
+      success: function (res) {
+        if (res.code) {
+          var code = res.code;
+          wx.getUserInfo({ //getUserInfo流程
+            success: function (res2) { //获取userinfo成功
+              var encryptedData = encodeURIComponent(res2.encryptedData);
+              var iv = res2.iv;
+              //发起网络请求
+              wx.request({
+                url: 'https://wechatapi.vipcsg.com/index/member/login',
+                method: 'POST',
+                data: {
+                  code: res.code,
+                  encryptedData: encryptedData,
+                  iv: iv
+                },
+                success(resUser) {
+                  app.globalData.userInfo = resUser
+                  console.log(resUser);
+                  //wx.setStorageSync('LoginSessionKey', resUser.data.data.user_id)  //保存在session中
+                  //每日登陆积分
+                  that.loginIntegral()
+                },
+              })
+            }
+          })
+
+        } else {
+          console.log('登录失败！' + res.errMsg)
+          //跳转到授权页面
+          wx.navigateTo({
+            url: '../login/login',
+          })
+        }
+      }
+    })
+  },
 })

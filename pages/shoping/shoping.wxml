@@ -9,7 +9,7 @@
 
   <!--商品-->
   <view class="shoping_goods_d">
-    <view class="shoping_goods_time">
+    <view class="shoping_goods_time" wx:if="{{shopData.allshop.allFlag=='Y' || shopData.currentshop.nowFlag=='Y'}}">
       <view class="shoping_goods_time_title_ing">
         <image mode="widthFix" src="../../images/正在抢购.png"></image>
         <text>正在疯抢 {{shopData.allshop.allFlag=='Y'?'': shopData.currentshop.nowSTime}}</text>
@@ -75,7 +75,9 @@
         <view class="shoping_goods_text_bottom">
           <text class="shoping_goods_text_bottom_red">￥{{item.price}}</text>
           <text class="shoping_goods_text_bottom_gray">￥{{item.market_price}}</text>
-          <text class="shoping_goods_text_bottom_button_un" bindtap='callMe'>提醒我</text>
+          <form name='pushMsgFm' report-submit='true' bindsubmit='callMe'>
+            <button form-type="submit" class="shoping_goods_text_bottom_button_un" data-flashsale_id="{{item.flashsale_id}}" data-goodid="{{item.goods_id}}">提醒我</button>
+          </form>
         </view>
       </view>
     </view>

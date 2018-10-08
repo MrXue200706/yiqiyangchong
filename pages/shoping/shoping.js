@@ -40,7 +40,6 @@ Page({
 
     //定时器2：每10秒刷新一次数据
     this.data.timerNo2 = setInterval(function () {
-      console.log("定时刷新数据：" + that.dateformatOut(new Date().getTime()))
         that.getListDetail()
     }, 10000);
 
@@ -82,8 +81,43 @@ Page({
       },
     })
   },
-  callMe(){//提醒我
+  callMe(e){//提醒我
     console.log("callMe")
+    let that = this;
+    wx.request({
+      url: 'https://wechatapi.vipcsg.com/index/message/subscribe',
+      method: 'POST',
+      data: {
+        user_id: app.globalData.userInfo.data.data.user_id,
+        goods_id: e.detail.target.dataset.goodid,
+        flashsale_id: e.detail.target.dataset.flashsale_id,
+        form_id: e.detail.formId,
+        url: "pages/goodsDetail/goodsDetail?type=shopping&start=y&id=" + e.detail.target.dataset.goodid + "&flashsale_id=" + e.detail.target.dataset.flashsale_id
+      },
+      success(res) {
+        debugger;
+        if(res.data.result!= 1){
+          //弹窗提示
+          wx.showToast({
+            title: '成功' ,
+            icon: 'success',
+            duration: 5000,
+            mask: true,
+            success: function () { }
+          })
+        }else{
+          //弹窗提示
+          wx.showToast({
+            title: '错误信息：' + res.data.msg,
+            icon: 'none',
+            duration: 5000,
+            mask: true,
+            success: function () { }
+          })
+          
+        }
+      },
+    })
   },
   dateformatOut(micro_second, t = 1) { // 时间格式化输出
     // 总秒数

@@ -80,7 +80,7 @@
     <view class="palceholder"></view>
 
     <!--底部购买-->
-    <view class="goodsDetail_foot" wx:if="{{shopping=='shopping'}}">
+    <view class="goodsDetail_foot" wx:if="{{shopping=='shopping'|| shopping=='activity'}}">
         <view class="goodsDetail_foot_left">
             <view class="goodsDetail_foot_left_home" bindtap="gotoIndex">
                 <image mode="widthFix" src="../../images/首页（二级返回）.png"></image>

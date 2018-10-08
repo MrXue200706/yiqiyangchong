@@ -5,11 +5,14 @@ const app = getApp()
 Page({
   data: {
     superShop:{},//
+    events_id: null, //活动ID
   },
   onLoad(o){
+    this.setData({
+      events_id: o.id
+    })
     this.getSwiper(o.id);
   },
-
   //请求
   getSwiper(id) {
     let that = this;

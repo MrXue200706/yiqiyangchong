@@ -49,6 +49,7 @@ Page({
       subprice: options.subprice == undefined ? 0 : options.subprice,
       flashsale_id: options.flashsale_id == undefined ? null : options.flashsale_id,
       callback_id: options.callback_id == undefined ?null : options.callback_id,
+      events_id: options.events_id == undefined ? null : options.events_id
     });
 
     //商品详情
@@ -59,11 +60,17 @@ Page({
     this.fullDefaultAddress();
   },
   getGoodsDetail(id) { //获取页面细节
+    let queryUrl = 'https://wechatapi.vipcsg.com/index/goods/details'
+    if (this.data.shopping == "shopping") {
+      queryUrl = "https://wechatapi.vipcsg.com/index/flashsale/details"
+    } 
     let that = this;
     wx.request({
-      url: 'https://wechatapi.vipcsg.com/index/goods/details',
+      url: queryUrl,
       data: {
-        goods_id: id
+        goods_id: id,
+        flashsale_id: this.data.flashsale_id,
+        events_id: this.data.events_id
       },
       success(res) {
         that.setData({
@@ -257,7 +264,7 @@ Page({
               } else {
                 //跳转到待收货页面
                 wx.navigateTo({
-                  url: "../unpay/unpay?ptype=takegoods&order_id=" + order_id
+                  url: "../unpay/unpay?ptype=detail&order_id=" + order_id
                 })
               }
 
