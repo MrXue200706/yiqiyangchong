@@ -2,7 +2,7 @@
   <!--头像-->
   <view class="expert_avatar">
     <view class="expert_avatar_item">
-      <!-- 头像 {{expertDetail.member.avatarUrl}} -->
+      <image mode="widthFix" src="{{expertDetail.member.avatarUrl}}"></image>
     </view>
   </view>
 
@@ -26,21 +26,18 @@
         <text class="expert_goods_content_item_title">收藏</text>
         <text class="expert_goods_content_item_detail">已添加:{{expertDetail.goods_collection_count}}</text>
         <view class="expert_goods_content_item_avatar">
-          <!-- 已收藏的图片{{expertDetail.goods_collection_list}} -->
-          <view class="expert_goods_content_item_avatar_item expert_goods_content_item_avatar_item_first"></view>
-          <view class="expert_goods_content_item_avatar_item"></view>
-          <view class="expert_goods_content_item_avatar_item"></view>
+          <view class="expert_goods_content_item_avatar_item" wx:for="{{expertDetail.goods_collection_list}}" wx:key="{{item.id}}">
+            <image mode="widthFix" src="{{item.img}}"></image>
+          </view>
         </view>
       </navigator>
       <navigator url="../collect/collect?ptype=recommend&uid={{expertDetail.member.id}}" class="expert_goods_content_item">
         <text class="expert_goods_content_item_title">推荐商品</text>
         <text class="expert_goods_content_item_detail">已购商品:5634<!-- 缺个已购商品的数量 --></text>
         <view class="expert_goods_content_item_avatar">
-          <view class="expert_goods_content_item_avatar_item expert_goods_content_item_avatar_item_first"></view>
-          <view class="expert_goods_content_item_avatar_item"></view>
-          <view class="expert_goods_content_item_avatar_item"></view>
-          <view class="expert_goods_content_item_avatar_item"></view>
-          <view class="expert_goods_content_item_avatar_item"></view>
+          <view class="expert_goods_content_item_avatar_item" wx:for="{{expertDetail.order_list}}" wx:key="{{item.id}}">
+            <image mode="widthFix" src="{{item.img}}"></image>
+          </view>
         </view>
       </navigator>
     </view>
@@ -51,20 +48,25 @@
   <view class="expert_pets_d">
     <navigator url="../petsDetail/petsDetail?pet_id={{item.id}}" class="expert_pets" wx:for="{{expertDetail.pet_list}}" wx:key="item.id">
       <view class="expert_pets_content">
-        <view>
-          <text class="expert_pets_content_item expert_pets_content_item_blue">
-                        <text>{{item.pet_sex}}</text>
-          </text>
+        <view class="expert_pets_content_img">
+          <image mode="widthFix" src="{{item.pet_img[0].pet_img}}"></image>
         </view>
-        <view>
-          <text class="expert_pets_content_item expert_pets_content_item_red">
-                        <text>{{item.pet_type}}</text>
-          </text>
-        </view>
-        <view>
-          <text class="expert_pets_content_item expert_pets_content_item_yellow">
-                        <text>{{item.show_birthday}}</text>
-          </text>
+        <view class="expert_pets_content_t">
+          <view>
+            <text class="expert_pets_content_item expert_pets_content_item_blue">
+                          <text>{{item.pet_sex}}</text>
+            </text>
+          </view>
+          <view>
+            <text class="expert_pets_content_item expert_pets_content_item_red">
+                          <text>{{item.pet_type}}</text>
+            </text>
+          </view>
+          <view>
+            <text class="expert_pets_content_item expert_pets_content_item_yellow">
+                          <text>{{item.show_birthday}}</text>
+            </text>
+          </view>
         </view>
       </view>
     </navigator>
