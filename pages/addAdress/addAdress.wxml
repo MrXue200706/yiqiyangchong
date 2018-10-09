@@ -21,7 +21,9 @@
     <view class="addAdress_part">
         <view class="addAdress_part_item addAdress_part_item_right">
             <text>设为默认地址</text>
-            <i class="addAdress_part_item_circle"></i>
+            <view bindtap="setDefault" class="addAdress_part_item_circle_d">
+                <icon wx:if="{{defaultFlag}}" type="success" size="22" color="#ea2c29"/>
+            </view>
         </view>
     </view>
 

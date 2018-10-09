@@ -33,13 +33,18 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": -1,
+			"current": 1,
 			"list": [
 				{
 					"id": -1,
 					"name": "goodsDetail",
 					"pathName": "pages/goodsDetail/goodsDetail",
 					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "addAdress",
+					"pathName": "pages/addAdress/addAdress"
 				}
 			]
 		}

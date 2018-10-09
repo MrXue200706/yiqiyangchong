@@ -8,7 +8,8 @@ Page({
 	type: null, //编辑/新增状态
     consignee:null, //收货人
     phoneNumber: null, //手机号码
-    address:null //收货地址
+    address:null ,//收货地址
+		defaultFlag:0,//设为默认的状态
   },
   onLoad(options){
 	if(options.adrId != undefined && options.adrId!= null && options.adrId!="") {
@@ -40,6 +41,11 @@ Page({
 		wx.setNavigationBarTitle({ title: '编辑收货地址' })  
 	}
   },
+	setDefault(){
+		this.setData({
+			defaultFlag:!this.data.defaultFlag
+		})
+	},
   getConsignee: function (e) {//收货人
     this.data.consignee = e.detail.value;
   },
@@ -59,7 +65,7 @@ Page({
 		  data: {
 			"address_id": this.data.adrId,
 			"user_id": app.globalData.userInfo.data.data.user_id,
-			"is_default": 1,
+			"is_default": this.data.defaultFlag,
 			"name": this.data.consignee,
 			"phone": this.data.phoneNumber,
 			"addres": this.data.address

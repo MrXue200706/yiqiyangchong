@@ -86,7 +86,7 @@
   </view>
 
   <!--专题精选-->
-  <view class="special_topic">
+  <!--<view class="special_topic">
     <text class="special_topic_title">专题精选</text>
     <navigator url="../specialTopic/specialTopic" class="special_topic_more">更多 ></navigator>
     <scroll-view scroll-x="true">
@@ -99,7 +99,7 @@
           </navigator>
       </view>
     </scroll-view>
-  </view>
+  </view>-->
 
   <!--商品列表-->
   <view class="goods">
