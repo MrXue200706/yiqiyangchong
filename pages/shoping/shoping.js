@@ -4,6 +4,7 @@ const app = getApp()
 
 Page({
   data: {
+    hasData: true, //确认是否有抢购商品
     shopData: null, //抢购数据
     endHours: 22, //结束抢购的时间（小时）
     timerNo: null, //定时器No，计算时间
@@ -11,9 +12,14 @@ Page({
     showH: '00', //显示倒计时，时
     showM: '00', //显示倒计时，分
     showS: '00', //显示倒计时，秒
+    tmoShopData: null, //第二天商品列表
+    nxtDay: '', //次日日期
   },
   onShow() {
+    //当天商品列表
     this.getListDetail();
+    //次日商品列表
+    this.getTmoShopData();
     let that = this;
     //启动定时器
     this.data.timerNo = setInterval(function() {
@@ -28,7 +34,6 @@ Page({
       var etimes = Date.parse(new Date(eTime.replace(/-/g, "/")));
       var poorTime = etimes - nowTime
       var fTimeStr = that.dateformatOut(poorTime)
-      //console.log("倒计时时间：" + fTimeStr)
       //判断当前是否为整点
       var minutes = parseInt((nowTime % (1000 * 60 * 60)) / (1000 * 60))
       var seconds = (nowTime % (1000 * 60)) / 1000
@@ -50,8 +55,7 @@ Page({
     clearInterval(this.data.timerNo);
     clearInterval(this.data.timerNo2);
   },
-  onPullDownRefresh() {//下拉刷新
-    console.log("上啦刷新数据")
+  onPullDownRefresh() {//下拉刷新数据
     this.getListDetail()
     wx.showNavigationBarLoading() //在标题栏中显示加载
     wx.hideNavigationBarLoading() //关闭加载
@@ -65,7 +69,8 @@ Page({
         user_id: app.globalData.userInfo.data.data.user_id
       },
       success(res) {
-        if (res.data.result == 1) {
+        //本日有抢购商品数据
+        if (res.data.result == 1 && res.data.data != false) {
           that.setData({
             shopData: res.data.data,
           })
@@ -76,7 +81,6 @@ Page({
               endHours: temp
             })
           }
-          console.log(that.data.shopData)
         }
       },
     })
@@ -142,4 +146,25 @@ Page({
       return hr + "小时" + min + "分钟" + sec + "秒";
     }
   },
+  getTmoShopData(){//仅获取一次
+    let that = this;
+    wx.request({
+      url: 'https://wechatapi.vipcsg.com/index/flashsale/next_day',
+      method: 'GET',
+      data: {},
+      success(res) {
+        let nowTime = new Date();
+
+        //次日有抢购商品数据
+        if (res.data.result == 1 && res.data.data.allshop != undefined) {
+          that.setData({
+            tmoShopData: res.data.data,
+            nxtDay: (nowTime.getFullYear()) + "-" + (nowTime.getMonth() + 1) + "-" + (nowTime.getDate() + 1) 
+          })
+          console.log(that.data.tmoShopData)
+          console.log(that.data.nxtDay)
+        }
+      },
+    })
+  }
 })
