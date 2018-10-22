@@ -14,8 +14,11 @@ Page({
     showS: '00', //显示倒计时，秒
     tmoShopData: null, //第二天商品列表
     nxtDay: '', //次日日期
+    radio: [], //积分广播
   },
   onShow() {
+    //积分广播
+    this.getRadio();
     //当天商品列表
     this.getListDetail();
     //次日商品列表
@@ -26,7 +29,7 @@ Page({
       var nowTimed = new Date();
       var nowTime = nowTimed.getTime()
       var eTime;
-      if (that.data.shopData.allshop.allFlag == "Y") {
+      if (that.data.shopData != null && that.data.shopData.allshop.allFlag != undefined && that.data.shopData.allshop.allFlag == "Y") {
         eTime = nowTimed.getFullYear() + "-" + (nowTimed.getMonth() + 1) + "-" + (nowTimed.getDate() + 1) + " " + "00:00:00";
       } else {
         eTime = nowTimed.getFullYear() + "-" + (nowTimed.getMonth() + 1) + "-" + nowTimed.getDate() + " " + that.data.endHours + ":00";
@@ -163,6 +166,22 @@ Page({
           })
           console.log(that.data.tmoShopData)
           console.log(that.data.nxtDay)
+        }
+      },
+    })
+  },
+  getRadio(){
+    let that = this;
+    wx.request({
+      url: 'https://wechatapi.vipcsg.com/index/integral/flashsale_integral',
+      method: 'GET',
+      data: {},
+      success(res) {
+        //次日有抢购商品数据
+        if (res.data.result == 1) {
+          that.setData({
+            radio: res.data.data,
+          })
         }
       },
     })

@@ -197,15 +197,7 @@ Page({
           wx.showToast({
             title: '已领取每日登陆积分',
             icon: 'succes',
-            duration: 2000,
-            mask: true,
-            success: function () { }
-          })
-        }else{
-          wx.showToast({
-            title: '积分已领取',
-            icon: 'none',
-            duration: 2000,
+            duration: 3000,
             mask: true,
             success: function () { }
           })

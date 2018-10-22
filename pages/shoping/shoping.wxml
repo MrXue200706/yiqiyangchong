@@ -2,8 +2,8 @@
   <!--广播-->
   <view class="shoping_radio_d">
     <view class="shoping_radio">
-      <text class="shoping_radio_content">用户小灰灰**分享获得2132积分</text>
-      <text class="shoping_radio_content">用户小灰灰**分享获得2132积分</text>
+      <text class="shoping_radio_content" wx:for="{{radio}}">{{item}}</text>
+      <!-- <text class="shoping_radio_content">用户小灰灰**分享获得2132积分</text> -->
     </view>
   </view>
 
