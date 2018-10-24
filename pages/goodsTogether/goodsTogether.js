@@ -218,7 +218,8 @@ Page({
       },
       success(res) {
         if (res.data.result == 1) {
-          if (that.data.ct == 'y') {
+          //未满团，判断是否为发起者本人
+          if (that.data.ct == 'y' && that.data.share_id != app.globalData.userInfo.data.data.user_id) {
             //参团操作
             that.setData({
               showShare: false,

@@ -237,25 +237,6 @@ Page({
     // 显示顶部刷新图标
     wx.showNavigationBarLoading();
     this.setPageDetail();
-    // var that = this;
-    // wx.request({
-    //   url: 'https://xxx/?page=0',
-    //   method: "GET",
-    //   success: function (res) {
-    //     that.setData({
-    //       moment: res.data.data
-    //     });
-    //     // 设置数组元素
-    //     that.setData({
-    //       moment: that.data.moment
-    //     });
-    //     console.log(that.data.moment);
-    //     // 隐藏导航栏加载框
-    //     wx.hideNavigationBarLoading();
-    //     // 停止下拉动作
-    //     wx.stopPullDownRefresh();
-    //   }
-    // })
     // 隐藏导航栏加载框
     wx.hideNavigationBarLoading();
     // 停止下拉动作

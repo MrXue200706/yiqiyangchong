@@ -352,13 +352,7 @@ Page({
           }
         })
       }
-      
-      wx.showToast({
-        title: '进入分享接口（test）',
-        icon: 'none',
-        duration: 5000
-      })
-
+    
       wx.request({
         url: 'https://wechatapi.vipcsg.com/index/share/receive_integral',
         method:'POST',

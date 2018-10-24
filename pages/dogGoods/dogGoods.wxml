@@ -12,10 +12,10 @@
 
   <!--排序-->
   <view class="dogGoods_array">
-    <view class="dogGoods_array_item dogGoods_array_item_active">综合</view>
-    <view class="dogGoods_array_item">销量</view>
-    <view class="dogGoods_array_item">推荐</view>
-    <view class="dogGoods_array_item">价格</view>
+    <view class="dogGoods_array_item {{orderBy==1?'dogGoods_array_item_active': ''}}" data-ordernum='1' bindtap='orderByBtn'>综合</view>
+    <view class="dogGoods_array_item {{orderBy==2?'dogGoods_array_item_active': ''}}" data-ordernum='2' bindtap='orderByBtn'>销量</view>
+    <view class="dogGoods_array_item {{orderBy==3?'dogGoods_array_item_active': ''}}" data-ordernum='3' bindtap='orderByBtn'>推荐</view>
+    <view class="dogGoods_array_item {{orderBy==4?'dogGoods_array_item_active': ''}}" data-ordernum='4' bindtap='orderByBtn'>价格</view>
   </view>
 
   <!--商品列表-->
