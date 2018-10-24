@@ -12,7 +12,7 @@
     <!--订单-->
     <view class="orderList_content">
         <view class="orderList_content_item" wx:for="{{pageList}}" wx:key="item.id">
-            <view data-item="{{item}}" data-btntype='{{orderShowBtn[item.status_name]}}' bindtap='payBtn'>
+            <view data-item="{{item}}" data-btntype='{{orderShowBtn[item.status_name]==""?"查看订单": orderShowBtn[item.status_name]}}' bindtap='payBtn'>
               <view class="orderList_content_item_head">
                   <text>订单号：{{item.order_no}}</text>
                   <text>{{item.status_name}}</text>

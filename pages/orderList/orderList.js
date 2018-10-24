@@ -15,16 +15,16 @@ Page({
     orderStatusDict: {//订单状态码
       "all": "", 
       "unpay": "1", 
-      "untogether": "6", 
-      "unpick": "3", 
-      "done": "5", 
+      "untogether": "3", 
+      "unpick": "2", 
+      "done": "9", 
     },
     orderShowBtn:{
-      "未付款":"立即支付",
-      "拼团待支付": "邀请参团",
-      "未发货": "查看订单",
-      "已发货": "确认收货",
-      "拼团已支付": "邀请参团"
+      "待付款":"立即支付",
+      "待成团": "邀请参团",
+      "待收货": "确认收货",
+      "已取消": "查看订单",
+      "已完成": "查看订单",
     },
     tab_selected_id: 0,
     ptype: "all", //页面类型，默认全部订单，unpay：待付款，untogether：待成团，unpick：待收货，done：已完成
