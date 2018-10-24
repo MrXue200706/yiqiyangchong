@@ -92,12 +92,12 @@ Page({
     let that = this;
     //根据按钮类型，进行相应的处理
     let btnType = event.currentTarget.dataset.item.status_name
-    if(btnType=="未付款"){
+    if (btnType == "待付款"){
       //跳转到支付页面
       wx.navigateTo({
         url: '../unpay/unpay?ptype=unpay&order_id=' + event.currentTarget.dataset.item.id
       })
-    } else if (btnType == "拼团待支付" || btnType == "拼团已支付"){
+    } else if (btnType == "待成团" || btnType == "拼团待支付" || btnType == "拼团已支付"){
       //确认是否团长
       if (event.currentTarget.dataset.item.member_id == null || event.currentTarget.dataset.item.member_id == undefined || event.currentTarget.dataset.item.member_id == ""){
         //跳转到邀请页面
