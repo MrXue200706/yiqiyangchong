@@ -14,7 +14,7 @@ Page({
     showShare: true, //预置分享样式
     order_no: null, //开团团长团购订单NO
     endTime: null, //拼团结束倒计时
-    countdown: null, //倒计时显示
+    countdown: "00:00", //倒计时显示
     timerNo: null, //定时器NO
     groupMsg: null, //团单错误信息
   },
@@ -59,6 +59,8 @@ Page({
             group_info: res.data.data,
             endTime: res.data.data.time,
           })
+
+
           //启动定时器
           that.data.timerNo = setInterval(function () {
             var temp = that.data.endTime -1
@@ -219,7 +221,7 @@ Page({
       success(res) {
         if (res.data.result == 1) {
           //未满团，判断是否为发起者本人
-          if (that.data.ct == 'y' && that.data.share_id != app.globalData.userInfo.data.data.user_id) {
+          if (that.data.ct == 'y') {
             //参团操作
             that.setData({
               showShare: false,

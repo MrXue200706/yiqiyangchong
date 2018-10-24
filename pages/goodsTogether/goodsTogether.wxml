@@ -45,7 +45,7 @@
     <view class="goodsTogether_person_info">
       <view class="goodsTogether_person_info_text">
         <text wx:if="{{groupMsg=='该团购已结束'}}">该团购已结束</text>
-        <text wx:else>仅剩1个名额,{{countdown}}后结束</text>
+        <text wx:else>仅剩{{group_info.remaining_number}}个名额,{{countdown}}后结束</text>
       </view>
       <view wx:if="{{groupMsg=='该团购已结束'}}">
         <view class="goodsTogether_person_info_button">
@@ -59,12 +59,12 @@
         </view>
       </view>
       <view wx:else>
-        <view wx:if="{{showShare}}">
+        <view hidden="{{!showShare}}">
           <button class="goodsTogether_person_info_button" data-paramId="{{goods_detail.id}}" data-shareId="{{app.globalData.userInfo.data.data.user_id}}" open-type="share">
             <text>邀请宠友参团</text>
           </button>
         </view>
-        <view wx:else>
+        <view hidden="{{showShare}}">
           <button class="goodsTogether_person_info_button" bindtap="buyTogether">
             <text>参与团购</text>
           </button>
