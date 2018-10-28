@@ -59,14 +59,30 @@
     height: 150rpx;
     width: 150rpx;
     border-radius: 10rpx;
-    background-color: #888;
+    /* background-color: #888; */
     margin-left: 10rpx;
     flex-shrink: 0;
+    position: relative;
 }
 .petsAdd_form_item_pciture_item_cancel{
-    text-align: right;
-}
+    text-align:right;
+    position:absolute;
+    top:0;
+    right:0;
+    background:#f1312f;
+    border-radius:50%;
+    overflow:hidden;
 
+}
+.petsAdd_form_item_pciture_item_cancel icon{
+    display:block;
+}
+.pet_img_show{
+    display:block;
+    width:140rpx;
+    height:140rpx;
+
+}
 /*保存按钮*/
 .petsAdd_save{
     display: flex;

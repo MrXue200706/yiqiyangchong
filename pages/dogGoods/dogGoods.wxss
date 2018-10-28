@@ -55,8 +55,12 @@
   margin-top: 20rpx;
 }
 .dogGoods_goods_item_img{
-  height: 360rpx;
+  height: 350rpx;
   background-color: #989898;
+  overflow: hidden;
+}
+.goods_item_img_image{
+  width: 100%;
 }
 .dogGoods_goods_item_title{
   font-size: 24rpx;

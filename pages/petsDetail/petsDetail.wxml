@@ -46,9 +46,15 @@
         <view class="petsDetail_foot_left">
             <image mode="widthFix" src="../../images/首页（二级返回）.png"></image>
         </view>
-        <view class="petsDetail_foot_right">
-            <view class="petsDetail_foot_right_item">
-                <image mode="widthFix" src="../../images/点赞.png"></image>
+        <view class="petsDetail_foot_right" >
+            <view class="petsDetail_foot_right_item" wx:if="{{isshowEdit}}">
+                <navigator url="../petsAdd/petsAdd?pet_id={{petDetail.id}}&useId={{petDetail.user_id}}" class="petsDetail_foot_right_item">
+                    <image mode="widthFix" src="../../images/editIcon.png"></image>
+                    <text>编辑</text>
+                </navigator>
+            </view>
+             <view class="petsDetail_foot_right_item" wx:else>
+                 <image mode="widthFix" src="../../images/点赞.png"></image>
                 <text>点赞</text>
             </view>
             <text>|</text>

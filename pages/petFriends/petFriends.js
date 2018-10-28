@@ -8,7 +8,8 @@ Page({
     petType: null, //列表类型，fans：粉丝，follow：关注
     uid: null, //用户ID
     pageType: null, //页面类型，用于判断是从哪个页面跳转过来的，如果是看别人的养宠达人中跳过来的，则关闭关注和取消的按钮
-  }, onLoad(options){
+  },
+  onLoad(options){
     this.setData({
       petType: options.petType, 
       uid: options.uid, 

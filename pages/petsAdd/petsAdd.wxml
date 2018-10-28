@@ -3,7 +3,7 @@
     <view class="petsAdd_form">
         <view class="petsAdd_form_item">
             <text class="petsAdd_form_item_title">姓名：</text>
-            <input type="text" placeholder="输入宠物的昵称" bindinput="petNameVal"/>
+            <input type="text" placeholder="输入宠物的昵称" value="{{pet_name}}" bindinput="petNameVal"/>
         </view>
         <view class="petsAdd_form_item">
             <text class="petsAdd_form_item_title">性别：</text>
@@ -18,18 +18,19 @@
         </view>
         <view class="petsAdd_form_item">
             <text class="petsAdd_form_item_title">品类：</text>
-            <input type="text" placeholder="输入宠物的品类" bindinput="petTypeVal"/>
+            <input type="text" placeholder="输入宠物的品类" bindinput="petTypeVal" value="{{pet_type}}"/>
         </view>
         <view class="petsAdd_form_item">
             <text class="petsAdd_form_item_title">生日：</text>
-            <picker class="petsAdd_form_item_content" mode="date">
+            <picker class="petsAdd_form_item_content" mode="date"  value="{{pet_birthday}}" bindchange="bindDateChange">
+                <text class="picker"> {{pet_birthday}} </text>
                 <text>点击选择</text>
             </picker>
         </view>
         <view class="petsAdd_form_item petsAdd_form_item_other">
             <text class="petsAdd_form_item_title">故事：</text>
             <textarea cols="30" rows="5" class="petsAdd_form_item_textarea"
-            placeholder="你和萌宠的故事是怎么开始的，介绍下自家的萌宠吧" bindinput="petStoryVal"></textarea>
+            placeholder="你和萌宠的故事是怎么开始的，介绍下自家的萌宠吧" bindinput="petStoryVal" value="{{pet_story}}"></textarea>
         </view>
         <view class="petsAdd_form_item petsAdd_form_item_other">
             <text class="petsAdd_form_item_title">照片：</text>
@@ -39,7 +40,8 @@
             <scroll-view scroll-x="true">
                 <view class="petsAdd_form_item_pciture">
                     <view class="petsAdd_form_item_pciture_item">
-                        <view class="petsAdd_form_item_pciture_item_cancel">
+                        <image class="pet_img_show" mode="widthFix" src="{{pet_img}}"></image>
+                        <view class="petsAdd_form_item_pciture_item_cancel" bindtap="cancelPic" wx:if="{{showCancelBtn}}">
                             <icon type="cancel" size="20" color="#fff"/>
                         </view>
                     </view>

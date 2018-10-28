@@ -23,7 +23,7 @@
   <view class="goods_class">
     <navigator url="../dogGoods/dogGoods?category_id=1" class="goods_class_item">
       <view class="goods_class_item_img">
-        <image src="../../images/狗狗.png" mode="widthFix"></image>
+        <image src="../../images/dog.png" mode="widthFix"></image>
       </view>
       <text class="goods_class_item_title">狗狗</text>
     </navigator>
@@ -72,7 +72,7 @@
           <view class="pet_expert_item" wx:for="{{pet_expert}}" wx:key="item.friend_id">
             <navigator url="../expert/expert?key={{item.friend_id}}" class="pet_expert_avatar">
               <view class="pet_expert_avatar_container">
-                <image class="pet_expert_avatar_img" src="{{item.avatar}}" mode="widthFix"></image>
+                <image class="pet_expert_avatar_img" src="{{item.avatarUrl}}" mode="widthFix"></image>
               </view>
             </navigator>
             <view class="pet_expert_name">{{item.nick_name}}</view>
@@ -113,10 +113,10 @@
         <text class="goods_item_recommend_number">{{item.pet_friend_count}}推荐</text>
         <view class="goods_item_recommend_avatars">
           <view class="goods_item_recommend_avatar_left">
-            <image class="goods_item_recommend_avatars_img" src="{{item.pet_friend_list[0].avatar}}" mode="widthFix"></image>
+            <image class="goods_item_recommend_avatars_img" src="{{item.pet_friend_list[0].avatarUrl}}" mode="widthFix"></image>
           </view>
           <view class="goods_item_recommend_avatar_right">
-            <image class="goods_item_recommend_avatars_img" src="{{item.pet_friend_list[1].avatar}}" mode="widthFix"></image>
+            <image class="goods_item_recommend_avatars_img" src="{{item.pet_friend_list[1].avatarUrl}}" mode="widthFix"></image>
           </view>
         </view>
       </view>

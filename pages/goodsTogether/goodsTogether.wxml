@@ -2,7 +2,9 @@
   <!--商品-->
   <view class="goodsTogether_goods_d">
     <navigator url="../goodsDetail/goodsDetail?type=together&id={{goods_detail.id}}" class="goodsTogether_goods">
-      <view class="goodsTogether_goods_img"></view>
+      <view class="goodsTogether_goods_img">
+         <image class="goodsTogether_goods_img" src="{{goods_detail.goods_spec_list[0].spec_img}}" mode="widthFix"></image>
+      </view>
       <view class="goodsTogether_goods_text">
         <view class="goodsTogether_goods_text_title">{{goods_detail.goods_name}}</view>
         <view class="goodsTogether_goods_recommend">
@@ -21,26 +23,35 @@
   <view class="goodsTogether_recommend">
     <text>{{goods_detail.pet_friend_count}}名宠友推荐</text>
     <navigator url="../petFriends/petFriends" class="goodsTogether_recommend_avatar">
-      <view class="goodsTogether_recommend_avatar_item specialTopicDetail_goods_recommend_avatar_first"></view>
+      <!-- <view class="goodsDetail_recommend_avatar_item">
+         <image class="goodsDetail_recommend_avatar_item_img" src="{{item.avatarUrl}}" mode="widthFix" wx:if="{{index==0}}"></image>
+          <image class="goodsDetail_recommend_avatar_item_img" src="{{item.avatarUrl}}" mode="widthFix" wx:else></image>
+      </view> -->
+      <view class="goodsTogether_recommend_avatar_item specialTopicDetail_goods_recommend_avatar_first"  wx:for="{{goods_detail.pet_friend_list}}">
+        <image class="goodsDetail_recommend_avatar_item_img" src="{{item.avatarUrl}}" mode="widthFix"></image>
+      </view>
+      <!-- <view class="goodsTogether_recommend_avatar_item"></view>
       <view class="goodsTogether_recommend_avatar_item"></view>
       <view class="goodsTogether_recommend_avatar_item"></view>
       <view class="goodsTogether_recommend_avatar_item"></view>
       <view class="goodsTogether_recommend_avatar_item"></view>
       <view class="goodsTogether_recommend_avatar_item"></view>
-      <view class="goodsTogether_recommend_avatar_item"></view>
-      <view class="goodsTogether_recommend_avatar_item"></view>
-      <view class="goodsTogether_recommend_avatar_item"></view>
+      <view class="goodsTogether_recommend_avatar_item"></view> -->
     </navigator>
   </view>
 
   <!--拼团-->
   <view class="goodsTogether_person">
     <view class="goodsTogether_person_avatar">
-      <view class="goodsTogether_person_avatar_left">
+      <view class="goodsTogether_person_avatar_left postionTop">
         <!-- 团长头像{{group_info.avatarUrl}} -->
+        <view class="team_master">团长</view>
+         <image class="goodsTogether_person_avatar_left" src="{{group_info.avatarUrl}}" mode="widthFix"></image>
       </view>
       <view class="goodsTogether_person_avatar_icon">+</view>
-      <view class="goodsTogether_person_avatar_right"></view>
+      <view class="goodsTogether_person_avatar_right">
+          <!-- <image class="goodsTogether_person_avatar_right" src="{{group_info.member_avatar_list}}" mode="widthFix"></image> -->
+      </view>
     </view>
     <view class="goodsTogether_person_info">
       <view class="goodsTogether_person_info_text">
@@ -74,7 +85,7 @@
   </view>
 
   <!--更多-->
-  <view class="goodsTogether_more">
+  <!-- <view class="goodsTogether_more">
     <view class="goodsTogether_more_title">
       <text>限时抢购</text>
       <view bindtap='goShopping' class="goodsTogether_more_title_more">更多></view>
@@ -113,5 +124,26 @@
         </view>
       </navigator>
     </view>
+  </view> -->
+    <!--商品列表-->
+  <view class="goods">
+    <navigator url="../goodsDetail/goodsDetail?type=normal&id={{item.id}}" class="goods_item"  wx:for="{{goods_index}}" wx:key="item.id">
+      <view class="goods_item_img">
+        <image class="goods_item_img_image" src="{{item.goods_img}}" mode="widthFix"></image>
+      </view>
+      <view class="goods_item_title">{{item.goods_name}}</view>
+      <view class="goods_item_price">￥{{item.price}}</view>
+      <view class="goods_item_recommend">
+        <text class="goods_item_recommend_number">{{item.pet_friend_count}}推荐</text>
+        <view class="goods_item_recommend_avatars">
+          <view class="goods_item_recommend_avatar_left">
+            <image class="goods_item_recommend_avatars_img" src="{{item.pet_friend_list[0].avatar}}" mode="widthFix"></image>
+          </view>
+          <view class="goods_item_recommend_avatar_right">
+            <image class="goods_item_recommend_avatars_img" src="{{item.pet_friend_list[1].avatar}}" mode="widthFix"></image>
+          </view>
+        </view>
+      </view>
+    </navigator>
   </view>
 </view>

@@ -7,8 +7,8 @@ var CusBase64 = require('../../utils/base64.js');
 Page({
   data: {
     is_iframe: false, //点击购买按钮弹出选择弹出层
-    type_one_active: null, //修改点击后的样式
-    type_two_active: null, //修改点击后的样式
+    type_one_active: 0, //修改点击后的样式
+    type_two_active: 0, //修改点击后的样式
     type_one_selected: null, //选中的规格
     spec1: "0", //规格1
     spec2: "0", //规格2
@@ -17,6 +17,7 @@ Page({
     selected_numb: 1, //选择的数量
     descript: null, //描述
     collectTxt: "收藏", //收藏按钮显示文字
+    showCollect:false,
     collectId: null, //收藏id
     order_no: null, //参与团购的开团orderNo
     ct: 'n', //是否参与团购,n:不参团, y:参与团购
@@ -25,6 +26,9 @@ Page({
     callback_id: null, //分享积分会掉获取
     receive_integral: null, //可领取的积分数
     events_id: null, //活动ID
+    ishowCloseBtn:true,
+    isteambuy:false,
+   // index:0,
   },
   iframeFn() { //规格选择弹出
     this.setData({
@@ -54,13 +58,18 @@ Page({
     });
   },
   onLoad(o) {
+    console.log(o.showprice)
     this.setData({
       shopping: o.type, //购买类别
       order_no: o.order_no == undefined ? null : o.order_no,
       ct: o.ct == undefined ? "n" : o.ct,
       flashsale_id: o.flashsale_id == undefined ? null : o.flashsale_id,
       events_id: o.events_id == undefined ? null : o.events_id,
+      is_iframe:o.showprice==undefined?null:o.showprice,
+      ishowCloseBtn:o.showprice==undefined?true:false,
     })
+    //typeOneFn()
+    //typeTwoFn(event) 
     //积分入口
     this.shareIntegralIn(o)
 
@@ -130,6 +139,12 @@ Page({
   },
   submitOrder() {
     //数据校验
+    if(this.data.type_one_selected.spec_name){
+      this.data.spec1=this.data.type_one_selected.spec_name;
+    }
+    if(this.data.type_one_selected.spec_option[0].spec_value_2){
+      this.data.spec2=this.data.type_one_selected.spec_option[0].spec_value_2;
+    }
     if (this.data.type_one_selected.spec_option[0].spec_value_2) {
       if (this.data.spec1 == "0" || this.data.spec2 == "0") {
         wx.showToast({
@@ -172,9 +187,10 @@ Page({
       success(res) {
         var isCollection = res.data.data.collection;
         if (isCollection == 1) {
-          //字体改为取消收藏
+          //字体改为已收藏
           that.setData({
-            collectTxt: "取消收藏"
+            collectTxt: "已收藏",
+            showCollect:true,
           });
         }
       },
@@ -211,10 +227,12 @@ Page({
         },
         success(res) {
           if (res.data.result == 1) {
-            //字体改为取消收藏
+            //字体改为已收藏
             that.setData({
-              collectTxt: "取消收藏"
+              collectTxt: "已收藏",
+              showCollect:true,
             });
+           
             wx.showToast({
               title: '已收藏',
               icon: 'succes',
@@ -237,7 +255,8 @@ Page({
           if (res.data.result == 1) {
             //字体改为收藏
             that.setData({
-              collectTxt: "收藏"
+              collectTxt: "收藏",
+              showCollect:false,
             });
             wx.showToast({
               title: '已取消',

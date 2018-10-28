@@ -7,11 +7,14 @@ Page({
     collectList: null, //收藏列表
   },
   onLoad(options){
+    console.log(options)
     if (options.ptype =="recommend"){//推荐商品
       wx.setNavigationBarTitle({ title: '推荐商品' }) 
+      this.getRecommendList(options.uid,1)
 
     } else if (options.ptype == "collect"){//收藏商品
       wx.setNavigationBarTitle({ title: '收藏' }) 
+      
       this.getCollectList(options.uid, 1);
     }
   },
@@ -30,10 +33,10 @@ Page({
       },
     })
   },
-  getRecommendList() {//获取商品推荐列表TODO
+  getRecommendList(uid,pageNo) {//获取商品推荐列表TODO
     let that = this;
     wx.request({
-      url: 'https://wechatapi.vipcsg.com/index/goods/collection_list',
+      url: 'https://wechatapi.vipcsg.com/index/member/info',
       method: 'GET',
       data: {
         user_id: uid,

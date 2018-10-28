@@ -16,7 +16,9 @@ Page({
     endTime: null, //拼团结束倒计时
     countdown: "00:00", //倒计时显示
     timerNo: null, //定时器NO
-    groupMsg: null, //团单错误信息
+    groupMsg: null, //团单错误信息,
+    goods_index: [], //首页商品列表
+    showprice:true,
   },
   onLoad(options) {
     this.setData({
@@ -27,6 +29,7 @@ Page({
       share_date: options.share_date == undefined ? null : options.share_date,
       order_no: options.order_no == undefined ? null : options.order_no,
     });
+    this.getGoodsIndex();
   },
   onShow(){
     //获取商品详情
@@ -45,6 +48,7 @@ Page({
   onUnload(){
     //关闭定时器
     clearInterval(this.data.timerNo);
+    
   },
   getGroupDetail(){//获取团单详情
     let that = this;
@@ -75,6 +79,20 @@ Page({
       },
     })
   },
+    //请求商品列表
+    getGoodsIndex() {
+      let that = this;
+      wx.request({
+        url: 'https://wechatapi.vipcsg.com/index/goods/index',
+        data: {},
+        success(res) {
+          that.setData({
+            goods_index: res.data.data
+          })
+          console.log(that.data.goods_index)
+        },
+      })
+    },
   getGoodsDetail(id) { //获取商品详情，填充页面
     let that = this;
     wx.request({
@@ -86,6 +104,7 @@ Page({
         that.setData({
           goods_detail: res.data.data
         });
+        console.log(goods_detail)
       },
     })
   },
@@ -104,7 +123,7 @@ Page({
           //可拼团，跳转商品规格选择页面
           console.log("可拼团~~~")
           wx.navigateTo({
-            url: "../goodsDetail/goodsDetail?type=together&id=" + that.data.goods_detail.id + "&ct=y&order_no=" + that.data.order_no
+            url: "../goodsDetail/goodsDetail?type=together&id=" + that.data.goods_detail.id + "&ct=y&order_no=" + that.data.order_no+"&showprice="+ that.data.showprice
           })
         } else {
           if (res.data.msg == "拼团已超过24小时" || res.data.msg == "拼团不存在或拼团已完成") {

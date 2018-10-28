@@ -4,14 +4,17 @@ const app = getApp()
 
 Page({
   data: {
-	pet_id: null, //萌宠ID
-    petDetail: null, //萌宠详情
+		pet_id: null, //萌宠ID
+		petDetail: null, //萌宠详情
+		userInfoID:null,
+		isshowEdit:true,
   },
   onLoad(options){
 	  this.setData({
-		pet_id: options.pet_id  
+		pet_id: options.pet_id,
+	//	userInfoID:options.user_id
 	  });
-	  this.loadPetDetail(options.pet_id);
+	  this.loadPetDetail(options.pet_id,options.user_id);
   },
   loadPetDetail(pId){
 		let that = this;
@@ -24,7 +27,8 @@ Page({
 			}, success(res) {
 				console.log(res)
 				that.setData({
-					petDetail: res.data.data
+					petDetail: res.data.data,
+				//	isshowEdit:that.data.userInfoID==res.data.data.user_id
 				})
 			},
 		})

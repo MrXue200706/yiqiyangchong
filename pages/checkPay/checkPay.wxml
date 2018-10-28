@@ -45,7 +45,8 @@
           <text>已团3232件</text>
         </view>
         <view class="checkPay_goods_text_bottom">
-          <text class="checkPay_goods_text_bottom_red">￥{{goods_detail.price}}</text>
+          <text wx:if="{{shopping == 'normal'}}" class="checkPay_goods_text_bottom_red">￥{{goods_detail.price}}</text>
+           <text wx:else class="checkPay_goods_text_bottom_red">￥{{goods_detail.group_price}}</text>
           <text class="checkPay_goods_text_bottom_gray">￥{{goods_detail.market_price}}</text>
         </view>
       </view>

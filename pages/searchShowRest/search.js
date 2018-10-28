@@ -12,8 +12,6 @@ Page({
     menuId: null, //当前分类menuID
     orderBy:1, //默认综合排行
     pageNo: 1, //当前分类的页码
-    searchHistoryBl:true,
-    clickItem:false,
 
   },
   onShow(){
@@ -24,8 +22,8 @@ Page({
 
   },
   onLoad(options){
-    this.getsearch();
-    //this.searchSubmit(params)
+   // this.getsearch();
+    this.getsearchRes(options)
 
     switch (options.category_id) {
       case "1": //狗狗
@@ -76,20 +74,21 @@ Page({
     })
     
   },
-
   //收索结果
-  searchSubmit(params){
+  getsearchRes(options){
     let that = this;
     wx.request({
       url: 'https://wechatapi.vipcsg.com/index/goods/search',
       method: 'GET',
       data: {
       user_id: app.globalData.userInfo.data.data.user_id,
-      goods_name: params,
+      goods_name: options.id,
       order: '1',
       }, success(res) {
+        console.log(res.data);
         if (res.data.result==1){
         that.setData({
+         
           searchres: res.data.data
         })
       }
