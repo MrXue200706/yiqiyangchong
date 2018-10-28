@@ -14,7 +14,7 @@ Page({
     pageNo: 1, //当前分类的页码
     searchHistoryBl:true,
     clickItem:false,
-
+    searchMes:""
   },
   onShow(){
   
@@ -78,7 +78,9 @@ Page({
   },
 
   //收索结果
-  searchSubmit(params){
+  searchSubmit(e){
+    console.log(e);
+    let params=e.currentTarget.dataset.id;
     let that = this;
     wx.request({
       url: 'https://wechatapi.vipcsg.com/index/goods/search',
@@ -90,7 +92,9 @@ Page({
       }, success(res) {
         if (res.data.result==1){
         that.setData({
-          searchres: res.data.data
+          searchres: res.data.data,
+          searchHistoryBl:false,
+          clickItem:true
         })
       }
       },
@@ -139,6 +143,29 @@ Page({
       },
     })
 
+  },
+  getInputval: function (e) {
+    let seach = e.detail.value;
+    let that=this;
+    if(seach){
+      wx.request({
+        url: 'https://wechatapi.vipcsg.com/index/goods/search',
+        method: 'GET',
+        data: {
+        user_id: app.globalData.userInfo.data.data.user_id,
+        goods_name: seach,
+        order: '1',
+        }, success(res) {
+          if (res.data.result==1){
+          that.setData({
+            searchres: res.data.data,
+            searchHistoryBl:false,
+            clickItem:true
+          })
+        }
+        },
+      })  
+    }
   },
   chooseMenu(event) {//切换菜单
     this.setData({

@@ -3,7 +3,7 @@
   <!--搜索框-->
   <view class="search_box">
       <navigator url="../search/search" class="search_box_in">
-          <image src="../../images/搜索栏搜索.png" mode="widthFix"></image>
+          <image src="../../images/search.png" mode="widthFix"></image>
           <input type="search" placeholder="输入想搜索的商品"/>
       </navigator>
   </view>
@@ -29,19 +29,19 @@
     </navigator>
     <navigator url="../dogGoods/dogGoods?category_id=2" class="goods_class_item">
       <view class="goods_class_item_img">
-        <image src="../../images/猫咪.png" mode="widthFix"></image>
+        <image src="../../images/catIcon.png" mode="widthFix"></image>
       </view>
       <text class="goods_class_item_title">猫猫</text>
     </navigator>
     <navigator url="../dogGoods/dogGoods?category_id=3" class="goods_class_item">
       <view class="goods_class_item_img">
-        <image src="../../images/小宠.png" mode="widthFix"></image>
+        <image src="../../images/xiaochong.png" mode="widthFix"></image>
       </view>
       <text class="goods_class_item_title">小宠</text>
     </navigator>
     <navigator url="../dogGoods/dogGoods?category_id=4" class="goods_class_item">
       <view class="goods_class_item_img">
-        <image src="../../images/周边.png" mode="widthFix"></image>
+        <image src="../../images/zhoubian.png" mode="widthFix"></image>
       </view>
       <text class="goods_class_item_title">周边</text>
     </navigator>

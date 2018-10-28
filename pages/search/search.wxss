@@ -44,7 +44,12 @@
   padding: 0;
   
 }
+.nolist{
+  text-align:center;
+  font-size:34rpx;
+  margin-top:60rpx;
 
+}
 .specialTopicDetail_goods_text_bottom_red{
   font-size: 20rpx;
   padding: 5rpx 30rpx;

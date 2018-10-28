@@ -51,14 +51,14 @@
     <view class="official">
         <navigator url="../integral/integral?integral={{userInfo.member.integral}}" class="official_item">
             <view class="official_item_img">
-                <image mode="widthFix" src="../../images/我的积分.png"></image>
+                <image mode="widthFix" src="../../images/jifen.png"></image>
             </view>
             <view class="official_item_title">积分</view>
             <view class="official_item_under">可用积分：{{userInfo.member.integral}}</view>
         </navigator>
         <navigator url="../myPets/myPets" class="official_item">
             <view class="official_item_img">
-                <image mode="widthFix" src="../../images/我的宠物.png"></image>
+                <image mode="widthFix" src="../../images/mypets.png"></image>
             </view>
             <view class="official_item_title">萌宠</view>
             <view class="official_item_under">已添加：{{userInfo.pet_count}}</view>
@@ -72,14 +72,14 @@
         </navigator>
         <navigator url="../collect/collect?ptype=collect&uid={{userInfo.member.id}}" class="official_item">
             <view class="official_item_img">
-                <image mode="widthFix" src="../../images/我的收藏.png"></image>
+                <image mode="widthFix" src="../../images/myshouc.png"></image>
             </view>
             <view class="official_item_title">收藏</view>
             <view class="official_item_under">已收藏：{{userInfo.goods_collection_count}}</view>
         </navigator>
         <navigator url="../myAdress/myAdress" class="official_item">
             <view class="official_item_img">
-                <image mode="widthFix" src="../../images/我的地址.png"></image>
+                <image mode="widthFix" src="../../images/dizhi.png"></image>
             </view>
             <view class="official_item_title">地址</view>
             <view class="official_item_under">已存在：{{userInfo.address_count}}</view>
@@ -87,7 +87,7 @@
         <!-- <button open-type='getUserInfo' bindgetuserinfo="bindGetUserInfo"></button> -->
         <view class="official_item" bindtap='cooperation'>
             <view class="official_item_img">
-                <image mode="widthFix" src="../../images/我的合作.png"></image>
+                <image mode="widthFix" src="../../images/hezuo.png"></image>
             </view>
             <view class="official_item_title">合作</view>
             <view class="official_item_under">商务合作</view>

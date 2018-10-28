@@ -2,14 +2,14 @@
     <!--搜索框-->
     <view class="search_box">
         <view class="search_box_in">
-            <image src="../../images/搜索栏搜索.png" mode="widthFix"></image>
-            <input type="search" placeholder="输入想搜索的商品"/>
+            <image src="../../images/search.png" mode="widthFix"></image>
+            <input type="search" placeholder="输入想搜索的商品" bindinput="getInputval" value="{{searchMes}}" />
         </view>
     </view>
 </view>
 
 <view wx:if="{{searchHistoryBl}}">
-    <view  wx:if="{{searchHistort.length<0}}">
+    <view class="nolist" wx:if="{{searchHistort.length<=0}}">
         暂无相关商品
     </view>
     <view class="search_title" wx:else>
@@ -17,8 +17,8 @@
     </view>
     <view class="search_res">
          <view  wx:for="{{searchHistort}}" >
-            <view bindtap="searchSubmit('{{item.key_name}}')" class="search_item">
-                <text class="specialTopicDetail_goods_text_bottom_red">{{item.key_name}}</text>
+            <view class="search_item" >
+                <text class="specialTopicDetail_goods_text_bottom_red" bindtap="searchSubmit" data-id="{{item.key_name}}">{{item.key_name}}</text>
             </view>
         </view>
     </view>
@@ -26,15 +26,19 @@
         热门搜索
     </view>
     <view class="search_res">
-        <navigator wx:for="{{hotsearch}}" url="../searchShowRest/search?type=normal&id={{item.key_name}}">
-            <view class="search_item" >
+        <view wx:for="{{hotsearch}}" >
+            <view class="search_item" bindtap="searchSubmit" data-id="{{item.key_name}}">
                 <text class="specialTopicDetail_goods_text_bottom_red">{{item.key_name}}</text>
             </view>
-         </navigator>
+         </view>
     </view>
 </view>
 
 <view class="restultShow" wx:if="{{clickItem}}">
+ <view class="nolist" wx:if="{{searchres.length<=0}}">
+        暂无相关商品
+</view>
+<view wx:else>
  <!--排序-->
   <view class="dogGoods_array">
     <view class="dogGoods_array_item {{orderBy==1?'dogGoods_array_item_active': ''}}" data-ordernum='1' bindtap='orderByBtn'>综合</view>
@@ -64,5 +68,6 @@
       </view>
     </navigator>
     </view>
+</view>
 </view>
 

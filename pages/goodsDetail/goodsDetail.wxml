@@ -83,11 +83,11 @@
     <view class="goodsDetail_foot" wx:if="{{shopping=='shopping'}}">
         <view class="goodsDetail_foot_left">
             <view class="goodsDetail_foot_left_home" bindtap="gotoIndex">
-                <image class="checkIcon" mode="widthFix" src="../../images/首页（二级返回）.png"></image>
+                <image class="checkIcon" mode="widthFix" src="../../images/homes.png"></image>
                 <text>首页</text>
             </view>
             <view class="checkIcon" class="goodsDetail_foot_left_home" bindtap="collectProduct">
-                <image mode="widthFix" src="../../images/收藏（商品详情）.png"></image>
+                <image mode="widthFix" src="../../images/shouc.png"></image>
                 <text>{{collectTxt}}</text>
             </view>
         </view>
@@ -100,12 +100,12 @@
     <view class="goodsDetail_foot" wx:else>
         <view class="goodsDetail_foot_left">
             <view class="goodsDetail_foot_left_home" bindtap="gotoIndex">
-                <image class="checkIcon" mode="widthFix" src="../../images/首页（二级返回）.png"></image>
+                <image class="checkIcon" mode="widthFix" src="../../images/homes.png"></image>
                 <text>首页</text>
             </view>
             <view class="goodsDetail_foot_left_home" bindtap="collectProduct">
                 <image class="checkIcon"  wx:if="{{showCollect}}" mode="widthFix" src="../../images/shoucang.png"></image>
-                <image class="checkIcon"  wx:else mode="widthFix" src="../../images/收藏（商品详情）.png"></image>
+                <image class="checkIcon"  wx:else mode="widthFix" src="../../images/shouc.png"></image>
                 <text>{{collectTxt}}</text>
             </view>
         </view>

@@ -44,7 +44,7 @@
     <!--底部-->
     <view class="petsDetail_foot">
         <view class="petsDetail_foot_left">
-            <image mode="widthFix" src="../../images/首页（二级返回）.png"></image>
+            <image mode="widthFix" src="../../images/homes.png"></image>
         </view>
         <view class="petsDetail_foot_right" >
             <view class="petsDetail_foot_right_item" wx:if="{{isshowEdit}}">
@@ -54,12 +54,12 @@
                 </navigator>
             </view>
              <view class="petsDetail_foot_right_item" wx:else>
-                 <image mode="widthFix" src="../../images/点赞.png"></image>
+                 <image mode="widthFix" src="../../images/dianz.jpg"></image>
                 <text>点赞</text>
             </view>
             <text>|</text>
             <view class="petsDetail_foot_right_item">
-                <image mode="widthFix" src="../../images/分享.png"></image>
+                <image mode="widthFix" src="../../images/fenxiangIcon.png"></image>
                 <text>分享</text>
             </view>
         </view>

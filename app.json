@@ -38,20 +38,20 @@
     "list": [
       {
         "pagePath": "pages/index/index",
-        "iconPath": "images/发现-1.png",
-        "selectedIconPath": "images/发现.png",
+        "iconPath": "images/find1.png",
+        "selectedIconPath": "images/find.png",
         "text": "发现"
       },
       {
         "pagePath": "pages/shoping/shoping",
-        "iconPath": "images/抢购-1.png",
-        "selectedIconPath": "images/抢购.png",
+        "iconPath": "images/qiangou1.png",
+        "selectedIconPath": "images/qiangou.png",
         "text": "抢购"
       },
       {
         "pagePath": "pages/mine/mine",
-        "iconPath": "images/我的-1.png",
-        "selectedIconPath": "images/我的.png",
+        "iconPath": "images/mine1.png",
+        "selectedIconPath": "images/mine.png",
         "text": "我的 "
       }
     ]
