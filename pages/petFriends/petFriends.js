@@ -14,6 +14,7 @@ Page({
       petType: options.petType, 
       uid: options.uid, 
       pageType: options.pageType,
+      goodid:options.goodid
     })
       this.getFriendList();
   },
@@ -30,20 +31,42 @@ Page({
       urlStr = "https://wechatapi.vipcsg.com/index/member/my_fans";
       //设置顶部显示文字
       wx.setNavigationBarTitle({ title: '粉丝列表' }) 
+    }else if (this.data.petType =="friends"){
+      console.log("宠友列表")
+      urlStr = "https://wechatapi.vipcsg.com/index/goods/recommended";
+      //设置顶部显示文字
+      wx.setNavigationBarTitle({ title: '宠友列表' }) 
     }
-
-    wx.request({
-      url: urlStr,
-      method: 'GET',
-      data: {
-        user_id: this.data.uid
-      }, success(res) {
-        console.log(res)
-        that.setData({
-          petList: res.data.data
-        })
-      },
-    })
+if(this.data.petType =="friends"){
+  wx.request({
+    url: urlStr,
+    method: 'post',
+    data: {
+      user_id: app.globalData.userInfo.data.data.user_id,
+      page:1,
+      goods_id:-(-this.data.goodid)
+    }, success(res) {
+      console.log(res)
+      that.setData({
+        petList: res.data.data
+      })
+    },
+  })
+}else{
+  wx.request({
+    url: urlStr,
+    method: 'GET',
+    data: {
+      user_id: this.data.uid
+    }, success(res) {
+      console.log(res)
+      that.setData({
+        petList: res.data.data
+      })
+    },
+  })
+}
+   
   },
   fansFocus(e) {//粉丝列表按钮
     let txt = e.currentTarget.dataset.txt

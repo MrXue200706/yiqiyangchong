@@ -19,7 +19,7 @@
       <text>修改地址</text>
     </view> -->
     <view class="unpay_address_icon">
-      <image src="../../images/订单信息-地址.png" mode="widthFix"></image>
+      <image src="../../images/dingdDDZ.png" mode="widthFix"></image>
     </view>
   </view>
 

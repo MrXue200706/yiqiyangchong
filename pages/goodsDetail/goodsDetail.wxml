@@ -20,7 +20,7 @@
             <text>{{goods_detail.goods_name}}</text>
         </view>
         <button class="goodsDetail_title_get" open-type='share'>
-            <image mode="widthFix" src="../../images/赚积分-商品详情.png"></image>
+            <image mode="widthFix" src="../../images/jifenxiangq.png"></image>
             <text>赚积分</text>
         </button>
     </view>
@@ -48,7 +48,7 @@
     <!--推荐-->
     <view class="goodsDetail_recommend">
         <text class="goodsDetail_recommend_content">{{goods_detail.pet_friend_count}}名宠友推荐</text>
-        <navigator url="../petFriends/petFriends?" class="goodsDetail_recommend_avatar">
+        <navigator url="../petFriends/petFriends?petType=friends&goodid={{goods_detail.id}}" class="goodsDetail_recommend_avatar">
             <view class="goodsDetail_recommend_avatar_item" wx:for="{{goods_detail.pet_friend_list}}" wx:key="item.index">
                 <image mode="widthFix" src="{{item.avatarUrl}}" class="goodsDetail_recommend_avatar_item_img"></image>
             </view>
@@ -86,8 +86,13 @@
                 <image class="checkIcon" mode="widthFix" src="../../images/homes.png"></image>
                 <text>首页</text>
             </view>
-            <view class="checkIcon" class="goodsDetail_foot_left_home" bindtap="collectProduct">
-                <image mode="widthFix" src="../../images/shouc.png"></image>
+            <!-- <view class="checkIcon" class="goodsDetail_foot_left_home" bindtap="collectProduct">
+                <image  class="checkIcon"  mode="widthFix" src="../../images/shouc.png"></image>
+                <text>{{collectTxt}}</text>
+            </view> -->
+             <view class="goodsDetail_foot_left_home" bindtap="collectProduct">
+                <image class="checkIcon"  wx:if="{{showCollect}}" mode="widthFix" src="../../images/shoucang.png"></image>
+                <image class="checkIcon"  wx:else mode="widthFix" src="../../images/shouc.png"></image>
                 <text>{{collectTxt}}</text>
             </view>
         </view>

@@ -17,31 +17,31 @@
         <navigator url="../orderList/orderList?ptype=unpay" class="state_item">
         <!-- url="../unpay/unpay?type=unpay" -->
             <view class="state_item_img">
-                <image mode="widthFix" src="../../images/我的待付款.png"></image>
+                <image mode="widthFix" src="../../images/daimypay.png"></image>
             </view>
             <text>待付款</text>
         </navigator>
         <navigator url="../orderList/orderList?ptype=untogether" class="state_item">
             <view class="state_item_img">
-                <image mode="widthFix" src="../../images/我的待成团.png"></image>
+                <image mode="widthFix" src="../../images/daimyteam.png"></image>
             </view>
             <text>待成团</text>
         </navigator>
         <navigator url="../orderList/orderList?ptype=unpick" class="state_item">
             <view class="state_item_img">
-                <image mode="widthFix" src="../../images/我的待收货.png"></image>
+                <image mode="widthFix" src="../../images/daimyshou.png"></image>
             </view>
             <text>待收货</text>
         </navigator>
         <navigator url="../orderList/orderList?ptype=done" class="state_item">
             <view class="state_item_img">
-                <image mode="widthFix" src="../../images/我的已完成.png"></image>
+                <image mode="widthFix" src="../../images/myover.png"></image>
             </view>
             <text>已完成</text>
         </navigator>
         <view class="state_item">
             <view class="state_item_img">
-                <image mode="widthFix" src="../../images/我的售后服务.png"></image>
+                <image mode="widthFix" src="../../images/daimyshophou.png"></image>
             </view>
             <text>售后服务</text>
         </view>
@@ -65,7 +65,7 @@
         </navigator>
         <navigator url="../cuopon/cuopon" class="official_item">
             <view class="official_item_img">
-                <image mode="widthFix" src="../../images/我的优惠卷.png"></image>
+                <image mode="widthFix" src="../../images/myyouhui.png"></image>
             </view>
             <view class="official_item_title">优惠券</view>
             <view class="official_item_under">积分兑换优惠券</view>

@@ -13,7 +13,7 @@
     <view class="shoping_goods_d">
       <view class="shoping_goods_time" wx:if="{{shopData.allshop.allFlag=='Y' || shopData.currentshop.nowFlag=='Y'}}">
         <view class="shoping_goods_time_title_ing">
-          <image mode="widthFix" src="../../images/正在抢购.png"></image>
+          <image mode="widthFix" src="../../images/shopping.png"></image>
           <text>正在疯抢 {{shopData.allshop.allFlag=='Y'?'': shopData.currentshop.nowSTime}}</text>
         </view>
         <view class="shoping_goods_time_t">
@@ -52,7 +52,7 @@
     <view class="shoping_goods_d" wx:if="{{shopData.allshop.allFlag!='Y'&& shopData.preshop.hasNxt=='Y'}}">
       <view class="shoping_goods_time">
         <view class="shoping_goods_time_title_un">
-          <image mode="widthFix" src="../../images/即将开始.png"></image>
+          <image mode="widthFix" src="../../images/willstart.png"></image>
           <text>即将疯抢 {{shopData.preshop.nxtSTime}}</text>
         </view>
       </view>
@@ -89,7 +89,7 @@
     <view class="shoping_goods_d" wx:if="{{shopData.allshop.allFlag!='Y'&& shopData.preshop.hasNxt=='Y' && shopData.preshop.other.length > 0}}" wx:for="{{shopData.preshop.other}}" wx:for-item="item1">
       <view class="shoping_goods_time">
         <view class="shoping_goods_time_title_un">
-          <image mode="widthFix" src="../../images/即将开始.png"></image>
+          <image mode="widthFix" src="../../images/willstart.png"></image>
           <text>即将疯抢 {{item1.startTime}}</text>
         </view>
       </view>
@@ -126,7 +126,7 @@
     <view class="shoping_goods_d" wx:if="{{tmoShopData.allshop.allFlag=='Y'}}">
       <view class="shoping_goods_time">
         <view class="shoping_goods_time_title_un">
-          <image mode="widthFix" src="../../images/即将开始.png"></image>
+          <image mode="widthFix" src="../../images/willstart.png"></image>
           <text>即将疯抢 {{nxtDay}}</text>
         </view>
       </view>
@@ -162,7 +162,7 @@
     <view class="shoping_goods_d" wx:for="{{tmoShopData.preshop.other}}" wx:for-item="item1" else>
       <view class="shoping_goods_time">
         <view class="shoping_goods_time_title_un">
-          <image mode="widthFix" src="../../images/即将开始.png"></image>
+          <image mode="widthFix" src="../../images/willstart.png"></image>
           <text>即将疯抢 {{nxtDay+' '+ item1.startTime}}</text>
         </view>
       </view>
