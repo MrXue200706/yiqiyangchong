@@ -36,7 +36,7 @@ Page({
   getRecommendList(uid,pageNo) {//获取商品推荐列表TODO
     let that = this;
     wx.request({
-      url: 'https://wechatapi.vipcsg.com/index/member/info',
+      url: 'https://wechatapi.vipcsg.com/index/member/order_goods',
       method: 'GET',
       data: {
         user_id: uid,

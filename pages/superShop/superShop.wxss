@@ -53,6 +53,8 @@
     color:#89898c;
     margin-left:48rpx;
     text-align: right;
+    color: red;
+
 }
 .surperShop_goods_recommend_avatar{
     margin-right: 28rpx;

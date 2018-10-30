@@ -135,3 +135,15 @@
     bottom: 206rpx;
     left: 36rpx;
 }
+.official_item_img .diziIcon{
+    width: 60%;
+    margin-left: 10rpx;
+}
+.official_item_img  .jifenIcon{
+    width: 75%;
+    margin-left: 10rpx;
+}
+.official_item_img  .hezuoicon{
+    width: 85%;
+    margin-left: 10rpx;
+}

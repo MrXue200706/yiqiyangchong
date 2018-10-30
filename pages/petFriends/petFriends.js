@@ -40,13 +40,13 @@ Page({
 if(this.data.petType =="friends"){
   wx.request({
     url: urlStr,
-    method: 'post',
+    method: 'get',
     data: {
       user_id: app.globalData.userInfo.data.data.user_id,
       page:1,
       goods_id:-(-this.data.goodid)
     }, success(res) {
-      console.log(res)
+      console.log(res.data)
       that.setData({
         petList: res.data.data
       })
