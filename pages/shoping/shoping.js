@@ -36,6 +36,7 @@ Page({
       }
       var etimes = Date.parse(new Date(eTime.replace(/-/g, "/")));
       var poorTime = etimes - nowTime
+     // console.log(poorTime);
       var fTimeStr = that.dateformatOut(poorTime)
       //判断当前是否为整点
       var minutes = parseInt((nowTime % (1000 * 60 * 60)) / (1000 * 60))
@@ -62,6 +63,7 @@ Page({
     this.getListDetail()
     wx.showNavigationBarLoading() //在标题栏中显示加载
     wx.hideNavigationBarLoading() //关闭加载
+   
   },
   getListDetail() { //获取列表数据
     let that = this;
@@ -85,6 +87,7 @@ Page({
             })
           }
         }
+        wx.stopPullDownRefresh()
       },
     })
   },

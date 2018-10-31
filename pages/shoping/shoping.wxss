@@ -124,7 +124,7 @@
     border: 1px solid #f73227;
     color: #f73227;
     border-radius: 5rpx;
-    margin-left: 20rpx;
+    margin-right: 80rpx;
     padding: 0 10rpx;
 }
 .shoping_goods_text_middle_gray{
