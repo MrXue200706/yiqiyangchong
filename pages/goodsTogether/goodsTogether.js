@@ -30,8 +30,7 @@ Page({
       order_no: options.order_no == undefined ? null : options.order_no,
     });
     this.getGoodsIndex();
-  },
-  onShow(){
+
     //获取商品详情
     this.getGoodsDetail(this.data.param_id);
 
@@ -40,6 +39,9 @@ Page({
 
     //获取团单详情
     this.getGroupDetail();
+  },
+  onShow(){
+    
   },
   onHide() {
     //关闭定时器
@@ -248,6 +250,7 @@ Page({
           } else {
             //开团操作
             that.setData({
+              ct: 'n',
               showShare: true,
             })
           }
