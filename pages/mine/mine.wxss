@@ -143,7 +143,7 @@
     width: 75%;
     margin-left: 10rpx;
 }
-.official_item_img  .hezuoicon{
+.official_item_img .hezuoicon{
     width: 85%;
     margin-left: 10rpx;
 }

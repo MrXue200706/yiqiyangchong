@@ -19,10 +19,15 @@
         <view class="goodsDetail_title_content">
             <text>{{goods_detail.goods_name}}</text>
         </view>
-        <button class="goodsDetail_title_get" open-type='share'>
+        <view class="goodsDetail_title_get" bindtap="shareTo" wx:if="{{isjifen}}">
             <image mode="widthFix" src="../../images/jifenxiangq.png"></image>
             <text>赚积分</text>
-        </button>
+        </view>
+         <view class="goodsDetail_title_share"  wx:else bindtap="shareTo">
+           <image mode="widthFix" src="../../images/share.jpg"></image>
+            <text>分享</text>
+        </view>
+       
     </view>
 
     <!--服务-->

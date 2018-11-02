@@ -18,7 +18,7 @@
                     </view>
                 </view>
                 <text class="surperShop_goods_recommend_content">{{item.pet_friend_count}}推荐</text>
-                <text class="surperShop_goods_recommend_number">{{item.residue_inventory}}人团</text>
+                <text class="surperShop_goods_recommend_number">{{superShop.events_info.group_number}}人团</text>
             </view>
             <view class="surperShop_goods_text_bottom">
                 <text class="surperShop_goods_text_bottom_red">￥{{item.price}}</text>

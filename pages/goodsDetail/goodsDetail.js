@@ -28,6 +28,7 @@ Page({
     events_id: null, //活动ID
     ishowCloseBtn:true,
     isteambuy:false,
+    isjifen:false,
    // index:0,
   },
   iframeFn() { //规格选择弹出
@@ -84,6 +85,11 @@ Page({
       //页面详情
       this.getGoodsDetail(o.id)
     }
+  },
+  shareTo(){
+    wx.navigateTo({
+      url: "../goodsTogether/goodsTogether"
+    })
   },
   getGoodsDetail(id, flashsaleId, eventsId) { //获取页面细节
     let queryUrl = "https://wechatapi.vipcsg.com/index/goods/details"
