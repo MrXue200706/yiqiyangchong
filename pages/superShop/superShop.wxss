@@ -76,6 +76,9 @@
 .surperShop_goods_recommend_avatar_item_img{
     width: 100%;
 }
+.surperShop_goods_text_bottom{
+    width: 100%
+}
 .surperShop_goods_text_bottom_red{
     font-size: 28rpx;
     color: #f73227;
@@ -86,7 +89,7 @@
     text-decoration: line-through;
 }
 .surperShop_goods_text_bottom_button{
-    display: inline-block;
+    display: block;
     height: 54rpx;
     line-height: 54rpx;
     width: 136rpx;
@@ -96,5 +99,5 @@
     border-radius: 28rpx;
     font-size: 28rpx;
     flex-shrink: 0;
-    margin-left: 222rpx;
+    float: right;
 }

@@ -19,11 +19,11 @@
         <view class="goodsDetail_title_content">
             <text>{{goods_detail.goods_name}}</text>
         </view>
-        <view class="goodsDetail_title_get" bindtap="shareTo" wx:if="{{isjifen}}">
+        <view class="goodsDetail_title_get" bindtap="shareTo" wx:if="{{isjifen}}" data-id="{{goods_detail.id}}" data-shares="{{1}}">
             <image mode="widthFix" src="../../images/jifenxiangq.png"></image>
             <text>赚积分</text>
         </view>
-         <view class="goodsDetail_title_share"  wx:else bindtap="shareTo">
+         <view class="goodsDetail_title_share"  wx:else bindtap="shareTo" data-id="{{goods_detail.id}}" data-shares="{{2}}">
            <image mode="widthFix" src="../../images/share.jpg"></image>
             <text>分享</text>
         </view>

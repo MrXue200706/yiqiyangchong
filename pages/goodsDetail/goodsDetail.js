@@ -17,19 +17,19 @@ Page({
     selected_numb: 1, //选择的数量
     descript: null, //描述
     collectTxt: "收藏", //收藏按钮显示文字
-    showCollect:false,
+    showCollect: false,
     collectId: null, //收藏id
     order_no: null, //参与团购的开团orderNo
     ct: 'n', //是否参与团购,n:不参团, y:参与团购
     flashsale_id: null, //抢购ID
-    integralDK: 0 , //积分抵扣比例
+    integralDK: 0, //积分抵扣比例
     callback_id: null, //分享积分会掉获取
     receive_integral: null, //可领取的积分数
     events_id: null, //活动ID
-    ishowCloseBtn:true,
-    isteambuy:false,
-    isjifen:false,
-   // index:0,
+    ishowCloseBtn: true,
+    isteambuy: false,
+    isjifen: false,
+    // index:0,
   },
   iframeFn() { //规格选择弹出
     this.setData({
@@ -66,8 +66,9 @@ Page({
       ct: o.ct == undefined ? "n" : o.ct,
       flashsale_id: o.flashsale_id == undefined ? null : o.flashsale_id,
       events_id: o.events_id == undefined ? null : o.events_id,
-      is_iframe:o.showprice==undefined?null:o.showprice,
-      ishowCloseBtn:o.showprice==undefined?true:false,
+      is_iframe: o.showprice == undefined ? null : o.showprice,
+      ishowCloseBtn: o.showprice == undefined ? true : false,
+      isjifen: o.shareType == undefined ? false : true
     })
     //typeOneFn()
     //typeTwoFn(event) 
@@ -77,25 +78,26 @@ Page({
     if (o.type == "shopping") {
       if (o.start == "n") {
         //抢购尚未给开始，查看商品详情，显示尚未开始按钮
-        
+
       }
       //抢购商品页面详情
       this.getGoodsDetail(o.id)
-    }else{
+    } else {
       //页面详情
       this.getGoodsDetail(o.id)
     }
   },
-  shareTo(){
+  shareTo(e) {
+console.log( e.currentTarget.dataset);
     wx.navigateTo({
-      url: "../goodsTogether/goodsTogether"
+      url: "../goodsTogether/goodsTogether?param_id=" + e.currentTarget.dataset.id+"&shares="+e.currentTarget.dataset.shares
     })
   },
   getGoodsDetail(id, flashsaleId, eventsId) { //获取页面细节
     let queryUrl = "https://wechatapi.vipcsg.com/index/goods/details"
-    if (this.data.shopping =="shopping"){
-      queryUrl ="https://wechatapi.vipcsg.com/index/flashsale/details"
-    } else if (this.data.shopping == "activity"){
+    if (this.data.shopping == "shopping") {
+      queryUrl = "https://wechatapi.vipcsg.com/index/flashsale/details"
+    } else if (this.data.shopping == "activity") {
       queryUrl = "https://wechatapi.vipcsg.com/index/events/details"
     }
 
@@ -118,7 +120,7 @@ Page({
         that.setData({
           type_one_selected: res.data.data.display_spec[0]
         });
-        if(that.data.shopping=="shopping"){
+        if (that.data.shopping == "shopping") {
           that.setData({
             integralDK: Number(res.data.data.integral.replace(/%/g, ""))
           })
@@ -145,11 +147,11 @@ Page({
   },
   submitOrder() {
     //数据校验
-    if(this.data.type_one_selected.spec_name){
-      this.data.spec1=this.data.type_one_selected.spec_name;
+    if (this.data.type_one_selected.spec_name) {
+      this.data.spec1 = this.data.type_one_selected.spec_name;
     }
-    if(this.data.type_one_selected.spec_option[0].spec_value_2){
-      this.data.spec2=this.data.type_one_selected.spec_option[0].spec_value_2;
+    if (this.data.type_one_selected.spec_option[0].spec_value_2) {
+      this.data.spec2 = this.data.type_one_selected.spec_option[0].spec_value_2;
     }
     if (this.data.type_one_selected.spec_option[0].spec_value_2) {
       if (this.data.spec1 == "0" || this.data.spec2 == "0") {
@@ -196,7 +198,7 @@ Page({
           //字体改为已收藏
           that.setData({
             collectTxt: "已收藏",
-            showCollect:true,
+            showCollect: true,
           });
         }
       },
@@ -236,15 +238,15 @@ Page({
             //字体改为已收藏
             that.setData({
               collectTxt: "已收藏",
-              showCollect:true,
+              showCollect: true,
             });
-           
+
             wx.showToast({
               title: '已收藏',
               icon: 'succes',
               duration: 1000,
               mask: true,
-              success: function() {}
+              success: function () {}
             })
           }
         },
@@ -262,14 +264,14 @@ Page({
             //字体改为收藏
             that.setData({
               collectTxt: "收藏",
-              showCollect:false,
+              showCollect: false,
             });
             wx.showToast({
               title: '已取消',
               icon: 'succes',
               duration: 1000,
               mask: true,
-              success: function() {}
+              success: function () {}
             })
           }
         },
@@ -302,7 +304,7 @@ Page({
     //设置菜单中的转发按钮触发转发事件时的转发内容
     var shareObj = {
       title: this.data.goods_detail.goods_name, //转发标题
-      path: '/pages/goodsDetail/goodsDetail?oldshare_id=' + app.globalData.userInfo.data.data.user_id + '&id=' + that.data.goods_detail.id + '&type=' + that.data.shopping + '&share_date=' + dataStr + '&flashsale_id=' + that.data.flashsale_id + '&events_id=' + that.data.events_id , 
+      path: '/pages/goodsDetail/goodsDetail?oldshare_id=' + app.globalData.userInfo.data.data.user_id + '&id=' + that.data.goods_detail.id + '&type=' + that.data.shopping + '&share_date=' + dataStr + '&flashsale_id=' + that.data.flashsale_id + '&events_id=' + that.data.events_id,
       imgUrl: this.data.goods_detail.goods_img_list[0].goods_img, //图片路径
       success: function (res) {
         // 分享成功之后的回调
@@ -317,13 +319,13 @@ Page({
               param_id: that.data.goods_detail.id
             },
             success(res) {
-              if (res.data.result==1) {
+              if (res.data.result == 1) {
                 wx.showToast({
                   title: '分享成功',
                   icon: 'succes',
                   duration: 1000,
                   mask: true,
-                  success: function () { }
+                  success: function () {}
                 });
               }
             },
@@ -338,7 +340,7 @@ Page({
             icon: 'none',
             duration: 1000,
             mask: true,
-            success: function () { }
+            success: function () {}
           });
         } else if (res.errMsg == 'shareAppMessage:fail') {
           wx.showToast({
@@ -346,7 +348,7 @@ Page({
             icon: 'none',
             duration: 1000,
             mask: true,
-            success: function () { }
+            success: function () {}
           });
         }
       },
@@ -357,11 +359,11 @@ Page({
     // 返回shareObj
     return shareObj;
   },
-  shareIntegralIn(o){
+  shareIntegralIn(o) {
     let that = this;
     if (o.oldshare_id != undefined && o.share_date.length > 0) {
       //TODO 注：由于领取积分需要登录，所以该处需要处理登录信息(貌似我点进来就自己自动登录了。) cao
-      if (app.globalData.userInfo == null || app.globalData.userInfo.data.data.user_id == undefined ){
+      if (app.globalData.userInfo == null || app.globalData.userInfo.data.data.user_id == undefined) {
         // 查看是否授权
         wx.getSetting({
           success: function (res1) {
@@ -377,10 +379,10 @@ Page({
           }
         })
       }
-    
+
       wx.request({
         url: 'https://wechatapi.vipcsg.com/index/share/receive_integral',
-        method:'POST',
+        method: 'POST',
         data: {
           receive_id: app.globalData.userInfo.data.data.user_id,
           share_id: o.oldshare_id,
@@ -394,7 +396,7 @@ Page({
           //   icon: 'none',
           //   duration: 5000
           // })
-          if(res.data.result==1){
+          if (res.data.result == 1) {
             that.setData({
               receive_integral: res.data.data.receive_integral,
               callback_id: res.data.data.callback_id,

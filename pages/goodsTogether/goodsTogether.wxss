@@ -131,7 +131,7 @@
     color: #fff;
     background-color: #fe9204;
     border-radius: 10rpx;
-    
+    margin-top: 70rpx
 }
 .goodsDetail_recommend_avatar_item{
     width: 70rpx;
@@ -337,4 +337,13 @@
   }
   .goods_item_recommend_avatars_img{
     width: 100%;
+  }
+  .goods_fenxiang{
+    height:208rpx;
+    display:flex;
+    align-content:space-around;
+    justify-content:center;
+    flex-wrap:wrap;
+    background-color:#fff;
+   
   }

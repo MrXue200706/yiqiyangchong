@@ -9,12 +9,12 @@ Page({
     pet_expert: [], //养宠达人列表
     special_topic: [], //专题
     goods_recommend: [], //活动
-
+    pageno:1
   },
   onLoad() {
     //请求
     this.getSwiper();
-    this.getGoodsIndex();
+    this.getGoodsIndex(1);
     this.getPetExpert();
     this.getSpecialTopic();
     this.getGoodsRecommend();
@@ -35,16 +35,23 @@ Page({
       },
     })
   },
+  onReachBottom() {
+    // 下拉触底，先判断是否有请求正在进行中
+    // 以及检查当前请求页数是不是小于数据总页数，如符合条件，则发送请求
+   // if (!this.loading && this.data.page < this.data.pages) {    
+      this.getGoodsIndex(++this.data.pageno)
+    //}
+  },
 
   //请求商品列表
-  getGoodsIndex() {
+  getGoodsIndex(pageno) {
     let that = this;
     wx.request({
       url: 'https://wechatapi.vipcsg.com/index/goods/index',
-      data: {},
+      data: {page:pageno},
       success(res) {
         that.setData({
-          goods_index: res.data.data
+          goods_index: that.data.goods_index.concat(res.data.data) 
         })
         console.log(that.data.goods_index)
       },
@@ -102,7 +109,7 @@ Page({
     var that = this;
     // 查看是否授权
     wx.getSetting({
-      success: function(res1) {
+      success: function (res1) {
         if (res1.authSetting['scope.userInfo']) {
           //已授权过的，直接登录跳转
           that.loginUser();
@@ -118,11 +125,11 @@ Page({
   loginUser() {
     var that = this;
     wx.login({
-      success: function(res) {
+      success: function (res) {
         if (res.code) {
           var code = res.code;
           wx.getUserInfo({ //getUserInfo流程
-            success: function(res2) { //获取userinfo成功
+            success: function (res2) { //获取userinfo成功
               var encryptedData = encodeURIComponent(res2.encryptedData);
               var iv = res2.iv;
               //发起网络请求
@@ -175,7 +182,7 @@ Page({
             icon: 'succes',
             duration: 1000,
             mask: true,
-            success: function() {
+            success: function () {
               //按钮变黑
 
             }
@@ -199,7 +206,7 @@ Page({
             icon: 'succes',
             duration: 3000,
             mask: true,
-            success: function () { }
+            success: function () {}
           })
         }
       },

@@ -18,9 +18,12 @@ Page({
     timerNo: null, //定时器NO
     groupMsg: null, //团单错误信息,
     goods_index: [], //首页商品列表
-    showprice:true,
+    showprice: true,
+    param_id:"",
+    shares:false,
   },
   onLoad(options) {
+    console.log(options)
     this.setData({
       ct: options.ct,
       param_id: options.param_id,
@@ -28,17 +31,20 @@ Page({
       share_type: options.share_type == undefined ? null : options.share_type,
       share_date: options.share_date == undefined ? null : options.share_date,
       order_no: options.order_no == undefined ? null : options.order_no,
+      shares:options.shares
     });
     this.getGoodsIndex();
-
     //获取商品详情
     this.getGoodsDetail(this.data.param_id);
+    console.log(this.data.shares)
+    if (!this.data.shares) {
+      //检查是否满团
+      this.groupCheck();
 
-    //检查是否满团
-    this.groupCheck();
+      //获取团单详情
+      this.getGroupDetail();
+    }
 
-    //获取团单详情
-    this.getGroupDetail();
   },
   onShow(){
     
@@ -47,19 +53,20 @@ Page({
     //关闭定时器
     clearInterval(this.data.timerNo);
   },
-  onUnload(){
+  onUnload() {
     //关闭定时器
     clearInterval(this.data.timerNo);
-    
+
   },
-  getGroupDetail(){//获取团单详情
+  getGroupDetail() { //获取团单详情
     let that = this;
     wx.request({
       url: 'https://wechatapi.vipcsg.com/index/group/group_info',
       method: 'GET',
       data: {
         order_no: this.data.order_no
-      }, success(res) {
+      },
+      success(res) {
         if (res.data.result == 1) {
           that.setData({
             group_info: res.data.data,
@@ -69,8 +76,8 @@ Page({
 
           //启动定时器
           that.data.timerNo = setInterval(function () {
-            var temp = that.data.endTime -1
-            var countdown = that.dateformatOut(Number(temp)*1000)
+            var temp = that.data.endTime - 1
+            var countdown = that.dateformatOut(Number(temp) * 1000)
             // console.log("倒计时时间：" + countdown)
             that.setData({
               endTime: temp,
@@ -81,20 +88,20 @@ Page({
       },
     })
   },
-    //请求商品列表
-    getGoodsIndex() {
-      let that = this;
-      wx.request({
-        url: 'https://wechatapi.vipcsg.com/index/goods/index',
-        data: {},
-        success(res) {
-          that.setData({
-            goods_index: res.data.data
-          })
-          console.log(that.data.goods_index)
-        },
-      })
-    },
+  //请求商品列表
+  getGoodsIndex() {
+    let that = this;
+    wx.request({
+      url: 'https://wechatapi.vipcsg.com/index/goods/index',
+      data: {},
+      success(res) {
+        that.setData({
+          goods_index: res.data.data
+        })
+        console.log(that.data.goods_index)
+      },
+    })
+  },
   getGoodsDetail(id) { //获取商品详情，填充页面
     let that = this;
     wx.request({
@@ -106,7 +113,7 @@ Page({
         that.setData({
           goods_detail: res.data.data
         });
-        console.log(goods_detail)
+        // console.log(goods_detail)
       },
     })
   },
@@ -125,7 +132,7 @@ Page({
           //可拼团，跳转商品规格选择页面
           console.log("可拼团~~~")
           wx.navigateTo({
-            url: "../goodsDetail/goodsDetail?type=together&id=" + that.data.goods_detail.id + "&ct=y&order_no=" + that.data.order_no+"&showprice="+ that.data.showprice
+            url: "../goodsDetail/goodsDetail?type=together&id=" + that.data.goods_detail.id + "&ct=y&order_no=" + that.data.order_no + "&showprice=" + that.data.showprice
           })
         } else {
           if (res.data.msg == "拼团已超过24小时" || res.data.msg == "拼团不存在或拼团已完成") {
@@ -138,7 +145,7 @@ Page({
               icon: 'none',
               duration: 2000,
               mask: true,
-              success: function () { }
+              success: function () {}
             })
           } else {
             that.setData({
@@ -150,7 +157,7 @@ Page({
               icon: 'none',
               duration: 2000,
               mask: true,
-              success: function () { }
+              success: function () {}
             })
           }
         }
@@ -158,7 +165,7 @@ Page({
     })
 
   },
-  onShareAppMessage: function(options) {
+  onShareAppMessage: function (options) {
     //生成分享日期
     var date = new Date();
     var dataStr = date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate();
@@ -168,7 +175,7 @@ Page({
       title: this.data.goods_detail.goods_name, //转发标题
       path: '/pages/goodsTogether/goodsTogether?order_no=' + this.data.order_no + '&ct=y&param_id=' + this.data.goods_detail.id + '&share_id=' + app.globalData.userInfo.data.data.user_id + '&share_type=goods&share_date=' + dataStr, // 默认是当前页面，必须是以‘/’开头的完整路径
       imgUrl: this.data.goods_detail.goods_img_list[0].goods_img, //图片路径
-      success: function(res) {
+      success: function (res) {
         // 转发成功之后的回调
         if (res.errMsg == 'shareAppMessage:ok') {
           wx.showToast({
@@ -176,7 +183,7 @@ Page({
             icon: 'succes',
             duration: 1000,
             mask: true,
-            success: function() {}
+            success: function () {}
           });
           //记录积分
           wx.request({
@@ -194,14 +201,14 @@ Page({
                   icon: 'succes',
                   duration: 2000,
                   mask: true,
-                  success: function() {}
+                  success: function () {}
                 });
               }
             },
           })
         }
       },
-      fail: function() {
+      fail: function () {
         //转发失败之后的回调
         if (res.errMsg == 'shareAppMessage:fail cancel') {
           //用户取消转发
@@ -210,7 +217,7 @@ Page({
             icon: 'none',
             duration: 1000,
             mask: true,
-            success: function() {}
+            success: function () {}
           });
         } else if (res.errMsg == 'shareAppMessage:fail') {
           //转发失败，其中 detail message 为详细失败信息
@@ -219,11 +226,11 @@ Page({
             icon: 'none',
             duration: 1000,
             mask: true,
-            success: function() {}
+            success: function () {}
           });
         }
       },
-      complete: function() {
+      complete: function () {
         // 转发结束之后的回调（转发成不成功都会执行）
       }
     };
@@ -242,7 +249,7 @@ Page({
       success(res) {
         if (res.data.result == 1) {
           //未满团，判断是否为发起者本人
-          if (that.data.ct == 'y' &&  that.data.share_id !=app.globalData.userInfo.data.data.user_id) {
+          if (that.data.ct == 'y' && that.data.share_id != app.globalData.userInfo.data.data.user_id) {
             //参团操作
             that.setData({
               showShare: false,
@@ -265,7 +272,7 @@ Page({
               icon: 'none',
               duration: 2000,
               mask: true,
-              success: function () { }
+              success: function () {}
             })
           } else {
             that.setData({
@@ -277,7 +284,7 @@ Page({
               icon: 'none',
               duration: 2000,
               mask: true,
-              success: function () { }
+              success: function () {}
             })
           }
           console.log("groupMsg: " + that.data.groupMsg)
@@ -285,7 +292,7 @@ Page({
       },
     })
   },
-  goShopping(){//跳转抢购页面
+  goShopping() { //跳转抢购页面
     //跳转抢购页面
     wx.switchTab({
       url: '../shoping/shoping',

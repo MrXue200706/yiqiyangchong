@@ -1,7 +1,7 @@
 <view class="superShop">
     <!--头部图片-->
     <view class="surperShop_head">
-        <image class="surperShop_head_img" mode="widthFix" src="{{superShop.events_info.events_img}}"></image>
+        <image class="surperShop_head_img" mode="widthFix" src="{{superShop.events_info.events_content_img}}"></image>
     </view>
 
     <!--商品-->

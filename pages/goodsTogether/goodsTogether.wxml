@@ -40,8 +40,14 @@
     </navigator>
   </view>
 
+  <!-- 分享 -->
+  <view class="goods_fenxiang" wx:if="{{shares}}">
+      <button class="goodsTogether_person_info_button" data-paramId="{{goods_detail.id}}" data-shareId="{{app.globalData.userInfo.data.data.user_id}}" open-type="share">
+          <text>邀请宠友参团</text>
+        </button>
+  </view>
   <!--拼团-->
-  <view class="goodsTogether_person">
+  <view class="goodsTogether_person" wx:else>
     <view class="goodsTogether_person_avatar">
       <view class="goodsTogether_person_avatar_left postionTop">
         <!-- 团长头像{{group_info.avatarUrl}} -->
@@ -53,36 +59,37 @@
           <!-- <image class="goodsTogether_person_avatar_right" src="{{group_info.member_avatar_list}}" mode="widthFix"></image> -->
       </view>
     </view>
-    <view class="goodsTogether_person_info">
-      <view class="goodsTogether_person_info_text">
-        <text wx:if="{{groupMsg=='该团购已结束'}}">该团购已结束</text>
-        <text wx:else>仅剩{{group_info.remaining_number}}个名额,{{countdown}}后结束</text>
-      </view>
-      <view wx:if="{{groupMsg=='该团购已结束'}}">
-        <view class="goodsTogether_person_info_button">
-          <text>团购已结束</text>
+      <view class="goodsTogether_person_info">
+        <view class="goodsTogether_person_info_text">
+          <text wx:if="{{groupMsg=='该团购已结束'}}">该团购已结束</text>
+          <text wx:else>仅剩{{group_info.remaining_number}}个名额,{{countdown}}后结束</text>
         </view>
-      </view>
-      <view wx:elif="{{groupMsg=='该团购已满'}}">
-        <!-- 团购已满的样式 -->
-        <view class="goodsTogether_person_info_button">
-          <text>该团购已满</text>
+        <view wx:if="{{groupMsg=='该团购已结束'}}">
+          <view class="goodsTogether_person_info_button">
+            <text>团购已结束</text>
+          </view>
         </view>
-      </view>
-      <view wx:else>
-        <view hidden="{{!showShare}}">
-          <button class="goodsTogether_person_info_button" data-paramId="{{goods_detail.id}}" data-shareId="{{app.globalData.userInfo.data.data.user_id}}" open-type="share">
-            <text>邀请宠友参团</text>
-          </button>
+        <view wx:elif="{{groupMsg=='该团购已满'}}">
+          <!-- 团购已满的样式 -->
+          <view class="goodsTogether_person_info_button">
+            <text>该团购已满</text>
+          </view>
         </view>
-        <view hidden="{{showShare}}">
-          <button class="goodsTogether_person_info_button" bindtap="buyTogether">
-            <text>参与团购</text>
-          </button>
+        <view wx:else>
+          <view hidden="{{!showShare}}">
+            <button class="goodsTogether_person_info_button" data-paramId="{{goods_detail.id}}" data-shareId="{{app.globalData.userInfo.data.data.user_id}}" open-type="share">
+              <text>邀请宠友参团</text>
+            </button>
+          </view>
+          <view hidden="{{showShare}}">
+            <button class="goodsTogether_person_info_button" bindtap="buyTogether">
+              <text>参与团购</text>
+            </button>
+          </view>
         </view>
-      </view>
     </view>
   </view>
+
 
   <!--更多-->
   <!-- <view class="goodsTogether_more">
