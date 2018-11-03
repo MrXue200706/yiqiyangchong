@@ -1,57 +1,54 @@
 <view class="orderList">
-    <!--顶部tab栏-->
-    <view class="orderList_tab">
-        <view class="{{tab_selected_id == index? 'orderList_tab_item_active':'orderList_tab_item'}}"
-            wx:for="{{tab_list}}" wx:key="{{index}}"
-            id="{{index}}"
-            bindtap="tab_select_fn">
-            <text>{{item}}</text>
-        </view>
+  <!--顶部tab栏-->
+  <view class="orderList_tab">
+    <view class="{{tab_selected_id == index? 'orderList_tab_item_active':'orderList_tab_item'}}" wx:for="{{tab_list}}" wx:key="{{index}}" id="{{index}}" bindtap="tab_select_fn">
+      <text>{{item}}</text>
     </view>
+  </view>
 
-    <!--订单-->
-    <view class="orderList_content">
-        <view class="orderList_content_item" wx:for="{{pageList}}" wx:key="item.id">
-            <view data-item="{{item}}" data-btntype='{{orderShowBtn[item.status_name]==""?"查看订单": orderShowBtn[item.status_name]}}' bindtap='payBtn'>
-              <view class="orderList_content_item_head">
-                  <text>订单号：{{item.order_no}}</text>
-                  <text>{{item.status_name}}</text>
-              </view>
-              <view class="orderList_content_item_body">
-                  <view class="orderList_content_item_body_img">
-                      <image mode="widthFix" src="{{item.goods_img}}"></image>
-                  </view>
-                  <view class="orderList_content_item_body_text">
-                      <view class="orderList_content_item_body_text_tittle">
-                          <text>{{item.goods_name}}</text>
-                      </view>
-                      <!-- <view class="orderList_content_item_body_text_detail">
+  <!--订单-->
+  <view class="orderList_content">
+    <view class="orderList_content_item" wx:for="{{pageList}}" wx:key="item.id">
+      <view data-item="{{item}}" data-btntype='{{orderShowBtn[item.status_name]==""?"查看订单": orderShowBtn[item.status_name]}}' bindtap='showOrderDetail'>
+        <view class="orderList_content_item_head">
+          <text>订单号：{{item.order_no}}</text>
+          <text>{{item.status_name}}</text>
+        </view>
+        <view class="orderList_content_item_body">
+          <view class="orderList_content_item_body_img">
+            <image mode="widthFix" src="{{item.goods_img}}"></image>
+          </view>
+          <view class="orderList_content_item_body_text">
+            <view class="orderList_content_item_body_text_tittle">
+              <text>{{item.goods_name}}</text>
+            </view>
+            <!-- <view class="orderList_content_item_body_text_detail">
                           <text>重量:10kg；</text>
                           <text>重量:10kg；</text>
                           <text>重量:10kg；</text>
                       </view> -->
-                  </view>
-                  <view class="orderList_content_item_body_numb">
-                      <text>X{{item.goods_number}}</text>
-                  </view>
-              </view>
-              <view class="orderList_total">
-                  <text>合计：￥{{item.order_money}}</text>
-              </view>
-
-</view>
-
-            <view class="orderList_buttons">
-                <view class="orderList_buttons_cancel" data-ostatus="{{item.order_status}}" data-oid="{{item.id}}" wx:if="{{orderStatusDict[ptype]==1}}" bindtap="delOrder">
-                    <text>取消订单</text>
-                </view>
-                <view class="orderList_buttons_check" data-item="{{item}}" data-btntype='{{orderShowBtn[item.status_name]}}' bindtap='payBtn' hidden="{{item.status_name=='已退款' || item.status_name=='已完成'}}">
-                    <text>{{orderShowBtn[item.status_name]}}</text>
-                </view>
-                <view hidden="{{item.status_name!='已退款' && item.status_name!='已完成'}}">{{item.status_name}}</view>
-            </view>
+          </view>
+          <view class="orderList_content_item_body_numb">
+            <text>X{{item.goods_number}}</text>
+          </view>
         </view>
-        <!-- 
+        <view class="orderList_total">
+          <text>合计：￥{{item.order_money}}</text>
+        </view>
+
+      </view>
+
+      <view class="orderList_buttons">
+        <view class="orderList_buttons_cancel" data-ostatus="{{item.order_status}}" data-oid="{{item.id}}" wx:if="{{orderStatusDict[ptype]==1}}" bindtap="delOrder">
+          <text>取消订单</text>
+        </view>
+        <view class="orderList_buttons_check" data-item="{{item}}" data-btntype='{{orderShowBtn[item.status_name]}}' bindtap='payBtn' hidden="{{item.status_name=='已退款' || item.status_name=='已完成'}}">
+          <text>{{orderShowBtn[item.status_name]}}</text>
+        </view>
+        <view hidden="{{item.status_name!='已退款' && item.status_name!='已完成'}}">{{item.status_name}}</view>
+      </view>
+    </view>
+    <!-- 
         <view class="orderList_content_item">
             <view class="orderList_content_item_head">
                 <text>订单号：15643156743465434</text>
@@ -85,5 +82,5 @@
                 </view>
             </view>
         </view>-->
-    </view>
+  </view>
 </view>

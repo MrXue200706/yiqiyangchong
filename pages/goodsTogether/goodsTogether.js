@@ -1,6 +1,7 @@
 //index.js
 //获取应用实例
 const app = getApp()
+app.checkLogin()
 
 Page({
   data: {
@@ -13,31 +14,51 @@ Page({
     share_date: null, //分享日期，分享后，别人点进来的入口参数
     showShare: true, //预置分享样式
     order_no: null, //开团团长团购订单NO
+    events_id: null, //活动ID
     endTime: null, //拼团结束倒计时
     countdown: "00:00", //倒计时显示
     timerNo: null, //定时器NO
     groupMsg: null, //团单错误信息,
     goods_index: [], //首页商品列表
     showprice: true,
-    param_id:"",
-    shares:false,
+    shares:null,
+    own: false,
+    spec1:null, //产品规格1
+    spec2:null, //产品规格2
+    selected_numb: 1, //购买数量
   },
   onLoad(options) {
-    console.log(options)
+    if (options.shares==1 || options.shares == 2){
+      //非团购分享
+
+    } else if (options.ct == undefined || options.ct ==null){
+      //获取参团数据出错，停止加载
+      wx.showToast({
+        title: '数据出错',
+        icon: 'none',
+        duration: 2000,
+        mask: true,
+        success: function () { }
+      })
+      return
+    }
+
     this.setData({
-      ct: options.ct,
+      ct: options.ct == undefined ? null : options.ct,
       param_id: options.param_id,
       share_id: options.share_id == undefined ? null : options.share_id,
       share_type: options.share_type == undefined ? null : options.share_type,
       share_date: options.share_date == undefined ? null : options.share_date,
       order_no: options.order_no == undefined ? null : options.order_no,
-      shares:options.shares
+      shares: options.shares == undefined ? null : options.shares,
+      own: options.share_id == undefined ? false : options.share_id ==app.globalData.userInfo.data.data.user_id,
+      events_id: options.events_id == undefined ? null : options.events_id
     });
     this.getGoodsIndex();
     //获取商品详情
     this.getGoodsDetail(this.data.param_id);
-    console.log(this.data.shares)
-    if (!this.data.shares) {
+
+    if (this.data.shares == null) {
       //检查是否满团
       this.groupCheck();
 
@@ -56,7 +77,6 @@ Page({
   onUnload() {
     //关闭定时器
     clearInterval(this.data.timerNo);
-
   },
   getGroupDetail() { //获取团单详情
     let that = this;
@@ -72,8 +92,6 @@ Page({
             group_info: res.data.data,
             endTime: res.data.data.time,
           })
-
-
           //启动定时器
           that.data.timerNo = setInterval(function () {
             var temp = that.data.endTime - 1
@@ -84,6 +102,10 @@ Page({
               countdown: countdown
             })
           }, 1000);
+        }else{
+          that.setData({
+            group_info: res.data.data,
+          })
         }
       },
     })
@@ -132,7 +154,7 @@ Page({
           //可拼团，跳转商品规格选择页面
           console.log("可拼团~~~")
           wx.navigateTo({
-            url: "../goodsDetail/goodsDetail?type=together&id=" + that.data.goods_detail.id + "&ct=y&order_no=" + that.data.order_no + "&showprice=" + that.data.showprice
+            url: "../goodsDetail/goodsDetail?type=together&id=" + that.data.goods_detail.id + "&ct=y&order_no=" + that.data.order_no + "&showprice=" + that.data.showprice + "&events_id="+that.data.events_id
           })
         } else {
           if (res.data.msg == "拼团已超过24小时" || res.data.msg == "拼团不存在或拼团已完成") {
@@ -165,15 +187,22 @@ Page({
     })
 
   },
-  onShareAppMessage: function (options) {
+  onShareAppMessage: function (event) {
     //生成分享日期
     var date = new Date();
     var dataStr = date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate();
+    var shareUrl = '/pages/goodsTogether/goodsTogether?order_no=' + this.data.order_no + '&ct=y&param_id=' + this.data.goods_detail.id + '&share_id=' + app.globalData.userInfo.data.data.user_id + '&share_type=goods&share_date=' + dataStr + '&events_id=' + this.data.events_id
+
+    //如果是商品推荐
+    if (event.target.dataset.goodsshare){
+      shareUrl = '/pages/goodsTogether/goodsTogether?param_id=' + this.data.goods_detail.id + '&shares=2&share_id=' + app.globalData.userInfo.data.data.user_id
+    }
+    
     var that = this;
     //设置菜单中的转发按钮触发转发事件时的转发内容
     var shareObj = {
       title: this.data.goods_detail.goods_name, //转发标题
-      path: '/pages/goodsTogether/goodsTogether?order_no=' + this.data.order_no + '&ct=y&param_id=' + this.data.goods_detail.id + '&share_id=' + app.globalData.userInfo.data.data.user_id + '&share_type=goods&share_date=' + dataStr, // 默认是当前页面，必须是以‘/’开头的完整路径
+      path: shareUrl,
       imgUrl: this.data.goods_detail.goods_img_list[0].goods_img, //图片路径
       success: function (res) {
         // 转发成功之后的回调
@@ -192,7 +221,7 @@ Page({
             data: {
               share_id: app.globalData.userInfo.data.data.user_id,
               share_type: 'goods',
-              param_id: this.data.goods_detail.id
+              param_id: that.data.goods_detail.id
             },
             success(res) {
               if (res.data.result) {
@@ -292,8 +321,46 @@ Page({
       },
     })
   },
+  buyGoods(){//购买商品
+    //弹窗提示
+    //弹框选择规格
+    
+  },
+  submitOrder() {
+    //数据校验
+    if (this.data.type_one_selected.spec_name) {
+      this.data.spec1 = this.data.type_one_selected.spec_name;
+    }
+    if (this.data.type_one_selected.spec_option[0].spec_value_2) {
+      this.data.spec2 = this.data.type_one_selected.spec_option[0].spec_value_2;
+    }
+    if (this.data.type_one_selected.spec_option[0].spec_value_2) {
+      if (this.data.spec1 == "0" || this.data.spec2 == "0") {
+        wx.showToast({
+          title: '请填写商品规格',
+          icon: 'none',
+          duration: 2000
+        })
+        return;
+      }
+    } else {
+      if (this.data.spec1 == "0") {
+        wx.showToast({
+          title: '请填写商品规格',
+          icon: 'none',
+          duration: 2000
+        })
+        return;
+      }
+    }
+    wx.navigateTo({
+      url: "../checkPay/checkPay?shopping=normal&goods_id=" +
+        this.data.goods_detail.id + "&type_selected1=" + this.data.spec1 + "&type_selected2=" +
+        this.data.spec2 + "&selected_numb=" + this.data.selected_numb +"&callback_id="+this.data.share_id
+    })
+    
+  },
   goShopping() { //跳转抢购页面
-    //跳转抢购页面
     wx.switchTab({
       url: '../shoping/shoping',
     })
@@ -317,5 +384,5 @@ Page({
     // } else {
     //   return hr + "小时" + min + "分钟" + sec + "秒";
     // }
-  }
+  },
 })

@@ -1,6 +1,7 @@
 //index.js
 //获取应用实例
 const app = getApp()
+app.checkLogin()
 //文件引用
 var CusBase64 = require('../../utils/base64.js');
 
@@ -87,12 +88,6 @@ Page({
       this.getGoodsDetail(o.id)
     }
   },
-  shareTo(e) {
-console.log( e.currentTarget.dataset);
-    wx.navigateTo({
-      url: "../goodsTogether/goodsTogether?param_id=" + e.currentTarget.dataset.id+"&shares="+e.currentTarget.dataset.shares
-    })
-  },
   getGoodsDetail(id, flashsaleId, eventsId) { //获取页面细节
     let queryUrl = "https://wechatapi.vipcsg.com/index/goods/details"
     if (this.data.shopping == "shopping") {
@@ -177,7 +172,7 @@ console.log( e.currentTarget.dataset);
       url: "../checkPay/checkPay?shopping=" + this.data.shopping + "&goods_id=" +
         this.data.goods_detail.id + "&type_selected1=" + this.data.spec1 + "&type_selected2=" +
         this.data.spec2 + "&selected_numb=" + this.data.selected_numb + "&ct=" +
-        this.data.ct + "&order_no=" + this.data.order_no + "&image=" + this.data.type_one_selected.spec_img + "&flashsale_id=" + this.data.flashsale_id + "&callback_id=" + this.data.callback_id + "&events_id = " + this.data.events_id
+        this.data.ct + "&order_no=" + this.data.order_no + "&image=" + this.data.type_one_selected.spec_img + "&flashsale_id=" + this.data.flashsale_id + "&callback_id=" + this.data.callback_id + "&events_id=" + this.data.events_id
     })
 
 
@@ -246,7 +241,7 @@ console.log( e.currentTarget.dataset);
               icon: 'succes',
               duration: 1000,
               mask: true,
-              success: function () {}
+              success: function() {}
             })
           }
         },
@@ -271,7 +266,7 @@ console.log( e.currentTarget.dataset);
               icon: 'succes',
               duration: 1000,
               mask: true,
-              success: function () {}
+              success: function() {}
             })
           }
         },
@@ -296,43 +291,47 @@ console.log( e.currentTarget.dataset);
     });
     this.iframeFn();
   },
-  onShareAppMessage: function (options) {
-    //生成分享日期
-    var date = new Date();
-    var dataStr = date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate();
-    var that = this;
+  onShareAppMessage: function(options) {
+    let that = this
     //设置菜单中的转发按钮触发转发事件时的转发内容
     var shareObj = {
       title: this.data.goods_detail.goods_name, //转发标题
-      path: '/pages/goodsDetail/goodsDetail?oldshare_id=' + app.globalData.userInfo.data.data.user_id + '&id=' + that.data.goods_detail.id + '&type=' + that.data.shopping + '&share_date=' + dataStr + '&flashsale_id=' + that.data.flashsale_id + '&events_id=' + that.data.events_id,
+      path: '/pages/goodsDetail/goodsDetail?type=normal&id=' + this.data.goods_detail.id + '&param_id=' + this.data.goods_detail.id,
       imgUrl: this.data.goods_detail.goods_img_list[0].goods_img, //图片路径
-      success: function (res) {
+      success: function(res) {
         // 分享成功之后的回调
         if (res.errMsg == 'shareAppMessage:ok') {
+          wx.showToast({
+            title: '分享成功',
+            icon: 'succes',
+            duration: 1000,
+            mask: true,
+            success: function () { }
+          });
           //记录积分
           wx.request({
             url: 'https://wechatapi.vipcsg.com/index/share/callback',
             method: 'POST',
             data: {
               share_id: app.globalData.userInfo.data.data.user_id,
-              share_type: that.data.shopping,
+              share_type: 'goods',
               param_id: that.data.goods_detail.id
             },
             success(res) {
-              if (res.data.result == 1) {
+              if (res.data.result) {
                 wx.showToast({
-                  title: '分享成功',
+                  title: '积分+' + res.data.data.share_integral,
                   icon: 'succes',
-                  duration: 1000,
+                  duration: 2000,
                   mask: true,
-                  success: function () {}
+                  success: function () { }
                 });
               }
             },
           })
         }
       },
-      fail: function () {
+      fail: function() {
         //转发失败之后的回调
         if (res.errMsg == 'shareAppMessage:fail cancel') {
           wx.showToast({
@@ -340,7 +339,7 @@ console.log( e.currentTarget.dataset);
             icon: 'none',
             duration: 1000,
             mask: true,
-            success: function () {}
+            success: function() {}
           });
         } else if (res.errMsg == 'shareAppMessage:fail') {
           wx.showToast({
@@ -348,11 +347,11 @@ console.log( e.currentTarget.dataset);
             icon: 'none',
             duration: 1000,
             mask: true,
-            success: function () {}
+            success: function() {}
           });
         }
       },
-      complete: function () {
+      complete: function() {
         // 转发结束之后的回调（转发成不成功都会执行）
       }
     };
@@ -366,7 +365,7 @@ console.log( e.currentTarget.dataset);
       if (app.globalData.userInfo == null || app.globalData.userInfo.data.data.user_id == undefined) {
         // 查看是否授权
         wx.getSetting({
-          success: function (res1) {
+          success: function(res1) {
             if (res1.authSetting['scope.userInfo']) {
               //已授权过的，直接登录跳转
               that.loginUser();
@@ -411,11 +410,11 @@ console.log( e.currentTarget.dataset);
   loginUser() {
     var that = this;
     wx.login({
-      success: function (res) {
+      success: function(res) {
         if (res.code) {
           var code = res.code;
           wx.getUserInfo({ //getUserInfo流程
-            success: function (res2) { //获取userinfo成功
+            success: function(res2) { //获取userinfo成功
               var encryptedData = encodeURIComponent(res2.encryptedData);
               var iv = res2.iv;
               //发起网络请求

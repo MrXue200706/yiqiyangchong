@@ -117,6 +117,7 @@ Page({
         content: '是否确认收货？',
         success:function(res){
           if(res.confirm){
+            console.log(event.currentTarget.dataset.item.id)
             console.log("确认")
             wx.request({
               url: 'https://wechatapi.vipcsg.com/index/order/order_complete',
@@ -231,6 +232,18 @@ Page({
         }
       })
     }
+  },
+  showOrderDetail(event){//查看订单详情
+    var ptype = "detail"
+    if (event.currentTarget.dataset.btntype=="立即支付"){
+      ptype = "unpay"
+    } else if (event.currentTarget.dataset.btntype == "确认收货"){
+      ptype ="takegoods"
+    }
+    //跳转到订单详情
+    wx.navigateTo({
+      url: '../unpay/unpay?ptype=' + ptype +'&order_id=' + event.currentTarget.dataset.item.id
+    })
   },
   onReachBottom: function () { // 下拉底部刷新
     console.log('--------下拉底部刷新-------')

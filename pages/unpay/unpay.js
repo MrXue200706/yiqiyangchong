@@ -180,7 +180,51 @@ Page({
     })
   },
   takegoods() {
+    var that = this
     console.log("确认收货按钮")
+    //确认收货
+    wx.showModal({
+      title: '确认收货提示',
+      content: '是否确认收货？',
+      success: function (res) {
+        if (res.confirm) {
+          console.log("确认")
+          wx.request({
+            url: 'https://wechatapi.vipcsg.com/index/order/order_complete',
+            method: 'POST',
+            data: {
+              user_id: app.globalData.userInfo.data.data.user_id,
+              order_id: that.data.orderDetail.id
+            }, success(res) {
+              if (res.data.result == 1) {
+                wx.showToast({
+                  title: '收货成功',
+                  icon: 'succes',
+                  duration: 2000,
+                  mask: true,
+                  success: function () {
+                    wx.navigateTo({
+                      url: '../unpay/unpay?ptype=done&order_id=' + that.data.orderDetail.id
+                    })
+                  }
+                })
+              } else {
+                console.log(res.data)
+                wx.showToast({
+                  title: '收货失败' + res.data.msg == null ? "" : "，" + res.data.msg,
+                  icon: 'none',
+                  duration: 2000,
+                  mask: true,
+                  success: function () { }
+                })
+              }
+            },
+          })
+        } else {
+          console.log("取消")
+        }
+      },
+    })
   },
   chooseAdr() {
     wx.navigateTo({

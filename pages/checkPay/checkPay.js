@@ -63,7 +63,10 @@ Page({
     let queryUrl = 'https://wechatapi.vipcsg.com/index/goods/details'
     if (this.data.shopping == "shopping") {
       queryUrl = "https://wechatapi.vipcsg.com/index/flashsale/details"
-    } 
+    } else if (this.data.events_id != "null" && this.data.events_id != undefined && this.data.events_id != null){
+      //获取活动商品详情
+      queryUrl = "https://wechatapi.vipcsg.com/index/events/details"
+    }
     let that = this;
     wx.request({
       url: queryUrl,
@@ -245,7 +248,7 @@ Page({
                 if (that.data.ct == 'n') {
                   //开团
                   wx.navigateTo({
-                    url: "../goodsTogether/goodsTogether?ct=n&order_no=" + order_no + "&param_id=" + that.data.goods_detail.id
+                    url: "../goodsTogether/goodsTogether?ct=n&order_no=" + order_no + "&param_id=" + that.data.goods_detail.id + "&events_id=" + that.data.events_id
                   })
                 } else {
                   //参团，传递团长order_no
@@ -256,7 +259,7 @@ Page({
                     mask: true,
                     success: function() {
                       wx.navigateTo({
-                        url: "../goodsTogether/goodsTogether?ct=n&order_no=" + that.data.order_no + "&param_id=" + that.data.goods_detail.id
+                        url: "../goodsTogether/goodsTogether?ct=n&order_no=" + that.data.order_no + "&param_id=" + that.data.goods_detail.id + "&events_id=" + that.data.events_id
                       })
                     }
                   });
@@ -281,9 +284,17 @@ Page({
             }
           })
         } else { //下订单失败
-          if (res.msg != "" && res.msg != undefined) {
+          if(res.data.msg=="你已参团，请在订单中心查看订单"){
             wx.showToast({
-              title: "下单失败，" + res.msg,
+              title: "你已下单，在待付款订单进行支付",
+              icon: 'none',
+              duration: 2000,
+              mask: true,
+              success: function () { }
+            })
+          }else if (res.data.msg != "" && res.data.msg != undefined) {
+            wx.showToast({
+              title: "下单失败，" + res.data.msg,
               icon: 'none',
               duration: 2000,
               mask: true,
