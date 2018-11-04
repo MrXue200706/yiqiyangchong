@@ -363,3 +363,6 @@
   .ownmarginlf{
       margin-left: 200rpx;
   }
+  .noborder{
+      border: none;
+  }

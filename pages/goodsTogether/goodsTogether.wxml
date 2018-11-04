@@ -67,7 +67,7 @@
       <scroll-view scroll-x="true" class="goodsTogether_person_right">
         <view>
           <view class="goodsTogether_person_avatar_view" wx:for="{{groupList}}">
-            <image  class="goodsTogether_person_avatar_right" src="{{item.avatarUrl}}" mode="widthFix"></image>
+            <image  class="goodsTogether_person_avatar_right noborder" src="{{item.avatarUrl}}" mode="widthFix"></image>
           </view>
           <!-- <view class="goodsTogether_person_avatar_view">
             <image  class="goodsTogether_person_avatar_right" src="{{item.avatarUrl}}" mode="widthFix"></image>
