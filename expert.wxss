@@ -1,0 +1,143 @@
+.expert{
+    min-height: 1206rpx;
+    background-color: #f2f7f8;
+}
+
+/*头像*/
+.expert_avatar{
+    display: flex;
+    justify-content: center;
+    padding-top: 50rpx;
+}
+.expert_avatar_item{
+    width: 120rpx;
+    height: 120rpx;
+    background-color: #888;
+    border-radius: 50%;
+    overflow: hidden;
+}
+.expert_avatar_item image{
+    width: 100%;
+}
+
+/*名字*/
+.expert_name{
+    display: flex;
+    justify-content: center;
+    padding-top: 10rpx;
+    font-size: 32rpx;
+}
+
+/*粉丝*/
+.expert_fans{
+    display: flex;
+    justify-content: center;
+    font-size: 24rpx;
+    margin-top: 30rpx;
+}
+.expert_fans_text{
+    padding: 0 30rpx;
+}
+
+/*商品*/
+.expert_goods{
+    padding: 0 28rpx;
+    margin-top: 28rpx;
+    position: relative;
+}
+.expert_goods_content{
+    height: 208rpx;
+    background-color: #fff;
+    border-radius: 15rpx;
+    display: flex;
+    flex-wrap: nowrap;
+}
+.expert_goods_content_item{
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    padding: 20rpx 0;
+    box-sizing: border-box;
+}
+.expert_goods_content_item_title{
+    text-align: center;
+    font-size: 28rpx;
+}
+.expert_goods_content_item_detail{
+    text-align: center;
+    font-size: 22rpx;
+    color: #888;
+}
+.expert_goods_content_item_avatar{
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+}
+.expert_goods_content_item_avatar_item{
+    width: 70rpx;
+    height: 70rpx;
+    border-radius: 50%;
+    background-color: #888;
+    flex-shrink: 0;
+    border: 1px solid #fff;
+    box-sizing: border-box;
+    margin-left: -26rpx;
+    overflow: hidden;
+}
+.expert_goods_content_item_avatar_item image{
+    width: 100%;
+}
+.expert_goods_content_item_avatar_item_first{
+    margin: 0;
+}
+.expert_goods_line{
+    width: 2rpx;
+    height: 146rpx;
+    background-color: #eee;
+    position: absolute;
+    top: 30rpx;
+    left: 50%;
+}
+
+/*宠物*/
+.expert_pets{
+    padding: 0 28rpx;
+    margin-top: 28rpx;
+}
+.expert_pets_content{
+    height: 410rpx;
+    background-color: #888;
+    border-radius: 15rpx;
+    overflow: hidden;
+    position: relative;
+}
+.expert_pets_content_img image{
+    width: 100%;
+}
+.expert_pets_content_item{
+    display: inline-block;
+    height: 46rpx;
+    line-height: 46rpx;
+    padding: 0 28rpx;
+    margin: 18rpx 0 0 28rpx;
+    font-size: 22rpx;
+    border-radius: 23rpx;
+}
+.expert_pets_content_t{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.expert_pets_content_item_blue{
+    background-color: #5f99c2;
+}
+.expert_pets_content_item_red{
+    background-color: #c05e90;
+}
+.expert_pets_content_item_yellow{
+    background-color: #cc9a00;
+}

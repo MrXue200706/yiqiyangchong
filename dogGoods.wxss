@@ -1,0 +1,111 @@
+.dogGoods{
+    min-height: 1206rpx;
+    background-color: #f2f7f8;
+}
+/*分类*/
+.dogGoods_class{
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    padding: 10rpx 40rpx 20rpx;
+    border-bottom: 1px solid #d6d6d6;
+    background-color: #fff;
+}
+.dogGoods_class_item{
+    font-size: 28rpx;
+    color: #989898;
+    padding-bottom: 10rpx;
+}
+.dogGoods_class_item_active{
+    color: #242424;
+    border-bottom: 2rpx solid #fd9200;
+}
+
+/*排序*/
+.dogGoods_array{
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    padding: 30rpx 70rpx;
+    background-color: #fff;
+}
+.dogGoods_array_item{
+    font-size: 28rpx;
+    color: #989898;
+}
+.dogGoods_array_item_active{
+    color: #242424;
+}
+
+/*商品列表*/
+.dogGoods_goods{
+  padding:0 20rpx;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.dogGoods_goods_item{
+  width: 350rpx;
+  height: 500rpx;
+  border-radius: 10rpx;
+  background-color: #fff;
+  position: relative;
+  overflow: hidden;
+  flex-shrink: 0;
+  margin-top: 20rpx;
+}
+.dogGoods_goods_item_img{
+  height: 350rpx;
+  background-color: #989898;
+  overflow: hidden;
+}
+.goods_item_img_image{
+  width: 100%;
+}
+.dogGoods_goods_item_title{
+  font-size: 24rpx;
+  line-height: 1em;
+  padding:10rpx;
+}
+.dogGoods_goods_item_price{
+  color: #de361a;
+  font-size: 24rpx;
+  padding: 10rpx;
+}
+.dogGoods_goods_item_recommend{
+  position: absolute;
+  bottom: 20rpx;
+  right: 20rpx;
+}
+.dogGoods_goods_item_recommend_number{
+  font-size: 22rpx;
+}
+.dogGoods_goods_item_recommend_avatars{
+  width: 76rpx;
+  height: 50rpx;
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 10rpx;
+}
+.dogGoods_goods_item_recommend_avatar_left{
+  width: 50rpx;
+  height: 50rpx;
+  border-radius: 50%;
+  background-color: #989898;
+  position: absolute;
+  left: 0;
+  top: 0;
+  border: 1px solid #fff;
+  box-sizing: border-box;
+}
+.dogGoods_goods_item_recommend_avatar_right{
+  width: 50rpx;
+  height: 50rpx;
+  border-radius: 50%;
+  background-color: #989898;
+  position: absolute;
+  top: 0;
+  right: 0;
+  border: 1px solid #fff;
+}

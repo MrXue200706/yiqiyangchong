@@ -1,0 +1,39 @@
+<view class="addAdress">
+    <!--内容-->
+    <view class="addAdress_part">
+        <view class="addAdress_part_item">
+            <text>收货人：</text>
+            <input  type="text" placeholder="请填写收货人" maxlength="11" type="tel" bindinput="getConsignee" value="{{consignee}}"/>
+        </view>
+        <view class="addAdress_part_item">
+            <text>手机号码：</text>
+            <input placeholder="请输入手机号码" maxlength="11" type="tel" bindinput="getNumber" value="{{phoneNumber}}" />
+        </view>
+        <view class="addAdress_part_item">
+            <text>所在地区：</text>
+            <picker class="area_add_content" mode="region"  value="{{region}}"         bindchange="bindAreaChange">
+                <text class="picker">{{region[0]}}{{region[1]}}{{region[2]}}</text>
+                <text style='margin-left:10rpx'>点击选择</text>
+            </picker>
+        </view>
+        <view class="addAdress_part_item">
+            <text>详细地址：</text>
+            <input type="text" placeholder="请输入收货详细地址" maxlength="11" bindinput="getAddress" value="{{address}}" />
+        </view>
+    </view>
+    <view class="addAdress_part">
+        <view class="addAdress_part_item addAdress_part_item_right">
+            <text>设为默认地址</text>
+            <view bindtap="setDefault" class="addAdress_part_item_circle_d">
+                <icon wx:if="{{defaultFlag}}" type="success" size="22" color="#ea2c29"/>
+            </view>
+        </view>
+    </view>
+
+    <!--按钮-->
+    <view class="addAdress_button">
+        <view class="addAdress_button_item" bindtap="saveForm">
+            <text>保存</text>
+        </view>
+    </view>
+</view>

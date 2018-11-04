@@ -1,0 +1,34 @@
+<view class="petFriends">
+  <view class="petFriends_item" wx:for="{{petList}}" wx:key="item.follow_id">
+    <navigator url="../expert/expert?key={{item.id}}" class="petFriends_item_left">
+      <!-- <navigator url="../expert/expert?key={{item.follow_id}}" class="petFriends_item_left"> -->
+      <view class="petFriends_item_avatar">
+        <image mode="widthFix" src="{{item.avatarUrl}}"></image>
+      </view>
+      <!-- <view class="petFriends_item_content">
+          <view class="petFriends_item_content_name">
+              <text>阿华</text>
+          </view>
+          <view class="petFriends_item_content_pet">
+              <text>泰迪 阿拉斯加</text>
+          </view>
+      </view> -->
+      <view class="petFriends_item_content">
+        <view class="petFriends_item_content_name">
+          <text>{{item.nickName}}</text>
+        </view>
+        <view class="petFriends_item_content_pet">
+          <text>{{item.pet_name}} {{pet_type}}</text>
+        </view>
+      </view>
+    </navigator>
+    <view hidden="{{pageType=='mine'?false:true}}">
+    <view class="petFriends_item_button" wx:if="{{petType=='follow'}}" data-id="{{item.id}}" bindtap="unFocusOn">
+      <text>取消关注</text>
+    </view>
+    <view class="petFriends_item_button" wx:else data-txt="{{item.is_follow==1?'取消关注':'关注'}}" data-id="{{item.id}}" bindtap="fansFocus">
+      <text>{{item.is_follow==1?"取消关注":"关注"}}</text>
+    </view>
+    </view>
+  </view>
+</view>

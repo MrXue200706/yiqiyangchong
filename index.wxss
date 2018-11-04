@@ -1,0 +1,301 @@
+/**index.wxss**/
+.index{
+  background-color: #f2f7f8;
+}
+
+/*搜索框*/
+.search_box{
+  height: 90rpx;
+  background-color: #fff;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  padding: 0 28rpx;
+}
+.search_box_in{
+  width:100%;
+  height:70rpx;
+  border-radius:40rpx;
+  background-color:#f2f7f8;
+  display:flex;
+  align-items:center;
+}
+.search_box_in image{
+  width: 32rpx;
+  margin-left: 20rpx;
+}
+.search_box_in input{
+  font-size: 25rpx;
+  margin-left: 30rpx;
+  color: #989898;
+}
+
+/*头部轮播图*/
+.head_swiper{
+  padding: 0 28rpx;
+  background-color: #fff;
+  height: 332rpx;
+}
+.bc_blue{
+  /*background-color: rgba(121, 120, 24, .3);*/
+  border-radius: 10rpx;
+}
+.bc_red{
+  border-radius: 10rpx;
+  /*background: rgba(0, 120, 24, .3);*/
+}
+.bc_black{
+  border-radius: 10rpx;
+  /*background: rgba(121, 0, 24, .3);*/
+}
+.head_swiper_img{
+  width: 100%;
+}
+
+/*商品分类*/
+.goods_class{
+  display: flex;
+  flex-direction: row;
+  background-color: #fff;
+}
+.goods_class_item{
+  width: 25%;
+  height: 170rpx;
+  text-align: center;
+  font-size: 26rpx;
+}
+.goods_class_item_img{
+  width: 88rpx;
+  height: 88rpx;
+  border-radius: 50%;
+  background-color: #989898;
+  margin: 16rpx 0;
+  margin-left: 50%;
+  transform: translateX(-50%);
+}
+.goods_class_item_img image{
+  width: 100%;
+}
+
+/*活动*/
+.goods_recommend{
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding: 20rpx 28rpx;
+  background-color: #fff;
+  margin-top: 16rpx;
+}
+.goods_recommend_item{
+  width: 340rpx;
+  height: 206rpx;
+  background-color: #fafafa;
+  margin-bottom: 10rpx;
+  border-radius: 10rpx;
+  overflow: hidden;
+}
+.goods_recommend_item_img{
+  width: 100%;
+}
+
+/*养宠达人*/
+.pet_expert{
+  padding: 28rpx;
+  background-color: #fff;
+  margin-top: 16rpx;
+}
+.pet_expert_title{
+  font-size: 28rpx;
+  font-weight: 600;
+  margin-top: -8rpx;
+}
+.pet_expert_reflesh{
+  font-size: 28rpx;
+  color: #de5258;
+  float: right;
+}
+.pet_expert_scroll{
+  display: flex;
+  flex-wrap: nowrap;
+  width: 100%;
+  margin-top: 10rpx;
+}
+.pet_expert_item{
+  width: 240rpx;
+  height: 324rpx;
+  border-radius: 10rpx;
+  background-color: #fafafa;
+  text-align: center;
+  font-weight: 500;
+  margin-right: 20rpx;
+  flex-shrink: 0;
+}
+.pet_expert_avatar{
+  width: 140rpx;
+  height: 140rpx;
+  margin-left: 50%;
+  transform: translateX(-50%);
+  margin-top: 12rpx;
+}
+.pet_expert_avatar_container{
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  -webkit-border-radius:50%;
+  -moz-border-radius:50%;
+  overflow: hidden;
+}
+.pet_expert_avatar_img{
+  width: 100%;
+}
+.pet_expert_name{
+  font-size: 26rpx;
+  margin-top: 12rpx;
+}
+.pet_expert_pet{
+  font-size: 24rpx;
+  color: #878787;
+  margin-top: 12rpx;
+}
+.pet_expert_item_button{
+  width: 180rpx;
+  height: 42rpx;
+  line-height: 42rpx;
+  background-color: #f1312f;
+  color: #fff;
+  font-size: 24rpx;
+  text-align: center;
+  border-radius: 10rpx;
+  font-weight: 500;
+  margin-left: 50%;
+  transform: translateX(-50%);
+  margin-top: 12rpx;
+}
+
+/*专题精选*/
+.special_topic{
+  padding: 28rpx;
+  background-color: #fff;
+  margin-top: 16rpx;
+}
+.special_topic_title{
+  font-size: 28rpx;
+  font-weight: 600;
+}
+.special_topic_more{
+  font-size: 28rpx;
+  color: #989898;
+  float: right;
+}
+.special_topic_scroll{
+  display: flex;
+  flex-wrap: nowrap;
+  margin-top: 10rpx;
+}
+.special_topic_item{
+  width: 574rpx;
+  height: 324rpx;
+  margin-right: 20rpx;
+}
+.special_topic_item_img{
+  width: 574rpx;
+  height: 270rpx;
+  border-radius: 10rpx;
+  background-color: #fafafa;
+  text-align: center;
+  font-weight: 500;
+  overflow: hidden;
+}
+.special_topic_item_img_image{
+  width: 100%;
+}
+.special_topic_item_title{
+  font-size: 26rpx;
+  margin-top: 10rpx;
+}
+
+/*商品列表*/
+.goods{
+  padding:0 20rpx;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.goods_item{
+  width: 350rpx;
+  height: 500rpx;
+  border-radius: 10rpx;
+  background-color: #fff;
+  position: relative;
+  overflow: hidden;
+  flex-shrink: 0;
+  margin-top: 20rpx;
+}
+.goods_item_img{
+  height: 350rpx;
+  background-color: #989898;
+  overflow: hidden;
+}
+.goods_item_img_image{
+  width: 100%;
+}
+.goods_item_title{
+  font-size: 24rpx;
+  line-height: 1em;
+  padding:10rpx;
+  font-weight: 600;
+}
+.goods_item_price{
+  color: #de361a;
+  font-size: 32rpx;
+  padding: 10rpx 0;
+  position: absolute;
+  bottom: 15rpx;
+  left: 6rpx;
+  font-weight: 600;
+}
+.goods_item_recommend{
+  position: absolute;
+  bottom: 20rpx;
+  right: 20rpx;
+}
+.goods_item_recommend_number{
+  font-size: 22rpx;
+}
+.goods_item_recommend_avatars{
+  width: 76rpx;
+  height: 50rpx;
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 10rpx;
+}
+.goods_item_recommend_avatar_left{
+  width: 51rpx;
+  height: 51rpx;
+  border-radius: 50%;
+  background-color: #989898;
+  position: absolute;
+  left: 0;
+  top: 0;
+  border: 1px solid #fff;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+.goods_item_recommend_avatar_right{
+  width: 50rpx;
+  height: 50rpx;
+  border-radius: 50%;
+  background-color: #989898;
+  position: absolute;
+  top: 0;
+  right: 0;
+  border: 1px solid #fff;
+  overflow: hidden;
+}
+.goods_item_recommend_avatars_img{
+  width: 100%;
+}
+.test{
+  margin: 0 auto;
+}
