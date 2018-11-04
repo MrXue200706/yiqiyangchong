@@ -358,7 +358,8 @@
     height:96rpx;
     border-radius:48rpx;
     border:1px dashed #333;
-    margin-right:-20px;    
+    margin-right:-20px; 
+    background: #fff;   
   }
   .ownmarginlf{
       margin-left: 200rpx;

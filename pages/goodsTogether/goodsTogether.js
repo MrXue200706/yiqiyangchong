@@ -88,7 +88,7 @@ Page({
     let itemObj={"avatarUrl":""};
     if(data.member_avatar_list.length<=0 && data.total_group_number>=2){
       for(var i=0;i<data.total_group_number-1;i++){
-        resList.push(itemObj)
+        resList=data.member_avatar_list.push(itemObj)
       }
     }else{
       for(var i=data.member_avatar_list.length;i<data.total_group_number-1;i++){
