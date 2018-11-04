@@ -39,7 +39,6 @@ Page({
         user_id: app.globalData.userInfo.data.data.user_id
       },
       success(res) {
-        console.log(res);
         that.setData({
           adressList: res.data.data
         })
@@ -81,7 +80,8 @@ Page({
     let name = e.currentTarget.dataset.name;
     let phone = e.currentTarget.dataset.phone;
     let address = e.currentTarget.dataset.address;
-    let isdef = e.currentTarget.dataset.def;
+    //let isdef = e.currentTarget.dataset.def;
+    let isdef = 1;
 
     let that = this;
     wx.request({
@@ -97,16 +97,29 @@ Page({
       },
       success(res) {
         if (res.data.result == 1) {
+          var pages = getCurrentPages();
+          var route = null;
+          var prePage = null;
+          if (pages.length > 1) {
+            prePage = pages[pages.length - 2];
+            route = prePage.route;
+            //prePage.onLoad()
+          }
+          //判断是否从支付页面进来，是则更新上一层页面的地址
+          if (prePage != null && route.indexOf("pages/checkPay/checkPay") != -1){
+              prePage.fullDefaultAddress();
+          }
           wx.showToast({
             title: '设置成功',
             icon: 'succes',
             duration: 1000,
-            mask: true
+            mask: true,
           })
           //设置高亮操作xxxxxxxxxxTODO
-
-
-        } else {
+          that.getAddressList();
+          
+                  
+       } else {
           //保存失败
           wx.showToast({
             title: '设置出错，请稍后再试',

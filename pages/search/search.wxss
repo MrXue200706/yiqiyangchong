@@ -8,8 +8,8 @@
 }
 .search_box_in{
   width: 90%;
-  height: 50rpx;
-  border-radius: 25rpx;
+  height: 70rpx;
+  border-radius: 70rpx;
   background-color: #f2f7f8;
   display: flex;
   align-items: center;
@@ -20,7 +20,7 @@
 }
 .search_box_in input{
   width: 100%;
-  font-size: 20rpx;
+  font-size: 25rpx;
   margin-left: 30rpx;
   color: #989898;
 }
@@ -38,11 +38,11 @@
   display:block;
   float:left;
   margin:15rpx 20rpx;
-  border:1px solid #999;
+  background:#f2f7f8;
   height:60rpx;
   line-height:48rpx;
   padding: 0;
-  
+  border-radius:10rpx;
 }
 .nolist{
   text-align:center;
@@ -51,7 +51,7 @@
 
 }
 .specialTopicDetail_goods_text_bottom_red{
-  font-size: 20rpx;
+  font-size: 25rpx;
   padding: 5rpx 30rpx;
 }
 

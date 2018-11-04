@@ -8,10 +8,10 @@
         <view class="petsAdd_form_item">
             <text class="petsAdd_form_item_title">性别：</text>
             <view class="petsAdd_form_item_button">
-                <view class="petsAdd_form_item_button_item" data-sex="MM" bindtap="petSexVal">
+                <view class="petsAdd_form_item_button_item {{pet_sex =='MM'?'mainColor':''}}" data-sex="MM" bindtap="petSexVal">
                     <text>MM</text>
                 </view>
-                <view class="petsAdd_form_item_button_item" data-sex="GG" bindtap="petSexVal">
+                <view class="petsAdd_form_item_button_item {{pet_sex =='GG'?'mainColor':''}}" data-sex="GG" bindtap="petSexVal">
                     <text>GG</text>
                 </view>
             </view>
@@ -39,9 +39,9 @@
             </view>
             <scroll-view scroll-x="true">
                 <view class="petsAdd_form_item_pciture">
-                    <view class="petsAdd_form_item_pciture_item">
-                        <image class="pet_img_show" mode="widthFix" src="{{pet_img}}"></image>
-                        <view class="petsAdd_form_item_pciture_item_cancel" bindtap="cancelPic" wx:if="{{showCancelBtn}}">
+                    <view class="petsAdd_form_item_pciture_item" wx:for="{{pet_img}}">
+                        <image class="pet_img_show" mode="widthFix" src="{{item.pet_img}}"></image>
+                        <view class="petsAdd_form_item_pciture_item_cancel" bindtap="cancelPic" wx:key="item.index">
                             <icon type="cancel" size="20" color="#fff"/>
                         </view>
                     </view>

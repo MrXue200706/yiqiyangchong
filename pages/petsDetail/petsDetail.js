@@ -28,7 +28,7 @@ Page({
 				console.log(res)
 				that.setData({
 					petDetail: res.data.data,
-				//	isshowEdit:that.data.userInfoID==res.data.data.user_id
+					isshowEdit:that.data.userInfoID==res.data.data.user_id
 				})
 			},
 		})

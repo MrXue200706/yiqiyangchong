@@ -32,9 +32,9 @@
     align-items: center;
 }
 .checkPay_getAdress_item_avatar{
+   display:flex;
     width: 36rpx;
     height: 36rpx;
-    background-color: #888;
     margin-right: 20rpx;
 }
 .checkPay_getAdress_item_right{
@@ -66,7 +66,11 @@
     font-size: 26rpx;
     color: #333;
     display: flex;
-    justify-content: space-between;
+}
+.checkPay_adress_name .name{
+  font-weight:600;
+  margin-right:30rpx;
+  font-size:30rpx;
 }
 .checkPay_adress_adress{
     width: 100%;

@@ -323,7 +323,8 @@ Page({
         user_id: app.globalData.userInfo.data.data.user_id
       },
       success(res) {
-        if (res.data.result == 1) {
+        console.log(res)
+        if (res.data.result == 1 && res.data.data != null) {
           that.setData({
             address_id: res.data.data.id
           });

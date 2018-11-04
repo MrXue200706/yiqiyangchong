@@ -92,7 +92,7 @@
     width: 35%;
 }
 .petsDetail_foot_right{
-    width: 400rpx;
+    width: 300rpx;
     height: 100rpx;
     line-height: 100rpx;
     font-size: 24rpx;
@@ -102,14 +102,14 @@
     align-content: center;
 }
 .petsDetail_foot_right_item{
-    width: 40%;
+    width: 100%;
     display: flex;
     justify-content: space-around;
     align-items: center;
     font-size: 24rpx;
 }
 .petsDetail_foot_right_item image{
-    width: 15%;
+    width: 30rpx;
 }
 
 /*占位*/

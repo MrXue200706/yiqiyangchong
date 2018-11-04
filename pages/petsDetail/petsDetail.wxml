@@ -54,7 +54,7 @@
                 </navigator>
             </view>
              <view class="petsDetail_foot_right_item" wx:else>
-                 <image mode="widthFix" src="../../images/dianz.jpg"></image>
+                 <image mode="widthFix" src="../../images/dianz.png"></image>
                 <text>点赞</text>
             </view>
             <text>|</text>

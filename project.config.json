@@ -33,7 +33,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 2,
+			"current": 10,
 			"list": [
 				{
 					"id": -1,
@@ -49,8 +49,57 @@
 				},
 				{
 					"id": -1,
-					"name": "团购",
-					"pathName": "pages/goodsTogether/goodsTogether"
+					"name": "login",
+					"pathName": "pages/login/login",
+					"query": ""
+				},
+				{
+					"id": 3,
+					"name": "myAdress",
+					"pathName": "pages/myAdress/myAdress",
+					"query": "user_id=20"
+				},
+				{
+					"id": -1,
+					"name": "addAdress",
+					"pathName": "pages/addAdress/addAdress",
+					"query": ""
+				},
+				{
+					"id": 5,
+					"name": "checkPay",
+					"pathName": "pages/checkPay/checkPay",
+					"query": "goods_id=84"
+				},
+				{
+					"id": 6,
+					"name": "petsAdd",
+					"pathName": "pages/petsAdd/petsAdd",
+					"query": "user_id=20&pet_id=21"
+				},
+				{
+					"id": 7,
+					"name": "myPets",
+					"pathName": "pages/myPets/myPets",
+					"query": "user_id=20"
+				},
+				{
+					"id": -1,
+					"name": "mine",
+					"pathName": "pages/mine/mine",
+					"query": "user_id=20"
+				},
+				{
+					"id": -1,
+					"name": "search",
+					"pathName": "pages/search/search",
+					"query": "user_id=20&pet_id=21"
+				},
+				{
+					"id": -1,
+					"name": "shopping",
+					"pathName": "pages/shoping/shoping",
+					"query": "user_id=20&pet_id=21"
 				}
 			]
 		}

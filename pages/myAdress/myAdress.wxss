@@ -2,6 +2,7 @@
     background-color: #f2f7f8;
     min-height: 1218rpx;
     overflow: hidden;
+    padding-bottom:116rpx;
 }
 /*地址*/
 .myAdress_item{
@@ -39,7 +40,7 @@
     justify-content: space-between;
 }
 .myAdress_item_edict_left_text,.myAdress_item_edict_right_item{
-    margin-left: 10rpx;
+    margin-left: 40rpx;
 }
 
 /*添加*/
@@ -47,8 +48,10 @@
     display: flex;
     justify-content: space-around;
     position: fixed;
-    bottom: 40rpx;
+    bottom: 0;
+    padding:20rpx 0;
     width: 100%;
+    background:#fff
 }
 .myAdress_add_item{
     width: 322rpx;

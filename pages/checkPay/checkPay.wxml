@@ -2,15 +2,19 @@
   <!--获取地址-->
   <view class="checkPay_getAdress" wx:if="{{defaultAddress == null}}">
     <view class="checkPay_getAdress_item checkPay_getAdress_item_green" bindtap='chooseVxAddr'>
-      <view class="checkPay_getAdress_deitem_left">
-        <view class="checkPay_getAdress_item_avatar"></view>
+      <view class="checkPay_getAdress_deitem_left" style="display:flex">
+        <view class="checkPay_getAdress_item_avatar" style="flex:1">
+          <image src="../../images/weixidiz1.png" style="width:100%;height:100%"></image>
+        </view>
         <text>获取微信地址</text>
       </view>
       <view class="checkPay_getAdress_item_right">></view>
     </view>
     <view class="checkPay_getAdress_item checkPay_getAdress_item_orange" bindtap="chooseAdr">
       <view class="checkPay_getAdress_item_left">
-        <view class="checkPay_getAdress_item_avatar"></view>
+        <view class="checkPay_getAdress_item_avatar">
+          <image src="../../images/shoutianDz.png" style="width:100%;height:100%"></image>
+        </view>
         <text>手动添加地址</text>
       </view>
       <view class="checkPay_getAdress_item_right">></view>
@@ -23,8 +27,8 @@
       <image src="../../images/dingdDDZ.png" mode="widthFix"></image>
     </view>
     <view class="checkPay_adress_name">
-      <text>收货人：{{defaultAddress.name}}</text>
-      <text>{{defaultAddress.phone}}</text>
+      <text class="name">{{defaultAddress.name}}</text>
+      <text style="line-height:41rpx;">{{defaultAddress.phone}}</text>
     </view>
     <view class="checkPay_adress_adress">
       <text>收货地址：{{defaultAddress.addres}}</text>

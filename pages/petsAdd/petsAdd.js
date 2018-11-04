@@ -8,9 +8,9 @@ Page({
     pet_name: null, //名称
     pet_sex: null, //性别
     pet_type: null, //品种
-    pet_birthday: null, //生日
+    pet_birthday: "", //生日
     pet_story: null, //故事
-    pet_img: null, //照片
+    pet_img: [], //照片
     petFilePaths: null, //图片上传临时变量
     showCancelBtn:true,//删除照片按钮显示
 
@@ -59,6 +59,16 @@ Page({
         // 返回选定照片的本地文件路径列表，tempFilePath可以作为img标签的src属性显示图片
         that.data.petFilePaths = res.tempFilePaths;
         //图片回显操作
+        var arr = [];
+        console.log(that.data.pet_img)
+        for (var i = 0; i < res.tempFilePaths.length; i++){
+          var json = {};
+          json.pet_img = res.tempFilePaths[i];
+          that.data.pet_img.push(json);
+        }
+        that.setData({
+          pet_img: that.data.pet_img
+        })
         // debugger;
       }
     })
@@ -184,10 +194,10 @@ Page({
     pet_birthday: e.detail.value
    })
  },
- cancelPic(){
+ cancelPic(e){
   this.setData({
-    pet_img: null,
-    showCancelBtn:false
+    pet_img: []
+    //showCancelBtn:false
    })
  },
   checkFormData() { //表单数据校验
@@ -272,6 +282,7 @@ Page({
       },
       success(res) {
         if (res.data.result == 1) {
+          console.log(res.data.data.pet_img)
           that.setData({
             //数据填充
             pet_name: res.data.data.pet_name, //名称
@@ -279,7 +290,7 @@ Page({
             pet_type: res.data.data.pet_type, //品种
             pet_birthday: res.data.data.pet_birthday, //生日
             pet_story: res.data.data.pet_story, //故事
-            pet_img: res.data.data.pet_img[0] != undefined ? res.data.data.pet_img[0].pet_img : null //照片  
+            pet_img: res.data.data.pet_img != undefined ? res.data.data.pet_img : null //照片  
           })
         }
       },

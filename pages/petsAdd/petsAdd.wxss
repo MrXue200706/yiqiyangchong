@@ -1,6 +1,9 @@
 .petsAdd{
     padding: 0 28rpx;
 }
+scroll-view{
+  width:calc(100% - 220rpx)
+}
 /*表单内容*/
 .petsAdd_form_item{
     font-size: 30rpx;
@@ -33,6 +36,12 @@
     text-align: center;
     margin-right: 20rpx;
 }
+.petsAdd_form_item_button_item.mainColor{
+  background-color:#fe9204;
+  border-color:#fe9204;
+  color:#fff;
+}
+
 .petsAdd_form_item_textarea{
     border: 1px solid #e5e5e5;
     border-radius: 10rpx;

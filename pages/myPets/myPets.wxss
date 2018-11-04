@@ -51,6 +51,7 @@
     height: 100rpx;
     background-color: #fff;
     margin-top: 50rpx;
+    margin-bottom:50rpx;
     border-radius: 10rpx;
     overflow: hidden;
     display: flex;
