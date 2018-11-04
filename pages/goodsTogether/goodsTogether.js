@@ -352,7 +352,7 @@ Page({
     //弹框选择规格
    // console.log(e.currentTarget.dataset.id) 
     wx.navigateTo({
-      url: "../goodsDetail/goodsDetail?type=together&id=" +  e.currentTarget.dataset.id + "&ct=y&showprice=false"
+      url: "../goodsDetail/goodsDetail?type=normal&id=" +  e.currentTarget.dataset.id + "&ct=y&showprice=false"
     })
     
   },
