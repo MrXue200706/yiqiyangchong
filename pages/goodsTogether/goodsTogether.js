@@ -88,12 +88,14 @@ Page({
     let itemObj={"avatarUrl":""};
     if(data.member_avatar_list.length<=0 && data.total_group_number>=2){
       for(var i=0;i<data.total_group_number-1;i++){
-        resList=data.member_avatar_list.push(itemObj)
+        resList.push(itemObj)
       }
+      resList=data.member_avatar_list.concat(resList)
     }else{
       for(var i=data.member_avatar_list.length;i<data.total_group_number-1;i++){
-        resList=data.member_avatar_list.push(itemObj)
+        resList.push(itemObj)
       }
+      resList=data.member_avatar_list.concat(resList)
     }
     console.log(resList);
     return resList;
@@ -109,6 +111,7 @@ Page({
       },
       success(res) {
         if (res.data.result == 1) {
+          console.log(res.data.data)
           that.setData({
             group_info: res.data.data,
             endTime: res.data.data.time,
