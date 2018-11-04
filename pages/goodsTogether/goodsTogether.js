@@ -26,6 +26,7 @@ Page({
     spec1:null, //产品规格1
     spec2:null, //产品规格2
     selected_numb: 1, //购买数量
+    groupList:[],//团购成员数组
   },
   onLoad(options) {
     if (options.shares==1 || options.shares == 2){
@@ -78,8 +79,27 @@ Page({
     //关闭定时器
     clearInterval(this.data.timerNo);
   },
+  // 处理成员数组
+  getgroupList(data){
+    let resList=[];
+    if(!data){
+      return resList;
+    }
+    let itemObj={"avatarUrl":none};
+    if(data.member_avatar_list.length<=0&&data.group_number>=2){
+      for(var i=0;i<data.group_number-1;i++){
+        resList.push(itemObj)
+      }
+    }else{
+      for(var i=data.member_avatar_list.length;i<data.group_number-1;i++){
+        resList=data.member_avatar_list.push(itemObj)
+      }
+    }
+    return resList;
+  },
   getGroupDetail() { //获取团单详情
     let that = this;
+
     wx.request({
       url: 'https://wechatapi.vipcsg.com/index/group/group_info',
       method: 'GET',
@@ -91,6 +111,7 @@ Page({
           that.setData({
             group_info: res.data.data,
             endTime: res.data.data.time,
+            groupList:that.getgroupList(res.data.data),
           })
           //启动定时器
           that.data.timerNo = setInterval(function () {
@@ -105,6 +126,7 @@ Page({
         }else{
           that.setData({
             group_info: res.data.data,
+            groupList:that.getgroupList(res.data.data),
           })
         }
       },

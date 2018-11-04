@@ -58,18 +58,36 @@
   <!--拼团-->
   <view class="goodsTogether_person" wx:else>
     <view class="goodsTogether_person_avatar">
-      <view class="goodsTogether_person_avatar_left postionTop">
+      <view class="goodsTogether_person_avatar_left postionTop ownmarginlf">
         <!-- 团长头像{{group_info.avatarUrl}} -->
         <view class="team_master">团长</view>
         <image class="goodsTogether_person_avatar_left" src="{{group_info.avatarUrl}}" mode="widthFix"></image>
       </view>
       <view class="goodsTogether_person_avatar_icon">+</view>
-      <view class="goodsTogether_person_avatar_right">
-        <view wx:for="{{group_info.member_avatar_list}}">
-          <image class="goodsTogether_person_avatar_right" src="{{item.avatarUrl}}" mode="widthFix"></image>
+      <scroll-view scroll-x="true" class="goodsTogether_person_right">
+        <view>
+          <view class="goodsTogether_person_avatar_view" wx:for="{{groupList}}">
+            <image  class="goodsTogether_person_avatar_right" src="{{item.avatarUrl}}" mode="widthFix"></image>
+          </view>
+          <!-- <view class="goodsTogether_person_avatar_view">
+            <image  class="goodsTogether_person_avatar_right" src="{{item.avatarUrl}}" mode="widthFix"></image>
+          </view>
+           <view class="goodsTogether_person_avatar_view">
+            <image  class="goodsTogether_person_avatar_right" src="{{item.avatarUrl}}" mode="widthFix"></image>
+          </view>
+           <view class="goodsTogether_person_avatar_view">
+            <image  class="goodsTogether_person_avatar_right" src="{{item.avatarUrl}}" mode="widthFix"></image>
+          </view>
+           <view class="goodsTogether_person_avatar_view">
+            <image  class="goodsTogether_person_avatar_right" src="{{item.avatarUrl}}" mode="widthFix"></image>
+          </view>
+           <view class="goodsTogether_person_avatar_view">
+            <image  class="goodsTogether_person_avatar_right" src="{{item.avatarUrl}}" mode="widthFix"></image>
+          </view> -->
         </view>
-      </view>
+      </scroll-view>
     </view>
+
     <view class="goodsTogether_person_info">
       <view class="goodsTogether_person_info_text">
         <text wx:if="{{groupMsg=='该团购已结束'}}">该团购已结束</text>

@@ -99,8 +99,9 @@
     align-items: center;
 }
 .shoping_goods_text_middle_text{
-    display: flex;
-    align-items: center;
+    align-items:center;
+    width:100%;
+
 }
 .shoping_goods_text_middle_orange{
     height: 36rpx;
@@ -116,20 +117,25 @@
     flex-shrink: 0;
 }
 .shoping_goods_text_middle_red{
-    height: 36rpx;
-    line-height: 36rpx;
-    /*width: 90rpx;*/
-    text-align: center;
-    font-size: 22rpx;
-    border: 1px solid #f73227;
-    color: #f73227;
-    border-radius: 5rpx;
-    margin-right: 80rpx;
-    padding: 0 10rpx;
+    height:36rpx;
+    line-height:36rpx;
+    text-align:center;
+    font-size:22rpx;
+    border:1px solid #f73227;
+    color:#f73227;
+    border-radius:5rpx;
+    padding:0 10rpx;
+    display:block;
+    float:left;
+    margin-left:10rpx;
+    
 }
 .shoping_goods_text_middle_gray{
-    font-size: 26rpx;
-    color: #89898c;
+    font-size:26rpx;
+    color:#89898c;
+    display:block;
+    float:right;
+    
     /*margin-left: 30rpx;*/
 }
 .shoping_goods_text_bottom{

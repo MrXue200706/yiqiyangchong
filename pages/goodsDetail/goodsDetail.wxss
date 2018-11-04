@@ -295,8 +295,8 @@
     flex-shrink: 0; 
 }
 .contnentShow{
-    height: 400rpx;
-    overflow: scroll;
+    height: 450rpx;
+    /* overflow: scroll; */
 }
 .goodsDetail_iframe_goods{
     height:176rpx;

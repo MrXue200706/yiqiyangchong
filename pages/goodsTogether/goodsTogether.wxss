@@ -90,7 +90,7 @@
     width: 100%;
     display: flex;
     flex-wrap: nowrap;
-    justify-content: center;
+    /* justify-content: center; */
     align-items: center;
 }
 .goodsTogether_person_avatar_left,.goodsTogether_person_avatar_right{
@@ -346,4 +346,20 @@
     flex-wrap:wrap;
     background-color:#fff;
    
+  }
+  .goodsTogether_person_right{
+      width: 400rpx;
+      overflow: auto;
+      height:100rpx
+  }
+  .goodsTogether_person_avatar_view{
+    float:left;
+    width:96rpx;
+    height:96rpx;
+    border-radius:48rpx;
+    border:1px dashed #333;
+    margin-right:-20px;    
+  }
+  .ownmarginlf{
+      margin-left: 200rpx;
   }
