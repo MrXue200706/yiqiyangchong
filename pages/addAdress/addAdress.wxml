@@ -7,15 +7,18 @@
         </view>
         <view class="addAdress_part_item">
             <text>手机号码：</text>
-            <input  type="text" placeholder="请输入手机号码" maxlength="11" type="tel" bindinput="getNumber" value="{{phoneNumber}}" />
+            <input placeholder="请输入手机号码" maxlength="11" type="tel" bindinput="getNumber" value="{{phoneNumber}}" />
         </view>
         <view class="addAdress_part_item">
             <text>所在地区：</text>
-            <input type="text"/>
+            <picker class="area_add_content" mode="region"  value="{{region}}"         bindchange="bindAreaChange">
+                <text class="picker">{{region[0]}}{{region[1]}}{{region[2]}}</text>
+                <text style='margin-left:10rpx'>点击选择</text>
+            </picker>
         </view>
         <view class="addAdress_part_item">
             <text>详细地址：</text>
-            <input type="text" placeholder="请输入收货详细地址" maxlength="11" type="tel" bindinput="getAddress" value="{{address}}" />
+            <input type="text" placeholder="请输入收货详细地址" maxlength="11" bindinput="getAddress" value="{{address}}" />
         </view>
     </view>
     <view class="addAdress_part">

@@ -15,6 +15,10 @@
     display: flex;
     align-items: center;
 }
+.addAdress_part_item text{
+  min-width: 140rpx;
+  text-align:right;
+}
 .addAdress_part_item_right{
     justify-content: space-between;
 }
