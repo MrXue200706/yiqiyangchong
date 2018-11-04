@@ -98,11 +98,8 @@
     overflow:hidden;
 }
 .shoping_goods_text_middle_text{
-    position:absolute;
-    right:0;
-    top:10rpx;
+    float:right;
     min-width:calc(100% - 110rpx);
-    align-items: center;
 }
 .shoping_goods_text_middle_orange{
     height: 36rpx;
@@ -112,9 +109,7 @@
     background-color: #f58b00;
     color: #fff;
     border-radius: 5rpx;
-    vertical-align: middle;
-    padding: 5rpx 10rpx;
-    flex-shrink: 0;
+    padding: 1rpx 10rpx;
 }
 .shoping_goods_text_middle_red{
     height: 36rpx;
