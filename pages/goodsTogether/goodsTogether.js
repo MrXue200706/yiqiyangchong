@@ -347,9 +347,13 @@ Page({
       },
     })
   },
-  buyGoods(){//购买商品
+  buyGoods(e){//购买商品
     //弹窗提示
     //弹框选择规格
+   // console.log(e.currentTarget.dataset.id) 
+    wx.navigateTo({
+      url: "../goodsDetail/goodsDetail?type=together&id=" +  e.currentTarget.dataset.id + "&ct=y&showprice=false"
+    })
     
   },
   submitOrder() {

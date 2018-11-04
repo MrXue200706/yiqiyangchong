@@ -50,7 +50,7 @@
     <button class="goodsTogether_person_info_button" wx:if="{{own}}" data-goodsShare='true' open-type="share">
       <text>推荐给宠友</text>
     </button>
-    <button class="goodsTogether_person_info_button" wx:else bindtap='buyGoods'>
+    <button class="goodsTogether_person_info_button" wx:else bindtap='buyGoods' data-id="{{goods_detail.id}}">
       <text>购买商品</text>
     </button>
 

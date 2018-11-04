@@ -9,6 +9,7 @@
     color: #bcbcbc;
     justify-content: space-around;
     background-color: #fff;
+    margin-top: 46rpx;
 }
 .orderList_tab_item_active{
     color: #000;

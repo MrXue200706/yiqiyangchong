@@ -21,25 +21,25 @@
 
   <!--商品分类-->
   <view class="goods_class">
-    <navigator url="../dogGoods/dogGoods?category_id=1" class="goods_class_item">
+    <navigator url="../dogGoods/dogGoods?category_id=1&shareType=jifen" class="goods_class_item">
       <view class="goods_class_item_img">
         <image src="../../images/dog.png" mode="widthFix"></image>
       </view>
       <text class="goods_class_item_title">狗狗</text>
     </navigator>
-    <navigator url="../dogGoods/dogGoods?category_id=2" class="goods_class_item">
+    <navigator url="../dogGoods/dogGoods?category_id=2&shareType=jifen" class="goods_class_item">
       <view class="goods_class_item_img">
         <image src="../../images/catIcon.png" mode="widthFix"></image>
       </view>
       <text class="goods_class_item_title">猫猫</text>
     </navigator>
-    <navigator url="../dogGoods/dogGoods?category_id=3" class="goods_class_item">
+    <navigator url="../dogGoods/dogGoods?category_id=3&shareType=jifen" class="goods_class_item">
       <view class="goods_class_item_img">
         <image src="../../images/xiaochong.png" mode="widthFix"></image>
       </view>
       <text class="goods_class_item_title">小宠</text>
     </navigator>
-    <navigator url="../dogGoods/dogGoods?category_id=4" class="goods_class_item">
+    <navigator url="../dogGoods/dogGoods?category_id=4&shareType=jifen" class="goods_class_item">
       <view class="goods_class_item_img">
         <image src="../../images/zhoubian.png" mode="widthFix"></image>
       </view>
