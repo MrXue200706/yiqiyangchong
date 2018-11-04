@@ -85,16 +85,17 @@ Page({
     if(!data){
       return resList;
     }
-    let itemObj={"avatarUrl":none};
-    if(data.member_avatar_list.length<=0&&data.group_number>=2){
-      for(var i=0;i<data.group_number-1;i++){
+    let itemObj={"avatarUrl":""};
+    if(data.member_avatar_list.length<=0 && data.total_group_number>=2){
+      for(var i=0;i<data.total_group_number-1;i++){
         resList.push(itemObj)
       }
     }else{
-      for(var i=data.member_avatar_list.length;i<data.group_number-1;i++){
+      for(var i=data.member_avatar_list.length;i<data.total_group_number-1;i++){
         resList=data.member_avatar_list.push(itemObj)
       }
     }
+    console.log(resList);
     return resList;
   },
   getGroupDetail() { //获取团单详情
