@@ -68,7 +68,7 @@ Page({
       data: {
         category_id: that.data.menuId,
         order: that.data.orderBy,
-        pageNo: that.data.pageNo,
+        page: that.data.pageNo,
       },
       success(res) {
         if (res.data.result == 1) {

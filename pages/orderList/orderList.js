@@ -102,7 +102,7 @@ Page({
       if (event.currentTarget.dataset.item.member_id == null || event.currentTarget.dataset.item.member_id == undefined || event.currentTarget.dataset.item.member_id == ""){
         //跳转到邀请页面
         wx.navigateTo({
-          url: '../goodsTogether/goodsTogether?ct=n&param_id=' + event.currentTarget.dataset.item.goods_id +'&order_no=' + event.currentTarget.dataset.item.order_no
+          url: '../goodsTogether/goodsTogether?events_id=' + event.currentTarget.dataset.item.events_id +'&shopping=' + event.currentTarget.dataset.item.shopping +'&ct=n&param_id=' + event.currentTarget.dataset.item.goods_id +'&order_no=' + event.currentTarget.dataset.item.order_no
         })
       } else{
         //团员拼团
@@ -253,6 +253,10 @@ Page({
     // 隐藏导航栏加载框
     wx.hideNavigationBarLoading();
     // 停止下拉动作
+    wx.stopPullDownRefresh();
+  },
+  onPullDownRefresh: function () {
+    //停下拉复位
     wx.stopPullDownRefresh();
   },
 

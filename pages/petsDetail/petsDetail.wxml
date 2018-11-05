@@ -43,7 +43,7 @@
 
     <!--底部-->
     <view class="petsDetail_foot">
-        <view class="petsDetail_foot_left">
+        <view class="petsDetail_foot_left" bindtap='gotoIndex'>
             <image mode="widthFix" src="../../images/homes.png"></image>
         </view>
         <view class="petsDetail_foot_right" >
@@ -53,15 +53,21 @@
                     <text>编辑</text>
                 </navigator>
             </view>
-             <view class="petsDetail_foot_right_item" wx:else>
-                 <image mode="widthFix" src="../../images/dianz.png"></image>
-                <text>点赞</text>
+            <view wx:else>
+              <view class="petsDetail_foot_right_item" hidden="{{!showOnLike}}" bindtap='giveLove'>
+                    <image mode="widthFix" src="../../images/dianz.png"></image>
+                    <text>点赞</text>
+              </view>
+              <view class="petsDetail_foot_right_item" hidden="{{showOnLike}}" bindtap='downLove'>
+                    <image mode="widthFix" src="../../images/dianz.png"></image>
+                    <text>取消点赞</text>
+              </view>
             </view>
             <text>|</text>
-            <view class="petsDetail_foot_right_item">
+            <button class="petsDetail_foot_right_item" open-type='share'>
                 <image mode="widthFix" src="../../images/fenxiangIcon.png"></image>
                 <text>分享</text>
-            </view>
+            </button>
         </view>
     </view>
 </view>

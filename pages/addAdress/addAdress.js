@@ -81,7 +81,7 @@ Page({
 			"is_default": this.data.defaultFlag,
 			"name": this.data.consignee,
 			"phone": this.data.phoneNumber,
-      "addres": this.data.address
+        "addres": area +this.data.address,
 		  }, success(res) {
 			console.log(res)
 			if (res.data.result == 1){

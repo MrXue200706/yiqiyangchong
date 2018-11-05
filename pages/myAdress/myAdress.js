@@ -47,33 +47,38 @@ Page({
   },
   chooseAdr(e) {
     let adrId = e.currentTarget.dataset.id;
+    let addrMsg = e.currentTarget.dataset.item;
+    console.log(addrMsg)
+    debugger;
     if (this.data.order_id != null){
       //待支付页面跳转过来
       wx.navigateTo({
         url: "../unpay/unpay?ptype=unpay&order_id=" + this.data.order_id + "&adrId=" + adrId
       })
     } else if (this.data.type == "shopping" || this.data.type == "together" || this.data.type == "normal") {
-      //如果是在购买页面跳转过来的，单击直接填充地址
       //获取页面栈
       var pages = getCurrentPages();
       //获取上一页
       var prePage = pages[pages.length - 2]
       prePage.setData({
-        address_id: adrId
+        address_id: adrId,
+        addressMsg: addrMsg
       })
       //返回上一页
       wx.navigateBack();
-      /*
-      wx.navigateTo({
-        url: "../checkPay/checkPay?shopping=" + this.data.type + "&adrId=" + adrId + "&goods_id=" + this.data.goods_id + "&type_selected1=" + this.data.type_selected1 + "&type_selected2=" + this.data.type_selected2 + "&selected_numb=" + this.data.selected_numb + "&order_no=" + this.data.order_no + "&ct=" + this.data.ct + "&couponId=" + this.data.couponId
-      });
-      */
     } else {
       //进入编辑页面
       wx.navigateTo({
         url: '../addAdress/addAdress?type=editAdr&adrId=' + adrId,
       });
     }
+  },
+  editAddr(e){
+    let adrId = e.currentTarget.dataset.id;
+    //进入编辑页面
+    wx.navigateTo({
+      url: '../addAdress/addAdress?type=editAdr&adrId=' + adrId,
+    });
   },
   setDef(e) {
     let adrId = e.currentTarget.dataset.id;
@@ -164,39 +169,43 @@ Page({
       }
     })
   },
-  getWXAdr() {
-    wx.authorize({
-      scope: 'scope.address',
-      success() {
-        var that = this
-        // 实例化腾讯地图API核心类
-        qqmapsdk = new QQMapWX({
-          key: 'J2ABZ-TYRY6-Z4ISF-MW23G-L4TFZ-Q5FLM' // 必填
-        });
-        //1、获取当前位置坐标
-        wx.getLocation({
-          type: 'wgs84',
-          success: function(res) {
-            //2、根据坐标获取当前位置名称，显示在顶部:腾讯地图逆地址解析
-            qqmapsdk.reverseGeocoder({
-              location: {
-                latitude: res.latitude,
-                longitude: res.longitude
-              },
-              success: function(addressRes) {
-                console.log(addressRes);
-                var address = addressRes.result.address;
-                console.log(address)
-              },
-              fail: function(data) {
-                // debugger;
+  getWXAdr() {//获取微信地址
+    var that = this;
+    if (wx.chooseAddress) {
+      wx.chooseAddress({
+        success: function (res) {
+          console.log(JSON.stringify(res));
+          console.log(res);
+          //新增地址
+          wx.request({
+            url: 'https://wechatapi.vipcsg.com/index/member/address',
+            method: 'POST',
+            data: {
+              "user_id": app.globalData.userInfo.data.data.user_id,
+              "is_default": 1,
+              "name": res.userName,
+              "phone": res.telNumber,
+              "addres": res.provinceName + res.cityName + res.countyName + res.detailInfo
+            }, success(res) {
+              if (res.data.result == 1) {
+                //保存成功
+                that.getAddressList();
               }
-            })
-          }
-        })
-      }
-    })
-
-
+            },
+          })
+        },
+        fail: function (err) {
+          console.log(JSON.stringify(err));
+          console.info("收货地址授权失败");
+          wx.showToast({
+            title: '授权失败，您将无法进行下单支付;重新授权请删除小程序后再次进入',
+            icon: 'success',
+            duration: 20000
+          })
+        }
+      })
+    } else {
+      console.log('当前微信版本不支持选择地址');
+    }
   }
 })

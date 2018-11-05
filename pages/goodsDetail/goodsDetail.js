@@ -1,7 +1,6 @@
 //index.js
 //获取应用实例
 const app = getApp()
-app.checkLogin()
 //文件引用
 var CusBase64 = require('../../utils/base64.js');
 
@@ -13,7 +12,8 @@ Page({
     type_one_selected: null, //选中的规格
     spec1: "0", //规格1
     spec2: "0", //规格2
-    shopping: 'normal', //是否抢购，shopping：抢购商品，together：团购商品，normal：一般订单，activity：活动栏
+    shopping: 'normal', //是否抢购，shopping：抢购商品，，normal：一般订单，activity：活动栏
+    shoppingType: 'normal', //normal：直接购买，together：团购商品
     goods_detail: {}, //详情
     selected_numb: 1, //选择的数量
     descript: null, //描述
@@ -60,7 +60,7 @@ Page({
     });
   },
   onLoad(o) {
-    console.log(o.showprice)
+    app.checkLogin()
     this.setData({
       shopping: o.type, //购买类别
       order_no: o.order_no == undefined ? null : o.order_no,
@@ -69,7 +69,8 @@ Page({
       events_id: o.events_id == undefined ? null : o.events_id,
       is_iframe: o.showprice == undefined ? null : o.showprice,
       ishowCloseBtn: o.showprice == undefined ? true : false,
-      isjifen: o.shareType == undefined ? false : true
+      isjifen: o.shareType == undefined ? false : true,
+      callback_id: o.callback_id==undefined? null : o.callback_id,
     })
     //typeOneFn()
     //typeTwoFn(event) 
@@ -107,12 +108,8 @@ Page({
       success(res) {
         console.log(res.data.data)
         that.setData({
-          goods_detail: res.data.data
-        });
-        that.setData({
-          descript: res.data.data.goods_desc
-        });
-        that.setData({
+          goods_detail: res.data.data,
+          descript: res.data.data.goods_desc,
           type_one_selected: res.data.data.display_spec[0]
         });
         if (that.data.shopping == "shopping") {
@@ -169,7 +166,7 @@ Page({
     }
 
     wx.navigateTo({
-      url: "../checkPay/checkPay?shopping=" + this.data.shopping + "&goods_id=" +
+      url: "../checkPay/checkPay?shopping=" + this.data.shopping + "&shoppingType=" + this.data.shoppingType+ "&goods_id=" +
         this.data.goods_detail.id + "&type_selected1=" + this.data.spec1 + "&type_selected2=" +
         this.data.spec2 + "&selected_numb=" + this.data.selected_numb + "&ct=" +
         this.data.ct + "&order_no=" + this.data.order_no + "&image=" + this.data.type_one_selected.spec_img + "&flashsale_id=" + this.data.flashsale_id + "&callback_id=" + this.data.callback_id + "&events_id=" + this.data.events_id
@@ -281,13 +278,13 @@ Page({
   },
   buyTogether() { //团购订单修改入口
     this.setData({
-      shopping: 'together'
+      shoppingType: 'together'
     });
     this.iframeFn();
   },
   buyOwn() {
     this.setData({
-      shopping: 'normal'
+      shoppingType: 'normal'
     });
     this.iframeFn();
   },
@@ -296,7 +293,7 @@ Page({
     //设置菜单中的转发按钮触发转发事件时的转发内容
     var shareObj = {
       title: this.data.goods_detail.goods_name, //转发标题
-      path: '/pages/goodsDetail/goodsDetail?type=normal&id=' + this.data.goods_detail.id + '&param_id=' + this.data.goods_detail.id,
+      path: '/pages/goodsDetail/goodsDetail?type=' + this.data.shopping + '&id=' + this.data.goods_detail.id + '&param_id=' + this.data.goods_detail.id + '&events_id=' + this.data.events_id,
       imgUrl: this.data.goods_detail.goods_img_list[0].goods_img, //图片路径
       success: function(res) {
         // 分享成功之后的回调

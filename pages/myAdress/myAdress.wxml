@@ -1,7 +1,7 @@
 <view class="myAdress">
 	<!--地址-->
 	<view class="myAdress_item" wx:for="{{adressList}}" wx:key="item.id" data-id="{{item.id}}">
-		<view class="myAdress_item_content" data-id="{{item.id}}" bindtap="chooseAdr">
+		<view class="myAdress_item_content" data-item="{{item}}" data-id="{{item.id}}" bindtap="chooseAdr">
 			<view class="myAdress_item_content_up">
 				<text>{{item.name}}</text>
 				<text class="myAdress_item_content_up_phone">{{item.phone}}</text>
@@ -16,7 +16,7 @@
 				<text class="myAdress_item_edict_left_text">{{item.is_default?"已设为当前默认":"设为默认"}}</text>
 			</view>
 			<view class="myAdress_item_edict_right">
-				<text class="myAdress_item_edict_right_item" data-id="{{item.id}}" bindtap="chooseAdr">编辑</text>
+				<text class="myAdress_item_edict_right_item" data-id="{{item.id}}" bindtap="editAddr">编辑</text>
 				<text class="myAdress_item_edict_right_item" data-id="{{item.id}}" bindtap="delAdr">删除</text>
 			</view>
 		</view>

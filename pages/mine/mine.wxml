@@ -39,6 +39,7 @@
             </view>
             <text>已完成</text>
         </navigator>
+        <contact-button  type="default-light"  size="20" session-from="weapp"></contact-button>
         <view class="state_item">
             <view class="state_item_img">
                 <image mode="widthFix" src="../../images/daimyshophou.png"></image>

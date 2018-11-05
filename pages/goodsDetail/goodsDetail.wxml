@@ -19,7 +19,7 @@
         <view class="goodsDetail_title_content">
             <text>{{goods_detail.goods_name}}</text>
         </view>
-        <navigator url="../goodsTogether/goodsTogether?param_id={{goods_detail.id}}&shares=1" class="goodsDetail_title_get"  wx:if="{{isjifen}}">
+        <navigator url="../goodsTogether/goodsTogether?param_id={{goods_detail.id}}&shares=1&shopping={{shopping}}" class="goodsDetail_title_get"  wx:if="{{isjifen}}">
             <image mode="widthFix" src="../../images/jifenxiangq.png"></image>
             <text>赚积分</text>
         </navigator>
