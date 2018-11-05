@@ -102,6 +102,7 @@
     min-width:calc(100% - 110rpx);
 }
 .shoping_goods_text_middle_orange{
+    float:left;
     height: 36rpx;
     line-height: 36rpx;
     text-align: center;
