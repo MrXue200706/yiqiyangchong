@@ -98,6 +98,7 @@
   top: 0;
   border: 1px solid #fff;
   box-sizing: border-box;
+  overflow: hidden;
 }
 .dogGoods_goods_item_recommend_avatar_right{
   width: 50rpx;
@@ -108,4 +109,8 @@
   top: 0;
   right: 0;
   border: 1px solid #fff;
+  overflow: hidden;
+}
+.goods_item_recommend_avatars_img{
+  width: 100%;
 }

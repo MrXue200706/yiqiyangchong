@@ -59,10 +59,10 @@
         <text class="dogGoods_goods_item_recommend_number">{{item.pet_friend_count}}推荐</text>
         <view class="dogGoods_goods_item_recommend_avatars">
           <view class="dogGoods_goods_item_recommend_avatar_left">
-            <image src="{{item.pet_friend_list[0].avatar}}" mode="widthFix"></image>
+            <image class="goods_item_recommend_avatars_img" src="{{item.pet_friend_list[0].avatarUrl}}" mode="widthFix"></image>
           </view>
           <view class="dogGoods_goods_item_recommend_avatar_right">
-            <image src="{{item.pet_friend_list[1].avatar}}" mode="widthFix"></image>
+            <image class="goods_item_recommend_avatars_img" src="{{item.pet_friend_list[1].avatarUrl}}" mode="widthFix"></image>
           </view>
         </view>
       </view>
