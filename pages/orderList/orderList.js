@@ -22,7 +22,7 @@ Page({
     orderShowBtn:{
       "待付款":"立即支付",
       "待成团": "邀请参团",
-      "待收货": "确认收货",
+      "待收货": "查看订单",
       "已取消": "查看订单",
       "已完成": "查看订单",
     },
@@ -111,54 +111,9 @@ Page({
         })
       }
     } else if (btnType == "待收货"){
-      //确认收货
-      wx.showModal({
-        title: '确认收货提示',
-        content: '是否确认收货？',
-        success:function(res){
-          if(res.confirm){
-            console.log(event.currentTarget.dataset.item.id)
-            console.log("确认")
-            wx.request({
-              url: 'https://wechatapi.vipcsg.com/index/order/order_complete',
-              method: 'POST',
-              data: {
-                user_id: app.globalData.userInfo.data.data.user_id,
-                order_id: event.currentTarget.dataset.item.id
-              }, success(res) {
-                if (res.data.result == 1) {
-                  that.setData({
-                    pageNo: 1, //重置pageNo
-                    pageList: [], 
-                  })
-                  that.setPageDetail()
-                  wx.showToast({
-                    title: '收货成功',
-                    icon: 'succes',
-                    duration: 2000,
-                    mask: true,
-                    success: function () { }
-                  })
-                }else{
-                  console.log(res.data)
-                  wx.showToast({
-                    title: '收货失败' + res.data.msg == null ? "" : "，" + res.data.msg,
-                    icon: 'none',
-                    duration: 2000,
-                    mask: true,
-                    success: function () { }
-                  })
-                }
-              },
-            })
-          }else{
-            console.log("取消")
-          }
-        },
+      wx.navigateTo({
+        url: '../unpay/unpay?ptype=takegoods&order_id=' + event.currentTarget.dataset.item.id
       })
-      // wx.navigateTo({
-      //   url: '../unpay/unpay?ptype=takegood&order_id=' + event.currentTarget.dataset.item.id
-      // })
     } else if (btnType == "已完成") {
       //跳转到支付页面
       wx.navigateTo({
@@ -235,9 +190,9 @@ Page({
   },
   showOrderDetail(event){//查看订单详情
     var ptype = "detail"
-    if (event.currentTarget.dataset.btntype=="立即支付"){
+    if (event.currentTarget.dataset.status_name=="待付款"){
       ptype = "unpay"
-    } else if (event.currentTarget.dataset.btntype == "确认收货"){
+    } else if (event.currentTarget.dataset.status_name == "待收货"){
       ptype ="takegoods"
     }
     //跳转到订单详情

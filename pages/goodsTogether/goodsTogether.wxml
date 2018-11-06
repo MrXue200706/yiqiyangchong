@@ -1,7 +1,7 @@
 <view class="goodsTogether">
   <!--商品-->
   <view class="goodsTogether_goods_d">
-    <view  wx:if="shares==1||shares==2">
+    <view wx:if="{{shares==1||shares==2}}">
     <navigator url="../goodsDetail/goodsDetail?type={{shopping}}&id={{param_id}}&events_id={{events_id}}" class="goodsTogether_goods">
       <view class="goodsTogether_goods_img">
         <image class="goodsTogether_goods_img" src="{{goods_detail.goods_img_list[0].goods_img}}" mode="widthFix"></image>
@@ -10,7 +10,7 @@
         <view class="goodsTogether_goods_text_title">{{goods_detail.goods_name}}</view>
         <view class="goodsTogether_goods_recommend">
           <text>2人团</text>
-          <text>已团3232件</text>
+          <text>已团3232件dddd</text>
         </view>
         <view class="goodsTogether_goods_text_bottom">
           <text class="goodsTogether_goods_text_bottom_red">￥{{goods_detail.price}}</text>

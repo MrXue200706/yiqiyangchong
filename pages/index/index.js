@@ -131,5 +131,10 @@ Page({
         }
       },
     })
-  },
+  }, 
+  navigatorUrl(event){//轮播图跳转
+    wx.navigateTo({
+      url: event.currentTarget.dataset.url
+    })
+  }
 })

@@ -3,12 +3,29 @@
   <view class="unpay_title">
     <text>{{ptypeDict[ptype]}}</text>
   </view>
+  <!-- 快递单号 -->
+  <view class="unpay_address">
+    <view class="unpay_address_content">
+      <view class="unpay_address_content_up">
+        <text>快递单号： {{orderDetail.logistics_code}}</text>
+      </view>
+      <view class="unpay_address_content_down" wx:if="{{orderDetail.is_search==0}}">
+        <text>暂无物流信息</text>
+      </view>
+      <view class="unpay_address_content_down" wx:else>
+        <text>物流动态： {{logisticsInfo}}</text>
+      </view>
+    </view>
+    <view class="unpay_address_icon">
+      <image src="../../images/dingdDDZ.png" mode="widthFix"></image>
+    </view>
+  </view>
 
   <!--地址-->
   <view class="unpay_address">
     <view class="unpay_address_content">
       <view class="unpay_address_content_up">
-        <text>{{orderDetail.order_address_name}}</text>
+        <text>{{orderDetail.order_address_name}}  </text>
         <text>{{orderDetail.order_address_phone}}</text>
       </view>
       <view class="unpay_address_content_down">
@@ -34,7 +51,7 @@
         <!-- <text>12:02:15</text> -->
       </view>
     </view>
-    <view class="unpay_order_button"  bindtap="copyONo">
+    <view class="unpay_order_button" bindtap="copyONo">
       <text>复制订单号</text>
     </view>
   </view>
@@ -56,7 +73,7 @@
     </view>
     <view class="unpay_goods_price">
       <text class="unpay_goods_price_left">共计{{orderDetail.goods_number}}件商品 合计：</text>
-      <text class="unpay_goods_price_right">￥{{orderDetail.goods_now_price*orderDetail.goods_number}}</text>
+      <text class="unpay_goods_price_right">￥{{orderDetail.order_money}}</text>
     </view>
     <view class="unpay_goods_price">
       <text class="unpay_goods_price_left">运费</text>
@@ -65,12 +82,12 @@
   </view>
 
   <!--积分-->
-  <view class="unpay_integral">
+  <!-- <view class="unpay_integral">
     <view class="unpay_integral_content">
       <text class="unpay_integral_content_left">可用100积分抵扣10元</text>
-      <!-- <icon class="unpay_integral_content_right" type="success" size="12" color="#e72f28" /> -->
+      <!-- <icon class="unpay_integral_content_right" type="success" size="12" color="#e72f28" />
     </view>
-  </view>
+  </view> -->
 
   <!--总金额-->
   <view class="unpay_totle">
@@ -84,7 +101,7 @@
       <text>积分</text>
     </view>
     <view class="unpay_notice_content">
-      <text>本次确认收货后可获得4800积分</text>
+      <text>本次确认收货后可获得{{orderDetail.give_integral}}积分</text>
     </view>
   </view>
 
@@ -93,9 +110,9 @@
 
   <!--底部-->
   <view class="unpay_foot">
-      <view class="unpay_foot_cancel" bindtap="delOrder" wx:if="{{ptype=='unpay'}}">取消订单</view>
-      <view class="unpay_foot_cancel" bindtap="retOrderList" wx:else>返回订单列表</view>
-      <view class="unpay_foot_pay" bindtap="payNow" wx:if="{{ptype=='unpay'}}">立即支付</view>
-      <view class="unpay_foot_pay" bindtap="takegoods" wx:elif="{{ptype=='takegoods'}}">确认收货</view>
+    <view class="unpay_foot_cancel" bindtap="delOrder" wx:if="{{ptype=='unpay'}}">取消订单</view>
+    <view class="unpay_foot_cancel" bindtap="retOrderList" wx:else>返回订单列表</view>
+    <view class="unpay_foot_pay" bindtap="payNow" wx:if="{{ptype=='unpay'}}">立即支付</view>
+    <view class="unpay_foot_pay" bindtap="takegoods" wx:elif="{{ptype=='takegoods'}}">确认收货</view>
   </view>
 </view>

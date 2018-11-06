@@ -131,7 +131,7 @@ Page({
               name: 'file',
               formData: {
                 'user_id': app.globalData.userInfo.data.data.user_id,
-                'pet_id': pet_id
+                'pet_id': that.data.pet_id
               },
               header: {
                 "Content-Type": "multipart/form-data"

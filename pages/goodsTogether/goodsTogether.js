@@ -166,7 +166,6 @@ Page({
             groupList: that.getgroupList(res.data.data),
           })
         }
-        debugger;
       },
     })
   },
@@ -199,7 +198,7 @@ Page({
           //可拼团，跳转商品规格选择页面
           console.log("可拼团~~~")
           wx.navigateTo({
-            url: "../goodsDetail/goodsDetail?type=together&id=" + that.data.goods_detail.id + "&ct=y&order_no=" + that.data.order_no + "&showprice=" + that.data.showprice + "&events_id=" + that.data.events_id
+            url: "../goodsDetail/goodsDetail?shoppingType=together&type=together&id=" + that.data.group_info.goods_info.goods_id + "&ct=y&order_no=" + that.data.order_no + "&showprice=" + that.data.showprice + "&events_id=" + that.data.events_id
           })
         } else {
           if (res.data.msg == "拼团已超过24小时" || res.data.msg == "拼团不存在或拼团已完成") {

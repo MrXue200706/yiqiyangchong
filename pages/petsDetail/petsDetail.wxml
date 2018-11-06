@@ -56,11 +56,13 @@
             <view wx:else>
               <view class="petsDetail_foot_right_item" hidden="{{!showOnLike}}" bindtap='giveLove'>
                     <image mode="widthFix" src="../../images/dianz.png"></image>
-                    <text>点赞</text>
+                    <!-- <text>点赞</text> -->
+                    <text>{{petDetail.like}}</text>
               </view>
               <view class="petsDetail_foot_right_item" hidden="{{showOnLike}}" bindtap='downLove'>
                     <image mode="widthFix" src="../../images/dianz.png"></image>
-                    <text>取消点赞</text>
+                    <!-- <text>取消点赞</text> -->
+                    <text>{{petDetail.like}}</text>
               </view>
             </view>
             <text>|</text>

@@ -63,6 +63,7 @@ Page({
     app.checkLogin()
     this.setData({
       shopping: o.type, //购买类别
+      shoppingType: o.shoppingType == undefined ? null : o.shoppingType,
       order_no: o.order_no == undefined ? null : o.order_no,
       ct: o.ct == undefined ? "n" : o.ct,
       flashsale_id: o.flashsale_id == undefined ? null : o.flashsale_id,

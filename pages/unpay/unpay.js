@@ -7,6 +7,7 @@ Page({
   data: {
     orderList: null,
     orderDetail: null, //订单详情
+    logisticsInfo: null, //物流信息
     ptype: "unpay", //页面类型。 takegoods: 待收货页面，unpay: 待付款
     adrId: null,
     ptypeDict: {
@@ -45,10 +46,30 @@ Page({
           that.setData({
             orderDetail: res.data.data
           })
+          if (that.data.orderDetail.is_search==1){
+            //获取物流信息
+            that.getLogisticsInfo()
+          }
         }
       },
     })
 
+  },
+  getLogisticsInfo(){//获取物流信息
+    let that = this;
+    wx.request({
+      url: 'https://wechatapi.vipcsg.com/index/order/order_logistics',
+      method: 'GET',
+      data: {
+        order_id: this.data.orderDetail.id
+      }, success(res) {
+        if (res.data.result == 1) {
+          that.setData({
+            logisticsInfo: res.data.data[res.data.data.length - 1].AcceptStation
+          })
+        }
+      },
+    })
   },
   delOrder() { //取消订单
     if (this.data.orderDetail.order_status == 1) {
