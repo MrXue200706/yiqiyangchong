@@ -8,7 +8,7 @@
             <text>可抵现金：{{deduction}}元</text>
         </view>
         <view class="integral_title_detailbtn">
-            <text>积分规则 > </text>
+            <!-- <text>积分规则 > </text> -->
         </view>
     </view>
 
@@ -18,7 +18,7 @@
             <text class="{{type_one_active}}">积分明细</text>
         </view>
         <view class="integral_tab_item" bindtap="typeTwoFn">
-            <text class="{{type_two_active}}">领取积分</text>
+            <text class="{{type_two_active}}">积分规则</text>
         </view>
     </view>
 
@@ -52,8 +52,19 @@
 	</view>
 	
     <!--领取积分-->
-	<view hidden="{{tapFlag}}">
-		<view class="integral_get">
+	<view hidden="{{tapFlag}}" class="noticeview">
+		<view>
+			积分规则：
+		</view>
+		<view >		
+			<view>1，分享积分，每天分享到微信群或朋友圈奖获得积分。</view>
+			<view>2，购买商品，按最终支付金额换算积分，（如商品价格为68.88元，优惠卷-10元，最终支付价格为58.88元，返积分为58.88 X 100，5888积分）</view>
+			<view>3，赚积分，推荐商品给好友（推荐商品，推荐人无需支付），好友通过分享的链接成功购买，好友购买商品并确认收货后。按最终支付金额换算，推荐人得50%，推荐人的分享积分，需好友确认收货后或7个工作日后才进账。</view>
+			<view>4，用户正常退货，无需做积分退还，按积分的价值，扣除对应的退款金额。赚积分的推荐人，用户正常退货，无需扣除积分。</view>
+			<view>5，积分仅可用于兑换优惠卷和限时抢购。</view>
+			<view>温馨提示：如发现异常用户刷单或恶意退货，后台将会人工直接清空积分，并对相关订单的好友用户进行清除积分处理。</view>
+		</view>
+		<!-- <view class="integral_get">
 			<view class="integral_get_item">
 				<view class="integral_get_item_title">
 					<text>分享商品赚积分</text>
@@ -112,6 +123,6 @@
 					<text>去添加</text>
 				</view>
 			</view>
-		</view>
+		</view> -->
 	</view>
 </view>

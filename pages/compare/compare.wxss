@@ -1,0 +1,8 @@
+.compare{
+    background-color: #f2f7f8;
+    width: 100%;
+}
+.compare image{
+    width: 100%;
+}
+

@@ -117,3 +117,11 @@
 .integral_get_item_red{
     color: #dd301d;
 }
+.noticeview{
+    padding: 30rpx;
+    font-size: 24rpx;
+    background: #fff;
+}
+.noticeview view{
+    margin: 20rpx;
+}

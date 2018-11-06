@@ -1,0 +1,4 @@
+<view class="compare">
+    <image src="../../images/compare.jpg" mode="widthFix"></image>
+  
+</view>

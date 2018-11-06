@@ -39,13 +39,19 @@
             </view>
             <text>已完成</text>
         </navigator>
-        <contact-button  type="default-light"  size="20" session-from="weapp"></contact-button>
+        <button class="kf_button" open-type="contact" session-from="weapp">
+             <view class="state_item_img">
+                <image class="kf_image" mode="widthFix" src="../../images/daimyshophou.png"></image>
+            </view>
+            <text>售后服务</text>
+        </button>
+        <!-- <contact-button  type="default-light"  size="20" session-from="weapp"></contact-button>
         <view class="state_item">
             <view class="state_item_img">
                 <image mode="widthFix" src="../../images/daimyshophou.png"></image>
             </view>
             <text>售后服务</text>
-        </view>
+        </view> -->
     </view>
 
     <!--事项-->

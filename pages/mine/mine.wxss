@@ -147,3 +147,23 @@
     width: 85%;
     margin-left: 10rpx;
 }
+.kf_button{
+    background-color: rgba(255, 255, 255, 0);
+    /* border: 0px;
+    height: 100rpx;
+    right: 0;
+    bottom: 20rpx;
+    position: fixed; */
+    padding: 0;
+    font-size: 22rpx;
+    line-height: 1;
+    margin: 0;
+    width: 20%;
+   }
+   .kf_button::after{
+    border: 0px;
+   }
+   .kf_image{
+    z-index: 9999;
+    width: 100%;
+   }

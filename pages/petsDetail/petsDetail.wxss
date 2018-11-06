@@ -107,6 +107,7 @@
     justify-content: space-around;
     align-items: center;
     font-size: 24rpx;
+    background: rgba(255, 255, 255, 1)
 }
 .petsDetail_foot_right_item image{
     width: 30rpx;
@@ -117,3 +118,9 @@
     height: 100rpx;
     width: 100%;
 }
+.dianzhanText{
+    margin: 0 30rpx
+}
+button::after {
+    border: none
+  }

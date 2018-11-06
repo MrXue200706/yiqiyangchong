@@ -26,7 +26,8 @@ Page({
 	});
 	this.getIntegralList();
   },
-  typeTwoFn(){//领取积分tap样式
+	typeTwoFn(){//领取积分tap样式
+		console.log(this.data.tapFlag)
     this.setData({
 		type_one_active: "",
 		type_two_active: "integral_tab_item_active",
