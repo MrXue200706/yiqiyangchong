@@ -41,7 +41,7 @@
         </view>
         <view class="checkPay_goods_text_bottom">
           <text wx:if="{{shopping == 'normal'}}" class="checkPay_goods_text_bottom_red">￥{{goods_detail.price}}</text>
-           <text wx:else class="checkPay_goods_text_bottom_red">￥{{goods_detail.group_price}}</text>
+          <text wx:else class="checkPay_goods_text_bottom_red">￥{{goods_detail.group_price}}</text>
           <text class="checkPay_goods_text_bottom_gray">￥{{goods_detail.market_price}}</text>
         </view>
       </view>
@@ -84,16 +84,13 @@
         <text class="checkPay_ticket_item_right_more">></text>
       </view>
     </view>
-    <view class="checkPay_ticket_item" wx:else>
-      <view class="checkPay_ticket_item_left">
-        <view class="checkPay_ticket_item_left_icon">
-          <text>积分</text>
-        </view>
-        <text class="checkPay_ticket_item_left_text">本次购物确认收货后可获得4800积分</text>
-      </view>
-    </view>
   </view>
-
+  <view class="checkPay_ticket_item_left">
+    <view class="checkPay_ticket_item_left_icon">
+      <text>积分</text>
+    </view>
+    <text class="checkPay_ticket_item_left_text">本次购物确认收货后可获得{{totalPay*100}}积分</text>
+  </view>
   <!--底部-->
   <view class="checkPay_foot">
     <view class="checkPay_foot_left">

@@ -92,7 +92,6 @@ Page({
     })
   },
   callMe(e){//提醒我
-    console.log("callMe")
     let that = this;
     wx.request({
       url: 'https://wechatapi.vipcsg.com/index/message/subscribe',
@@ -102,11 +101,11 @@ Page({
         goods_id: e.detail.target.dataset.goodid,
         flashsale_id: e.detail.target.dataset.flashsale_id,
         form_id: e.detail.formId,
+        time: "",
         url: "pages/goodsDetail/goodsDetail?type=shopping&start=y&id=" + e.detail.target.dataset.goodid + "&flashsale_id=" + e.detail.target.dataset.flashsale_id
       },
       success(res) {
-        debugger;
-        if(res.data.result!= 1){
+        if(res.data.result== 1){
           //弹窗提示
           wx.showToast({
             title: '成功' ,
