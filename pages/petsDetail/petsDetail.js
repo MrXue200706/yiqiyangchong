@@ -105,7 +105,7 @@ Page({
           //修改显示状态
 
           //重新刷新宠物详情
-          that.loadPetDetail(taht.pet_id)
+          that.loadPetDetail(that.data.pet_id)
         }
       },
     })
@@ -128,7 +128,7 @@ Page({
             success: function () { }
           })
           //重新刷新宠物详情
-          that.loadPetDetail(taht.pet_id)
+          that.loadPetDetail(that.data.pet_id)
         }
       },
     })

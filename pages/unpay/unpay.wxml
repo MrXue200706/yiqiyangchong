@@ -4,7 +4,7 @@
     <text>{{ptypeDict[ptype]}}</text>
   </view>
   <!-- 快递单号 -->
-  <view class="unpay_address">
+  <view class="unpay_address" wx:if="{{ptype!='unpay'}}">
     <view class="unpay_address_content">
       <view class="unpay_address_content_up">
         <text>快递单号： {{orderDetail.logistics_code}}</text>
