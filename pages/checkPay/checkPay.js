@@ -170,7 +170,7 @@ Page({
       })
       return;
     }
-    if (this.data.address_id == 0) {
+    if (this.data.address_id == 0 || this.data.address_id == null || this.data.address_id == undefined) {
       wx.showToast({
         title: '请选择收货地址！',
         icon: 'none',

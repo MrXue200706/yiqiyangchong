@@ -69,7 +69,6 @@ Page({
         that.setData({
           pet_img: that.data.pet_img
         })
-        // debugger;
       }
     })
   },
@@ -131,14 +130,13 @@ Page({
               name: 'file',
               formData: {
                 'user_id': app.globalData.userInfo.data.data.user_id,
-                'pet_id': that.data.pet_id
+                'pet_id': pet_id == undefined ? that.data.pet_id : pet_id
               },
               header: {
                 "Content-Type": "multipart/form-data"
               },
               success: function(res) {
                 uploadImgCount++;
-                // debugger;
 
                 //如果是最后一张,则隐藏等待中
                 if (uploadImgCount == tempFilePaths.length) {
@@ -195,13 +193,30 @@ Page({
    })
  },
  cancelPic(e){
-  this.setData({
-    pet_img: []
-    //showCancelBtn:false
+   let that = this;
+   wx.request({
+     url: 'https://wechatapi.vipcsg.com/index/member/delete_pet_img',
+     method: 'POST',
+     data: {
+       user_id: app.globalData.userInfo.data.data.user_id,
+       id: e.currentTarget.dataset.pid,
+     },
+     success(res) {
+       if (res.data.result == 1) {
+         wx.showToast({
+           title: '删除成功',
+           icon: 'succes',
+           duration: 2000,
+           mask: true,
+           success: function () { }
+         })
+       }
+     },
    })
+   this.getPetDetail()
  },
   checkFormData() { //表单数据校验
-    if (this.data.pet_name == null) {
+    if (this.data.pet_name == null || this.data.pet_name == undefined || this.data.pet_name.length == 0) {
       wx.showToast({
         title: '请输入宠物的昵称',
         icon: 'none',
@@ -210,7 +225,7 @@ Page({
       });
       return false;
     }
-    if (this.data.pet_sex == null) {
+    if (this.data.pet_sex == null || this.data.pet_sex == undefined || this.data.pet_sex.length == 0) {
       wx.showToast({
         title: '请选择宠物性别',
         icon: 'none',
@@ -219,7 +234,7 @@ Page({
       });
       return false;
     }
-    if (this.data.pet_type == null) {
+    if (this.data.pet_type == null || this.data.pet_name == undefined || this.data.pet_type.length == 0) {
       wx.showToast({
         title: '请输入宠物的品类',
         icon: 'none',
@@ -228,7 +243,7 @@ Page({
       });
       return false;
     }
-    if (this.data.pet_birthday == null) {
+    if (this.data.pet_birthday == null || this.data.pet_birthday == undefined || this.data.pet_birthday.length == 0) {
       wx.showToast({
         title: '请选择宠物的生日',
         icon: 'none',
@@ -237,7 +252,7 @@ Page({
       });
       return false;
     }
-    if (this.data.pet_story == null) {
+    if (this.data.pet_story == null || this.data.pet_story == undefined || this.data.pet_story.length == 0) {
       wx.showToast({
         title: '请简单介绍一下宠物的故事',
         icon: 'none',
@@ -295,5 +310,5 @@ Page({
         }
       },
     })
-  }
+  },
 })
