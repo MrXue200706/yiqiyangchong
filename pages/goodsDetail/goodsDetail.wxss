@@ -250,6 +250,18 @@
     align-items: center;
     justify-content: center;
 }
+.goodsDetail_foot_right_notNow{
+    width: 510rpx;
+    height: 100rpx;
+    text-align: center;
+    background-color: limegreen;
+    color: #fff;
+    font-size: 26rpx;
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: center;
+}
 .goodsDetail_foot_right_left,.goodsDetail_foot_right_right{
     height: 100%;
     width: 50%;

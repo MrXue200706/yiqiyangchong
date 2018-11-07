@@ -101,7 +101,6 @@ Page({
         goods_id: e.detail.target.dataset.goodid,
         flashsale_id: e.detail.target.dataset.flashsale_id,
         form_id: e.detail.formId,
-        time: "",
         url: "pages/goodsDetail/goodsDetail?type=shopping&start=y&id=" + e.detail.target.dataset.goodid + "&flashsale_id=" + e.detail.target.dataset.flashsale_id
       },
       success(res) {

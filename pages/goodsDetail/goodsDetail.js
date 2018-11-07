@@ -30,6 +30,7 @@ Page({
     ishowCloseBtn: true,
     isteambuy: false,
     isjifen: false,
+    startNow: false, //抢购是否已开始
     // index:0,
   },
   iframeFn() { //规格选择弹出
@@ -81,7 +82,13 @@ Page({
     if (o.type == "shopping") {
       if (o.start == "n") {
         //抢购尚未给开始，查看商品详情，显示尚未开始按钮
-
+        this.setData({
+          startNow: false
+        })
+      }else{
+        this.setData({
+          startNow: true
+        })
       }
       //抢购商品页面详情
       this.getGoodsDetail(o.id)
