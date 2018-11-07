@@ -72,7 +72,7 @@ Page({
       is_iframe: o.showprice == undefined ? null : o.showprice,
       ishowCloseBtn: o.showprice == undefined ? true : false,
       isjifen: o.shareType == undefined ? false : true,
-      callback_id: o.callback_id==undefined? null : o.callback_id,
+      callback_id: o.callback_id == undefined ? null : o.callback_id,
     })
     //typeOneFn()
     //typeTwoFn(event) 
@@ -85,7 +85,7 @@ Page({
         this.setData({
           startNow: false
         })
-      }else{
+      } else {
         this.setData({
           startNow: true
         })
@@ -174,7 +174,7 @@ Page({
     }
 
     wx.navigateTo({
-      url: "../checkPay/checkPay?shopping=" + this.data.shopping + "&shoppingType=" + this.data.shoppingType+ "&goods_id=" +
+      url: "../checkPay/checkPay?shopping=" + this.data.shopping + "&shoppingType=" + this.data.shoppingType + "&goods_id=" +
         this.data.goods_detail.id + "&type_selected1=" + this.data.spec1 + "&type_selected2=" +
         this.data.spec2 + "&selected_numb=" + this.data.selected_numb + "&ct=" +
         this.data.ct + "&order_no=" + this.data.order_no + "&image=" + this.data.type_one_selected.spec_img + "&flashsale_id=" + this.data.flashsale_id + "&callback_id=" + this.data.callback_id + "&events_id=" + this.data.events_id
@@ -298,10 +298,14 @@ Page({
   },
   onShareAppMessage: function(options) {
     let that = this
+    let urlStr = '/pages/goodsDetail/goodsDetail?type=' + this.data.shopping + '&id=' + this.data.goods_detail.id + '&param_id=' + this.data.goods_detail.id + '&events_id=' + this.data.events_id
+    if (this.data.shopping == "shopping") {
+      urlStr = "/pages/goodsDetail/goodsDetail?type=shopping&start=" + (this.data.startNow == true ? 'y' : 'n') + "&integralDK=" + this.data.integralDK + "%&flashsale_id=" + this.data.flashsale_id + "&id=" + this.data.goods_detail.id
+    }
     //设置菜单中的转发按钮触发转发事件时的转发内容
     var shareObj = {
       title: this.data.goods_detail.goods_name, //转发标题
-      path: '/pages/goodsDetail/goodsDetail?type=' + this.data.shopping + '&id=' + this.data.goods_detail.id + '&param_id=' + this.data.goods_detail.id + '&events_id=' + this.data.events_id,
+      path: urlStr,
       imgUrl: this.data.goods_detail.goods_img_list[0].goods_img, //图片路径
       success: function(res) {
         // 分享成功之后的回调
@@ -311,7 +315,7 @@ Page({
             icon: 'succes',
             duration: 1000,
             mask: true,
-            success: function () { }
+            success: function() {}
           });
           //记录积分
           wx.request({
@@ -329,7 +333,7 @@ Page({
                   icon: 'succes',
                   duration: 2000,
                   mask: true,
-                  success: function () { }
+                  success: function() {}
                 });
               }
             },

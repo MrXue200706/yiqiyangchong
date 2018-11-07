@@ -76,7 +76,7 @@ Page({
       let that = this;
       wx.showModal({
         title: '提示',
-        content: '模态弹窗',
+        content: '是否取消订单',
         success: function(res) {
           if (res.confirm) {
             console.log('用户点击确定')
@@ -85,7 +85,7 @@ Page({
               method: 'POST',
               data: {
                 user_id: app.globalData.userInfo.data.data.user_id,
-                order_id: this.data.orderDetail.id
+                order_id: that.data.orderDetail.id
               },
               success(res) {
                 if (res.data.result == 1) {
