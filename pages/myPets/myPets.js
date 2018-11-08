@@ -4,11 +4,15 @@ const app = getApp()
 
 Page({
   data: {
-    myPetList: null, //宠物列表
-  },
+		myPetList: null, //宠物列表
+		//petAddoK:""
+	},
+	onUnload(){
+	//	this.navigateBack();
+	},
   onLoad(){
 	  this.getMyPetList();
-  },
+	},
   getMyPetList(){
 	  let that = this;
 		wx.request({
@@ -20,9 +24,31 @@ Page({
 				console.log(res)
 			  that.setData({
 				  myPetList: res.data.data
-			  })
+				})
+				var pages = getCurrentPages(); // 获取页面栈
+			//	console.log(pages)
 		  },
 		})
+	},
+	navigateBack:function(){
+		var that = this;
+		var pages = getCurrentPages();
+		//var petAddoK="";
+		var value = wx.getStorageSync('petAddoK')
+		console.log(value)
+			if (value) {
+				console.log(pages[0].route);
+				let ulr=pages[0].route.replace("pages","..")
+				console.log(ulr)
+				wx.navigateTo({
+					url: "../mine/mine"
+				});
+			} else {
+				wx.navigateBack({ changed: true });//返回上一页
+			}
+		// wx.navigateBack({
+		// 	delta: 1
+		// 	})
+	}
 
-  }
 })

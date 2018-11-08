@@ -24,7 +24,7 @@
             <text class="petsAdd_form_item_title">生日：</text>
             <picker class="petsAdd_form_item_content" mode="date"  value="{{pet_birthday}}" bindchange="bindDateChange">
                 <text class="picker"> {{pet_birthday}} </text>
-                <text>点击选择</text>
+                <text wx:if="{{!pet_birthday}}">点击选择</text>
             </picker>
         </view>
         <view class="petsAdd_form_item petsAdd_form_item_other">

@@ -177,7 +177,12 @@ Page({
             duration: 2000,
             mask: true
           })
+          var pages = getCurrentPages(); // 获取页面栈
+          console.log(pages)
+         // wx.getStorage(wx.getStorageSync)
+         wx.setStorage({key:"petAddoK",data:true});
           wx.navigateTo({
+          
             url: '../myPets/myPets',
           })
         }

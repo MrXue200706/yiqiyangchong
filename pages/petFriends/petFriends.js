@@ -37,7 +37,9 @@ Page({
       //设置顶部显示文字
       wx.setNavigationBarTitle({ title: '宠友列表' }) 
     }
+  
 if(this.data.petType =="friends"){
+  
   wx.request({
     url: urlStr,
     method: 'get',
@@ -53,11 +55,12 @@ if(this.data.petType =="friends"){
     },
   })
 }else{
+ 
   wx.request({
     url: urlStr,
     method: 'GET',
     data: {
-      user_id: this.data.uid
+      user_id: app.globalData.userInfo.data.data.user_id,
     }, success(res) {
       console.log(res)
       that.setData({
@@ -74,13 +77,15 @@ if(this.data.petType =="friends"){
       this.unFocusOn(e)
     }else{
       let fid = e.currentTarget.dataset.id
+      let followid = e.currentTarget.dataset.followid
+      let usersid = e.currentTarget.dataset.usersid
       let that = this;
       wx.request({
         url: 'https://wechatapi.vipcsg.com/index/member/follow',
         method: 'POST',
         data: {
           user_id: app.globalData.userInfo.data.data.user_id,
-          follow_id: fid
+          follow_id: fid||followid||usersid
         }, success(res) {
           if (res.data.result == 1) {
             //弹窗提示
@@ -100,14 +105,17 @@ if(this.data.petType =="friends"){
     }
   },
   unFocusOn(e) {//取消关注
+    console.log(1111)
     let fid = e.currentTarget.dataset.id
+    let followid = e.currentTarget.dataset.followid
+    let usersid = e.currentTarget.dataset.usersid
     let that = this;
     wx.request({
       url: 'https://wechatapi.vipcsg.com/index/member/unfollow',
       method: 'POST',
       data: {
         user_id: app.globalData.userInfo.data.data.user_id,
-        follow_id: fid
+        follow_id: fid ||followid || usersid
       }, success(res) {
         if (res.data.result == 1) {
 

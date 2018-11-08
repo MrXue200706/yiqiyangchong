@@ -42,7 +42,7 @@
   <!--推荐-->
   <view class="goodsTogether_recommend">
     <text>{{goods_detail.pet_friend_count}}名宠友推荐</text>
-    <navigator url="../petFriends/petFriends" class="goodsTogether_recommend_avatar">
+    <navigator url="../petFriends/petFriends?pageType=mine&petType=friends&goodid={{goods_detail.id}}" class="goodsTogether_recommend_avatar">
       <!-- <view class="goodsDetail_recommend_avatar_item">
          <image class="goodsDetail_recommend_avatar_item_img" src="{{item.avatarUrl}}" mode="widthFix" wx:if="{{index==0}}"></image>
           <image class="goodsDetail_recommend_avatar_item_img" src="{{item.avatarUrl}}" mode="widthFix" wx:else></image>

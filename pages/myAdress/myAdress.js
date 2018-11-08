@@ -49,7 +49,7 @@ Page({
     let adrId = e.currentTarget.dataset.id;
     let addrMsg = e.currentTarget.dataset.item;
     console.log(addrMsg)
-    debugger;
+    //debugger;
     if (this.data.order_id != null){
       //待支付页面跳转过来
       wx.navigateTo({

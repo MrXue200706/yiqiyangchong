@@ -28,7 +28,8 @@ Page({
 					that.setData({ 
 						consignee: adressList[i].name, 
 						phoneNumber: adressList[i].phone, 
-						address: adressList[i].addres 
+						region:that.splitAddress(adressList[i].addres),
+						address: that.splitAddress(adressList[i].addres).length>=4? that.splitAddress(adressList[i].addres)[3]:" "
 					});
 					break;
 				}
@@ -41,7 +42,14 @@ Page({
 		});
 		wx.setNavigationBarTitle({ title: '编辑收货地址' })  
 	}
-  },
+	},
+	splitAddress(address){
+		if(!address){
+			return null
+		}
+		var adderssArr=address.split("-");
+		return adderssArr
+	},
   setDefault() {
     console.log(!this.data.defaultFlag)
 		this.setData({
@@ -69,7 +77,7 @@ Page({
   },
   //保存收货地址
   saveForm: function(){
-    let area = this.data.region[0] + this.data.region[1] + this.data.region[2];
+    let area = this.data.region[0] +"-"+ this.data.region[1]+"-" + this.data.region[2]+"-";
 	if(this.data.type != null && this.data.type != "" && this.data.type == "editAdr") {
     //编辑状态
 		wx.request({

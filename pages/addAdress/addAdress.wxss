@@ -55,3 +55,6 @@
     align-items: center;
     margin-top: 220rpx;
 }
+.addressInput{
+    width:600rpx
+}
