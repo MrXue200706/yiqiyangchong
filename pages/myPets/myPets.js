@@ -8,7 +8,7 @@ Page({
 		//petAddoK:""
 	},
 	onUnload(){
-	//	this.navigateBack();
+		this.navigateBack();
 	},
   onLoad(){
 	  this.getMyPetList();
@@ -40,9 +40,13 @@ Page({
 				console.log(pages[0].route);
 				let ulr=pages[0].route.replace("pages","..")
 				console.log(ulr)
-				wx.navigateTo({
-					url: "../mine/mine"
-				});
+				wx.setStorage({key:"petAddoK",data:false});
+				wx.switchTab({
+					url: '../mine/mine',
+				})
+				// wx.navigateTo({
+				// 	url: "../mine/mine"
+				// });
 			} else {
 				wx.navigateBack({ changed: true });//返回上一页
 			}

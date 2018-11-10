@@ -93,7 +93,8 @@ Page({
 		  }, success(res) {
 			console.log(res)
 			if (res.data.result == 1){
-			  //保存成功
+				//保存成功
+				wx.setStorage({key:"adressAddoK",data:true});
 			  wx.navigateTo({
 				url: '../myAdress/myAdress',
 			  })
@@ -116,7 +117,8 @@ Page({
 			"addres": area + this.data.address
 		  }, success(res) {
 			if (res.data.result == 1){
-			  //保存成功
+				//保存成功
+				wx.setStorage({key:"adressAddoK",data:true});
 			  wx.navigateTo({
 				url: '../myAdress/myAdress',
 			  })

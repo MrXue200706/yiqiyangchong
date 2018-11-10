@@ -124,3 +124,65 @@
 button::after {
     border: none
   }
+  .surperShop_content_view{
+    padding: 20rpx;
+    margin: 0 20rpx;
+    padding-top: 40rpx;
+    padding-bottom: 40rpx;
+    border-top: 1rpx solid #d2d2d2;
+}
+.surperShop_goods_recommend_avatar{
+    margin-right: 28rpx;
+    float: left;
+    display: flex;
+    flex-wrap: nowrap;
+}
+.surperShop_goods_recommend_avatar_item{
+    width: 50rpx;
+    height: 50rpx;
+    border-radius: 50%;
+    background-color: #888;
+    flex-shrink: 0;
+    border: 1rpx solid #fff;
+    box-sizing: border-box;
+    margin-left: -26rpx;
+    overflow: hidden;
+}
+.surperShop_goods_recommend_avatar_item_img{
+    width: 100%;
+}
+.special_topic_detail_item{
+    width: 100%;
+    text-align: center;
+}
+.special_content_item{
+    display: inline-block;
+    margin: 5rpx;
+    width: 10%;
+  
+}
+.bottom_img_list_view{
+    margin: 0 15rpx;
+}
+.joinChoujian{
+    height: 150rpx;
+    width: 150rpx;
+    line-height: 150rpx;
+    margin: 30rpx auto;
+    border-radius: 50%;
+    background:rgb(241, 49, 48);
+    text-align: center;
+    margin-top: 50rpx;
+}
+.choujianText{
+    color: #fff;
+    font-size: 28rpx;
+}
+.joinPerson{
+    text-align: center;
+    color: #888;
+    font-size: 24rpx;
+    display: block;
+    margin: 15rpx auto;
+
+}

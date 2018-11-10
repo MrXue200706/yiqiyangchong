@@ -32,10 +32,24 @@
             <text class="petsDetail_title_item_time">{{petDetail.pet_birthday}}</text>
         </view>
     </view>
+    
 
     <!--内容-->
     <view class="petsDetail_content">
         <text>{{petDetail.pet_story}}</text>
+    </view>
+    <view class="surperShop_content_view" wx:if="{{petDetail.pet_like_avatar.length}}">
+        <!-- <view class="joinChoujian"  bindtap="jionClick" >
+            <text class="choujianText">参加抽奖</text>
+        </view> -->
+        <view>
+            <text class="joinPerson" wx:if="{{petDetail.pet_like_avatar.length}}">已有{{petDetail.pet_like_avatar.length}}人为你点赞</text>
+            <view class="special_topic_detail_item"> 
+                    <view class="special_content_item" wx:for="{{petDetail.pet_like_avatar}}">
+                    <image mode="widthFix" src="{{item.avatarUrl}}" class="surperShop_goods_recommend_avatar_item_img"></image>
+                </view>
+            </view>
+        </view>
     </view>
 
     <!--占位-->

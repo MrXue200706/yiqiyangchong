@@ -2,9 +2,9 @@
     <!--文章-->
     <view class="specialTopicDetail_p">
         <view class="specialTopicDetail_p_p">
-            <text>
+            <!-- <text>
                 昨夜，苹果悄然在官网上更新了 4 款 MacBook Pro，包括了 13 英寸和 15 英寸各两款。新 MacBook Pro 换上了新的屏幕面板，更新了此前被诟病的蝶式键盘，搭载了英特尔 8 代处理器，并配备 iMac Pro 所采用的苹果 T2 芯片。如需进一步了解新款 MacBook Pro 的细节，欢迎跳转至爱范儿昨夜发布的具体解读《刚刚，新 MacBook 发布了》
-            </text>
+            </text> -->
         </view>
         <view class="specialTopicDetail_p_img">
             <image mode="widthFix" src="{{special_topic_detail.project_info.project_img}}"></image>
@@ -12,21 +12,27 @@
     </view>
 
     <!--商品推荐-->
-    <navigator url="../goodsDetail/goodsDetail" class="specialTopicDetail_goods" wx:for="{{special_topic_detail.goods_list}}" wx:key="{{item.id}}">
+    <view class="specialTopicDetailName">{{special_topic_detail.project_info.project_title}}</view>
+    <navigator url="../goodsDetail/goodsDetail?type=normal&id={{item.id}}&param_id={{item.id}}" class="specialTopicDetail_goods" wx:for="{{special_topic_detail.goods_list}}" wx:key="{{item.id}}">
         <view class="specialTopicDetail_goods_img">
             <image src="{{item.goods_img}}" mode="widthFix"></image>
         </view>
         <view class="specialTopicDetail_goods_text">
             <view class="specialTopicDetail_goods_text_title">{{item.goods_name}}</view>
-            <view class="specialTopicDetail_goods_recommend">
-                <view class="specialTopicDetail_goods_recommend_avatar">
+            <view class="specialTopicDetail_goods_recommend"> 
+                <!-- <view class="specialTopicDetail_goods_recommend_avatar">
                     <view class="specialTopicDetail_goods_recommend_avatar_item specialTopicDetail_goods_recommend_avatar_first"></view>
                     <view class="specialTopicDetail_goods_recommend_avatar_item"></view>
                     <view class="specialTopicDetail_goods_recommend_avatar_item"></view>
                     <view class="specialTopicDetail_goods_recommend_avatar_item"></view>
                     <view class="specialTopicDetail_goods_recommend_avatar_item"></view>
+                </view> -->
+                 <view class="surperShop_goods_recommend_avatar">
+                    <view class="surperShop_goods_recommend_avatar_item" wx:for="{{item.pet_friend_list}}" wx:key="item.id">
+                        <image mode="widthFix" src="{{item.avatarUrl}}" class="surperShop_goods_recommend_avatar_item_img"></image>
+                    </view>
                 </view>
-                <text class="specialTopicDetail_goods_recommend_content">1212推荐</text>
+                <text class="specialTopicDetail_goods_recommend_content">{{item.pet_friend_count}}推荐</text>
             </view>
             <view class="specialTopicDetail_goods_text_bottom">
                 <text class="specialTopicDetail_goods_text_bottom_red">￥{{item.price}}</text>
@@ -35,17 +41,44 @@
             </view>
         </view>
     </navigator>
-
+    <!-- 抽奖 -->
+    <view class="surperShop_content_view">
+        <view class="joinChoujian"  bindtap="jionClick" >
+            <text class="choujianText">参加抽奖</text>
+        </view>
+        <view>
+            <text class="joinPerson">已有{{special_topic_detail.like}}人参加</text>
+            <view class="special_topic_detail_item"> 
+                <view class="special_content_item" wx:for="{{special_topic_detail.project_like_avatar}}">
+                    <image mode="widthFix" src="{{item.avatarUrl}}" class="surperShop_goods_recommend_avatar_item_img"></image>
+                </view>
+            </view>
+        </view>
+    </view>
+   <view class="specialTopicDetail_p">
+        <view class="specialTopicDetail_p_p">
+            <text>
+             {{special_topic_detail.project_info.project_desc}}
+            </text>
+        </view>
+    </view>
+    
+   <!-- 图片列表 -->
+   <view class="bottom_img_list_view">
+        <image wx:for="{{special_topic_detail.project_info.content_img_list}}" mode="widthFix" src="{{item.project_img}}" class="surperShop_goods_recommend_avatar_item_img" wx:key="{{item.project_img}}"></image>
+   </view>
     <!--占位-->
     <view class="palceholder"></view>
 
     <!--底部-->
     <view class="specialTopicDetail_foot">
-        <view class="specialTopicDetail_foot_left"></view>
+        <view class="specialTopicDetail_foot_left">
+            <button class="specialTopicDetail_foot_right_share" open-type="share">分享给好友</button>
+        </view>
         <view class="specialTopicDetail_foot_right">
-            <text class="specialTopicDetail_foot_right_follow">点赞12112</text>
-            |
-            <text class="specialTopicDetail_foot_right_share">分享</text>
+            <!-- <text class="specialTopicDetail_foot_right_follow">点赞12112</text>
+            | -->
+            <view class="specialTopicDetail_foot_right_more" bindtap="gotoIndex">更多抽奖福利</view>
         </view>
     </view>
 </view>

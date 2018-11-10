@@ -18,6 +18,9 @@ Page({
     ct: 'n', //参团情况
     order_id: null, //订单id，如果不为null，则是支付页跳过来选择地址
   },
+  onUnload(){
+		this.navigateBack();
+	},
   onLoad(options) {
     this.setData({
       type: options.type == undefined ? 'editAdr' : options.type,
@@ -45,6 +48,28 @@ Page({
       },
     })
   },
+  navigateBack:function(){
+		var that = this;
+		var pages = getCurrentPages();
+		//var petAddoK="";
+		var value = wx.getStorageSync('adressAddoK')
+		console.log(value)
+			if (value) {
+				console.log(pages[0].route);
+				let ulr=pages[0].route.replace("pages","..")
+				console.log(ulr)
+				wx.setStorage({key:"adressAddoK",data:false});
+				wx.switchTab({
+					url: '../mine/mine',
+				})
+				// wx.navigateTo({
+				// 	url: "../mine/mine"
+				// });
+			} else {
+				wx.navigateBack({ changed: true });//返回上一页
+			}
+
+	},
   chooseAdr(e) {
     let adrId = e.currentTarget.dataset.id;
     let addrMsg = e.currentTarget.dataset.item;

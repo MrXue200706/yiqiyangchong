@@ -3,7 +3,7 @@
 }
 /*文章*/
 .specialTopicDetail_p{
-    padding: 0 28rpx;
+    padding: 10rpx 28rpx 40rpx 28rpx;
 }
 .specialTopicDetail_p_p{
     padding: 0 10rpx;
@@ -106,8 +106,8 @@
 
 /*底部*/
 .specialTopicDetail_foot{
-    width: 100%;
-    height: 100rpx;
+     width: 100%; 
+    height: 85rpx;
     border-top: 1px solid #d2d2d2;
     position: fixed;
     bottom: 0;
@@ -115,18 +115,105 @@
     justify-content: space-between;
     background-color: #fff;
 }
-.specialTopicDetail_foot_right{
-    height: 100rpx;
-    line-height: 100rpx;
+.specialTopicDetail_foot_left,.specialTopicDetail_foot_right{
+    height: 85rpx;
+    line-height: 85rpx;
     font-size: 24rpx;
     color: #666;
+    width: 48%;
+    margin: 0 1%;
+    text-align: center;
 }
-.specialTopicDetail_foot_right_follow,.specialTopicDetail_foot_right_share{
-    padding: 0 46rpx;
+.specialTopicDetail_foot_right_share{
+    /* padding: 0 46rpx; */
+    border: 1px solid #d2d2d2;
+    width: 95%;
+    /* height: 55rpx; */
+    margin: 15rpx auto;
+    background:rgb(241, 49, 48);
+    color: #fff; 
+    line-height: 55rpx;
+    font-size: 24rpx;
+    padding: 0;
 }
+.specialTopicDetail_foot_right_more{
+    /* background:rgb(241, 49, 48); */
+    color: #333; 
+    border: 1px solid #d2d2d2;
+    width: 95%;
+    height: 55rpx;
+    line-height: 55rpx;
+    margin: 15rpx auto;
+}
+
 
 /*占位*/
 .palceholder{
     height: 100rpx;
     width: 100%;
+}
+.joinChoujian{
+    height: 150rpx;
+    width: 150rpx;
+    line-height: 150rpx;
+    margin: 30rpx auto;
+    border-radius: 50%;
+    background:rgb(241, 49, 48);
+    text-align: center;
+    margin-top: 50rpx;
+}
+.choujianText{
+    color: #fff;
+    font-size: 28rpx;
+}
+.joinPerson{
+    text-align: center;
+    color: #888;
+    font-size: 24rpx;
+    display: block;
+    margin: 15rpx auto;
+
+}
+.surperShop_content_view{
+    margin: 20rpx;
+    margin-top: 40rpx;
+    margin-bottom: 0rpx;
+}
+.surperShop_goods_recommend_avatar{
+    margin-right: 28rpx;
+    float: left;
+    display: flex;
+    flex-wrap: nowrap;
+}
+.surperShop_goods_recommend_avatar_item{
+    width: 50rpx;
+    height: 50rpx;
+    border-radius: 50%;
+    background-color: #888;
+    flex-shrink: 0;
+    border: 1rpx solid #fff;
+    box-sizing: border-box;
+    margin-left: -26rpx;
+    overflow: hidden;
+}
+.surperShop_goods_recommend_avatar_item_img{
+    width: 100%;
+}
+.special_topic_detail_item{
+    width: 100%;
+    text-align: center;
+}
+.special_content_item{
+    display: inline-block;
+    margin: 5rpx;
+    width: 10%;
+  
+}
+.bottom_img_list_view{
+    margin: 0 15rpx;
+}
+.specialTopicDetailName{
+    margin-left: 20rpx;
+    font-size: 28rpx;
+    font-weight: bold;
 }
