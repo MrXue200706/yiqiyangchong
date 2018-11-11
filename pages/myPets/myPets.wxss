@@ -68,3 +68,14 @@
     font-size: 30rpx;
     margin-left: 28rpx;
 }
+.delmenchon{
+    width: 50rpx;
+    height: 50rpx;
+    position: absolute;
+    top: 15rpx;
+    right: 20rpx;
+    z-index: 99;
+}
+.delmenchon_img{
+    width: 100%
+}

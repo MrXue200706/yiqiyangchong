@@ -43,6 +43,23 @@ Page({
 		wx.setNavigationBarTitle({ title: '编辑收货地址' })  
 	}
 	},
+	onShow(options){
+		var value = wx.getStorageSync('adressAddoK');
+		var valuelist = wx.getStorageSync('adressAddListoK');
+    if (value&&valuelist) {
+      // console.log(pages[0].route);
+      // let ulr=pages[0].route.replace("pages","..")
+      // console.log(ulr)
+			wx.setStorage({key:"adressAddoK",data:false});
+			wx.setStorage({key:"adressAddListoK",data:false});
+			wx.switchTab({
+				url: '../mine/mine',
+			})
+			return;
+		}
+		console.log(options)
+
+	},
 	splitAddress(address){
 		if(!address){
 			return null
@@ -74,7 +91,29 @@ Page({
     this.setData({
       region: e.detail.value
     })
-  },
+	},
+	navigatebacks(){
+		var that = this;
+		var pages = getCurrentPages();
+		//var petAddoK="";
+		var value = wx.getStorageSync('adressAddoK')
+		console.log(value)
+			if (value) {
+				console.log(pages[0].route);
+				let ulr=pages[0].route.replace("pages","..")
+				console.log(ulr)
+        wx.setStorage({key:"adressAddoK",data:false});
+        //debugger
+				wx.switchTab({
+					url: '../mine/mine',
+				})
+				// wx.navigateTo({
+				// 	url: "../mine/mine"
+				// });
+			} else {
+				//wx.navigateBack({ changed: true });//返回上一页
+			}
+	},
   //保存收货地址
   saveForm: function(){
     let area = this.data.region[0] +"-"+ this.data.region[1]+"-" + this.data.region[2]+"-";

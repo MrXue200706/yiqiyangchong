@@ -7,11 +7,15 @@ Page({
 		myPetList: null, //宠物列表
 		//petAddoK:""
 	},
-	onUnload(){
-		this.navigateBack();
-	},
   onLoad(){
-	  this.getMyPetList();
+		this.getMyPetList();
+		var value = wx.getStorageSync('petAddoK');
+    if (value) {
+      // console.log(pages[0].route);
+      // let ulr=pages[0].route.replace("pages","..")
+      // console.log(ulr)
+      wx.setStorage({key:"petAddlistoK",data:true});
+    }
 	},
   getMyPetList(){
 	  let that = this;
@@ -28,6 +32,42 @@ Page({
 				var pages = getCurrentPages(); // 获取页面栈
 			//	console.log(pages)
 		  },
+		})
+	},
+	delthepet(e){
+		let that=this;
+		console.log(e)
+		wx.request({
+		  url: 'https://wechatapi.vipcsg.com/index/member/delete_pet',
+		  method: 'post',
+		  data: {
+				user_id: app.globalData.userInfo.data.data.user_id,
+				pet_id:e.currentTarget.dataset.petid
+		  }, success(res) {
+				console.log(res)
+				if(res.data.result==1){
+					wx.showToast({
+						title: '删除成功',
+						icon: 'succes',
+						duration: 2000,
+						mask: true,
+						success: function() {
+							that.getMyPetList()
+							//返回订单列表页？
+							// wx.navigateTo({
+							// 	url: '../orderList/orderList?ptype=unpay',
+							// })
+						}
+					})
+				}
+				var pages = getCurrentPages(); // 获取页面栈
+			//	console.log(pages)
+		  },
+		})
+	},
+	gotopetdetail(e){
+		wx.navigateTo({
+			url:"../petsDetail/petsDetail?pet_id="+e.currentTarget.dataset.petid+"&editmore=true"
 		})
 	},
 	navigateBack:function(){

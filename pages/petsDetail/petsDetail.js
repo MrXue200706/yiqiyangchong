@@ -16,7 +16,9 @@ Page({
 		pet_id: options.pet_id,
 		userInfoID:app.globalData.userInfo.data.data.user_id
 	  });
-	  this.loadPetDetail(options.pet_id,options.user_id);
+    this.loadPetDetail(options.pet_id,options.user_id);
+    wx.setStorage({key:"petAddoK",data:false});
+    wx.setStorage({key:"petAddlistoK",data:false});
   },
   loadPetDetail(pId){
 		let that = this;

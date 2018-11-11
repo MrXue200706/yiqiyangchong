@@ -11,8 +11,22 @@
         </view>
     </view>
 
+     <view class="specialTopicDetailName">{{special_topic_detail.project_info.project_title}}</view>
+
+    <view class="specialTopicDetail_p">
+        <view class="specialTopicDetail_p_p">
+            <text>
+             {{special_topic_detail.project_info.project_desc}}
+            </text>
+        </view>
+    </view>
+    
+   <!-- 图片列表 -->
+   <view class="bottom_img_list_view">
+        <image wx:for="{{special_topic_detail.project_info.content_img_list}}" mode="widthFix" src="{{item.project_img}}" class="surperShop_goods_recommend_avatar_item_img" wx:key="{{item.project_img}}"></image>
+   </view>
     <!--商品推荐-->
-    <view class="specialTopicDetailName">{{special_topic_detail.project_info.project_title}}</view>
+   
     <navigator url="../goodsDetail/goodsDetail?type=normal&id={{item.id}}&param_id={{item.id}}" class="specialTopicDetail_goods" wx:for="{{special_topic_detail.goods_list}}" wx:key="{{item.id}}">
         <view class="specialTopicDetail_goods_img">
             <image src="{{item.goods_img}}" mode="widthFix"></image>
@@ -43,8 +57,9 @@
     </navigator>
     <!-- 抽奖 -->
     <view class="surperShop_content_view">
-        <view class="joinChoujian"  bindtap="jionClick" >
-            <text class="choujianText">参加抽奖</text>
+        <view class="{{joinChoujian}}"  bindtap="jionClick" >
+            <text class="choujianText" wx:if="{{islike==0}}">参加抽奖</text>
+            <text class="choujianText" wx:else>已参加</text>
         </view>
         <view>
             <text class="joinPerson">已有{{special_topic_detail.like}}人参加</text>
@@ -55,18 +70,7 @@
             </view>
         </view>
     </view>
-   <view class="specialTopicDetail_p">
-        <view class="specialTopicDetail_p_p">
-            <text>
-             {{special_topic_detail.project_info.project_desc}}
-            </text>
-        </view>
-    </view>
-    
-   <!-- 图片列表 -->
-   <view class="bottom_img_list_view">
-        <image wx:for="{{special_topic_detail.project_info.content_img_list}}" mode="widthFix" src="{{item.project_img}}" class="surperShop_goods_recommend_avatar_item_img" wx:key="{{item.project_img}}"></image>
-   </view>
+  
     <!--占位-->
     <view class="palceholder"></view>
 

@@ -1,11 +1,14 @@
 <view class="myPets">
     <!--萌宠框-->
     <view class="myPets_items">
-        <navigator url="../petsDetail/petsDetail?pet_id={{item.id}}" class="myPets_item" wx:for="{{myPetList}}" wx:key="item.id">
+        <view url="../petsDetail/petsDetail?pet_id={{item.id}}&editmore=true" class="myPets_item" wx:for="{{myPetList}}" wx:key="item.id">
+            <view class="delmenchon" bindtap="delthepet" data-petid="{{item.id}}">
+                <image class="delmenchon_img" mode="widthFix" src="../../images/del.png"></image>
+            </view>
             <view class="myPets_item_img">
                 <image mode="widthFix" src="{{item.pet_img}}"></image>
             </view>
-            <view class="myPets_item_content">
+            <view class="myPets_item_content" bindtap="gotopetdetail" data-petid="{{item.id}}">
                 <view>
                     <text class="myPets_item_content_item myPets_item_content_item_blue">
                         <text>{{item.pet_sex}}</text>
@@ -22,11 +25,12 @@
                     </text>
                 </view>
             </view>
-        </navigator>
+        </view>
+        <!-- <view class="delmenchon"> <image mode="widthFix" src="../../images/del.png"></image></view> -->
     </view>
 
     <!--添加宠物信息-->
-    <navigator url="../petsAdd/petsAdd" class="myPets_add">
+    <navigator url="../petsAdd/petsAdd?editmore=true" class="myPets_add">
         <view class="myPets_add_icon">
             <text>+</text>
         </view>

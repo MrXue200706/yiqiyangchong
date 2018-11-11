@@ -1,6 +1,6 @@
 <view class="petFriends">
   <view class="petFriends_item" wx:for="{{petList}}" wx:key="item.follow_id">
-    <navigator url="../expert/expert?key={{item.id}}" class="petFriends_item_left">
+    <navigator url="../expert/expert?key={{item.id||item.follow_id||item.user_id}}" class="petFriends_item_left">
       <!-- <navigator url="../expert/expert?key={{item.follow_id}}" class="petFriends_item_left"> -->
       <view class="petFriends_item_avatar">
         <image mode="widthFix" src="{{item.avatarUrl}}"></image>

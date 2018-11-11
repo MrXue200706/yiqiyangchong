@@ -6,6 +6,8 @@ Page({
   data: {
     special_topic_detail:{},//详情
     specialid:"",
+    islike:0,
+    joinChoujian:"joinChoujian"
   },
   onLoad(o){
     this.setData({
@@ -25,7 +27,9 @@ Page({
       },
       success(res) {
         that.setData({
-          special_topic_detail: res.data.data
+          special_topic_detail: res.data.data,
+          islike: res.data.data.is_like,
+          joinChoujian:"unjoinChoujian"
         })
         console.log(that.data.special_topic_detail)
       },
@@ -34,6 +38,9 @@ Page({
   //点赞按钮
   jionClick(){
     let that = this;
+    if(that.data.islike==1){
+      return
+    }
     wx.request({
       url: 'https://wechatapi.vipcsg.com/index/project/like',
       method: 'POST',

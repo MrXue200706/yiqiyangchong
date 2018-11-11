@@ -18,8 +18,8 @@ Page({
     ct: 'n', //参团情况
     order_id: null, //订单id，如果不为null，则是支付页跳过来选择地址
   },
-  onUnload(){
-		this.navigateBack();
+  onHide(){
+	//	this.navigatebacks();
 	},
   onLoad(options) {
     this.setData({
@@ -33,7 +33,17 @@ Page({
       order_id: options.order_id == undefined ? null : options.order_id,
     })
     this.getAddressList();
+    var value = wx.getStorageSync('adressAddoK');
+    if (value) {
+      // console.log(pages[0].route);
+      // let ulr=pages[0].route.replace("pages","..")
+      // console.log(ulr)
+      wx.setStorage({key:"adressAddListoK",data:true});
+    }
+   // this.navigatebacks();
   },
+ 
+  
   getAddressList() {
     let that = this;
     wx.request({
@@ -48,7 +58,7 @@ Page({
       },
     })
   },
-  navigateBack:function(){
+  navigatebacks(){
 		var that = this;
 		var pages = getCurrentPages();
 		//var petAddoK="";
@@ -58,7 +68,8 @@ Page({
 				console.log(pages[0].route);
 				let ulr=pages[0].route.replace("pages","..")
 				console.log(ulr)
-				wx.setStorage({key:"adressAddoK",data:false});
+        wx.setStorage({key:"adressAddoK",data:false});
+        //debugger
 				wx.switchTab({
 					url: '../mine/mine',
 				})
@@ -66,9 +77,8 @@ Page({
 				// 	url: "../mine/mine"
 				// });
 			} else {
-				wx.navigateBack({ changed: true });//返回上一页
+				//wx.navigateBack({ changed: true });//返回上一页
 			}
-
 	},
   chooseAdr(e) {
     let adrId = e.currentTarget.dataset.id;
@@ -93,6 +103,7 @@ Page({
       wx.navigateBack();
     } else {
       //进入编辑页面
+      wx.setStorage({key:"adressAddoK",data:false});
       wx.navigateTo({
         url: '../addAdress/addAdress?type=editAdr&adrId=' + adrId,
       });
@@ -101,6 +112,7 @@ Page({
   editAddr(e){
     let adrId = e.currentTarget.dataset.id;
     //进入编辑页面
+    wx.setStorage({key:"adressAddoK",data:false});
     wx.navigateTo({
       url: '../addAdress/addAdress?type=editAdr&adrId=' + adrId,
     });
