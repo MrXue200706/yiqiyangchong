@@ -1,4 +1,4 @@
-<view class="petsAdd">
+<view class="{{petsAdd}}">
     <!--表单内容-->
     <view class="petsAdd_form">
         <view class="petsAdd_form_item">

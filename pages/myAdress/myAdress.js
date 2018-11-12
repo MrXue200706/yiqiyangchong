@@ -17,11 +17,13 @@ Page({
     order_no: null, //订单NO
     ct: 'n', //参团情况
     order_id: null, //订单id，如果不为null，则是支付页跳过来选择地址
+    from:null
   },
   onHide(){
 	//	this.navigatebacks();
 	},
   onLoad(options) {
+    console.log(options)
     this.setData({
       type: options.type == undefined ? 'editAdr' : options.type,
       goods_id: options.goods_id == undefined ? null : options.goods_id,
@@ -31,6 +33,7 @@ Page({
       ct: options.ct == undefined ? null : options.ct,
       order_no: options.order_no == undefined ? null : options.order_no,
       order_id: options.order_id == undefined ? null : options.order_id,
+      from:options.from == undefined ? null : options.from,
     })
     this.getAddressList();
     var value = wx.getStorageSync('adressAddoK');
@@ -85,12 +88,13 @@ Page({
     let addrMsg = e.currentTarget.dataset.item;
     console.log(addrMsg)
     //debugger;
+    console.log(this.data.order_id)
     if (this.data.order_id != null){
       //待支付页面跳转过来
       wx.navigateTo({
         url: "../unpay/unpay?ptype=unpay&order_id=" + this.data.order_id + "&adrId=" + adrId
       })
-    } else if (this.data.type == "shopping" || this.data.type == "together" || this.data.type == "normal") {
+    } else if (this.data.type == "shopping" || this.data.type == "together" || this.data.type == "normal"||this.data.type == "activity") {
       //获取页面栈
       var pages = getCurrentPages();
       //获取上一页
@@ -105,7 +109,7 @@ Page({
       //进入编辑页面
       wx.setStorage({key:"adressAddoK",data:false});
       wx.navigateTo({
-        url: '../addAdress/addAdress?type=editAdr&adrId=' + adrId,
+        url: '../addAdress/addAdress?type=editAdr&&order_id=' + this.data.order_id+'&adrId=' + adrId,
       });
     }
   },
@@ -113,8 +117,9 @@ Page({
     let adrId = e.currentTarget.dataset.id;
     //进入编辑页面
     wx.setStorage({key:"adressAddoK",data:false});
+    console.log(this.data)
     wx.navigateTo({
-      url: '../addAdress/addAdress?type=editAdr&adrId=' + adrId,
+      url: '../addAdress/addAdress?type=editAdr&from=' + this.data.from+'&adrId=' + adrId,
     });
   },
   setDef(e) {

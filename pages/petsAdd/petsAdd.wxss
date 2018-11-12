@@ -1,6 +1,10 @@
 .petsAdd{
     padding: 0 28rpx;
 }
+.hidepets{
+    padding: 0 28rpx;
+    display: none;
+}
 scroll-view{
   width:calc(100% - 220rpx)
 }

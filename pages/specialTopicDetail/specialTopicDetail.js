@@ -29,7 +29,7 @@ Page({
         that.setData({
           special_topic_detail: res.data.data,
           islike: res.data.data.is_like,
-          joinChoujian:"unjoinChoujian"
+          joinChoujian:res.data.data.is_like==0?"joinChoujian":"unjoinChoujian"
         })
         console.log(that.data.special_topic_detail)
       },

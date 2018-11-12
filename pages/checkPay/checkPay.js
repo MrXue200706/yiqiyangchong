@@ -26,6 +26,7 @@ Page({
     events_id: null, //活动ID，暂未使用
   },
   onLoad: function(options) {
+    console.log(options);
     if (options.type_selected1 == undefined || options.type_selected2 == undefined) { //如果不选规格，直接return
       wx.showToast({
         title: '加载页面出错',
@@ -156,7 +157,7 @@ Page({
   },
   chooseAdr() { //选择地址
     wx.navigateTo({
-      url: "../myAdress/myAdress?type=" + this.data.shopping
+      url: "../myAdress/myAdress?type=" + this.data.shopping+'&from=checkpay'
     })
   },
   payNow() { //立即支付

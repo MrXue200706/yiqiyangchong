@@ -13,10 +13,12 @@ Page({
     pet_img: [], //照片
     petFilePaths: null, //图片上传临时变量
     showCancelBtn:true,//删除照片按钮显示
+    petsAdd:"petsAdd"
     //editmore:true
   },
-  onLoad(options) {
+  onLoad(options) { 
     this.setData({
+      petsAdd:"petsAdd",
       pet_id: options.pet_id != undefined ? options.pet_id : null,
     })
     this.data.pet_birthday = this.stringToDate("2018-08-13", "-");
@@ -24,11 +26,18 @@ Page({
     this.getPetDetail()
   },
   onShow(options){
+    this.setData({
+     // petsAdd: "hidepets"
+    })
+    // wx.showLoading({
+    //   title: '加载中...',
+    // })
     let that=this
     var value = wx.getStorageSync('petAddoK');
     var valuelist = wx.getStorageSync('petAddlistoK');
-    console.log(value)
-			if (value&&valuelist) {
+    console.log(this)
+    //return;
+			if (value&&valuelist) {   
         wx.setStorage({key:"petAddoK",data:false});
         wx.setStorage({key:"petAddlistoK",data:false});
 				wx.switchTab({
@@ -323,7 +332,8 @@ Page({
             pet_type: res.data.data.pet_type, //品种
             pet_birthday: res.data.data.pet_birthday, //生日
             pet_story: res.data.data.pet_story, //故事
-            pet_img: res.data.data.pet_img != undefined ? res.data.data.pet_img : null //照片  
+            pet_img: res.data.data.pet_img != undefined ? res.data.data.pet_img : null ,//照片
+            petsAdd:"petsAdd",  
           })
         }
       },

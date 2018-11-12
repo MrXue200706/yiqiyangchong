@@ -10,9 +10,12 @@ Page({
     consignee:null, //收货人
     phoneNumber: null, //手机号码
     address:null ,//收货地址
-		defaultFlag:0,//设为默认的状态
+		defaultFlag:1,//设为默认的状态
+		order_id:null,
+		from:null
   },
   onLoad(options) {
+	//	console.log(options);
 	if(options.adrId != undefined && options.adrId!= null && options.adrId!="") {
 		//编辑状态，填充数据
 		let that = this;
@@ -38,7 +41,8 @@ Page({
 		})
 		this.setData({
 			adrId: options.adrId,
-			type: options.type
+			type: options.type,
+			from:options.from
 		});
 		wx.setNavigationBarTitle({ title: '编辑收货地址' })  
 	}
@@ -116,7 +120,21 @@ Page({
 	},
   //保存收货地址
   saveForm: function(){
-    let area = this.data.region[0] +"-"+ this.data.region[1]+"-" + this.data.region[2]+"-";
+	
+		let area = this.data.region[0] +"-"+ this.data.region[1]+"-" + this.data.region[2]+"-";
+		let from=this.data.from;
+		let arid=this.data.adrId
+		console.log(arid)
+		var pageroute=getCurrentPages();
+		console.log(pageroute)
+		let fromcheckpay=pageroute.filter(function(item){
+			return item.route=="pages/checkPay/checkPay"
+		})
+		var checkpayUrl;
+		if(fromcheckpay.length>0){
+			checkpayUrl="../checkPay/checkPay?ct="+fromcheckpay[0].options.cn+"&events_id=" +fromcheckpay[0].options.events_id + "&goods_id=" + fromcheckpay[0].options.goods_id+ "&order_no=" + fromcheckpay[0].options.order_no+ "&selected_numb=" + fromcheckpay[0].options.selected_numb+ "&shopping=" + fromcheckpay[0].options.shopping+ "&shoppingType=" + fromcheckpay[0].options.shoppingType+ "&type_selected1=" + fromcheckpay[0].options.type_selected1+ "&type_selected2=" + fromcheckpay[0].options.type_selected2+ "&image=" + fromcheckpay[0].options.image;
+		}
+	//	return;
 	if(this.data.type != null && this.data.type != "" && this.data.type == "editAdr") {
     //编辑状态
 		wx.request({
@@ -134,9 +152,17 @@ Page({
 			if (res.data.result == 1){
 				//保存成功
 				wx.setStorage({key:"adressAddoK",data:true});
-			  wx.navigateTo({
-				url: '../myAdress/myAdress',
-			  })
+				if(from){
+					wx.setStorage({key:"adressAddoK",data:false});  
+					wx.setStorage({key:"adressAddListoK",data:false}); 
+					wx.navigateTo({
+					  url: checkpayUrl
+						})
+				}else{
+					wx.navigateTo({
+						url: '../myAdress/myAdress',
+						})
+				}		
 			}else{
 			  //保存失败
 
@@ -158,9 +184,16 @@ Page({
 			if (res.data.result == 1){
 				//保存成功
 				wx.setStorage({key:"adressAddoK",data:true});
-			  wx.navigateTo({
-				url: '../myAdress/myAdress',
-			  })
+				if(ordid){
+					wx.navigateTo({
+					  url: "../unpay/unpay?ptype=unpay&order_id=" + ordid + "&adrId=" + arid
+						})
+				}else{
+					wx.navigateTo({
+						url: '../myAdress/myAdress',
+						})
+				}
+			
 			}else{
 			  //保存失败
 
