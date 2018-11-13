@@ -1,5 +1,7 @@
 <view class="mine">
     <!--头像-->
+<view class="hasBgCol" >
+<image class="mineTopBg" mode="widthFix" src="../../images/personCenter.jpg"></image>
     <view class="avatar">
         <view class="avatar_avatar">
             <image mode="widthFix" src="{{userInfo.member.avatarUrl}}"></image>
@@ -53,7 +55,7 @@
             <text>售后服务</text>
         </view> -->
     </view>
-
+</view>
     <!--事项-->
     <view class="official">
         <navigator url="../integral/integral?integral={{userInfo.member.integral}}" class="official_item">

@@ -126,13 +126,13 @@
 }
 .specialTopicDetail_foot_right_share{
     /* padding: 0 46rpx; */
-    border: 1px solid #d2d2d2;
+    /* border: 1px solid #d2d2d2; */
     width: 95%;
     /* height: 55rpx; */
     margin: 15rpx auto;
     background:rgb(241, 49, 48);
     color: #fff; 
-    line-height: 55rpx;
+    line-height: 56rpx;
     font-size: 24rpx;
     padding: 0;
 }
@@ -144,6 +144,7 @@
     height: 55rpx;
     line-height: 55rpx;
     margin: 15rpx auto;
+    border-radius: 10rpx;
 }
 
 

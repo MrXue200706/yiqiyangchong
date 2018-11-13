@@ -197,7 +197,7 @@ Page({
     }
     //跳转到订单详情
     wx.navigateTo({
-      url: '../unpay/unpay?ptype=' + ptype +'&order_id=' + event.currentTarget.dataset.item.id
+      url: '../unpay/unpay?ptype=' + ptype +'&order_id=' + event.currentTarget.dataset.item.id+"&fromOrder=fromOrder"
     })
   },
   onReachBottom: function () { // 下拉底部刷新

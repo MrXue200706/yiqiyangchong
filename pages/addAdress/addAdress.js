@@ -50,10 +50,18 @@ Page({
 	onShow(options){
 		var value = wx.getStorageSync('adressAddoK');
 		var valuelist = wx.getStorageSync('adressAddListoK');
+		var payok = wx.getStorageSync('ispayok');
+		if(payok){
+			wx.setStorage({key:"ispayok",data:false});
+			wx.switchTab({
+				url: '../index/index',
+			})
+			return;
+		}
     if (value&&valuelist) {
       // console.log(pages[0].route);
       // let ulr=pages[0].route.replace("pages","..")
-      // console.log(ulr)
+			// console.log(ulr)
 			wx.setStorage({key:"adressAddoK",data:false});
 			wx.setStorage({key:"adressAddListoK",data:false});
 			wx.switchTab({
@@ -152,7 +160,8 @@ Page({
 			if (res.data.result == 1){
 				//保存成功
 				wx.setStorage({key:"adressAddoK",data:true});
-				if(from){
+				console.log(from)
+				if(from&&from!=="null"){
 					wx.setStorage({key:"adressAddoK",data:false});  
 					wx.setStorage({key:"adressAddListoK",data:false}); 
 					wx.navigateTo({

@@ -97,6 +97,18 @@ Page({
       this.getGoodsDetail(o.id)
     }
   },
+  onShow(){
+    var payok = wx.getStorageSync('ispayok');
+    if (payok) {
+      // console.log(pages[0].route);
+      // let ulr=pages[0].route.replace("pages","..")
+      // console.log(ulr)
+      wx.setStorage({key:"ispayok",data:false});
+      wx.switchTab({
+        url: '../index/index',
+      })
+      return;
+   }},
   getGoodsDetail(id, flashsaleId, eventsId) { //获取页面细节
     let queryUrl = "https://wechatapi.vipcsg.com/index/goods/details"
     if (this.data.shopping == "shopping") {

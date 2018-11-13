@@ -10,6 +10,7 @@ Page({
     logisticsInfo: null, //物流信息
     ptype: "unpay", //页面类型。 takegoods: 待收货页面，unpay: 待付款
     adrId: null,
+    fromOrder:"",
     ptypeDict: {
       "unpay": "待付款",
       "takegoods": "待收货",
@@ -20,7 +21,8 @@ Page({
   onLoad(options) {
     this.setData({
       ptype: options.ptype,
-      adrId: options.adrId == undefined ? null : options.adrId
+      adrId: options.adrId == undefined ? null : options.adrId,
+      fromOrder:options.fromOrder == undefined ? null : options.fromOrder,
     })
 
     //获取订单数据
@@ -30,6 +32,10 @@ Page({
     wx.setNavigationBarTitle({
       title: this.data.ptypeDict[this.data.ptype]
     })
+    if(!options.fromOrder){
+      wx.setStorage({key:"ispayok",data:true})
+    }
+    
   },
   getOrderDetail(oid) {
     let that = this;

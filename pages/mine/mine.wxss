@@ -7,12 +7,16 @@
 }
 
 /*头像*/
+.avatar{
+    padding-top: 50rpx;
+    color: #fff;
+}
 .avatar_avatar{
     width: 120rpx;
     height: 120rpx;
     border-radius: 50%;
     background-color:#888;
-    margin-top: 50rpx;
+    /* padding-top: 50rpx; */
     margin-left: 50%;
     transform: translateX(-50%);
     border: 1px solid #fff;
@@ -51,6 +55,8 @@
     background-color: #fff;
     border-radius: 16rpx;
     display: flex;
+    position: relative;
+    z-index: 2;
 }
 .state_item{
     font-size: 22rpx;
@@ -166,4 +172,16 @@
    .kf_image{
     z-index: 9999;
     width: 100%;
+   }
+   .hasBgCol{
+       /* background: url("../../images/personCenter.jpg") no-repeat center center; */
+       background-repeat: no-repeat;
+       background-size: 100% 90%;
+       position: relative;
+   }
+   .mineTopBg{
+       position: absolute;
+       top: 0;
+       width: 100%;
+       /* z-index: -9; */
    }

@@ -171,6 +171,7 @@ Page({
                   duration: 2000,
                   mask: true
                 })
+                wx.setStorage({key:"petAddoK",data:true});
                 wx.navigateTo({
                   url: '../myPets/myPets',
                 })
@@ -184,6 +185,7 @@ Page({
                   showCancel: false,
                   success: function(res) {}
                 })
+                wx.setStorage({key:"petAddoK",data:true});
                 //跳转到列表页
                 wx.navigateTo({
                   url: '../myPets/myPets',
@@ -202,6 +204,7 @@ Page({
           var pages = getCurrentPages(); // 获取页面栈
           console.log(pages)
          // wx.getStorage(wx.getStorageSync)
+         
          wx.setStorage({key:"petAddoK",data:true});
           wx.navigateTo({
           

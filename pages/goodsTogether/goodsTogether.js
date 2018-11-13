@@ -128,6 +128,8 @@ Page({
         events_id: this.data.events_id
       },
       success(res) {
+        console.log("goods_detail")
+        console.log(res.data.data)
         that.setData({
           goods_detail: res.data.data,
         })

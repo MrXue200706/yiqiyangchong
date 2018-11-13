@@ -1,5 +1,13 @@
 <!--index.wxml-->
 <view class="index">
+  <view class="indexShow">
+    <view class="indexShowContent">
+      <button>
+         <image src="../../images/search.png" mode="widthFix"></image>
+      </button>
+    </view>
+  
+  </view>
   <!--搜索框-->
   <view class="search_box">
     <navigator url="../search/search" class="search_box_in">
