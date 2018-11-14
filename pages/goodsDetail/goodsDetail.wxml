@@ -13,8 +13,8 @@
             <text class="goodsDetail_title_price_gray">￥{{goods_detail.market_price}}</text>
         </view>
         <view class="goodsDetail_title_state">
-            <text>已抢购2300件</text>
-            <text>(2人团)</text>
+            <text>已抢购{{goods_detail.pet_friend_count}}件</text>
+            <!-- <text>(2人团)</text> -->
         </view>
         <view class="goodsDetail_title_content">
             <text>{{goods_detail.goods_name}}</text>

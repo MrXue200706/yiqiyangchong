@@ -139,8 +139,9 @@ Page({
 			return item.route=="pages/checkPay/checkPay"
 		})
 		var checkpayUrl;
-		if(fromcheckpay.length>0){
-			checkpayUrl="../checkPay/checkPay?ct="+fromcheckpay[0].options.cn+"&events_id=" +fromcheckpay[0].options.events_id + "&goods_id=" + fromcheckpay[0].options.goods_id+ "&order_no=" + fromcheckpay[0].options.order_no+ "&selected_numb=" + fromcheckpay[0].options.selected_numb+ "&shopping=" + fromcheckpay[0].options.shopping+ "&shoppingType=" + fromcheckpay[0].options.shoppingType+ "&type_selected1=" + fromcheckpay[0].options.type_selected1+ "&type_selected2=" + fromcheckpay[0].options.type_selected2+ "&image=" + fromcheckpay[0].options.image;
+		if(fromcheckpay.length>0){	
+			checkpayUrl="../checkPay/checkPay?ct="+fromcheckpay[0].options.ct+"&events_id=" +fromcheckpay[0].options.events_id + "&goods_id=" + fromcheckpay[0].options.goods_id+ "&order_no=" + fromcheckpay[0].options.order_no+ "&selected_numb=" + fromcheckpay[0].options.selected_numb+ "&shopping=" + fromcheckpay[0].options.shopping+ "&shoppingType=" + fromcheckpay[0].options.shoppingType+ "&type_selected1=" + fromcheckpay[0].options.type_selected1+ "&type_selected2=" + fromcheckpay[0].options.type_selected2+ "&image=" + fromcheckpay[0].options.image;
+			console.log(checkpayUrl)
 		}
 	//	return;
 	if(this.data.type != null && this.data.type != "" && this.data.type == "editAdr") {

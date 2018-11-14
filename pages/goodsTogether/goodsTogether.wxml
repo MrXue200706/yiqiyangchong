@@ -9,8 +9,8 @@
       <view class="goodsTogether_goods_text">
         <view class="goodsTogether_goods_text_title">{{goods_detail.goods_name}}</view>
         <view class="goodsTogether_goods_recommend">
-          <text>2人团</text>
-          <text>已团3232件</text>
+          <!-- <text>2人团</text> -->
+          <text>已团{{goods_detail.pet_friend_count}}件</text>
         </view>
         <view class="goodsTogether_goods_text_bottom">
           <text class="goodsTogether_goods_text_bottom_red">￥{{goods_detail.price}}</text>
@@ -27,8 +27,8 @@
       <view class="goodsTogether_goods_text">
         <view class="goodsTogether_goods_text_title">{{group_info.goods_info.goods_name}}</view>
         <view class="goodsTogether_goods_recommend">
-          <text>2人团</text>
-          <text>已团3232件</text>
+          <!-- <text>2人团</text> -->
+          <text>已团{{goods_detail.pet_friend_count}}件</text>
         </view>
         <view class="goodsTogether_goods_text_bottom">
           <text class="goodsTogether_goods_text_bottom_red">￥{{group_info.goods_info.price}}</text>
