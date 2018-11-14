@@ -33,6 +33,7 @@ Page({
   },
   onLoad(options) {
     app.checkLogin()
+    console.log(options)
     if (options.shares == 2) {
       //非团购分享，回调记录数据
       this.recordData(options)
@@ -64,7 +65,7 @@ Page({
       shopping: options.shopping == undefined ? 'normal' : options.shopping
     });
     this.getGoodsIndex();
-
+    this.getGoodsDetail()
     if (this.data.shares == null) {
       //检查是否满团
       this.groupCheck();

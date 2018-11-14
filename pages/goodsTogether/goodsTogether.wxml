@@ -10,7 +10,7 @@
         <view class="goodsTogether_goods_text_title">{{goods_detail.goods_name}}</view>
         <view class="goodsTogether_goods_recommend">
           <text>2人团</text>
-          <text>已团3232件dddd</text>
+          <text>已团3232件</text>
         </view>
         <view class="goodsTogether_goods_text_bottom">
           <text class="goodsTogether_goods_text_bottom_red">￥{{goods_detail.price}}</text>

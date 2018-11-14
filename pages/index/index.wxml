@@ -1,9 +1,12 @@
 <!--index.wxml-->
 <view class="index">
-  <view class="indexShow">
-    <view class="indexShowContent">
-      <button>
-         <image src="../../images/search.png" mode="widthFix"></image>
+  <view class="diaglong" wx:if="{{isDlaigShow}}" bindtap="changeShowDiag">
+    <view class="diagContet">
+    <view class="contentView">
+        <image class="contentViewImg" src="../../images/indexDI.png" mode="widthFix"></image>
+    </view>
+      <button class="shareBtn" open-type="share">
+         <image class="diagbtnImg" src="../../images/indexDIBTN.png" mode="widthFix"></image>
       </button>
     </view>
   
@@ -94,7 +97,7 @@
 
   <!--专题精选-->
   <view class="special_topic">
-    <text class="special_topic_title">专题精选</text>
+    <text class="special_topic_title">抽奖活动</text>
     <navigator url="../specialTopic/specialTopic" class="special_topic_more">更多 ></navigator>
     <scroll-view scroll-x="true">
       <view class="special_topic_scroll">
