@@ -58,6 +58,9 @@ Page({
     //商品详情
     this.getGoodsDetail(options.goods_id);
   },
+  onShow(){
+    //wx.setStorage({key:"ispayok",data:true});
+  },
   onReady() {
     //填充默认收货地址
     this.fullDefaultAddress();
@@ -161,6 +164,7 @@ Page({
     })
   },
   payNow() { //立即支付
+    wx.setStorage({key:"ispayok",data:true});
     if (this.data.type_selected1 == undefined) {
       wx.showToast({
         title: '数据丢失，请重新进行选择购买',
