@@ -12,8 +12,11 @@ Page({
     goods_recommend: [], //活动
     pageno: 1,
     isDlaigShow: true,
+    pet_expert_item_button:"pet_expert_item_button",
+    pet_expert_item_button_noclick:"pet_expert_item_button_noclick"
   },
   onLoad() {
+    app.checkLogin()
     //请求
     this.getSwiper();
     this.getGoodsIndex(1);
@@ -22,6 +25,10 @@ Page({
     this.getGoodsRecommend();
     this.setDiagHide()
   },
+onShow(){
+ // app.checkLogin()
+ //wx.getUserInfo()
+},
 
   //请求轮播图
   getSwiper() {
@@ -147,9 +154,14 @@ Page({
   //养宠达人
   getPetExpert() {
     let that = this;
+    console.log(app.globalData)
+    var useid="";
+    if(app.globalData.userInfo==null||app.globalData.userInfo==undefined){
+      useid=wx.getStorageSync('LoginSessionKey')
+    }
     wx.request({
       url: 'https://wechatapi.vipcsg.com/index/friend/index',
-      data: {},
+      data: {user_id:useid||app.globalData.userInfo.data.data.user_id},
       success(res) {
         that.setData({
           pet_expert: res.data.data
@@ -193,6 +205,10 @@ Page({
   //关注
   focusOn(e) {
     let friend_id = e.currentTarget.dataset.friendid
+    let isfolo=e.currentTarget.dataset.isfollow
+    if(isfolo==1){
+      return;
+    }
     let that = this;
     wx.request({
       url: 'https://wechatapi.vipcsg.com/index/member/follow',
@@ -211,7 +227,7 @@ Page({
             mask: true,
             success: function () {
               //按钮变黑
-
+              that.getPetExpert()
             }
           })
         }

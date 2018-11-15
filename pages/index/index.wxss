@@ -193,6 +193,20 @@
   transform: translateX(-50%);
   margin-top: 12rpx;
 }
+.pet_expert_item_button_noclick {
+  width: 180rpx;
+  height: 42rpx;
+  line-height: 42rpx;
+  background-color: #999;
+  color: #fff;
+  font-size: 24rpx;
+  text-align: center;
+  border-radius: 10rpx;
+  font-weight: 500;
+  margin-left: 50%;
+  transform: translateX(-50%);
+  margin-top: 12rpx;
+}
 
 /*专题精选*/
 .special_topic {

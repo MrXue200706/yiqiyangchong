@@ -87,8 +87,9 @@
           </navigator>
           <view class="pet_expert_name">{{item.nick_name}}</view>
           <view class="pet_expert_pet">{{item.pet_name}} {{item.pet_type}}</view>
-          <view class="pet_expert_item_button" data-friendId="{{item.friend_id}}" bindtap='focusOn'>
-            <text>关注</text>
+          <view class="{{item.is_follow==0?pet_expert_item_button:pet_expert_item_button_noclick}}" data-friendId="{{item.friend_id}}" bindtap='focusOn' data-isfollow="{{item.is_follow}}">
+            <text wx:if="{{item.is_follow==0}}">关注</text>
+            <text wx:else>已关注</text>
           </view>
         </view>
       </view>
