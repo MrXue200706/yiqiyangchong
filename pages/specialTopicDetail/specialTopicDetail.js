@@ -31,6 +31,9 @@ Page({
           islike: res.data.data.is_like,
           joinChoujian:res.data.data.is_like==0?"joinChoujian":"unjoinChoujian"
         })
+        wx.setNavigationBarTitle({
+          title: res.data.data.project_info.project_title 
+        })
         console.log(that.data.special_topic_detail)
       },
     })

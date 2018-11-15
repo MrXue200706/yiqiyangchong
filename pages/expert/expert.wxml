@@ -33,7 +33,7 @@
       </navigator>
       <navigator url="../collect/collect?ptype=recommend&uid={{expertDetail.member.id}}" class="expert_goods_content_item">
         <text class="expert_goods_content_item_title">推荐商品</text>
-        <text class="expert_goods_content_item_detail">已购商品:5634<!-- 缺个已购商品的数量 --></text>
+        <text class="expert_goods_content_item_detail">已购商品:{{expertDetail.order_count}}<!-- 缺个已购商品的数量 --></text>
         <view class="expert_goods_content_item_avatar">
           <view class="expert_goods_content_item_avatar_item" wx:for="{{expertDetail.order_list}}" wx:key="{{item.id}}">
             <image mode="widthFix" src="{{item.img}}"></image>

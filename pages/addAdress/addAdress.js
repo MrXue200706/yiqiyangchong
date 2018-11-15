@@ -42,7 +42,8 @@ Page({
 		this.setData({
 			adrId: options.adrId,
 			type: options.type,
-			from:options.from
+			from:options.from,
+			order_id:options.order_id
 		});
 		wx.setNavigationBarTitle({ title: '编辑收货地址' })  
 	}
@@ -128,7 +129,7 @@ Page({
 	},
   //保存收货地址
   saveForm: function(){
-	
+	let that=this
 		let area = this.data.region[0] +"-"+ this.data.region[1]+"-" + this.data.region[2]+"-";
 		let from=this.data.from;
 		let arid=this.data.adrId
@@ -194,9 +195,9 @@ Page({
 			if (res.data.result == 1){
 				//保存成功
 				wx.setStorage({key:"adressAddoK",data:true});
-				if(ordid){
+				if(that.data.order_id&that.data.order_id!="null"){
 					wx.navigateTo({
-					  url: "../unpay/unpay?ptype=unpay&order_id=" + ordid + "&adrId=" + arid
+					  url: "../unpay/unpay?ptype=unpay&order_id=" + order_id + "&adrId=" + arid
 						})
 				}else{
 					wx.navigateTo({
