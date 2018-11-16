@@ -193,11 +193,20 @@ Page({
 			"addres": area + this.data.address
 		  }, success(res) {
 			if (res.data.result == 1){
+				// //保存成功
+				// wx.setStorage({key:"adressAddoK",data:true});
+				// if(that.data.order_id&that.data.order_id!="null"){
+				// 	wx.navigateTo({
+				// 	  url: "../unpay/unpay?ptype=unpay&order_id=" + order_id + "&adrId=" + arid
+				// 		})
 				//保存成功
 				wx.setStorage({key:"adressAddoK",data:true});
-				if(that.data.order_id&that.data.order_id!="null"){
+				console.log(from)
+				if(fromcheckpay.length>0){
+					wx.setStorage({key:"adressAddoK",data:false});  
+					wx.setStorage({key:"adressAddListoK",data:false}); 
 					wx.navigateTo({
-					  url: "../unpay/unpay?ptype=unpay&order_id=" + order_id + "&adrId=" + arid
+					  url: checkpayUrl
 						})
 				}else{
 					wx.navigateTo({
