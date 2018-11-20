@@ -355,6 +355,9 @@ Page({
     })
   },
   useIntegral() { //使用积分
+    if(this.data.integralDetail==[]||this.data.integralDetail==null){
+      return
+    }
     if (this.data.is_integral != 1) {
       this.setData({
         is_integral: 1

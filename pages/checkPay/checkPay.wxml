@@ -68,11 +68,12 @@
   <view class="checkPay_ticket">
     <view class="checkPay_ticket_item" wx:if="{{shopping=='shopping'}}">
       <view class="checkPay_ticket_item_left">
-        <text>可用{{integralDetail.need_integral}}积分抵扣{{integralDetail.money}}元</text>
+        <text wx:if="{{integralDetail.need_integral||integralDetail.money}}">可用{{integralDetail.need_integral}}积分抵扣{{integralDetail.money}}元</text>
+         <text wx:else>可用积分不足</text>
       </view>
       <view class="checkPay_ticket_item_right" bindtap='useIntegral'>
         <icon type="success" size="20" wx:if="{{is_integral==1}}" />
-        <icon type="clear" size="20" wx:else />
+        <icon type="success" size="20" wx:else  color="#999"/>
       </view>
     </view>
     <view class="checkPay_ticket_item" bindtap='chooseCoupon' wx:elif="{{shopping=='normal' || shopping=='together' }}">
@@ -89,7 +90,7 @@
     <view class="checkPay_ticket_item_left_icon">
       <text>积分</text>
     </view>
-    <text class="checkPay_ticket_item_left_text">本次购物确认收货后可获得{{totalPay*100}}积分</text>
+    <text class="checkPay_ticket_item_left_text">根据实际支付金额，最多获得{{totalPay*100}}积分</text>
   </view>
   <!--底部-->
   <view class="checkPay_foot">

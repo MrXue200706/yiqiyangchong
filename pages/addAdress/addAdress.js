@@ -127,13 +127,65 @@ Page({
 				//wx.navigateBack({ changed: true });//返回上一页
 			}
 	},
+	checkFormData() { //表单数据校验
+    if (!this.data.consignee) {
+      wx.showToast({
+        title: '请输入收货人',
+        icon: 'none',
+        duration: 2000,
+        mask: true
+      });
+      return false;
+    }
+    if (!this.data.phoneNumber) {
+      wx.showToast({
+        title: '请输入手机号码',
+        icon: 'none',
+        duration: 2000,
+        mask: true
+      });
+      return false;
+		}
+		if(!(/^1[34578]\d{9}$/.test(this.data.phoneNumber))){ 
+			wx.showToast({
+        title: '请输入正确的手机号码',
+        icon: 'none',
+        duration: 2000,
+        mask: true
+      });
+      return false; 
+	} 
+    if (!this.data.region[2]) {
+      wx.showToast({
+        title: '请选择所在地区',
+        icon: 'none',
+        duration: 2000,
+        mask: true
+      });
+      return false;
+    }
+    if (!this.data.address) {
+      wx.showToast({
+        title: '请输入详细地址',
+        icon: 'none',
+        duration: 2000,
+        mask: true
+      });
+      return false;
+    }else{
+			return true;
+		}
+  },
   //保存收货地址
   saveForm: function(){
-	let that=this
+		let that=this
 		let area = this.data.region[0] +"-"+ this.data.region[1]+"-" + this.data.region[2]+"-";
 		let from=this.data.from;
 		let arid=this.data.adrId
 		console.log(arid)
+		if(!that.checkFormData()){
+			return
+		}	
 		var pageroute=getCurrentPages();
 		console.log(pageroute)
 		let fromcheckpay=pageroute.filter(function(item){

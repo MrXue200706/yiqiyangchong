@@ -1,11 +1,11 @@
 /*头部图片*/
 .surperShop_head{
-    height: 263rpx;
-    background-color: #888;
+    /* height: 263rpx; */
+    /* background-color: #888; */
     overflow: hidden;
 }
 .surperShop_head_img{
-    height: 100%;
+    /* height: 100%; */
     width: 100%;
 }
 

@@ -79,7 +79,7 @@ Page({
     var that = this;
     //设置菜单中的转发按钮触发转发事件时的转发内容
     var shareObj = {
-      title: "专题精选", //转发标题
+      title: "邀请你参加"+that.data.special_topic_detail.project_info.project_title+"抽奖", //转发标题
       path: shareUrl,
       //imgUrl: this.data.pet_details.pet_img[0] == undefined ? "" : this.data.pet_details.pet_img[0].pet_img, //图片路径
       success: function (res) {
