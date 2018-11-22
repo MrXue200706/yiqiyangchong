@@ -123,7 +123,18 @@ Page({
       },
       success(res) {
         let pet_id = res.data.data.pet_id;
+        console.log(res.data.msg)
         if (pet_id == undefined && pet_id == null&&!flat) {
+          if(res.data.msg=="不能添加萌宠"){
+              //上传数据出错
+          wx.showToast({
+            title: '多次违规，限制添加',
+            icon: 'none',
+            duration: 2000,
+            mask: true
+          });
+          return;
+          }
           //上传数据出错
           wx.showToast({
             title: '上传数据出错，请稍后再试',

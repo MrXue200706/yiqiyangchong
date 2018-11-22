@@ -18,16 +18,30 @@ Page({
   onLoad() {
     app.checkLogin()
     //请求
+    var today = wx.getStorageSync('today');
+    console.log(today)
+    if(today==new Date().getDate()){
+      this.setData({
+        isDlaigShow: false
+      })
+    }else{
+      this.setDiagHide()
+    }
     this.getSwiper();
     this.getGoodsIndex(1);
     this.getPetExpert();
     this.getSpecialTopic();
     this.getGoodsRecommend();
-    this.setDiagHide()
+    
   },
 onShow(){
  // app.checkLogin()
  //wx.getUserInfo()
+ var today = wx.getStorageSync('today');
+ if(today==new Date().getDate()){
+   console.log(1111)
+   this.changeShowDiag()
+ }
 },
 
   //请求轮播图
@@ -75,6 +89,26 @@ onShow(){
   },
   setDiagHide() {
     let that = this
+    var nowdata=new Date().getDate()
+    console.log(nowdata)
+    var valuelist = wx.getStorageSync('isShowtimes');
+    if(!valuelist){
+      valuelist=0
+    }
+    wx.setStorage({
+      key: "isShowtimes",
+      data: ++valuelist
+    });
+    if(valuelist>=5){
+      wx.setStorage({
+        key: "today",
+        data: nowdata
+      });
+      wx.setStorage({
+        key: "isShowtimes",
+        data: 0
+      });
+    }
     setTimeout(function () {
       that.setData({
         isDlaigShow: false

@@ -38,4 +38,5 @@
             <text>添加新的萌宠档案</text>
         </view>
     </navigator>
+    <view class="addNotice">请勿添加敏感违法信息，违规将被限制添加图片</view>
 </view>

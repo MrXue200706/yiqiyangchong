@@ -9,6 +9,7 @@ Page({
     menuId: null, //当前分类menuID
     orderBy:1, //默认综合排行
     pageNo: 1, //当前分类的页码
+    categoryid:null
   },
   onLoad(options) {
     switch (options.category_id) {
@@ -37,6 +38,10 @@ Page({
         break;
     }
     this.getCategoryMenu(options.category_id)
+    console.log(options)
+    this.setData(
+      {categoryid:options.category_id}
+    )
   },
   getCategoryMenu(category_id) { //获取分类菜单
     let that = this;
@@ -59,9 +64,13 @@ Page({
       },
     })
   },
-  getCategoryDetailList() { //获取分类商品详情
+  getCategoryDetailList(outrefles) { //获取分类商品详情
     let that = this;
     let oldArray = this.data.categoryDetailList
+    let refles
+    if(outrefles){
+      refles=outrefles
+    }
     wx.request({
       url: 'https://wechatapi.vipcsg.com/index/goods/category_goods',
       method: 'GET',
@@ -72,9 +81,15 @@ Page({
       },
       success(res) {
         if (res.data.result == 1) {
-          that.setData({
-            categoryDetailList: oldArray.concat(res.data.data)
+          if(refles){
+            that.setData({
+                categoryDetailList: res.data.data
+              })
+          }else{
+            that.setData({
+              categoryDetailList: oldArray.concat(res.data.data)
           })
+        }
           console.log("获取分类商品详情列表（" + that.data.menuId + "）：")
           console.log(that.data.categoryDetailList)
         }
@@ -101,6 +116,7 @@ Page({
     this.getCategoryDetailList()
   },
   onReachBottom: function () { // 下拉底部刷新
+    
     let that = this
     this.setData({
       pageNo: that.data.pageNo + 1
@@ -115,6 +131,14 @@ Page({
     // 隐藏导航栏加载框
     wx.hideNavigationBarLoading();
     // 停止下拉动作
+    wx.stopPullDownRefresh();
+  },
+  onPullDownRefresh() {//下拉刷新数据
+    //this.getListDetail()
+    console.log(this.data.categoryid)
+    this.getCategoryDetailList(true)
+    wx.showNavigationBarLoading() //在标题栏中显示加载
+    wx.hideNavigationBarLoading() //关闭加载
     wx.stopPullDownRefresh();
   },
 })

@@ -51,7 +51,7 @@
     height: 100rpx;
     background-color: #fff;
     margin-top: 50rpx;
-    margin-bottom:50rpx;
+    margin-bottom:20rpx;
     border-radius: 10rpx;
     overflow: hidden;
     display: flex;
@@ -78,4 +78,9 @@
 }
 .delmenchon_img{
     width: 100%
+}
+.addNotice{
+    text-align: center;
+    font-size: 26rpx;
+    margin-bottom: 50rpx;
 }

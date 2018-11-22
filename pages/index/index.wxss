@@ -177,6 +177,8 @@
   font-size: 24rpx;
   color: #878787;
   margin-top: 12rpx;
+  max-height: 35rpx;
+  overflow: hidden;
 }
 
 .pet_expert_item_button {
