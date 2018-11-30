@@ -44,6 +44,7 @@
     overflow: hidden;
     display: flex;
     align-items: center;
+    justify-content: space-between;
 }
 .surperShop_goods_recommend_content{
     color: #313131;
@@ -52,10 +53,9 @@
 .surperShop_goods_recommend_number{
     font-size:26rpx;
     color:#89898c;
-    margin-left:48rpx;
+    margin-right:35rpx;
     text-align: right;
     color: red;
-
 }
 .surperShop_goods_recommend_avatar{
     margin-right: 28rpx;

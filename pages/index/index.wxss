@@ -289,10 +289,11 @@
 }
 
 .goods_item_title {
-  font-size: 24rpx;
+  font-size: 26rpx;
   line-height: 1em;
   padding: 10rpx;
-  font-weight: 600;
+  color: 333;
+  /*font-weight: 600;*/
 }
 
 .goods_item_price {

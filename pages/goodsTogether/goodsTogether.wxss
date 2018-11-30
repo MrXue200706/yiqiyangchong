@@ -90,13 +90,16 @@
     width: 100%;
     display: flex;
     flex-wrap: nowrap;
-    /* justify-content: center; */
+    justify-content: center; 
     align-items: center;
 }
 .goodsTogether_person_avatar_left,.goodsTogether_person_avatar_right{
     width:96rpx;
     height: 96rpx;
     border-radius: 48rpx;
+}
+.goodsTogether_person_avatar_left_d{
+    margin-left:-17rpx;
 }
 .goodsTogether_person_avatar_left{
     background-color: #888;
@@ -132,6 +135,15 @@
     background-color: #fe9204;
     border-radius: 10rpx;
     margin-top: 70rpx
+}
+.goodsTogether_person_info_button_2{
+    width: 618rpx;
+    height: 74rpx;
+    line-height: 74rpx;
+    text-align: center;
+    font-size: 30rpx;
+    color: #fff;
+    background-color: #fe9204;
 }
 .goodsDetail_recommend_avatar_item{
     width: 70rpx;
@@ -345,7 +357,20 @@
     justify-content:center;
     flex-wrap:wrap;
     background-color:#fff;
-   
+  }
+  .goods_fenxiang_2{
+    height:208rpx;
+    background-color:#fff;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .goods_fenxiang_text{
+      font-size: 20rpx;
+      color: #de361a;
   }
   .goodsTogether_person_right{
       width: 400rpx;

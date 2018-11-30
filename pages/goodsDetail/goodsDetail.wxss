@@ -65,10 +65,11 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    background-color: #ff9305;
+    /*background-color: #ff9305;*/
+    background-image: linear-gradient(to bottom,#ffdd13,#ff9305);
     border-top-left-radius: 10rpx;
     border-bottom-left-radius: 10rpx;
-    padding:10rpx 0;
+    padding-top:10rpx;
 }
 .goodsDetail_title_share {
     width: 98rpx;
@@ -84,8 +85,7 @@
     background: none !important;
     border-top-left-radius: 10rpx;
     border-bottom-left-radius: 10rpx;
-    padding:10rpx 0;
-
+    padding:0;
 }
 
 .goodsDetail_title_share::after{

@@ -54,10 +54,13 @@
   </view>
 
   <!-- 分享 -->
-  <view class="goods_fenxiang" wx:if="{{shares == 1}}">
-    <button class="goodsTogether_person_info_button" data-goodsShare='true' open-type="share">
+  <view class="goods_fenxiang_2" wx:if="{{shares == 1}}">
+    <button class="goodsTogether_person_info_button_2" data-goodsShare='true' open-type="share">
       <text>推荐给宠友</text>
     </button>
+    <text class="goods_fenxiang_text">
+      推荐好友购买可得50%积分
+    </text>
   </view>
   <view class="goods_fenxiang" wx:elif="{{shares == 2}}">
     <button class="goodsTogether_person_info_button" wx:if="{{own}}" data-goodsShare='true' open-type="share">
@@ -71,13 +74,13 @@
   <!--拼团-->
   <view class="goodsTogether_person" wx:else>
     <view class="goodsTogether_person_avatar">
-      <view class="goodsTogether_person_avatar_left postionTop ownmarginlf">
+      <view class="goodsTogether_person_avatar_left_d postionTop">
         <!-- 团长头像{{group_info.avatarUrl}} -->
         <view class="team_master">团长</view>
         <image class="goodsTogether_person_avatar_left" src="{{group_info.avatarUrl}}" mode="widthFix"></image>
       </view>
       <view class="goodsTogether_person_avatar_icon">+</view>
-      <scroll-view scroll-x="true" class="goodsTogether_person_right">
+      <view>
         <view>
           <view class="goodsTogether_person_avatar_view" wx:for="{{groupList}}">
             <image class="goodsTogether_person_avatar_right noborder" src="{{item.avatarUrl}}" mode="widthFix"></image>
@@ -98,7 +101,7 @@
             <image  class="goodsTogether_person_avatar_right" src="{{item.avatarUrl}}" mode="widthFix"></image>
           </view> -->
         </view>
-      </scroll-view>
+      </view>
     </view>
 
     <view class="goodsTogether_person_info">
@@ -186,10 +189,10 @@
         <text class="goods_item_recommend_number">{{item.pet_friend_count}}推荐</text>
         <view class="goods_item_recommend_avatars">
           <view class="goods_item_recommend_avatar_left">
-            <image class="goods_item_recommend_avatars_img" src="{{item.pet_friend_list[0].avatar}}" mode="widthFix"></image>
+            <image class="goods_item_recommend_avatars_img" src="{{item.pet_friend_list[0].avatarUrl}}" mode="widthFix"></image>
           </view>
           <view class="goods_item_recommend_avatar_right">
-            <image class="goods_item_recommend_avatars_img" src="{{item.pet_friend_list[1].avatar}}" mode="widthFix"></image>
+            <image class="goods_item_recommend_avatars_img" src="{{item.pet_friend_list[1].avatarUrl}}" mode="widthFix"></image>
           </view>
         </view>
       </view>

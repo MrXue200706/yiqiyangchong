@@ -12,12 +12,14 @@
         <view class="surperShop_goods_text">
             <view class="surperShop_goods_text_title">{{item.goods_name}}</view>
             <view class="surperShop_goods_recommend">
-                <view class="surperShop_goods_recommend_avatar">
-                    <view class="surperShop_goods_recommend_avatar_item" wx:for="{{item.pet_friend_list}}" wx:key="item.id">
-                        <image mode="widthFix" src="{{item.avatarUrl}}" class="surperShop_goods_recommend_avatar_item_img"></image>
+                <view>
+                    <view class="surperShop_goods_recommend_avatar">
+                        <view class="surperShop_goods_recommend_avatar_item" wx:for="{{item.pet_friend_list}}" wx:key="item.id">
+                            <image mode="widthFix" src="{{item.avatarUrl}}" class="surperShop_goods_recommend_avatar_item_img"></image>
+                        </view>
                     </view>
+                    <text class="surperShop_goods_recommend_content">{{item.pet_friend_count}}推荐</text>
                 </view>
-                <text class="surperShop_goods_recommend_content">{{item.pet_friend_count}}推荐</text>
                 <text class="surperShop_goods_recommend_number">{{superShop.events_info.group_number}}人团</text>
             </view>
             <view class="surperShop_goods_text_bottom">

@@ -79,8 +79,9 @@ Page({
     }
 
   },
-  onShow() {
-
+  onLaunch() {
+    this.getGroupDetail();
+    this.getGoodsIndex();
   },
   onHide() {
     //关闭定时器

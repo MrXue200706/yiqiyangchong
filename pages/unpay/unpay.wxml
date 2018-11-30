@@ -7,7 +7,7 @@
   <view class="unpay_address" wx:if="{{ptype!='unpay'}}">
     <view class="unpay_address_content">
       <view class="unpay_address_content_up">
-        <text>快递单号： {{orderDetail.logistics_code}}</text>
+        <text>快递信息：{{orderDetail.expressage_name}} {{orderDetail.logistics_code}}</text>
       </view>
       <view class="unpay_address_content_down" wx:if="{{orderDetail.is_search==0}}">
         <text>暂无物流信息</text>
