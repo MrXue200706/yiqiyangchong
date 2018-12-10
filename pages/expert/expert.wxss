@@ -107,8 +107,8 @@
     margin-top: 28rpx;
 }
 .expert_pets_content{
-    height: 410rpx;
-    background-color: #888;
+    /* height: 410rpx;
+    background-color: #888; */
     border-radius: 15rpx;
     overflow: hidden;
     position: relative;

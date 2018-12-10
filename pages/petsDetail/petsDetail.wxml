@@ -3,7 +3,7 @@
     <view class="petsDetail_imgs">
         <swiper class="petsDetail_imgs_swiper" autoplay="true">
             <swiper-item wx:for="{{petDetail.pet_img}}" wx:key="item.index">
-                <image mode="widthFix" src="{{item.pet_img}}"></image>
+                <image mode="aspectFill" src="{{item.pet_img}}"></image>
             </swiper-item>
         </swiper>
         <view class="petsDetail_imgs_content">
@@ -24,7 +24,18 @@
             </view>
         </view>
     </view>
-
+    <!-- <view>
+        <scroll-view scroll-x="true">
+        <view class="special_topic_scroll">
+            <view class="special_topic_item"  wx:for="{{{petDetail.pet_img}}" wx:key="item.index">
+                <view class="special_topic_item_img">
+                <image class="special_topic_item_img_image" src="{{item.pet_img}}" mode="widthFix"></image>
+                </view>
+                <text class="special_topic_item_title">{{petDetail.pet_img.length}}</text>
+            </view>
+        </view>
+        </scroll-view>
+    </view> -->
     <!--标题-->
     <view class="petsDetail_title">
         <view class="petsDetail_title_item">

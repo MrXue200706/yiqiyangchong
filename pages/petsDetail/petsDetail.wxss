@@ -4,10 +4,12 @@
 }
 .petsDetail_imgs_swiper{
   background-color: #fff;
-  height: 750rpx;
+  height: 450rpx;
 }
 .petsDetail_imgs_swiper image{
     width: 100%;
+    /* height: 450rpx; */
+    /* max-height: 100rpx; */
 }
 .petsDetail_imgs_bc_blue{
   background-color: rgba(121, 120, 24, .3);

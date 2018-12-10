@@ -10,8 +10,8 @@
     margin-top: 28rpx;
 }
 .myPets_item{
-    height: 410rpx;
-    background-color: #888;
+    max-height: 410rpx;
+    /* background-color: #888; */
     border-radius: 15rpx;
     position:relative;
     overflow: hidden;
