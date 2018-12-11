@@ -8,7 +8,8 @@ Page({
 		petDetail: null, //萌宠详情
 		userInfoID:null,
 		isshowEdit:true,
-    showOnLike: false
+    showOnLike: false,
+    showimages:false,
   },
   onLoad(options){
     app.checkLogin()
@@ -38,6 +39,10 @@ Page({
 			},
 		})
   },
+  changshow(){
+    this.setData({showimages:!this.data.showimages})
+  },
+
   onShareAppMessage: function (event) {
     var shareUrl = '/pages/petsDetail/petsDetail?pet_id=' + this.data.pet_id
     var that = this;

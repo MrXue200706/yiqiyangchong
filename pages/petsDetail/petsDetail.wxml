@@ -1,11 +1,14 @@
 <view class="petsDetail">
     <!--头部轮播-->
     <view class="petsDetail_imgs">
-        <swiper class="petsDetail_imgs_swiper" autoplay="true">
+        <view class="petsDetail_imgs_swiper" bindtap="changshow">
+            <image mode="widthFix" src="{{petDetail.pet_img[0].pet_img}}"></image>
+        </view>
+        <!-- <swiper class="petsDetail_imgs_swiper" autoplay="true">
             <swiper-item wx:for="{{petDetail.pet_img}}" wx:key="item.index">
-                <image mode="aspectFill" src="{{item.pet_img}}"></image>
+                <image mode="aspectFit" src="{{item.pet_img}}"></image>
             </swiper-item>
-        </swiper>
+        </swiper> -->
         <view class="petsDetail_imgs_content">
             <view>
                 <text class="petsDetail_imgs_content_item petsDetail_imgs_content_item_blue">
@@ -24,18 +27,27 @@
             </view>
         </view>
     </view>
-    <!-- <view>
-        <scroll-view scroll-x="true">
-        <view class="special_topic_scroll">
-            <view class="special_topic_item"  wx:for="{{{petDetail.pet_img}}" wx:key="item.index">
-                <view class="special_topic_item_img">
-                <image class="special_topic_item_img_image" src="{{item.pet_img}}" mode="widthFix"></image>
-                </view>
-                <text class="special_topic_item_title">{{petDetail.pet_img.length}}</text>
-            </view>
+<view class="section section_gap" wx:if="{{showimages}}" bindtap="changshow">
+  <!-- <view class="section__title">horizontal scroll</view> -->
+  <swiper class="petsDetail_imgs_swiper_show" >
+        <swiper-item wx:for="{{petDetail.pet_img}}" wx:key="item.index">
+            <image class="showimage" mode="widthFix" src="{{item.pet_img}}"></image>
+            <view class="showimglength"><text >{{petDetail.pet_img.length}} 张</text></view>
+        </swiper-item>
+    </swiper>
+  <!-- <scroll-view class="scroll-view_H" scroll-x style="width: 100%">
+      <view url="##" class="scroll-view-item_H"  wx:for="{{petDetail.pet_img}}" wx:key="item.index">
+        <view class="special_topic_item_img">
+            <image class="special_topic_item_img_image" src="{{item.pet_img}}" mode="widthFix"></image>
         </view>
-        </scroll-view>
-    </view> -->
+        <text class="special_topic_item_title">{{petDetail.pet_img.length}}</text>
+    </view> 
+    <view id="green" class="scroll-view-item_H bc_green">1</view>
+    <view id="red"  class="scroll-view-item_H bc_red">2</view>
+    <view id="yellow" class="scroll-view-item_H bc_yellow">3</view>
+    <view id="blue" class="scroll-view-item_H bc_blue">4</view>
+  </scroll-view> -->
+</view>
     <!--标题-->
     <view class="petsDetail_title">
         <view class="petsDetail_title_item">
