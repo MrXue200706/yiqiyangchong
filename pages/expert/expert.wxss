@@ -115,6 +115,10 @@
 }
 .expert_pets_content_img image{
     width: 100%;
+    border-radius: 23rpx;
+}
+.expert_pets_content_img{
+    border-radius: 23rpx;
 }
 .expert_pets_content_item{
     display: inline-block;

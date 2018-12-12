@@ -3,6 +3,7 @@
     <view class="petsDetail_imgs">
         <view class="petsDetail_imgs_swiper" bindtap="changshow">
             <image mode="widthFix" src="{{petDetail.pet_img[0].pet_img}}"></image>
+            <view class="showimglength showalllength"><text >{{petDetail.pet_img.length}} 张</text></view>
         </view>
         <!-- <swiper class="petsDetail_imgs_swiper" autoplay="true">
             <swiper-item wx:for="{{petDetail.pet_img}}" wx:key="item.index">
@@ -32,7 +33,7 @@
   <swiper class="petsDetail_imgs_swiper_show" >
         <swiper-item wx:for="{{petDetail.pet_img}}" wx:key="item.index">
             <image class="showimage" mode="widthFix" src="{{item.pet_img}}"></image>
-            <view class="showimglength"><text >{{petDetail.pet_img.length}} 张</text></view>
+            <view class="showimglength"><text >{{index+1}}/{{petDetail.pet_img.length}} </text></view>
         </swiper-item>
     </swiper>
   <!-- <scroll-view class="scroll-view_H" scroll-x style="width: 100%">
