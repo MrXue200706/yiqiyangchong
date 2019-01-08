@@ -42,9 +42,7 @@ font-weight:500;
 overflow:hidden;
 
 }
-.expert_pets_content_img{
-    border-radius: 15rpx;
-}
+
 .petsDetail_imgs_swiper .showalllength{
     margin-top: -60rpx;
     font-size: 30rpx;

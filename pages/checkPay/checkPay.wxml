@@ -90,7 +90,7 @@
     <view class="checkPay_ticket_item_left_icon">
       <text>积分</text>
     </view>
-    <text class="checkPay_ticket_item_left_text">根据实际支付金额，最多获得{{totalPay*100}}积分</text>
+    <text class="checkPay_ticket_item_left_text">根据实际支付金额，最多获得{{totalPay*10000/100}}积分</text>
   </view>
   <!--底部-->
   <view class="checkPay_foot">
