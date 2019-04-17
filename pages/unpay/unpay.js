@@ -128,6 +128,12 @@ Page({
       })
     }
   },
+  tologisticsInfo(){
+    console.log(1111)//跳转物流信息
+    // wx.navigateTo({
+    //   url: '../logistics/logistics?order_id=' + this.data.orderDetail.id
+    // })
+  },
   payNow() { //立即支付
     let that = this;
     let timeStamp = Date.parse(new Date())

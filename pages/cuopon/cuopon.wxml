@@ -27,8 +27,8 @@
 							<text class="cuopon_content_item_right_up_left">满{{item.order_money}}减{{item.coupons_money}}元优惠券</text>
 							<text class="cuopon_content_item_right_up_right">{{item.integral}}积分</text>
 						</view>
-						<view class="cuopon_content_item_right_center">
-							<text>满减优惠券</text>
+						<view class="cuopon_content_item_right_down_left">
+							<text>{{item.showStartTime}} — {{item.showEndTime}}</text>
 						</view>
 						<view class="cuopon_content_item_right_down">
 							<text class="cuopon_content_item_right_down_left">积分兑换，不可叠加使用</text>
@@ -53,10 +53,10 @@
 				<view class="cuopon_content_item_right">
 					<view class="cuopon_content_item_right_up">
 						<text class="cuopon_content_item_right_up_left">满{{item.order_money}}减{{item.coupons_money}}元优惠券</text>
-						<text class="cuopon_content_item_right_up_right">200积分</text>
+						<!-- <text class="cuopon_content_item_right_up_right">200积分</text> -->
 					</view>
-					<view class="cuopon_content_item_right_center">
-						<text>满减优惠券</text>
+					<view class="cuopon_content_item_right_down_left">
+						<text>{{item.showStartTime}} — {{item.showEndTime}}</text>
 					</view>
 					<view class="cuopon_content_item_right_down">
 						<text class="cuopon_content_item_right_down_left">积分兑换，不可叠加使用</text>

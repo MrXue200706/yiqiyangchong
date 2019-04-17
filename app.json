@@ -24,6 +24,7 @@
     "pages/orderList/orderList",
     "pages/search/search",
     "pages/login/login",
+    "pages/logistics/logistics",
     "pages/compare/compare",
     "login"
   ],

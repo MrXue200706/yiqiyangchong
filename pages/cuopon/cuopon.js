@@ -10,6 +10,8 @@ Page({
     exchangeCoupon: null, //兑换优惠券
     couponFlag: false, //是否隐藏兑换优惠券
     comeIn: 'coupon', //标记入口,coupon：个人中心优惠券入口，order: 订单中心进入
+    startTiem:'',
+    endTime: ''
   },
   onLoad(options) {
     if(options.type!=undefined){
@@ -48,6 +50,7 @@ Page({
       },
       success(res) {
         if (res.data.result == 1) {
+          that.changTimeShow(res.data.data)
           that.setData({
             exchangeCoupon: res.data.data
           });
@@ -64,12 +67,22 @@ Page({
         user_id: app.globalData.userInfo.data.data.user_id
       }, success(res) {
         if (res.data.result == 1) {
+          that.changTimeShow(res.data.data)
           that.setData({
             myCoupon: res.data.data
           });
         }
       },
     })
+  },
+  changTimeShow(data){
+    data.map(item => {
+      console.log(item.end_time.split(' ')[0])
+      item.showStartTime=item.start_time.split(' ')[0]
+      item.showEndTime=item.end_time.split(' ')[0]
+      return item
+    })
+    console.log(data)
   },
   changeNow(e) {//兑换优惠券
     let couponId = e.currentTarget.dataset.id;

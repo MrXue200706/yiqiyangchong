@@ -12,7 +12,7 @@
       <view class="unpay_address_content_down" wx:if="{{orderDetail.is_search==0}}">
         <text>暂无物流信息</text>
       </view>
-      <view class="unpay_address_content_down" wx:else>
+      <view class="unpay_address_content_down" bindtap='tologisticsInfo' wx:else>
         <text>物流动态： {{logisticsInfo}}</text>
       </view>
     </view>
@@ -111,7 +111,7 @@
   <!--底部-->
   <view class="unpay_foot">
     <view class="unpay_foot_cancel" bindtap="delOrder" wx:if="{{ptype=='unpay'}}">取消订单</view>
-    <view class="unpay_foot_cancel" bindtap="retOrderList" wx:else>返回订单列表</view>
+    <!-- <view class="unpay_foot_cancel" bindtap="retOrderList" wx:else>返回订单列表</view> -->
     <view class="unpay_foot_pay" bindtap="payNow" wx:if="{{ptype=='unpay'}}">立即支付</view>
     <view class="unpay_foot_pay" bindtap="takegoods" wx:elif="{{ptype=='takegoods'}}">确认收货</view>
   </view>
