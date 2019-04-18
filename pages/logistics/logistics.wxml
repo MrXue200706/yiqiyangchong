@@ -1,3 +1,12 @@
 <view class="unpay">
-  <view>999999</view>
+  <view class="topBG"></view>
+  <view wx:for="{{logisticsInfo}}" wx:key="item.AcceptStation" class="logisticsInfo">
+    <view class="lineImg">
+      <image mode="widthFix" src="{{item.img}}" class="lineimage"></image>
+    </view>
+    <view class="logisticsInfoMessage">
+      <view>  {{item.AcceptTime}}</view>
+      <view>{{item.AcceptStation}}</view>
+    </view>
+  </view>
 </view>

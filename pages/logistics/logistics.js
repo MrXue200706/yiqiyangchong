@@ -5,7 +5,7 @@ var util = require('../../utils/md5.js')
 
 Page({
   data: {
-    logisticsInfo: null, //物流信息
+    logisticsInfo: [], //物流信息
   },
   onLoad(options) {
     this.setData({
@@ -25,12 +25,25 @@ Page({
       data: {
         order_id: this.data.order_id
       }, success(res) {
+        console.log(res.data.data)
         if (res.data.result == 1) {
+          that.setShowMessage(res.data.data)
           that.setData({
-            logisticsInfo: res.data.data[res.data.data.length - 1].AcceptStation
+            logisticsInfo: res.data.data
           })
+        console.log(that.data.logisticsInfo)
         }
       },
+    })
+  },
+  setShowMessage(data){
+    data.map((item, index, arr) => {
+      if(index === arr.length-1){
+        item.img='../../images/linebottom.png'
+      }else{
+        item.img='../../images/linetop.png'
+      }
+      return item
     })
   }
 })
