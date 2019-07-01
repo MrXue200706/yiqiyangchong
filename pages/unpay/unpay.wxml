@@ -12,8 +12,11 @@
       <view class="unpay_address_content_down" wx:if="{{orderDetail.is_search==0}}">
         <text>暂无物流信息</text>
       </view>
-      <view class="unpay_address_content_down" bindtap='tologisticsInfo' wx:else>
-        <text>物流动态： {{logisticsInfo}}</text>
+      <view class="unpay_address_content_down setpositions" bindtap='tologisticsInfo' wx:else>
+        <text class="showloginse">物流动态： {{logisticsInfo}}</text>
+        <view class="showRightIcon">
+          <image src="../../images/rightIcom.jpg" mode="widthFix"></image>
+         </view>
       </view>
     </view>
     <view class="unpay_address_icon">

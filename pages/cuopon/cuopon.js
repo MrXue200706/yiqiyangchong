@@ -46,7 +46,7 @@ Page({
       url: 'https://wechatapi.vipcsg.com/index/coupons/index',
       method: 'GET',
       data: {
-
+        user_id: app.globalData.userInfo.data.data.user_id
       },
       success(res) {
         if (res.data.result == 1) {

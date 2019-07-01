@@ -11,7 +11,7 @@
  
 
     <view style="display:flex;margin-top:280rpx;align-items:center;justify-content:space-between;">
-    <button class="toGoMore">逛逛再来</button>
+    <!-- <button class="toGoMore">逛逛再来</button> -->
     <button class='bottom' type='primary' open-type="getUserInfo" lang="zh_CN"      bindgetuserinfo="bindGetUserInfo">
         授权登录
     </button>

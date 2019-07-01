@@ -92,6 +92,28 @@
     top: 16rpx;
     right: 30rpx;
 }
+.setpositions{
+    padding-right: 50rpx;
+    width: 80%;
+    overflow: hidden;
+    text-overflow:ellipsis;
+    white-space: nowrap;
+}
+.showloginse{
+    display: inline-block;
+    /* padding-right: 40rpx; */
+}
+.showRightIcon{
+    display: block;
+    width: 40rpx;
+    height: 40rpx;
+    position: absolute;
+    bottom: 28rpx;
+    right: 30rpx;
+}
+.showRightIcon image{
+    width: 100%;
+}
 
 /*商品*/
 .unpay_goods{
