@@ -42,7 +42,7 @@ Page({
   cooperation() { //合作
     //(临时测试用)
     wx.navigateTo({
-      url: '../compare/compare'
+      url: '../specialTopic/specialTopic'
      // success: function(res) {},
       // fail: function(res) {},
       // complete: function(res) {},

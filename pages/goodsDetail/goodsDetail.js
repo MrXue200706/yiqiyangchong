@@ -298,13 +298,15 @@ Page({
   },
   buyTogether() { //团购订单修改入口
     this.setData({
-      shoppingType: 'together'
+      shoppingType: 'together',
+      shopping:'together'
     });
     this.iframeFn();
   },
   buyOwn() {
     this.setData({
-      shoppingType: 'normal'
+      shoppingType: 'normal',
+      shopping:'normal'
     });
     this.iframeFn();
   },

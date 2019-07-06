@@ -96,10 +96,10 @@
         <!-- <button open-type='getUserInfo' bindgetuserinfo="bindGetUserInfo"></button> -->
         <view class="official_item" bindtap='cooperation'>
             <view class="official_item_img">
-                <image class="hezuoicon" mode="widthFix" src="../../images/hezuo.png"></image>
+                <image class="hezuoicon" mode="widthFix" src="../../images/choujiang.png"></image>
             </view>
-            <view class="official_item_title">合作</view>
-            <view class="official_item_under">商务合作</view>
+            <view class="official_item_title">抽奖</view>
+            <view class="official_item_under">精美礼品免费领取</view>
         </view>
         <!--线框-->
         <view class="line_column"></view>
