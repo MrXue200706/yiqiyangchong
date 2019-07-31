@@ -15,7 +15,7 @@
   <view class="search_box">
     <navigator url="../search/search" class="search_box_in">
       <image src="../../images/search.png" mode="widthFix"></image>
-      <input type="search" placeholder="输入想搜索的商品" />
+      <text class="search_box_text" type="search" placeholder="输入想搜索的商品">输入想搜索的商品</text>
     </navigator>
   </view>
   <!--头部轮播图-->
@@ -56,7 +56,15 @@
       <text class="goods_class_item_title">周边</text>
     </navigator>
   </view>
-
+  <!-- 红包 -->
+  <view class="red_bag_class">
+    <navigator url="../cuoponcanuse/cuoponcanuse" class="goods_class_item"  hover-class="other-navigator-hover">
+      <view class="goods_class_item_img nobackground">
+        <image src="../../images/redBag.png" mode="widthFix"></image>
+      </view>
+      <!-- <text class="goods_class_item_title">狗狗</text> -->
+    </navigator>
+  </view>
   <!--活动-->
   <view class="goods_recommend">
     <navigator url="../superShop/superShop?id={{goods_recommend[goods_recommend.length-1].id}}" class="goods_recommend_item">

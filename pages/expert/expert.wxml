@@ -1,24 +1,40 @@
 <view class="expert">
-  <!--头像-->
-  <view class="expert_avatar">
-    <view class="expert_avatar_item">
-      <image mode="widthFix" src="{{expertDetail.member.avatarUrl}}"></image>
+  <view class="expert_head">
+    <image class="mineTopBg" mode="widthFix" src="../../images/personCenter.jpg"></image>
+    <!--头像-->
+    <view class="expert_avatar">
+      <view class="expert_avatar_item">
+        <image mode="widthFix" src="{{expertDetail.member.avatarUrl}}"></image>
+      </view>
+    </view>
+    <!--粉丝-->
+    <view class="expert_fans">
+      <navigator url="../petFriends/petFriends?pageType=expert&petType=follow&uid={{expertDetail.member.id}}" class="expert_fans_text expert_fans_left">关注：{{expertDetail.follow_count}}</navigator> |
+      <navigator  url="../petFriends/petFriends?pageType=expert&petType=fans&uid={{expertDetail.member.id}}" class="expert_fans_text expert_fans_right">粉丝：{{expertDetail.fans_count}}</navigator>
+    </view>
+
+    <!--名字-->
+    <view class="expert_name">
+      <view class="expert_name_item">
+        <text>{{expertDetail.member.nickName}}</text>
+      </view>
+    </view>
+    
+    <!-- 未关注 -->
+    <view wx:if='{{!isActive}}' class="expert_sign_in" bindtap="toActive">
+      <view class="expert_sign_in_img">
+          <image mode="widthFix" src="../../images/active.png"></image>
+      </view>
+      关注
+    </view>
+    <!-- 取消关注 -->
+     <view  wx:if='{{isActive}}' class="expert_sign_in" bindtap="toNoActive">
+      <view class="expert_sign_in_img">
+          <image mode="widthFix" src="../../images/actived.png"></image>
+      </view>
+      已关注
     </view>
   </view>
-
-  <!--名字-->
-  <view class="expert_name">
-    <view class="expert_name_item">
-      <text>{{expertDetail.member.nickName}}</text>
-    </view>
-  </view>
-
-  <!--粉丝-->
-  <view class="expert_fans">
-    <navigator url="../petFriends/petFriends?pageType=expert&petType=follow&uid={{expertDetail.member.id}}" class="expert_fans_text">关注：{{expertDetail.follow_count}}</navigator> |
-    <navigator url="../petFriends/petFriends?pageType=expert&petType=fans&uid={{expertDetail.member.id}}" class="expert_fans_text">粉丝：{{expertDetail.fans_count}}</navigator>
-  </view>
-
   <!--商品-->
   <view class="expert_goods">
     <view class="expert_goods_content">

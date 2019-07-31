@@ -32,6 +32,11 @@
   margin-left: 30rpx;
   color: #989898;
 }
+.search_box_text{
+  font-size: 25rpx;
+  margin-left: 30rpx;
+  color: #989898;
+}
 
 /*头部轮播图*/
 .head_swiper {
@@ -77,7 +82,7 @@
   width: 88rpx;
   height: 88rpx;
   border-radius: 50%;
-  background-color: #989898;
+  /* background-color: #989898; */
   margin: 16rpx 0;
   margin-left: 50%;
   transform: translateX(-50%);
@@ -399,4 +404,28 @@
 .diagbtnImg,
 .contentViewImg {
   width: 100%;
+}
+.red_bag_class{
+  height: 80rpx;
+  width:80rpx;
+  position: fixed;
+  z-index: 9999;
+  right: 30rpx !important;
+  top: 70%;
+  /* transform: translateY(-50%); */
+  animation: myfirst 0.8s linear 2s infinite alternate;
+}
+.nobackground{
+  transform:translateX(0)!important;
+}
+@keyframes myfirst
+{
+0%   {transform:rotate(-10deg);}
+/* 25%  {transform:rotate(20deg);} */
+50%  {transform:rotate(0deg);}
+/* 75%  {transform:rotate(-20deg);} */
+100% {transform:rotate(10deg);}
+}
+.other-navigator-hover{
+  background: none;
 }

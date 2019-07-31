@@ -53,7 +53,7 @@ App({
                   console.log(resUser);
                   wx.setStorageSync('LoginSessionKey', resUser.data.data.user_id)  //保存在session中
                   //每日登陆积分
-                  that.loginIntegral()
+                  //that.loginIntegral()
                 },
               })
             }

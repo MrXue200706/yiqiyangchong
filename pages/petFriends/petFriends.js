@@ -44,7 +44,7 @@ if(this.data.petType =="friends"){
     url: urlStr,
     method: 'get',
     data: {
-      user_id: app.globalData.userInfo.data.data.user_id,
+      user_id: this.data.uid || app.globalData.userInfo.data.data.user_id,
       page:1,
       goods_id:-(-this.data.goodid)
     }, success(res) {
@@ -60,7 +60,7 @@ if(this.data.petType =="friends"){
     url: urlStr,
     method: 'GET',
     data: {
-      user_id: app.globalData.userInfo.data.data.user_id,
+      user_id: this.data.uid || app.globalData.userInfo.data.data.user_id,
     }, success(res) {
       console.log(res)
       that.setData({

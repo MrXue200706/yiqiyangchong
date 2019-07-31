@@ -11,7 +11,7 @@ Page({
     special_topic: [], //专题
     goods_recommend: [], //活动
     pageno: 1,
-    isDlaigShow: true,
+    isDlaigShow: false,
     pet_expert_item_button:"pet_expert_item_button",
     pet_expert_item_button_noclick:"pet_expert_item_button_noclick"
   },

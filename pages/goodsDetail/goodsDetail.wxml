@@ -20,8 +20,9 @@
             <text>{{goods_detail.goods_name}}</text>
         </view>
         <navigator url="../goodsTogether/goodsTogether?param_id={{goods_detail.id}}&shares=1&shopping={{shopping}}" class="goodsDetail_title_get"  wx:if="{{isjifen}}">
-            <image mode="widthFix" src="../../images/jifenxiangq.png"></image>
-            <text>赚积分</text>
+            <!-- <image mode="widthFix" src="../../images/jifenxiangq.png"></image> -->
+            <text class="goodsDetail_title_text">赚积分</text>
+            <text class="goodsDetail_title_number">{{goods_detail.market_price*50}}</text>
         </navigator>
          <button class="goodsDetail_title_share"  wx:else data-id="{{goods_detail.id}}" open-type="share">
            <image mode="widthFix" src="../../images/share.jpg"></image>

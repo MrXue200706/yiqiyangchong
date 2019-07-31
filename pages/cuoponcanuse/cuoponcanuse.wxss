@@ -82,6 +82,7 @@
 /*内容*/
 .cuopon_content{
     padding: 0 28rpx;
+    padding-top: 20rpx;
 }
 .cuopon_content_item{
     height: 180rpx;
@@ -98,9 +99,6 @@
     padding: 38rpx 0;
     font-family: yahei;
     flex-shrink: 0;
-}
-.change_bg{
-    background: rgb(176, 176,176) !important;
 }
 .cuopon_content_item_left_con{
     font-size: 36rpx;

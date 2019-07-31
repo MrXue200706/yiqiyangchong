@@ -26,6 +26,7 @@
     "pages/login/login",
     "pages/logistics/logistics",
     "pages/compare/compare",
+    "pages/cuoponcanuse/cuoponcanuse",
     "login"
   ],
   "window": {

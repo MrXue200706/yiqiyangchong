@@ -73,6 +73,8 @@ Page({
       //获取活动商品详情
       queryUrl = "https://wechatapi.vipcsg.com/index/events/details"
     }
+//     https://wechatapi.vipcsg.com/index/events/details?goods_id=33&flashsale_id=null&events_id=4
+// https://wechatapi.vipcsg.com/index/goods/details?goods_id=33&flashsale_id=null&events_id=4
     let that = this;
     wx.request({
       url: queryUrl,

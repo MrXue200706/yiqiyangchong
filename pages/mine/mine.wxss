@@ -5,11 +5,112 @@
     overflow: hidden;
     background-repeat: no-repeat;
 }
-
+/* 红包弹框 */
+.diaglongs {
+    position: fixed;
+    /* display: none; */
+    z-index: 1000;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.6);
+    font-size: 16px;
+  }
+  
+  .diagContets {
+    position: fixed;
+    z-index: 5000;
+    width: 80%;
+    max-width: 500rpx;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    /* background-color: #FFFFFF; */
+    text-align: center;
+    border-radius: 10rpx;
+    overflow: hidden;
+  }
+  
+  .shareBtns {
+    height: 150rpx;
+    width: 150rpx;
+    border-radius: 50%;
+    position: absolute;
+    bottom: 20%;
+    left: 35%;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .diagbtnImgs,
+  .contentViewImgs {
+    width: 100%;
+  }
+/* 消费积分 */
+.diaglong {
+    position: fixed;
+    /* display: none; */
+    z-index: 1000;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.4);
+    font-size: 16px;
+  }
+  
+  .diagContet {
+    position: fixed;
+    z-index: 5000;
+    width: 80%;
+    background: #fff;
+    max-width: 500rpx;
+    min-height: 300rpx;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    /* background-color: #FFFFFF; */
+    text-align: center;
+    border-radius: 10rpx;
+    overflow: hidden;
+  }
+  
+  .shareBtn {
+    height: 150rpx;
+    width: 150rpx;
+    border-radius: 50%;
+    position: absolute;
+    bottom: 20%;
+    left: 35%;
+    padding: 0;
+    margin: 0;
+  }
+  .contentView{
+      margin-bottom: 20rpx;
+      margin-top: 15rpx;
+  }
+  .diagContet_text{
+    margin-bottom: 25rpx;
+    font-size: 32rpx;
+  }
+  .diagContet_number{
+      font-size: 36rpx;
+      font-weight: bold;
+      color: rgb(244, 168,0);
+      margin-bottom: 20rpx;
+  }
+  .diagbtnImg,
+  .contentViewImg {
+    width: 25%;
+  }
 /*头像*/
 .avatar{
-    padding-top: 50rpx;
+    padding-top: 76rpx;
     color: #fff;
+    /* position: relative; */
 }
 .avatar_avatar{
     width: 120rpx;
@@ -17,10 +118,15 @@
     border-radius: 50%;
     background-color:#888;
     /* padding-top: 50rpx; */
-    margin-left: 50%;
+    margin-left: 12%;
     transform: translateX(-50%);
     border: 1px solid #fff;
     overflow: hidden;
+    display: inline-block;
+    vertical-align: middle;
+}
+.avatar_fallow_center{
+    margin-left: -22rpx;
 }
 .avatar_avatar image{
     width: 100%;
@@ -28,16 +134,20 @@
 .avatar_name{
     font-size: 30rpx;
     margin-top: 10rpx;
-    margin-left: 50%;
+    margin-left: 215rpx;
     transform: translateX(-50%);
     text-align: center;
+    display: inline-block;
+    vertical-align: middle;
 }
 .avatar_fallow{
     font-size: 24rpx;
     margin-top: 30rpx;
-    margin-left: 50%;
+    margin-left: 90rpx;
     transform: translateX(-50%);
     text-align: center;
+    display: inline-block;
+    vertical-align: middle;
 }
 .avatar_fallow_left{
     display: inline-block;
@@ -47,7 +157,36 @@
     display: inline-block;
     margin-left: 30rpx;
 }
-
+.avatar_sign_in{
+    display: block;
+    height: 46rpx;
+    width: 130rpx;
+    border-radius: 23rpx;
+    background: #fff;
+    position: absolute;
+    right: 10rpx;
+    top:134rpx;
+    color: rgb(255, 138, 4);
+    text-align: center;
+    font-size: 24rpx;
+    line-height: 46rpx;
+}
+.avatar_sign_in_img{
+    width:26rpx;
+    height:46rpx;
+    /* border-radius:50%; */
+    /* background-color:#888;
+    margin-left:10%;
+    transform:translateX(-50%);
+    border:1px solid #fff; */
+    overflow:hidden;
+    display:inline-block;
+    vertical-align:middle;
+    margin-right: 4rpx;
+}
+.avatar_sign_in_img image{
+    width: 100%;
+}
 /*状态*/
 .state{
     height: 154rpx;
@@ -57,6 +196,7 @@
     display: flex;
     position: relative;
     z-index: 2;
+    margin-top: 100rpx;
 }
 .state_item{
     font-size: 22rpx;
@@ -120,7 +260,7 @@
 .line_column{
     width: 2rpx;
     height: 570rpx;
-    background-color: #e4e4e4;
+    /* background-color: #e4e4e4; */
     position: absolute;
     top: 22rpx;
     left: 50%;
@@ -128,7 +268,7 @@
 .line_row1{
     width: 620rpx;
     height: 2rpx;
-    background-color: #e4e4e4;
+    /* background-color: #e4e4e4; */
     position: absolute;
     top: 206rpx;
     left: 36rpx;
@@ -136,7 +276,7 @@
 .line_row2{
     width: 620rpx;
     height: 2rpx;
-    background-color: #e4e4e4;
+    /* background-color: #e4e4e4; */
     position: absolute;
     bottom: 206rpx;
     left: 36rpx;

@@ -1,13 +1,58 @@
 .expert{
     min-height: 1206rpx;
-    background-color: #f2f7f8;
+    background-color: #fff;
 }
-
+.expert_head{
+    /* background: url("../../images/personCenter.jpg") no-repeat center center; */
+    min-height: 266rpx;
+    background-repeat: no-repeat;
+    background-size: 100% 90%;
+    position: relative;
+}
+.mineTopBg{
+    position: absolute;
+    top: 0;
+    width: 100%;
+    /* z-index: -9; */
+}
+.avatar_sign_in{
+    display: block;
+    height: 46rpx;
+    width: 130rpx;
+    border-radius: 23rpx;
+    background: #fff;
+    position: absolute;
+    right: 10rpx;
+    top:134rpx;
+    color: rgb(255, 138, 4);
+    text-align: center;
+    font-size: 24rpx;
+    line-height: 46rpx;
+}
+.avatar_sign_in_img{
+    width:26rpx;
+    height:46rpx;
+    /* border-radius:50%; */
+    /* background-color:#888;
+    margin-left:10%;
+    transform:translateX(-50%);
+    border:1px solid #fff; */
+    overflow:hidden;
+    display:inline-block;
+    vertical-align:middle;
+    margin-right: 4rpx;
+}
+.avatar_sign_in_img image{
+    width: 100%;
+}
 /*头像*/
 .expert_avatar{
-    display: flex;
+    display: block;
+    position: absolute;
+    left: 20rpx;
+    top: 0;
     justify-content: center;
-    padding-top: 50rpx;
+    padding-top: 80rpx;
 }
 .expert_avatar_item{
     width: 120rpx;
@@ -22,21 +67,68 @@
 
 /*名字*/
 .expert_name{
-    display: flex;
+    display: block;
+    position: absolute;
     justify-content: center;
-    padding-top: 10rpx;
+    top: 150rpx;
+    left: 23%;
+    /* padding-top: 10rpx; */
     font-size: 32rpx;
+    color: #fff;
 }
 
 /*粉丝*/
 .expert_fans{
-    display: flex;
+    display: block;
+    position: absolute;
     justify-content: center;
     font-size: 24rpx;
-    margin-top: 30rpx;
+    /* margin-top: 30rpx; */
+    top: 110rpx;
+    left: 23%;
+    color: #fff;
+}
+.expert_fans_left{
+    display: inline-block;
+    padding-left: 0rpx !important;
+    /* margin-right: 30rpx; */
+}
+.expert_fans_right{
+    display: inline-block;
+    /* margin-left: 30rpx; */
 }
 .expert_fans_text{
     padding: 0 30rpx;
+}
+.expert_sign_in{
+    display: block;
+    height: 46rpx;
+    width: 130rpx;
+    border-radius: 23rpx;
+    background: #fff;
+    position: absolute;
+    right: 10rpx;
+    top:134rpx;
+    color: rgb(255, 138, 4);
+    text-align: center;
+    font-size: 24rpx;
+    line-height: 46rpx;
+}
+.expert_sign_in_img{
+    width:26rpx;
+    height:46rpx;
+    /* border-radius:50%; */
+    /* background-color:#888;
+    margin-left:10%;
+    transform:translateX(-50%);
+    border:1px solid #fff; */
+    overflow:hidden;
+    display:inline-block;
+    vertical-align:middle;
+    margin-right: 4rpx;
+}
+.expert_sign_in_img image{
+    width: 100%;
 }
 
 /*商品*/

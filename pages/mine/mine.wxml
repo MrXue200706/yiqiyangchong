@@ -1,61 +1,93 @@
 <view class="mine">
+    <view class="diaglongs" wx:if="{{isFirstDlaigShow}}" bindtap="changeFirstShowDiag">
+        <view class="diagContets">
+            <view class="contentViews">
+                <image class="contentViewImgs" src="../../images/indexDI.png" mode="widthFix"></image>
+            </view>
+            <!-- <button open-type="getUserInfo" bindgetuserinfo>获取登陆</button> -->
+            <button class="shareBtns" bindtap="loginIntegral">
+                <image class="diagbtnImgs" src="../../images/indexDIBTN.png" mode="widthFix"></image>
+            </button>
+        </view>
+    </view>
     <!--头像-->
-<view class="hasBgCol" >
-<image class="mineTopBg" mode="widthFix" src="../../images/personCenter.jpg"></image>
-    <view class="avatar">
-        <view class="avatar_avatar">
-            <image mode="widthFix" src="{{userInfo.member.avatarUrl}}"></image>
+    <view class="hasBgCol" >
+        <image class="mineTopBg" mode="widthFix" src="../../images/personCenter.jpg"></image>
+        <view class="avatar">
+            <view class="avatar_avatar">
+                <image mode="widthFix" src="{{userInfo.member.avatarUrl}}"></image>
+            </view>
+            <view class="avatar_fallow">
+                <view class="avatar_fallow_center">
+                    <navigator url="../petFriends/petFriends?pageType=mine&petType=follow&uid={{userInfo.member.id}}" class="avatar_fallow_left">关注 {{userInfo.follow_count}}</navigator>
+                    <text>|</text>
+                    <navigator url="../petFriends/petFriends?pageType=mine&petType=fans&uid={{userInfo.member.id}}" class="avatar_fallow_right">粉丝 {{userInfo.fans_count}}</navigator>
+                </view>
+                <view class="avatar_name">{{userInfo.member.nickName}}</view>
+            </view>
+            <view class="avatar_sign_in" bindtap="showRedBag">
+                <view class="avatar_sign_in_img">
+                    <image mode="widthFix" src="../../images/signIn.png"></image>
+                </view>
+                签到
+            </view>
         </view>
-        <view class="avatar_name">{{userInfo.member.nickName}}</view>
-        <view class="avatar_fallow">
-            <navigator url="../petFriends/petFriends?pageType=mine&petType=follow&uid={{userInfo.member.id}}" class="avatar_fallow_left">关注 {{userInfo.follow_count}}</navigator>
-            <text>|</text>
-            <navigator url="../petFriends/petFriends?pageType=mine&petType=fans&uid={{userInfo.member.id}}" class="avatar_fallow_right">粉丝 {{userInfo.fans_count}}</navigator>
+        <!-- 积分弹框 -->
+        <view class="diaglong" wx:if="{{isDlaigShow}}" bindtap="changeShowDiag">
+            <view class="diagContet">
+                <view class="contentView">
+                    <image class="contentViewImg" src="../../images/integralMake.png" mode="widthFix"></image>
+                </view>
+                <view class="diagContet_text">兑换优惠券消耗积分</view>
+                <view class="diagContet_number">+50</view>
+            <!-- <button class="shareBtn" open-type="share">
+                <image class="diagbtnImg" src="../../images/indexDIBTN.png" mode="widthFix"></image>
+            </button> -->
+            </view>
+        
+        </view>
+        <!--状态-->
+        <view class="state">
+            <navigator url="../orderList/orderList?ptype=unpay" class="state_item">
+            <!-- url="../unpay/unpay?type=unpay" -->
+                <view class="state_item_img">
+                    <image mode="widthFix" src="../../images/daimypay.png"></image>
+                </view>
+                <text>待付款</text>
+            </navigator>
+            <navigator url="../orderList/orderList?ptype=untogether" class="state_item">
+                <view class="state_item_img">
+                    <image mode="widthFix" src="../../images/daimyteam.png"></image>
+                </view>
+                <text>待成团</text>
+            </navigator>
+            <navigator url="../orderList/orderList?ptype=unpick" class="state_item">
+                <view class="state_item_img">
+                    <image mode="widthFix" src="../../images/daimyshou.png"></image>
+                </view>
+                <text>待收货</text>
+            </navigator>
+            <navigator url="../orderList/orderList?ptype=done" class="state_item">
+                <view class="state_item_img">
+                    <image mode="widthFix" src="../../images/myover.png"></image>
+                </view>
+                <text>已完成</text>
+            </navigator>
+            <button class="kf_button" open-type="contact" session-from="weapp">
+                <view class="state_item_img">
+                    <image class="kf_image" mode="widthFix" src="../../images/daimyshophou.png"></image>
+                </view>
+                <text>售后服务</text>
+            </button>
+            <!-- <contact-button  type="default-light"  size="20" session-from="weapp"></contact-button>
+            <view class="state_item">
+                <view class="state_item_img">
+                    <image mode="widthFix" src="../../images/daimyshophou.png"></image>
+                </view>
+                <text>售后服务</text>
+            </view> -->
         </view>
     </view>
-
-    <!--状态-->
-    <view class="state">
-        <navigator url="../orderList/orderList?ptype=unpay" class="state_item">
-        <!-- url="../unpay/unpay?type=unpay" -->
-            <view class="state_item_img">
-                <image mode="widthFix" src="../../images/daimypay.png"></image>
-            </view>
-            <text>待付款</text>
-        </navigator>
-        <navigator url="../orderList/orderList?ptype=untogether" class="state_item">
-            <view class="state_item_img">
-                <image mode="widthFix" src="../../images/daimyteam.png"></image>
-            </view>
-            <text>待成团</text>
-        </navigator>
-        <navigator url="../orderList/orderList?ptype=unpick" class="state_item">
-            <view class="state_item_img">
-                <image mode="widthFix" src="../../images/daimyshou.png"></image>
-            </view>
-            <text>待收货</text>
-        </navigator>
-        <navigator url="../orderList/orderList?ptype=done" class="state_item">
-            <view class="state_item_img">
-                <image mode="widthFix" src="../../images/myover.png"></image>
-            </view>
-            <text>已完成</text>
-        </navigator>
-        <button class="kf_button" open-type="contact" session-from="weapp">
-             <view class="state_item_img">
-                <image class="kf_image" mode="widthFix" src="../../images/daimyshophou.png"></image>
-            </view>
-            <text>售后服务</text>
-        </button>
-        <!-- <contact-button  type="default-light"  size="20" session-from="weapp"></contact-button>
-        <view class="state_item">
-            <view class="state_item_img">
-                <image mode="widthFix" src="../../images/daimyshophou.png"></image>
-            </view>
-            <text>售后服务</text>
-        </view> -->
-    </view>
-</view>
     <!--事项-->
     <view class="official">
         <navigator url="../integral/integral?integral={{userInfo.member.integral}}" class="official_item">
@@ -65,13 +97,13 @@
             <view class="official_item_title">积分</view>
             <view class="official_item_under">可用积分：{{userInfo.member.integral}}</view>
         </navigator>
-        <navigator url="../myPets/myPets" class="official_item">
+        <view class="official_item" bindtap='cooperation'>
             <view class="official_item_img">
-                <image class="jifenIcon" mode="widthFix" src="../../images/mypets.png"></image>
+                <image class="hezuoicon" mode="widthFix" src="../../images/choujiang.png"></image>
             </view>
-            <view class="official_item_title">萌宠</view>
-            <view class="official_item_under">已添加：{{userInfo.pet_count}}</view>
-        </navigator>
+            <view class="official_item_title">抽奖</view>
+            <view class="official_item_under">精美礼品免费领取</view>
+        </view>
         <navigator url="../cuopon/cuopon" class="official_item">
             <view class="official_item_img">
                 <image mode="widthFix" src="../../images/myyouhui.png"></image>
@@ -94,13 +126,13 @@
             <view class="official_item_under">已存在：{{userInfo.address_count}}</view>
         </navigator>
         <!-- <button open-type='getUserInfo' bindgetuserinfo="bindGetUserInfo"></button> -->
-        <view class="official_item" bindtap='cooperation'>
+        <navigator url="../myPets/myPets" class="official_item">
             <view class="official_item_img">
-                <image class="hezuoicon" mode="widthFix" src="../../images/choujiang.png"></image>
+                <image class="jifenIcon" mode="widthFix" src="../../images/mypets.png"></image>
             </view>
-            <view class="official_item_title">抽奖</view>
-            <view class="official_item_under">精美礼品免费领取</view>
-        </view>
+            <view class="official_item_title">萌宠</view>
+            <view class="official_item_under">已添加：{{userInfo.pet_count}}</view>
+        </navigator>
         <!--线框-->
         <view class="line_column"></view>
         <view class="line_row1"></view>

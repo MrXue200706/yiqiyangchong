@@ -297,10 +297,18 @@ Page({
     })
   },
   buyTogether() { //团购订单修改入口
-    this.setData({
-      shoppingType: 'together',
-      shopping:'together'
-    });
+    if(this.data.shopping=='activity'){
+      this.setData({
+        shoppingType: 'together',
+        shopping:'activity'
+      });
+    }else{
+      this.setData({
+        shoppingType: 'together',
+        shopping:'together'
+      });
+    }
+    
     this.iframeFn();
   },
   buyOwn() {

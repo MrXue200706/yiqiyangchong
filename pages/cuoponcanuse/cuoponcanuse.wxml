@@ -1,16 +1,13 @@
 <view class="cuopon">
     <!--tab栏-->
-    <view class="cuopon_tab">
+    <!-- <view class="cuopon_tab">
         <view class="cuopon_tab_item" bindtap="typeOneFn">
-            <text class="{{type_one_active}}">可用优惠券</text>
+            <text class="{{type_one_active}}">兑换优惠券</text>
         </view>
         <view class="cuopon_tab_item" bindtap="typeTwoFn">  
-            <text class="{{type_two_active}}">已用优惠券</text>
+            <text class="{{type_two_active}}">我的优惠券</text>
         </view>
-		<view class="cuopon_tab_item" bindtap="typeThreeFn">  
-            <text class="{{type_three_active}}">过期优惠券</text>
-        </view>
-    </view>
+    </view> -->
 	<!-- 消费积分弹框 -->
 	<view class="diaglong" wx:if="{{isDlaigShow}}" bindtap="changeShowDiag">
 		<view class="diagContet">
@@ -27,8 +24,8 @@
 	</view>
     <!--内容-->
     <view class="cuopon_content">
-		<view wx:if="{{canUseCouponFlag}}">   <!-- 可用优惠券 -->
-				<view class="cuopon_content_item"  wx:for="{{canUseCoupon}}" wx:key="item.id">
+		<view hidden="{{couponFlag}}">   <!-- 优惠券兑换 -->
+				<view class="cuopon_content_item"  wx:for="{{exchangeCoupon}}" wx:key="item.id">
 					<view class="cuopon_content_item_left">
 						<view>
 							<text class="cuopon_content_item_left_con">¥</text>
@@ -41,50 +38,23 @@
 					<view class="cuopon_content_item_right">
 						<view class="cuopon_content_item_right_up">
 							<text class="cuopon_content_item_right_up_left">满{{item.order_money}}减{{item.coupons_money}}元优惠券</text>
-							<!-- <text class="cuopon_content_item_right_up_right">{{item.integral}}积分</text> -->
+							<text class="cuopon_content_item_right_up_right">{{item.integral}}积分</text>
 						</view>
 						<view class="cuopon_content_item_right_down_left">
 							<text>{{item.showStartTime}} 至 {{item.showEndTime}}</text>
 						</view>
 						<view class="cuopon_content_item_right_down">
 							<text class="cuopon_content_item_right_down_left">非积分兑换类商品使用</text>
-							<text class="cuopon_content_item_right_down_right" bindtap="useCoupon"  data-id="{{item.id}}">立即使用</text>
+							<text class="cuopon_content_item_right_down_right" bindtap="changeNow"  data-id="{{item.id}}">立即兑换</text>
 						</view>
 					</view>
 				</view>
 		</view>
-		<view wx:if="{{couponFlag}}">   <!-- 已用优惠券 -->
-				<view class="cuopon_content_item"  wx:for="{{myCoupon}}" wx:key="item.id">
-					<view class="cuopon_content_item_left change_bg">
-						<view>
-							<text class="cuopon_content_item_left_con">¥</text>
-							<text class="cuopon_content_item_left_price">{{item.coupons_money}}</text>
-						</view>
-						<view class="cuopon_content_item_left_descript_d">
-							<text class="cuopon_content_item_left_descript">满{{item.order_money}}元可用</text>
-						</view>
-					</view>
-					<view class="cuopon_content_item_right">
-						<view class="cuopon_content_item_right_up">
-							<text class="cuopon_content_item_right_up_left">满{{item.order_money}}减{{item.coupons_money}}元优惠券</text>
-							<!-- <text class="cuopon_content_item_right_up_right">{{item.integral}}积分</text> -->
-						</view>
-						<view class="cuopon_content_item_right_down_left">
-							<text>{{item.showStartTime}} 至 {{item.showEndTime}}</text>
-						</view>
-						<view class="cuopon_content_item_right_down">
-							<text class="cuopon_content_item_right_down_left">非积分兑换类商品使用</text>
-							<!-- <text class="cuopon_content_item_right_down_right" bindtap="changeNow"  data-id="{{item.id}}">立即兑换</text> -->
-						</view>
-					</view>
-				</view>
-		</view>
-
-		<!-- 过期优惠券 -->
-		<view wx:if="{{timeoutCouponFlag}}">
+		
+		<view hidden="{{!couponFlag}}">
 			<!--    后续需要点击我的优惠券，以下代码就是，但少了开始时间和结束时间的样式。所以注释了-->
-			<view class="cuopon_content_item"  wx:for="{{timeoutCoupon}}" wx:key="item.id" data-id="{{item.id}}">
-				<view class="cuopon_content_item_left change_bg">
+			<view class="cuopon_content_item"  wx:for="{{myCoupon}}" wx:key="item.id" data-id="{{item.id}}">
+				<view class="cuopon_content_item_left">
 					<view>
 						<text class="cuopon_content_item_left_con">¥</text>
 						<text class="cuopon_content_item_left_price">{{item.coupons_money}}</text>
@@ -96,15 +66,14 @@
 				<view class="cuopon_content_item_right">
 					<view class="cuopon_content_item_right_up">
 						<text class="cuopon_content_item_right_up_left">满{{item.order_money}}减{{item.coupons_money}}元优惠券</text>
-						<text class="cuopon_content_item_right_up_right">已过期</text>
 						<!-- <text class="cuopon_content_item_right_up_right">200积分</text> -->
 					</view>
 					<view class="cuopon_content_item_right_down_left">
 						<text>{{item.showStartTime}} 至 {{item.showEndTime}}</text>
 					</view>
 					<view class="cuopon_content_item_right_down">
-						<text class="cuopon_content_item_right_down_left">非积分兑换类商品使用</text>
-            <!-- <view class="cuopon_content_item_right_down_right" data-couponId='{{item.id}}' data-order_money="{{item.order_money}}" data-subPrice='{{item.coupons_money}}' bindtap='useCoupon'>立即使用</view> -->
+						<text class="cuopon_content_item_right_down_left">积分兑换，不可叠加使用</text>
+            <view class="cuopon_content_item_right_down_right" data-couponId='{{item.id}}' data-order_money="{{item.order_money}}" data-subPrice='{{item.coupons_money}}' bindtap='useCoupon'>立即使用</view>
 					</view>
 				</view>
 			</view>

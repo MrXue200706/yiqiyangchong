@@ -48,6 +48,13 @@
     font-size: 24rpx;
     margin-top: 10rpx;
 }
+.goodsDetail_title_number{
+    font-size: 26rpx;
+    /* font-weight: bold; */
+}
+.goodsDetail_title_text{
+    font-size: 24rpx;
+}
 .goodsDetail_title_content{
     font-size: 30rpx;
     color: #333;

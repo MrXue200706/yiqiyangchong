@@ -6,14 +6,9 @@ Page({
   data: {
     type_one_active: "", //修改点击后的样式
     type_two_active: "", //修改点击后的样式
-    type_three_active: "",
-    canUseCoupon: null, //可用优惠卷
-    myCoupon: null, //已用优惠券
+    myCoupon: null, //我的优惠券
     exchangeCoupon: null, //兑换优惠券
-    timeoutCoupon:null,//过期优惠券
-    canUseCouponFlag: true,//
-    couponFlag: false, //已用优惠卷
-    timeoutCouponFlag:false,
+    couponFlag: false, //是否隐藏兑换优惠券
     comeIn: 'coupon', //标记入口,coupon：个人中心优惠券入口，order: 订单中心进入
     startTiem:'',
     endTime: '',
@@ -39,89 +34,22 @@ Page({
     this.setData({
       type_one_active: "cuopon_tab_item_active",
       type_two_active: "",
-      type_three_active: "",
-      canUseCouponFlag: true,
-      couponFlag:false,
-      timeoutCouponFlag:false,
+      couponFlag: false
     });
-    this.getCanUseCoupon();
+    this.getExchangeCoupon();
   },
   typeTwoFn() {//我的优惠券
     this.setData({
       type_one_active: "",
       type_two_active: "cuopon_tab_item_active",
-      type_three_active: "",
-      canUseCouponFlag: false,
-      couponFlag:true,
-      timeoutCouponFlag:false,
+      couponFlag: true
     });
     this.getMyCoupon();
-  },
-  typeThreeFn() {//我的优惠券
-    this.setData({
-      type_one_active: "",
-      type_two_active: "",
-      type_three_active: "cuopon_tab_item_active",
-      canUseCouponFlag: false,
-      couponFlag:false,
-      timeoutCouponFlag:true,
-    });
-    this.getTimeoutCoupon();
-  },
-  getCanUseCoupon(){
-    let that = this;
-    wx.request({
-      //url: 'https://wechatapi.vipcsg.com/index/coupons/index',
-      url:'https://wechatapi.vipcsg.com/index/coupons/my_coupons',
-      method: 'GET',
-      data: {
-        user_id: app.globalData.userInfo.data.data.user_id
-      },
-      success(res) {
-        if (res.data.result == 1) {
-          that.changTimeShow(res.data.data)
-          // let filterList = res.data.data.filter(item => {
-          //   return item.is_expire==0 && item.is_userd==0
-          // })
-          that.setData({
-            canUseCoupon: res.data.data
-          });
-        }
-      },
-    })
-  },
-  //已用优惠卷
-  getMyCoupon(){
-    let that = this;
-    wx.request({
-      //url: 'https://wechatapi.vipcsg.com/index/coupons/my_coupons',
-      url:'https://wechatapi.vipcsg.com/index/coupons/my_coupons',
-      method: 'GET',
-      data: {
-        user_id: app.globalData.userInfo.data.data.user_id
-      }, success(res) {
-        if (res.data.result == 1) {
-          // that.changTimeShow(res.data.data)
-          // that.setData({
-          //   TimeoutCoupon: res.data.data
-          // });
-          that.changTimeShow(res.data.data)
-          let filterList = res.data.data.filter(item => {
-            return item.is_userd==1
-          })
-          console.log(filterList)
-          that.setData({
-            myCoupon: filterList
-          });
-        }
-      },
-    })
   },
   getExchangeCoupon() {//获取兑换券列表
     let that = this;
     wx.request({
-      //url: 'https://wechatapi.vipcsg.com/index/coupons/index',
-      url:'https://wechatapi.vipcsg.com/index/coupons/my_coupons',
+      url: 'https://wechatapi.vipcsg.com/index/coupons/index',
       method: 'GET',
       data: {
         user_id: app.globalData.userInfo.data.data.user_id
@@ -129,38 +57,25 @@ Page({
       success(res) {
         if (res.data.result == 1) {
           that.changTimeShow(res.data.data)
-          let filterList = res.data.data.filter(item => {
-            return item.is_expire==0 && item.is_userd==0
-          })
           that.setData({
-            exchangeCoupon: filterList
+            exchangeCoupon: res.data.data
           });
         }
       },
     })
   },
-  //过期优惠卷
-  getTimeoutCoupon() {//获取我的优惠券列表
+  getMyCoupon() {//获取我的优惠券列表
     let that = this;
     wx.request({
-      //url: 'https://wechatapi.vipcsg.com/index/coupons/my_coupons',
-      url:'https://wechatapi.vipcsg.com/index/coupons/my_coupons',
+      url: 'https://wechatapi.vipcsg.com/index/coupons/my_coupons',
       method: 'GET',
       data: {
         user_id: app.globalData.userInfo.data.data.user_id
       }, success(res) {
         if (res.data.result == 1) {
-          // that.changTimeShow(res.data.data)
-          // that.setData({
-          //   TimeoutCoupon: res.data.data
-          // });
           that.changTimeShow(res.data.data)
-          let filterList = res.data.data.filter(item => {
-            return item.is_expire==1
-          })
-          console.log(filterList)
           that.setData({
-            timeoutCoupon: filterList
+            myCoupon: res.data.data
           });
         }
       },
@@ -190,13 +105,16 @@ Page({
           wx.showToast({
             title: '兑换成功',
             icon: 'succes',
-            duration: 2000,
+            duration: 1000,
             mask: true
           })
           console.log("兑换成功")
-          that.setData({
-            isDlaigShow: true
-          })
+          setTimeout(()=>{
+            that.setData({
+              isDlaigShow: true
+            })
+          },1000)
+          that.getExchangeCoupon()
         } else {
           //兑换失败
           wx.showToast({
