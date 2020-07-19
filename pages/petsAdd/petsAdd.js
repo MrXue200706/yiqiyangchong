@@ -302,6 +302,16 @@ Page({
       });
       return false;
     }
+    if (!this.data.pet_img.length) {
+      wx.showToast({
+        title: '请添加萌宠照片',
+        icon: 'none',
+        duration: 2000,
+        mask: true
+      });
+      return false;
+    }
+    console.log(this.data.pet_img)
     return true;
   },
   stringToDate: function(dateStr, separator) { //临时日期格式化

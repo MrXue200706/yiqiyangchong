@@ -1,7 +1,7 @@
 //index.js
 //获取应用实例
 const app = getApp()
-app.checkLogin()
+//app.checkLogin()
 
 Page({
   data: {
@@ -13,10 +13,15 @@ Page({
     pageno: 1,
     isDlaigShow: false,
     pet_expert_item_button:"pet_expert_item_button",
-    pet_expert_item_button_noclick:"pet_expert_item_button_noclick"
+    pet_expert_item_button_noclick:"pet_expert_item_button_noclick",
+    isJoin:false,
+    modalTogoList:[],
+    isModalTogoList:false
   },
   onLoad() {
+    this.uploadApp()
     app.checkLogin()
+    console.log( app.checkLogin)
     //请求
     var today = wx.getStorageSync('today');
     console.log(today)
@@ -29,10 +34,10 @@ Page({
     }
     this.getSwiper();
     this.getGoodsIndex(1);
-    this.getPetExpert();
+    //this.getPetExpert();
     this.getSpecialTopic();
     this.getGoodsRecommend();
-    
+    this.getModalTogo()
   },
 onShow(){
  // app.checkLogin()
@@ -43,6 +48,45 @@ onShow(){
    this.changeShowDiag()
  }
 },
+
+  // 小程序版本更新
+  uploadApp(){
+    console.log(wx.canIUse("getUpdateManager"))
+    if (wx.canIUse("getUpdateManager")) {
+      const updateManager = wx.getUpdateManager();
+      updateManager.onCheckForUpdate(function(res) {
+         console.log(res);
+        // 请求完新版本信息的回调
+        if (res.hasUpdate) {
+          updateManager.onUpdateReady(function() {
+            wx.showModal({
+              title: "更新提示",
+              content: "新版本已经准备好，是否重启应用？",
+              success(res) {
+                if (res.confirm) {
+                  // 新的版本已经下载好，调用 applyUpdate 应用新版本并重启
+                  updateManager.applyUpdate();
+                }
+              }
+            });
+          });
+          updateManager.onUpdateFailed(function() {
+            // 新的版本下载失败
+            wx.showModal({
+              title: "已经有新版本了哟~",
+              content: "新版本已经上线啦~，请您删除当前小程序，重新搜索打开哟~"
+            });
+          });
+        }
+      });
+    } else {
+      wx.showModal({
+        title: "提示",
+        content:
+          "当前微信版本过低，无法使用该功能，请升级到最新微信版本后重试。"
+      });
+    }
+  },
 
   //请求轮播图
   getSwiper() {
@@ -58,6 +102,36 @@ onShow(){
       },
     })
   },
+  // 获取modal跳转
+  getModalTogo(){
+    let that = this;
+    wx.request({
+      url: 'https://wechatapi.vipcsg.com/index/slider/popup',
+      data: {},
+      success(res) {
+        if(res.data.data.length){
+          that.setData({
+            modalTogoList: res.data.data,
+            isModalTogoList:true
+          })
+          that.toCloseModal()
+        }
+        console.log(res)
+        // console.log(that.data.swiper)
+      },
+    })
+  },
+  toCloseModal(){
+    let that=this
+    console.log(999)
+    setTimeout(function() {
+      that.setData({
+        isModalTogoList:false
+      })
+    }, 3000);
+
+  },
+  
   onReachBottom() {
     // 下拉触底，先判断是否有请求正在进行中
     // 以及检查当前请求页数是不是小于数据总页数，如符合条件，则发送请求
@@ -84,9 +158,11 @@ onShow(){
   },
   changeShowDiag() {
     this.setData({
-      isDlaigShow: false
+      isDlaigShow: false,
+      isModalTogoList:false
     })
   },
+
   setDiagHide() {
     let that = this
     var nowdata=new Date().getDate()

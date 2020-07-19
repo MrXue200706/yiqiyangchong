@@ -1,0 +1,38 @@
+<view class="petFriends">
+  <view class="petFriends_item" wx:for="{{petList}}" wx:key="item.follow_id" wx:for-index='index'>
+    <navigator url="../hotTroopDetail/hotTroopDetail?team_id={{item.id||item.follow_id||item.user_id}}" class="petFriends_item_left">
+      <!-- <navigator url="../expert/expert?key={{item.follow_id}}" class="petFriends_item_left"> -->
+      <view class="petFriends_item_avatar">
+        <image mode="widthFix" src="{{item.team_img}}"></image>
+      </view>
+      <!-- <view class="petFriends_item_content">
+          <view class="petFriends_item_content_name">
+              <text>阿华</text>
+          </view>
+          <view class="petFriends_item_content_pet">
+              <text>泰迪 阿拉斯加</text>
+          </view>
+      </view> -->
+      <view class="petFriends_item_content">
+        <view class="petFriends_item_content_name">
+          <text>{{item.team_name}}</text>
+        </view>
+        <view class="petFriends_item_content_pet">
+          <text class="petFriends_power">战力:{{item.team_power}}</text>
+          <text class="petFriends_man">{{item.team_number}}人</text>
+        </view>
+      </view>
+    </navigator>
+    <view>
+    <!-- <view class="petFriends_item_button" wx:if="{{petType=='follow'}}" data-id="{{item.id}}" data-followid="{{item.follow_id}}" data-usersid="{{item.user_id}}" bindtap="unFocusOn">
+      <text>取消关注</text>
+    </view> -->
+      <view class="petFriends_item_button" wx:if="{{index > 2}}">
+        <text>NO.{{item.ranking}}</text>
+      </view>
+      <view class="petFriends_item_ranking" wx:if="{{index <= 2}}">
+        <image mode="widthFix" src='{{item.rankingImage}}'></image>
+      </view>
+    </view>
+  </view>
+</view>

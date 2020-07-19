@@ -1,0 +1,478 @@
+.specialTopicDetail{
+    overflow: hidden;
+}
+/*文章*/
+.specialTopicDetail_p{
+    /* padding: 10rpx 28rpx 40rpx 28rpx; */
+    /*padding-bottom: 20rpx;*/
+}
+.specialTopicDetail_p_p{
+    padding: 0 10rpx 15rpx;
+    font-size: 26rpx;
+    color: #333;
+    margin-top: -20rpx;
+}
+.specialTopicDetail_p_img{
+    /* width: 100%; */
+    /* margin: 20rpx; */
+    /* border-radius: 10rpx; */
+    /* max-height: 464rpx; */
+    /*background-color: #888;*/
+    overflow: hidden;
+    /* margin-top: 30rpx; */
+}
+.specialTopicDetail_p_img_margin{
+    margin: 20rpx;
+
+}
+.specialTopicDetail_p_img image{
+    width: 100%;
+    border-radius: 10rpx;
+}
+
+/*商品推荐*/
+.specialTopicDetail_goods{
+    padding: 28rpx 28rpx;
+    display: flex;
+    flex-wrap: nowrap;
+    border-bottom: 1px solid #d5d5d5;
+}
+.specialTopicDetail_goods_img{
+    width: 220rpx;
+    height: 228rpx;
+    background-color: #888;
+    flex-shrink: 0;
+}
+.specialTopicDetail_goods_img image{
+    width: 100%;
+}
+.specialTopicDetail_goods_text{
+    padding-left: 20rpx;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+}
+.specialTopicDetail_goods_text_title{
+    font-size: 28rpx;
+}
+.specialTopicDetail_goods_recommend{
+    box-sizing: border-box;
+    margin: 14rpx 0;
+    padding: 0 28rpx;
+    background-color: #fff;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+}
+.specialTopicDetail_goods_recommend_content{
+    color: #313131;
+    font-size: 26rpx;
+}
+.specialTopicDetail_goods_recommend_avatar{
+    margin-right: 28rpx;
+    float: left;
+    display: flex;
+    flex-wrap: nowrap;
+}
+.specialTopicDetail_goods_recommend_avatar_item{
+    width: 50rpx;
+    height: 50rpx;
+    border-radius: 50%;
+    background-color: #888;
+    flex-shrink: 0;
+    border: 1rpx solid #fff;
+    box-sizing: border-box;
+    margin-left: -26rpx;
+}
+
+.specialTopicDetail_goods_text_bottom{
+    width: 100%;
+}
+.specialTopicDetail_goods_text_bottom_red{
+    font-size: 28rpx;
+    color: #f73227;
+}
+.specialTopicDetail_goods_text_bottom_gray{
+    font-size: 22rpx;
+    color: #d4d4d4;
+    text-decoration: line-through;
+}
+.specialTopicDetail_goods_text_bottom_button{
+    /*display: inline-block;*/
+    height: 54rpx;
+    line-height: 54rpx;
+    width: 136rpx;
+    text-align: center;
+    background-color: #ff920a;
+    color: #fff;
+    border-radius: 28rpx;
+    font-size: 28rpx;
+    flex-shrink: 0;
+    margin-left: 100rpx;
+    float: right;
+}
+
+/*底部*/
+.specialTopicDetail_foot{
+    width: 100%; 
+    height: 100rpx;
+    border-top: 1px solid #d2d2d2;
+    /* position: fixed; */
+    bottom: 0;
+    display: flex;
+    justify-content: space-between;
+    background-color: #fff;
+}
+.specialTopicDetail_foot_left,.specialTopicDetail_foot_right{
+    height: 90rpx;
+    line-height: 90rpx;
+    font-size: 24rpx;
+    color: #666;
+    width: 48%;
+    margin: 0 1%;
+    text-align: center;
+}
+.specialTopicDetail_foot_right_share{
+    /* padding: 0 46rpx; */
+    border: 1px solid #f73227;
+    width: 95%;
+    /* height: 55rpx; */
+    margin: 20rpx auto;
+    background:#f73227;
+    color: #fff; 
+    line-height: 56rpx;
+    font-size: 24rpx;
+    padding: 0;
+}
+.specialTopicDetail_foot_right_more{
+    /* background:rgb(241, 49, 48); */
+    color: #333; 
+    border: 1px solid #d2d2d2;
+    width: 95%;
+    height: 55rpx;
+    line-height: 55rpx;
+    margin: 20rpx auto;
+    border-radius: 10rpx;
+}
+
+
+/*占位*/
+.palceholder{
+    height: 30rpx;
+    width: 100%;
+}
+.joinChoujian{
+    height: 150rpx;
+    width: 150rpx;
+    line-height: 150rpx;
+    margin: 30rpx auto;
+    border-radius: 50%;
+    background:rgb(241, 49, 48);
+    text-align: center;
+    margin-top: 50rpx;
+}
+.unjoinChoujian{
+    height: 150rpx;
+    width: 150rpx;
+    line-height: 150rpx;
+    margin: 30rpx auto;
+    border-radius: 50%;
+    background:#999;
+    text-align: center;
+    margin-top: 50rpx;
+}
+.choujianText{
+    color: #fff;
+    font-size: 28rpx;
+}
+.joinPerson{
+    text-align: center;
+    color: #888;
+    font-size: 24rpx;
+    display: block;
+    margin: 15rpx auto;
+
+}
+.surperShop_content_view{
+    margin: 20rpx;
+    margin-top: 40rpx;
+    margin-bottom: 0rpx;
+}
+.surperShop_goods_recommend_avatar{
+    margin-right: 28rpx;
+    float: left;
+    display: flex;
+    flex-wrap: nowrap;
+}
+.surperShop_goods_recommend_avatar_item{
+    width: 50rpx;
+    height: 50rpx;
+    border-radius: 50%;
+    background-color: #888;
+    flex-shrink: 0;
+    border: 1rpx solid #fff;
+    box-sizing: border-box;
+    margin-left: -26rpx;
+    overflow: hidden;
+}
+.surperShop_goods_recommend_avatar_item_img{
+    width: 100%;
+}
+.special_topic_detail_item{
+    width: 100%;
+    text-align: center;
+}
+.special_content_item{
+    display: inline-block;
+    margin: 5rpx;
+    width: 10%;
+  
+}
+.bottom_img_list_view{
+    margin: 0 10rpx;
+}
+.specialTopicDetailName{
+    margin: 0 10rpx;
+    padding: 15rpx 0;
+    font-size: 32rpx;
+    font-weight: bold;
+    border-bottom: 1rpx solid #888;
+}
+.specialTopicDetail_member_list{
+    padding: 10rpx;
+    margin: 16rpx;
+    background: #fff;
+    border-radius: 6rpx;
+
+}
+.specialTopicDetail_member_list_top{
+    padding-top: 20rpx;
+}
+.specialTopicDetail_member_list_top_title{
+    text-align: center
+}
+.specialTopicDetail_member_list_top_time{
+    text-align: center;
+    font-size: 24rpx;
+}
+.specialTopicDetail_member_list_top_member{
+    padding: 14rpx
+}
+.specialTopicDetail_member_list_top_member_view{
+    text-align: center;
+    width: 23%;
+    margin: 0 1%;
+    display: inline-block;
+    overflow: hidden;
+    text-overflow:ellipsis;
+    white-space: normal;
+}
+.specialTopicDetail_member_list_top_member_text{
+    display: block;
+    width: 100%;
+    font-size: 24rpx;
+    margin-top: 4rpx;
+    overflow: hidden;
+    text-overflow:ellipsis;
+    white-space: normal;
+}
+.specialTopicDetail_member_list_top_member_view_img{
+    width: 110rpx;
+    height: 110rpx;
+    border-radius: 50%;
+    overflow: hidden;
+    /* border: 1px dashed #999; */
+    text-align: center;
+    margin: 0 auto;
+}
+.specialTopicDetail_member_list_top_member_view_img image{
+    width: 100%;
+}
+.specialTopicDetail_member_list_btn{
+    width: 90%;
+    margin: 20rpx auto;
+    /* padding: 18rpx 0; */
+    background: #ff920a;
+    border-radius: 14rpx;
+    text-align: center;
+    font-size: 30rpx;
+    color: #fff;
+}
+
+/*商品*/
+.surperShop{
+    margin: 20rpx;
+    border-radius: 20rpx;
+    color: #fff;
+    overflow: hidden;
+}
+.surperShop_goods{
+    padding: 28rpx 28rpx;
+    display: flex;
+    flex-wrap: nowrap;
+    /* border-bottom: 1px solid #d5d5d5; */
+    background: #fff;
+    border-radius: 14rpx;
+    overflow: hidden;
+    margin-bottom: 20rpx
+}
+.surperShop_goods_img{
+    width: 140rpx;
+    height: 140rpx;
+    background-color: #888;
+    flex-shrink: 0;
+}
+.surperShop_goods_img_image{
+    width: 100%;
+}
+.surperShop_goods_text{
+    display: inline-block;
+    padding-left: 5%;
+    width: 95%;
+    vertical-align: middle;
+
+}
+/* .surperShop_goods_text{
+    padding-left: 20rpx;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+} */
+
+.surperShop_goods_text_title{
+    font-size: 28rpx;
+    color: #111;
+    margin-top: 14rpx;
+    /* padding-top: 26rpx; */
+    font-weight: bold;
+    
+}
+.surperShop_goods_text_tit{
+    height: 74rpx;
+    overflow: hidden;
+}
+.surperShop_goods_recommend{
+    width: 100%;
+    box-sizing: border-box;
+    margin: 14rpx 0;
+    padding-left:28rpx;
+    background-color: #fff;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.surperShop_goods_recommend_content{
+    color: #313131;
+    font-size: 26rpx;
+}
+.surperShop_goods_recommend_number{
+    font-size:26rpx;
+    color:#89898c;
+    margin-right:35rpx;
+    text-align: right;
+    color: red;
+}
+.surperShop_goods_recommend_avatar{
+    margin-right: 28rpx;
+    float: left;
+    display: flex;
+    flex-wrap: nowrap;
+}
+.surperShop_goods_recommend_avatar_item{
+    width: 50rpx;
+    height: 50rpx;
+    border-radius: 50%;
+    background-color: #888;
+    flex-shrink: 0;
+    border: 1rpx solid #fff;
+    box-sizing: border-box;
+    margin-left: -26rpx;
+    overflow: hidden;
+}
+.surperShop_goods_recommend_avatar_item_img{
+    width: 100%;
+}
+.surperShop_goods_text_bottom{
+    width: 100%
+}
+.surperShop_goods_text_bottom_red{
+    font-size: 28rpx;
+    color: #f73227;
+}
+.surperShop_goods_text_bottom_gray{
+    font-size: 22rpx;
+    color: #d4d4d4;
+    text-decoration: line-through;
+}
+.surperShop_goods_text_bottom_button{
+    display: block;
+    height: 54rpx;
+    line-height: 54rpx;
+    width: 136rpx;
+    text-align: center;
+    background-color: #ff920a;
+    color: #fff;
+    border-radius: 28rpx;
+    font-size: 28rpx;
+    flex-shrink: 0;
+    float: right;
+    margin-top: 50rpx;
+}
+.surperShop_goods_text_number{
+    color: #ff920a;
+    font-size: 24rpx;
+    font-weight: normal;
+}
+.surperShop_goods_text_bottom_disabled{
+    background-color: #888;
+}
+.button_disabled{
+    background: #888;
+}
+  /*地址*/
+  .checkPay_adress{
+    /* background-color: #fff; */
+    margin-top: 16rpx;
+    padding: 20rpx 56rpx;
+    position: relative;
+}
+.checkPay_adress_img{
+    width:22rpx;
+    position:absolute;
+    top:50%;
+    left:16rpx;
+    transform: translateY(-50%);
+}
+.checkPay_goods_img image{
+    width: 100%;
+}
+.checkPay_adress_img image{
+    width: 100%;
+}
+.checkPay_adress_name{
+    width: 100%;
+    font-size: 26rpx;
+    color: #333;
+    display: flex;
+}
+.checkPay_adress_name .name{
+  font-weight:600;
+  margin-right:30rpx;
+  font-size:30rpx;
+}
+.checkPay_adress_adress{
+    width: 100%;
+    font-size: 24rpx;
+    color: #888;
+    margin-top: 1em;
+}
+.checkPay_adress_icon{
+    position:absolute;
+    top:50%;
+    right:20rpx;
+    transform: translateY(-50%);
+    color: #888;
+}

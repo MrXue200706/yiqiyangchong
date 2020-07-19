@@ -8,13 +8,17 @@
 		"es6": true,
 		"postcss": true,
 		"minified": true,
-		"newFeature": true
+		"newFeature": true,
+		"autoAudits": false,
+		"useCompilerModule": true
 	},
 	"compileType": "miniprogram",
 	"libVersion": "2.1.1",
 	"appid": "wxc7bf060c95b1645b",
-	"projectname": "yyycw",
+	"projectname": "nnnn",
 	"isGameTourist": false,
+	"simulatorType": "wechat",
+	"simulatorPluginLibVersion": {},
 	"condition": {
 		"search": {
 			"current": -1,
@@ -33,7 +37,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 1,
+			"current": 4,
 			"list": [
 				{
 					"id": 0,
@@ -45,6 +49,27 @@
 					"id": -1,
 					"name": "delu",
 					"pathName": "pages/login/login",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "make",
+					"pathName": "pages/hotTroopMake/hotTroopMake",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "mine",
+					"pathName": "pages/mine/mine",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "find",
+					"pathName": "pages/find/find",
 					"scene": null
 				}
 			]

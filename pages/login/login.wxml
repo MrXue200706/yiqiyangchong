@@ -1,21 +1,51 @@
 <!--login.wxml-->
-<view wx:if="{{canIUse}}">
-    <view class='header'>
+<view wx:if="{{canIUse}}" class="windowheight">
+    <!-- <view class='header'>
         <image src='/images/wx_login.png'></image>
     </view>
  
     <view class='content'>
         <view>申请获取以下权限</view>
         <text>获得你的公开信息(昵称，头像等)</text>
-    </view>
+    </view> -->
+    <swiper class="head_swiper" indicator-color="#fff" indicator-active-color="rgba(255, 255, 255, 0.6)" indicator-dots="{{false}}" autoplay="true">
+        <block>
+        <view >
+            <swiper-item class="bc_blue">
+                <image class="head_swiper_img" src="/images/login0.jpg" mode="widthFix"></image>
+                <button class='login_bottom' type='primary' open-type="getUserInfo" lang="zh_CN"      bindgetuserinfo="bindGetUserInfo">
+                    登录体验
+                </button>
+            </swiper-item>
+        </view>
+        <view >
+            <swiper-item class="bc_blue">
+                <image class="head_swiper_img" src="/images/login1.jpg" mode="widthFix"></image>
+                <button class='login_bottom' type='primary' open-type="getUserInfo" lang="zh_CN"      bindgetuserinfo="bindGetUserInfo">
+                    登录体验
+                </button>
+            </swiper-item>
+        </view>
+        <view >
+            <swiper-item class="bc_blue">
+                <image class="head_swiper_img" src="/images/login2.jpg" mode="widthFix"></image>
+                <view class="button_view">
+                    <button class='login_bottom' type='primary' open-type="getUserInfo" lang="zh_CN"      bindgetuserinfo="bindGetUserInfo">
+                        登录体验
+                    </button>
+                </view>
+                
+            </swiper-item>
+        </view>
+        </block>
+    </swiper>
  
 
-    <view style="display:flex;margin-top:280rpx;align-items:center;justify-content:space-between;">
-    <!-- <button class="toGoMore">逛逛再来</button> -->
+    <!-- <view style="display:flex;margin-top:280rpx;align-items:center;justify-content:space-between;">
     <button class='bottom' type='primary' open-type="getUserInfo" lang="zh_CN"      bindgetuserinfo="bindGetUserInfo">
         授权登录
     </button>
-    </view>
+    </view> -->
     
 </view>
  

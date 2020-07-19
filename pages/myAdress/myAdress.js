@@ -47,6 +47,16 @@ Page({
   },
  onShow(){
   var payok = wx.getStorageSync('ispayok');
+  var pages = getCurrentPages(); //当前页面
+  console.log(pages)
+  // if(wx.getStorageSync('adressAddoK')){
+  //   var filerPage=pages.filter(function(item){
+  //     return item.route != "pages/addAdress/addAdress"
+  //   })
+  //   pages=filerPage
+  // }
+  // console.log(pages)
+  this.getAddressList();
   if (payok) {
     // console.log(pages[0].route);
     // let ulr=pages[0].route.replace("pages","..")
@@ -57,7 +67,15 @@ Page({
     })
     return;
  }},
+ onUnload() {
+  console.log('返回按钮')
+  // if(wx.getStorageSync('adressAddoK')){
+  //   wx.reLaunch({
+  //     url: '../../pages/mine/mine'
+  //   })
+  // }
   
+},
   getAddressList() {
     let that = this;
     wx.request({
@@ -75,7 +93,7 @@ Page({
   navigatebacks(){
 		var that = this;
 		var pages = getCurrentPages();
-		//var petAddoK="";
+    //var petAddoK="";
 		var value = wx.getStorageSync('adressAddoK')
 		console.log(value)
 			if (value) {
@@ -105,9 +123,11 @@ Page({
       wx.navigateTo({
         url: "../unpay/unpay?ptype=unpay&order_id=" + this.data.order_id + "&adrId=" + adrId
       })
-    } else if (this.data.type == "shopping" || this.data.type == "together" || this.data.type == "normal"||this.data.type == "activity") {
+    } else if (this.data.type == "shopping" || this.data.type == "together" || this.data.type == "normal"||this.data.type == "activity"
+    || this.data.from=='hotTroopDetail' || this.data.from=='eventDetail') {
       //获取页面栈
       var pages = getCurrentPages();
+      console.log(pages)
       //获取上一页
       var prePage = pages[pages.length - 2]
       prePage.setData({
@@ -120,7 +140,7 @@ Page({
       //进入编辑页面
       wx.setStorage({key:"adressAddoK",data:false});
       wx.navigateTo({
-        url: '../addAdress/addAdress?type=editAdr&&order_id=' + this.data.order_id+'&adrId=' + adrId,
+        url: '../addAdress/addAdress?type=editAdr&order_id=' + this.data.order_id+'&adrId=' + adrId,
       });
     }
   },

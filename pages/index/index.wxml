@@ -1,5 +1,22 @@
 <!--index.wxml-->
 <view class="index">
+  <!-- 广告弹框 -->
+  <view class="diaglong" wx:if="{{isModalTogoList}}">
+    <view class="diagContet">
+      <view class="diaglong_close">
+        <image  bindtap="changeShowDiag" class="contentViewImg" src="../../images/close.png" mode="widthFix"></image>
+      </view>
+      <navigator url="{{modalTogoList[0].url}}">
+        <!-- <view class="modalto_title">
+          {{modalTogoList[0].title}}
+        </view> -->
+        <view class="contentView">
+          <image class="contentViewImg" src="{{modalTogoList[0].img}}" mode="widthFix"></image>
+        </view> 
+      </navigator>
+    </view>
+  </view>
+
   <view class="diaglong" wx:if="{{isDlaigShow}}" bindtap="changeShowDiag">
     <view class="diagContet">
     <view class="contentView">
@@ -82,7 +99,7 @@
   </view>
 
   <!--养宠达人-->
-  <view class="pet_expert">
+  <!-- <view class="pet_expert">
     <text class="pet_expert_title">养宠达人</text>
     <text class="pet_expert_reflesh" bindtap="getPetExpert">换一组</text>
     <scroll-view scroll-x="true">
@@ -102,7 +119,7 @@
         </view>
       </view>
     </scroll-view>
-  </view>
+  </view> -->
 
   <!--专题精选-->
   <!-- <view class="special_topic">
@@ -127,14 +144,14 @@
         <image class="goods_item_img_image" src="{{item.goods_img}}" mode="widthFix"></image>
       </view>
       <view class="goods_item_title">{{item.goods_name}}</view>
-      <view class="goods_item_price">￥{{item.price}}</view>
-      <view class="goods_item_recommend">
+      <view class="goods_item_price">￥{{item.group_price}}</view>
+      <view class="goods_item_recommend" wx:if="{{item.pet_friend_count>0}}">
         <text class="goods_item_recommend_number">{{item.pet_friend_count}}推荐</text>
         <view class="goods_item_recommend_avatars">
-          <view class="goods_item_recommend_avatar_left">
+          <view class="goods_item_recommend_avatar_left" wx:if="{{item.pet_friend_list[0].avatarUrl}}">
             <image class="goods_item_recommend_avatars_img" src="{{item.pet_friend_list[0].avatarUrl}}" mode="widthFix"></image>
           </view>
-          <view class="goods_item_recommend_avatar_right">
+          <view class="goods_item_recommend_avatar_right" wx:if="{{item.pet_friend_list[1].avatarUrl}}">
             <image class="goods_item_recommend_avatars_img" src="{{item.pet_friend_list[1].avatarUrl}}" mode="widthFix"></image>
           </view>
         </view>

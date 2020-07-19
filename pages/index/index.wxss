@@ -42,7 +42,7 @@
 .head_swiper {
   padding: 0 28rpx;
   background-color: #fff;
-  height: 332rpx;
+  height: 324rpx;
 }
 
 .bc_blue {
@@ -386,8 +386,20 @@
   transform: translate(-50%, -50%);
   /* background-color: #FFFFFF; */
   text-align: center;
-  border-radius: 10rpx;
+  /* border-radius: 10rpx; */
   overflow: hidden;
+  /* padding: 20rpx; */
+}
+.modalto_title{
+  /* background: #fff; */
+  font-size: 26rpx;
+  padding: 14rpx 0;
+}
+.diaglong_close{
+  margin-left: calc(100% - 58rpx);
+  height: 54rpx;
+  width: 54rpx;
+  margin-bottom: 10rpx;
 }
 
 .shareBtn {
@@ -401,15 +413,20 @@
   margin: 0;
 }
 
+.contentView{
+  /* min-width: 400rpx; */
+}
 .diagbtnImg,
 .contentViewImg {
   width: 100%;
+  border-radius: 10rpx;
+  overflow: hidden;
 }
 .red_bag_class{
   height: 80rpx;
   width:80rpx;
   position: fixed;
-  z-index: 9999;
+  z-index: 99;
   right: 30rpx !important;
   top: 70%;
   /* transform: translateY(-50%); */

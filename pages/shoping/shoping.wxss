@@ -99,7 +99,9 @@
 }
 .shoping_goods_text_middle_text{
     float:right;
-    min-width:calc(100% - 110rpx);
+    /* display: inline-block; */
+    min-width:calc(100% - 310rpx);
+    /* width: 200rpx;overflow: hidden; */
 }
 .shoping_goods_text_middle_orange{
     float:left;
@@ -107,8 +109,8 @@
     line-height: 36rpx;
     text-align: center;
     font-size: 22rpx;
-    background-color: #f58b00;
-    color: #fff;
+    /* background-color: #f58b00; */
+    color: #f58b00;
     border-radius: 5rpx;
     padding: 1rpx 10rpx;
 }
@@ -117,7 +119,7 @@
     line-height: 36rpx;
     float:left;
     text-align: center;
-    font-size: 22rpx;
+    font-size: 24rpx;
     border: 1px solid #f73227;
     color: #f73227;
     border-radius: 5rpx;

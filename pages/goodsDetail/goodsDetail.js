@@ -157,6 +157,18 @@ Page({
       selected_numb: this.data.selected_numb + 1
     })
   },
+  inputedit(e){
+    let that=this;
+    let dataset=e.currentTarget.dataset;
+    let val=e.detail.value;
+    let name =dataset.name;
+    that.data[name]=val;
+    that.setData({
+      name:that.data[name]
+    })
+
+
+  },
   submitOrder() {
     //数据校验
     if (this.data.type_one_selected.spec_name) {

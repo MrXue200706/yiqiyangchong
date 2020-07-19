@@ -1,6 +1,6 @@
 <view class="superShop">
     <!--头部图片-->
-    <view class="surperShop_head">
+    <view class="surperShop_head" wx:if="{{superShop.events_info.events_content_img}}">
         <image mode="widthFix" class="surperShop_head_img" src="{{superShop.events_info.events_content_img}}"></image>
     </view>
 
@@ -23,7 +23,7 @@
                 <text class="surperShop_goods_recommend_number">{{superShop.events_info.group_number}}人团</text>
             </view>
             <view class="surperShop_goods_text_bottom">
-                <text class="surperShop_goods_text_bottom_red">￥{{item.price}}</text>
+                <text class="surperShop_goods_text_bottom_red">￥{{item.group_price}}</text>
                 <text class="surperShop_goods_text_bottom_gray">￥{{item.market_price}}</text>
                 <text class="surperShop_goods_text_bottom_button">去看看</text>
             </view>

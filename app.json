@@ -1,6 +1,7 @@
 {
   "pages": [
     "pages/index/index",
+    "pages/find/find",
     "pages/shoping/shoping",
     "pages/mine/mine",
     "pages/dogGoods/dogGoods",
@@ -27,6 +28,14 @@
     "pages/logistics/logistics",
     "pages/compare/compare",
     "pages/cuoponcanuse/cuoponcanuse",
+    "pages/hotTroopsList/hotTroopsList",
+    "pages/hotTroopDetail/hotTroopDetail",
+    "pages/hotTroopManage/hotTroopManage",
+    "pages/myTroop/myTroop",
+    "pages/hotTroopMake/hotTroopMake",
+    "pages/eventDetail/eventDetail",
+    "pages/petsActiveList/petsActiveList",
+    "pages/hotTroopRule/hotTroopRule",
     "login"
   ],
   "window": {
@@ -41,6 +50,12 @@
     "list": [
       {
         "pagePath": "pages/index/index",
+        "iconPath": "images/petIcon1.png",
+        "selectedIconPath": "images/petIcon.png",
+        "text": "养宠"
+      },
+      {
+        "pagePath": "pages/find/find",
         "iconPath": "images/find1.png",
         "selectedIconPath": "images/find.png",
         "text": "发现"
@@ -58,5 +73,6 @@
         "text": "我的 "
       }
     ]
-  }
+  },
+  "sitemapLocation": "sitemap.json"
 }

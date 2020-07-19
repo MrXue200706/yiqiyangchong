@@ -96,7 +96,7 @@
   <view class="checkPay_foot">
     <view class="checkPay_foot_left">
       <text class="checkPay_foot_left_b">实付款：</text>
-      <text class="checkPay_foot_left_r">¥{{(shopping=="shopping"? (is_integral==1?(totalPay*100-integralDetail.money*100)/100:totalPay) :(totalPay*100-subprice*100)/100)==0? 0.01 :shopping=="shopping"? (is_integral==1?(totalPay*100-integralDetail.money*100)/100:totalPay) :(totalPay*100-subprice*100)/100}}</text>
+      <text class="checkPay_foot_left_r">¥{{(shopping=="shopping"? (is_integral==1?(totalPay*10000-integralDetail.money*10000)/10000:totalPay) :(totalPay*10000-subprice*10000)/10000)==0? 0.01 :shopping=="shopping"? (is_integral==1?(totalPay*10000-integralDetail.money*10000)/10000:totalPay) :(totalPay*10000-subprice*10000)/10000}}</text>
     </view>
     <view class="checkPay_foot_right" bindtap="payNow">
       <text>立即支付</text>

@@ -10,6 +10,12 @@ Page({
 		isshowEdit:true,
     showOnLike: false,
     showimages:false,
+    showIndex:0,
+    petMan_id:'',
+    isActive:'',
+    petList:'',
+    pageType:'',
+    isownId:false,
   },
   onLoad(options){
     app.checkLogin()
@@ -32,15 +38,130 @@ Page({
 			}, success(res) {
 				console.log(res)
 				that.setData({
+          isownId: res.data.data.user_id==app.globalData.userInfo.data.data.user_id,
 					petDetail: res.data.data,
 					isshowEdit:that.data.userInfoID==res.data.data.user_id,
-          showOnLike: res.data.data.is_like == 0
-				})
+          showOnLike: res.data.data.is_like == 0,
+          petMan_id:res.data.data.user_id,
+          pageType: res.data.data.user_id == app.globalData.userInfo.data.data.user_id ? 'mine':false
+        })
+        console.log(that.data.pageType)
+        that.getPetMan()
 			},
 		})
   },
-  changshow(){
-    this.setData({showimages:!this.data.showimages})
+  getPetMan(){
+    let that = this;
+		wx.request({
+			url: 'https://wechatapi.vipcsg.com/index/member/info',
+			method: 'GET',
+			data: {
+			user_id: that.data.petMan_id
+			}, success(res) {
+				console.log(res)
+				that.setData({
+					petList: res.data.data,
+        })
+        that.getUsefollowsList()
+			},
+		})
+  },
+  loadimg(event){
+    console.log(event)
+    event.detail = {height:'120rpx', width:'120rpx'}
+  },
+  //获取用户follows列表
+  getUsefollowsList(){
+    let that = this;
+    wx.request({
+      url: 'https://wechatapi.vipcsg.com/index/member/my_follow',
+      method: 'GET',
+      data: {
+        user_id: app.globalData.userInfo.data.data.user_id
+      }, success(res) {
+        console.log(res)
+        console.log(that.data.petMan_id)
+        if(res.data.result == 1){
+          var fliterList=res.data.data.filter(item =>{
+             return item.follow_id==that.data.petMan_id
+          })
+          if(fliterList.length>0){
+            that.setData({
+              isActive:true
+            })
+          }else{
+            that.setData({
+              isActive:false
+            })
+          }
+          console.log(fliterList)
+        }
+        
+      },
+    })
+  },
+  fansFocus(e) {//粉丝列表按钮
+    let txt = e.currentTarget.dataset.txt
+    if (txt =="取消关注"){
+      this.unFocusOn(e)
+    }else{
+      let that = this;
+      wx.request({
+        url: 'https://wechatapi.vipcsg.com/index/member/follow',
+        method: 'POST',
+        data: {
+          user_id: app.globalData.userInfo.data.data.user_id,
+          follow_id: that.data.petMan_id
+        }, success(res) {
+          if (res.data.result == 1) {
+            //弹窗提示
+            wx.showToast({
+              title: '关注成功',
+              icon: 'succes',
+              duration: 1000,
+              mask: true,
+              success: function () {
+                //按钮变黑
+                that.getUsefollowsList()
+              }
+            })
+          }
+        },
+      })
+    }
+  },
+  unFocusOn(e) {//取消关注
+    let that = this;
+    wx.request({
+      url: 'https://wechatapi.vipcsg.com/index/member/unfollow',
+      method: 'POST',
+      data: {
+        user_id: app.globalData.userInfo.data.data.user_id,
+        follow_id: that.data.petMan_id
+      }, success(res) {
+        if (res.data.result == 1) {
+
+
+          //弹窗提示
+          wx.showToast({
+            title: '取消成功',
+            icon: 'succes',
+            duration: 1000,
+            mask: true,
+            success: function () {
+              //刷新列表
+              that.getUsefollowsList()
+            }
+          })
+        }
+      },
+    })
+  },
+  changshow(e){
+    console.log(e)
+    this.setData({
+      showimages:!this.data.showimages,showIndex:e.currentTarget.dataset.showindex || 0
+    })
   },
 
   onShareAppMessage: function (event) {

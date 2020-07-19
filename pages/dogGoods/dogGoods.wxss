@@ -67,10 +67,19 @@
   line-height: 1em;
   padding:10rpx;
 }
-.dogGoods_goods_item_price{
+/* .dogGoods_goods_item_price{
   color: #de361a;
   font-size: 24rpx;
   padding: 10rpx;
+} */
+.dogGoods_goods_item_price {
+  color: #de361a;
+  font-size: 32rpx;
+  padding: 10rpx 0;
+  position: absolute;
+  bottom: 15rpx;
+  left: 6rpx;
+  font-weight: 600;
 }
 .dogGoods_goods_item_recommend{
   position: absolute;

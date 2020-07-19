@@ -14,9 +14,14 @@ Page({
     showS: '00', //显示倒计时，秒
     tmoShopData: null, //第二天商品列表
     nxtDay: '', //次日日期
-    radio: [], //积分广播
+    toDay:'',
+    nextDay:'',
+    otherDate:[],
+    timeList:[]
+,    radio: [], //积分广播
   },
   onShow() {
+    this.getshopTime()
     //积分广播
     this.getRadio();
     //当天商品列表
@@ -31,8 +36,16 @@ Page({
       var eTime;
       if (that.data.shopData != null && that.data.shopData.allshop.allFlag != undefined && that.data.shopData.allshop.allFlag == "Y") {
         eTime = nowTimed.getFullYear() + "-" + (nowTimed.getMonth() + 1) + "-" + (nowTimed.getDate() + 1) + " " + "00:00:00";
+        //console.log(111)
+        //console.log(eTime)
       } else {
-        eTime = nowTimed.getFullYear() + "-" + (nowTimed.getMonth() + 1) + "-" + nowTimed.getDate() + " " + that.data.endHours + ":00";
+        let showtime=that.data.endHours
+        if(that.data.endHours=='24:00'){
+          showtime='23:59:59'
+        }
+        eTime = nowTimed.getFullYear() + "-" + (nowTimed.getMonth() + 1) + "-" + nowTimed.getDate() + " " + showtime ;
+        //console.log(222)
+        //console.log(eTime)
       }
       var etimes = Date.parse(new Date(eTime.replace(/-/g, "/")));
       var poorTime = etimes - nowTime
@@ -161,15 +174,87 @@ Page({
 
         //次日有抢购商品数据
         if (res.data.result == 1 && res.data.data.allshop != undefined) {
+          let nowMon=nowTime.getMonth+1>9?nowTime.getMonth()+1:'0'+(nowTime.getMonth()+1)
+          let nowData=nowTime.getDate()+1>9?nowTime.getDate():'0'+nowTime.getDate()
           that.setData({
             tmoShopData: res.data.data,
-            nxtDay: (nowTime.getFullYear()) + "-" + (nowTime.getMonth() + 1) + "-" + (nowTime.getDate() + 1) 
+            nxtDay: (nowTime.getFullYear()) + "-" + (nowMon) + "-" + (nowData) 
           })
           console.log(that.data.tmoShopData)
           console.log(that.data.nxtDay)
         }
       },
     })
+  },
+  getshopTime(){
+    let that = this;
+    wx.request({
+      url: 'https://wechatapi.vipcsg.com/index/flashsale/flashsale_date',
+      method: 'GET',
+      data: {},
+      success(res) {
+        let nowTime = new Date();
+        let nextDateMs=new Date((new Date()).getTime() + 24*60*60*1000)
+        let data=nowTime.getDate()>9?nowTime.getDate():'0'+nowTime.getDate()
+        let nextDay=nextDateMs.getDate()>9?nextDateMs.getDate():'0'+nextDateMs.getDate()
+
+        let dataMon = nowTime.getMonth()+1>9?nowTime.getMonth()+1:'0'+(nowTime.getMonth()+1)
+        let dataNextMon = nextDateMs.getMonth()+1>9?nextDateMs.getMonth()+1:'0'+(nextDateMs.getMonth()+1)
+
+        that.setData({
+          toDay:(nowTime.getFullYear()) + "-" + dataMon + "-" + data,
+          nextDay:(nextDateMs.getFullYear()) + "-" + dataNextMon + "-" + nextDay,
+        })
+        console.log(that.data.toDay)
+        console.log(that.data.nextDay)
+        //获取抢购时间
+        if (res.data.result == 1) {
+          console.log(that.data.toDay)
+          const timelist = []
+          res.data.data.forEach(item=>{
+            if(item.flash_date!=that.data.toDay &&  item.flash_date != that.data.nextDay){
+              timelist.push(item)
+            }
+          })
+          console.log(timelist)
+          that.setData({
+            timeList:timelist
+          })
+          that.getDateShopDetail(timelist)
+        }
+      },
+    })
+
+  },
+  getDateShopDetail(idsArr){
+    let that = this;
+    console.log(idsArr)
+    if(idsArr.length){
+      that.data.otherDate=[]
+      idsArr.forEach((item,i)=>{
+        wx.request({
+          url: 'https://wechatapi.vipcsg.com/index/flashsale/flashsale_date_goods',
+          method: 'GET',
+          data: {
+            date_id:item.id
+          },
+          success(res) {
+            //获取抢购详情
+            if (res.data.result == 1) {
+              let chacheData=that.data.otherDate
+              res.data.data.showTime=item.flash_date
+              chacheData.push(res.data.data)
+              console.log(chacheData)
+              that.setData({
+                otherDate:chacheData
+              })
+              console.log(that.data.otherDate)
+            }
+          },
+        })
+      })
+    }
+   
   },
   getRadio(){
     let that = this;

@@ -111,7 +111,7 @@ Page({
           console.log("兑换成功")
           setTimeout(()=>{
             that.setData({
-              isDlaigShow: true
+              //isDlaigShow: true
             })
           },1000)
           that.getExchangeCoupon()

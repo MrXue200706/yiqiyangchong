@@ -36,7 +36,7 @@
     </view>
   </view>
   <!--商品-->
-  <view class="expert_goods">
+  <!-- <view class="expert_goods">
     <view class="expert_goods_content">
       <navigator url="../collect/collect?ptype=collect&uid={{expertDetail.member.id}}" class="expert_goods_content_item">
         <text class="expert_goods_content_item_title">收藏</text>
@@ -49,7 +49,7 @@
       </navigator>
       <navigator url="../collect/collect?ptype=recommend&uid={{expertDetail.member.id}}" class="expert_goods_content_item">
         <text class="expert_goods_content_item_title">推荐商品</text>
-        <text class="expert_goods_content_item_detail">已购商品:{{expertDetail.order_count}}<!-- 缺个已购商品的数量 --></text>
+        <text class="expert_goods_content_item_detail">已购商品:{{expertDetail.order_count}}</text>
         <view class="expert_goods_content_item_avatar">
           <view class="expert_goods_content_item_avatar_item" wx:for="{{expertDetail.order_list}}" wx:key="{{item.id}}">
             <image mode="widthFix" src="{{item.img}}"></image>
@@ -58,34 +58,74 @@
       </navigator>
     </view>
     <view class="expert_goods_line"></view>
+  </view> -->
+  <view class="expert_goods">
+    <navigator class="petFriends_item_left" wx:if="{{isJoin}}" url="../hotTroopDetail/hotTroopDetail?team_id={{TeamDetail.id}}">
+      <!-- <navigator url="../expert/expert?key={{item.follow_id}}" class="petFriends_item_left"> -->
+      <view class="petFriends_item_avatar">
+        <image mode="widthFix" src="{{TeamDetail.team_img}}"></image>
+      </view>
+      <view class="petFriends_item_content">
+        <view class="petFriends_item_content_name">
+          <text>{{TeamDetail.team_name}}</text>
+        </view>
+        <view class="petFriends_item_content_pet">
+          <text class="petFriends_power">本月战队战力:</text>
+          <text class="petFriends_man">{{TeamDetail.team_power}}</text>
+        </view>
+      </view>
+    </navigator>
+    <view class="petFriends_item_button" wx:if="{{isJoin}}">
+      <text>No.{{TeamDetail.ranking}}</text>
+    </view>
+    <view class="petFriends_item_nojion" wx:if="{{!isJoin}}">
+      <text>尚未加入战队</text>
+    </view>
   </view>
 
   <!--宠物-->
   <view class="expert_pets_d">
-    <navigator url="../petsDetail/petsDetail?pet_id={{item.id}}" class="expert_pets" wx:for="{{expertDetail.pet_list}}" wx:key="item.id">
-      <view class="expert_pets_content">
-        <view class="expert_pets_content_img">
-          <image mode="widthFix" src="{{item.pet_img[0].pet_img}}"></image>
+    <view wx:for="{{scrollList}}" wx:key="item.id" class="expert_pets_view">
+      <navigator url="../petsDetail/petsDetail?pet_id={{item.id}}" class="expert_pets">
+          <view class="expert_pets_content">
+            <view class="expert_pets_content_img">
+              <image mode="widthFix" src="{{item.pet_img}}"></image>
+            </view>
+            <view class="expert_pets_content_t">
+              <view>
+                <text class="expert_pets_content_item expert_pets_content_item_blue">
+                  <text>{{item.pet_sex}}</text>
+                </text>
+              </view>
+              <view>
+                <text class="expert_pets_content_item expert_pets_content_item_red">
+                              <text>{{item.pet_type}}</text>
+                </text>
+              </view>
+              <view>
+                <text class="expert_pets_content_item expert_pets_content_item_yellow">
+                              <text>{{item.show_birthday}}</text>
+                </text>
+              </view>
+            </view>
+          </view>
+        </navigator>
+        
+        <view class="special_topic_item_title">
+          <view class="expert_pets_content_item_button">
+            <view class="special_content_item" wx:for="{{item.like_member_list}}" wx:key="item.index" wx:for-index="idx" wx:for-item="likemember">
+                <image mode="widthFix" src="{{likemember}}" class="surperShop_goods_recommend_avatar_item_img"></image>
+            </view>
+            <view class="special_content_item" wx:if="{{item.like_member_list.length == 0}}" wx:key="item.index" wx:for-index="idx" wx:for-item="likemember">
+                <image mode="widthFix" src="" class="surperShop_goods_recommend_avatar_item_img"></image>
+            </view>
+            <view class="special_topic_jion" bindtap='petLikeBtn'
+            data-petid='{{item.id}}'>喂食</view>
+          </view>
         </view>
-        <view class="expert_pets_content_t">
-          <view>
-            <text class="expert_pets_content_item expert_pets_content_item_blue">
-                          <text>{{item.pet_sex}}</text>
-            </text>
-          </view>
-          <view>
-            <text class="expert_pets_content_item expert_pets_content_item_red">
-                          <text>{{item.pet_type}}</text>
-            </text>
-          </view>
-          <view>
-            <text class="expert_pets_content_item expert_pets_content_item_yellow">
-                          <text>{{item.show_birthday}}</text>
-            </text>
-          </view>
-        </view>
-      </view>
-    </navigator>
+        
+      </view >
+    
     <!-- <navigator url="../petsDetail/petsDetail" class="expert_pets">
             <view class="expert_pets_content">
                 <view>
@@ -106,4 +146,27 @@
             </view>
         </navigator> -->
   </view>
+   <!-- <view class="special_topic">
+        <scroll-view scroll-x="true">
+            <view class="special_topic_scroll">
+                <view class="special_topic_item"  wx:for="{{scrollList}}" wx:key="item.id">
+                  <navigator url="../petsDetail/petsDetail?pet_id={{item.id}}" class="special_topic_item">
+                    <view class="special_topic_item_img">
+                    <image class="special_topic_item_img_image" src="{{item.pet_img}}" mode="widthFix"></image>
+                    </view>  
+                  </navigator>
+                  <view class="special_topic_item_title">
+                    <view class="special_content_item" wx:for="{{item.like_member_list}}" wx:key="item.index" wx:for-index="idx" wx:for-item="likemember">
+                        <image mode="widthFix" src="{{likemember}}" class="surperShop_goods_recommend_avatar_item_img"></image>
+                    </view>
+                    <view class="special_content_item" wx:if="{{item.like_member_list.length == 0}}" wx:key="item.index" wx:for-index="idx" wx:for-item="likemember">
+                        <image mode="widthFix" src="" class="surperShop_goods_recommend_avatar_item_img"></image>
+                    </view>
+                    <view class="special_topic_jion" bindtap='petLikeBtn'
+                    data-petid='{{item.id}}'>喂食</view>
+                  </view>
+                </view>
+            </view>
+        </scroll-view>
+    </view> -->
 </view>

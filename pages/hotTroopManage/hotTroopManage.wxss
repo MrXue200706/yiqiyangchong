@@ -1,0 +1,234 @@
+.petsAdd{
+    /* padding: 0 28rpx; */
+}
+.hidepets{
+    padding: 0 28rpx;
+    display: none;
+}
+scroll-view{
+  width:calc(100% - 220rpx)
+}
+/*表单内容*/
+.petsAdd_form{
+    padding: 0 28rpx;
+    padding-bottom: 20rpx;
+}
+.petsAdd_form_item{
+    font-size: 30rpx;
+    margin-top: 40rpx;
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+}
+.petsAdd_form_item_other{
+    align-items: flex-start;
+}
+.petsAdd_form_item_title{
+    flex-shrink: 0;
+}
+.petsAdd_form_item_content{
+    color: #888;
+}
+.petsAdd_form_item_notice{
+    color: #888;
+    font-size: 28rpx;
+    margin-left: 20%;
+}
+.petsAdd_form_item_button{
+    display: flex;
+    flex-wrap: nowrap;
+}
+.petsAdd_form_item_button_item{
+    color: #888;
+    border: 1px solid #e5e5e5;
+    font-size: 20rpx;
+    width: 120rpx;
+    height: 44rpx;
+    line-height: 44rpx;
+    border-radius: 22rpx;
+    text-align: center;
+    margin-right: 20rpx;
+}
+.petsAdd_form_item_button_item.mainColor{
+  background-color:#fe9204;
+  border-color:#fe9204;
+  color:#fff;
+}
+
+.petsAdd_form_item_textarea{
+    border: 1px solid #e5e5e5;
+    border-radius: 10rpx;
+    padding: 20rpx;
+    font-size: 28rpx;
+}
+.petsAdd_form_item_add{
+    height: 150rpx;
+    width: 150rpx;
+    border: 1px solid #e5e5e5;
+    border-radius: 10rpx;
+    color: #888;
+    font-size: 80rpx;
+    flex-shrink: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.petsAdd_form_item_pciture{
+    display: flex;
+    flex-wrap: nowrap;
+}
+.petsAdd_form_item_pciture_item{
+    height: 150rpx;
+    width: 150rpx;
+    border-radius: 10rpx;
+    /* background-color: #888; */
+    margin-left: 10rpx;
+    flex-shrink: 0;
+    position: relative;
+}
+.petsAdd_form_item_pciture_item_cancel{
+    text-align:right;
+    position:absolute;
+    top:0;
+    right:0;
+    background:#f1312f;
+    border-radius:50%;
+    overflow:hidden;
+
+}
+.petsAdd_form_item_pciture_item_cancel icon{
+    display:block;
+}
+.pet_img_show{
+    display:block;
+    width:140rpx;
+    height:140rpx;
+
+}
+.center_line{
+    width: 100%;
+    height: 20rpx;
+    background: rgb(244, 245,249)
+}
+/*保存按钮*/
+.petsAdd_save{
+    display: flex;
+    justify-content: center;
+    margin-top: 120rpx;
+}
+.petsAdd_save_button{
+    height: 74rpx;
+    line-height: 74rpx;
+    text-align: center;
+    width: 620rpx;
+    background-color: #fe9204;
+    font-size: 30rpx;
+    color: #fff;
+    border-radius: 10rpx;
+}
+/*状态*/
+.state{
+    /* height: 154rpx; */
+    margin: 28rpx;
+    background-color: #fff;
+    border-radius: 16rpx;
+    /* display: flex; */
+    position: relative;
+    z-index: 2;
+    margin-top: 50rpx;
+    padding-bottom: 20rpx;
+}
+.state_title{
+    padding-bottom: 18rpx;
+    font-size: 28rpx;
+}
+.state_item{
+    font-size: 26rpx;
+    width: 100%;
+    text-align: center;
+    border-bottom: 2rpx solid #afafaf;
+    margin-bottom: 14rpx;
+}
+.state_item_left{
+    display: inline-block;
+    height: 112rpx;
+    width: 112rpx;
+    border-radius: 50%;
+    vertical-align: middle;
+    overflow: hidden;
+    margin: 16rpx;
+}
+.state_item_captain{
+    padding: 4rpx;
+    background:rgb(244, 168,0);
+    color: #fff;
+    margin-left: 4rpx;
+    font-size: 20rpx;
+    border-radius: 8rpx;
+}
+.state_item_petname{
+    font-size: 22rpx;
+    margin-top: 4rpx;
+    color: rgb(150, 150, 150);
+}
+.state_item_left image{
+    width: 100%;
+}
+.state_item_center{
+    display:inline-block;
+    width:45%;
+    text-align:left;
+    vertical-align:middle;
+}
+.state_item_right{
+    display: inline-block;
+    width:140rpx;
+    vertical-align: middle;
+    /* text-align: left; */
+}
+.state_item_manage{
+    display: block;
+    float: right;
+    margin-top:40rpx;
+    padding: 4rpx 18rpx;
+    border: 1px solid #f1312f;
+    width: 8%;
+    color: #f1312f;
+    border-radius: 10rpx;
+}
+.state_dissolution{
+    display: block;
+    float: right;
+    font-size: 22rpx;
+}
+.state_item_right_nunmber{
+    margin-top: 4rpx;
+    color: rgb(244, 168,0);
+    text-align: center;
+}
+.state_item_img{
+    width: 42rpx;
+    height: 42rpx;
+    /*background-color: #888;*/
+    margin: 34rpx 0;
+    margin-left: 50%;
+    transform: translateX(-50%);
+}
+.state_item_img image{
+    width: 100%;
+}
+.state_join{
+    background: rgb(244, 168,0);
+    color: #fff;
+    width: 80%;
+    text-align: center;
+    padding: 20rpx 0;
+    margin: 20rpx auto;
+    border-radius: 10rpx;
+    font-size: 24rpx;
+    margin-top: 36rpx;
+}
+.modal_size{
+    font-size: 24rpx;
+    color: #222;
+}

@@ -1,0 +1,99 @@
+<view class="{{petsAdd}}">
+    <!--表单内容-->
+    <view class="petsAdd_form">
+        <view class="petsAdd_form_item">
+            <text class="petsAdd_form_item_title">战队名称：</text>
+            <input type="text" placeholder="输入战队名称" value="{{team_name}}" bindinput="petNameVal"/>
+        </view>
+        <view class="petsAdd_form_item petsAdd_form_item_other">
+            <text class="petsAdd_form_item_title">战队战徽：</text>
+            <view class="petsAdd_form_item_add" bindtap="addPic">
+                <text>+</text>
+            </view>
+            <scroll-view scroll-x="true">
+                <view class="petsAdd_form_item_pciture">
+                    <view class="petsAdd_form_item_pciture_item" wx:for="{{pet_img}}">
+                        <image class="pet_img_show" mode="widthFix" src="{{item.pet_img}}"></image>
+                        <view class="petsAdd_form_item_pciture_item_cancel" data-pid='{{item.id}}' bindtap="cancelPic" wx:key="item.index">
+                            <!-- <icon type="cancel" size="20" color="#fff"/> -->
+                        </view>
+                    </view>
+                </view>
+            </scroll-view>
+        </view>
+        <view class="petsAdd_form_item">
+            <text class="petsAdd_form_item_title"></text>
+            <text class="petsAdd_form_item_notice">如未上传图片，将使用系统战徽</text>
+        </view>
+    </view>
+    <view class="center_line"></view>
+    <!-- 踢出弹框 -->
+    <!-- <button type="default" bindtap="showModal">点击我弹出modal对话框</button> -->
+    <view  class="modal_size">
+        <modal title="请确认是否踢出战队" hidden="{{modalHidden}}" confirm-text="确定" cancel-text="取消" bindconfirm="modalBindaconfirm" bindcancel="modalBindcancel"></modal>
+    </view>
+    <!-- 解散战队 -->
+    <!-- <button type="default" bindtap="showModal">点击我弹出modal对话框</button> -->
+    <view class="modal_size">
+        <modal title="请确认是否解散战队" hidden="{{ismodalHidden}}" confirm-text="确定" cancel-text="取消" bindconfirm="modalBindaconfirmdis" bindcancel="modalBindcanceldis"></modal>
+    </view>
+    <!--保存按钮-->
+    <view class="state">
+        <view class="state_title">战队成员
+        <text wx:if="{{is_captain}}" class="state_dissolution" bindtap='showModaldis'>解散战队</text>
+        </view>
+        <view class="state_item">
+            <view class="state_item_left">
+                <image mode="widthFix" src="{{detail.captain_info.avatarUrl}}"></image>
+            </view>
+            <view class="state_item_center">
+                <view>{{detail.captain_info.nickName}}
+                    <text class="state_item_captain">队长</text>
+                </view>
+                <view class="state_item_petname">{{detail.captain_info.pet_info.pet_name}}</view>
+            </view>
+            <view class="state_item_right">
+                <view>贡献战力</view>
+                <view class="state_item_right_nunmber">{{detail.captain_info.power}}</view>
+            </view>
+            <view class="state_item_manage" bindtap='showModal' data-captainid='{{detail.user_id}}'>踢出</view>
+        </view>
+        <view class="state_item" wx:for="{{detail.member_list}}" wx:key="item.id">
+            <view class="state_item_left">
+                <image mode="widthFix" src="{{item.avatarUrl}}"></image>
+            </view>
+            <view class="state_item_center">
+                <view>{{item.nickName}}
+                    <!-- <text class="state_item_captain">队长</text> -->
+                </view>
+                <view class="state_item_petname">{{item.pet_info.pet_name}}</view>
+            </view>
+            <view class="state_item_right">
+                <view>贡献战力</view>
+                <view class="state_item_right_nunmber">{{item.power}}</view>
+            </view>
+            <view class="state_item_manage" bindtap='showModal' data-memberid='{{item.id}}'>踢出</view>
+        </view>
+            <!-- <view class="state_join">
+                还有三人可加入战队
+            </view> -->
+            <!-- <button class="kf_button" open-type="contact" session-from="weapp">
+                <view class="state_item_img">
+                    <image class="kf_image" mode="widthFix" src="../../images/daimyshophou.png"></image>
+                </view>
+                <text>售后服务</text>
+            </button> -->
+            <!-- <contact-button  type="default-light"  size="20" session-from="weapp"></contact-button>
+            <view class="state_item">
+                <view class="state_item_img">
+                    <image mode="widthFix" src="../../images/daimyshophou.png"></image>
+                </view>
+                <text>售后服务</text>
+            </view> -->
+    </view>
+    <view class="petsAdd_save">
+        <view class="petsAdd_save_button" bindtap="submitForm">
+            <text>保存</text>
+        </view>
+    </view>
+</view>

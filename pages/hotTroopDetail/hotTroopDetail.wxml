@@ -1,0 +1,188 @@
+<view class="mine">
+    <view class="diaglongs" wx:if="{{isFirstDlaigShow}}" bindtap="changeFirstShowDiag">
+        <view class="diagContets">
+            <view class="contentViews">
+                <image class="contentViewImgs" src="../../images/indexDI.png" mode="widthFix"></image>
+            </view>
+            <!-- <button open-type="getUserInfo" bindgetuserinfo>获取登陆</button> -->
+            <button class="shareBtns" bindtap="loginIntegral">
+                <image class="diagbtnImgs" src="../../images/indexDIBTN.png" mode="widthFix"></image>
+            </button>
+        </view>
+    </view>
+    <!--头像-->
+    <view class="hasBgCol" >
+        <image class="mineTopBg" mode="widthFix" src="../../images/personCenter.jpg"></image>
+        <view class="hasBgCol_top"></view>
+        <view class="avatar">
+            <view class="avatar_avatar">
+                <!-- <image mode="widthFix" src="{{detail.team_img}}"></image> -->
+                <image lazyLoad='true' src="{{detail.team_img}}" bindload='loadimg' mode="aspectFill" style="height: 120rpx; width: 120rpx;"></image>
+            </view>
+            <view class="avatar_fallow">
+                <view class="avatar_name">{{detail.team_name}}
+                    <view class="avatar_name_icon" wx:if="{{detail.ranking<=3}}">
+                        <image class="goods_item_img_image" src="{{detail.rankingImg}}" mode="widthFix"></image>
+                    </view>
+                    <view class="avatar_name_icon avatar_name_ranking" wx:if="{{detail.ranking>3}}">
+                       {{detail.ranking}}
+                    </view>
+
+                </view>
+                <view class="avatar_fallow_center">
+                    <view url="../petFriends/petFriends?pageType=mine&petType=follow&uid={{userInfo.member.id}}" class="avatar_fallow_left">本月战队战力:</view>
+                    <!-- <text>|</text> -->
+                    <view url="../petFriends/petFriends?pageType=mine&petType=fans&uid={{userInfo.member.id}}" class="avatar_fallow_right">{{detail.team_power}}</view>
+                </view>
+                
+            </view>
+            <view class="avatar_sign_in"  wx:if='{{detail.is_captain==0 && detail.is_member==0}}'>
+                {{detail.team_number}}人
+            </view>
+            <view class="avatar_sign_in"  wx:if='{{detail.is_captain==1}}'>
+                <navigator url="../hotTroopManage/hotTroopManage?pageType=mine&petType=follow&uid={{userInfo.member.id}}&teamId={{team_id}}" class="avatar_fallow_left_nav">管理战队</navigator>
+                
+            </view>
+            <view class="avatar_sign_in" wx:if='{{detail.is_member==1}}' bindtap='kitkOutSelf'>
+                退出战队
+            </view>
+            <view class="pet_expert" wx:if='{{detail.is_captain==1 || detail.is_member==1}}'>
+                <view class="progress_view">
+                    <text class='progress_view_title'>目标战力奖励</text>
+                    
+                    <navigator url="../hotTroopRule/hotTroopRule" class="hasBgCol_notice" wx:if='{{detail.is_captain==1 || detail.is_member==1}}'>战队规则 ></navigator>
+                </view>
+                <scroll-view scroll-x="true">
+                    <view class="pet_expert_scroll">
+                        <view class="pet_expert_item" wx:for="{{rewardData.reward}}" wx:key="item.friend_id">
+                            <!-- <progress percent="{{item.percent || 0}}" color="rgb(244, 168,0)" border-radius='8rpx' class="progress_load"/> -->
+                            <view url="../expert/expert?key={{item.friend_id}}" class="pet_expert_avatar" bindtap='getReward'
+                            data-rewardid='{{item.id}}' data-rewardtype='{{item.reward_type}}' data-isreceive='{{item.is_receive}}'>
+                                <view class="pet_expert_avatar_container">
+                                <image class="pet_expert_avatar_img" src="{{item.coupons_img || item.integral_img ||item.goods_img}}" mode="widthFix"></image>
+                                </view>
+                                <view class="pet_expert_name" wx:if="{{item.cannouse}}">{{item.power}}</view>
+                                <view class="pet_expert_name pet_expert_use" wx:else>{{item.power}}</view>
+                            </view>
+                            
+                            <!-- <view class="pet_expert_pet">{{item.pet_name}} {{item.pet_type}}</view>
+                            <view class="{{item.is_follow==0?pet_expert_item_button:pet_expert_item_button_noclick}}" data-friendId="{{item.friend_id}}" bindtap='focusOn' data-isfollow="{{item.is_follow}}">
+                                <text wx:if="{{item.is_follow==0}}">关注</text>
+                                <text wx:else>已关注</text>
+                            </view> -->
+                        </view>
+                    </view>
+                </scroll-view>
+            </view>
+            <!-- <progress percent="60" color="pink" border-radius='8rpx'/> -->
+        </view>
+        <!-- 积分弹框 -->
+        <view class="diaglong" wx:if="{{isDlaigShow}}" bindtap="changeShowDiag">
+            <view class="diagContet">
+                <view class="contentView">
+                    <image class="contentViewImg" src="../../images/integralMake.png" mode="widthFix"></image>
+                </view>
+                <view class="diagContet_text">兑换优惠券消耗积分</view>
+                <view class="diagContet_number">+50</view>
+            <!-- <button class="shareBtn" open-type="share">
+                <image class="diagbtnImg" src="../../images/indexDIBTN.png" mode="widthFix"></image>
+            </button> -->
+            </view>
+        
+        </view>
+        <!-- 收货地址 -->
+        <view  class="modal_size">
+            <modal title="" hidden="{{isAdressmodalHidden}}"
+            confirm-text="保存" cancel-text="取消" bindconfirm="modalAdressconfirmdis" bindcancel="modalAdresscanceldis">
+                <view >
+                    确认收货地址
+                </view>
+                <!--地址-->
+                <view class="checkPay_adress" wx:if="{{adressList.length}}" bindtap="chooseAdr">
+                    <view class="checkPay_adress_img">
+                    <image src="../../images/dingdDDZ.png" mode="widthFix"></image>
+                    </view>
+                    <view class="checkPay_adress_name">
+                        <text class="name">{{adressList[0].name}}</text>
+                        <text style="line-height:41rpx;">{{adressList[0].phone}}</text>
+                    </view>
+                    <view class="checkPay_adress_adress">
+                        <text>收货地址：{{adressList[0].addres}}</text>
+                    </view>
+                    <text class="checkPay_adress_icon">></text>
+                </view>
+                <!-- <text class="modal_notice">长按识别二维码</text> -->
+            </modal>
+        </view>
+
+        <view  class="modal_size">
+            <modal title="" hidden="{{ismodalHidden}}"
+            confirm-text="保存" cancel-text="取消" bindconfirm="modalBindaconfirmdis" bindcancel="modalBindcanceldis">
+                <image class="goods_item_img_image" src="https:{{detail.weixin_img}}" mode="widthFix" 
+                 data-src='https:{{detail.weixin_img}}'
+                 bindtap='previewImage'></image>
+                <!-- <text class="modal_notice">长按识别二维码</text> -->
+            </modal>
+        </view>
+        <!--状态-->
+        <view class="state">
+            <view class="state_item">
+                <view class="state_item_left">
+                    <image mode="widthFix" src="{{detail.captain_info.avatarUrl}}"></image>
+                </view>
+                <view class="state_item_center">
+                    <view>{{detail.captain_info.nickName}}
+                        <text class="state_item_captain">队长</text>
+                    </view>
+                    <view class="state_item_petname">{{detail.captain_info.pet_info.pet_name}}</view>
+                </view>
+                <view class="state_item_right">
+                    <view>贡献战力</view>
+                    <view class="state_item_right_nunmber">{{detail.captain_info.power}}</view>
+                </view>
+                <view class="state_inner_line"></view>
+            </view>
+            <view class="state_item" wx:for="{{detail.member_list}}" wx:key="item.id">
+                <view class="state_item_left">
+                    <image mode="widthFix" src="{{item.avatarUrl}}"></image>
+                </view>
+                <view class="state_item_center">
+                    <view>{{item.nickName}}
+                        <!-- <text class="state_item_captain">队长</text> -->
+                    </view>
+                    <view class="state_item_petname">{{item.pet_info.pet_name}}</view>
+                </view>
+                <view class="state_item_right">
+                    <view>贡献战力</view>
+                    <view class="state_item_right_nunmber">{{item.power}}</view>
+                </view>
+                <view class="state_inner_line"></view>
+            </view>
+            <view class="state_join" bindtap='showModaldis' wx:if="{{detail.member_list.length<7 && !shareDate && detail.is_captain==0 && detail.is_member==0 }}">
+                还有{{7-detail.member_list.length}}人可加入战队
+            </view>
+            <view class="state_join state_join_disable" wx:if="{{detail.member_list.length>=7}}">
+                战队人数已满
+            </view>
+            <button open-type="share" class="state_join state_join_btn" wx:if="{{detail.member_list.length<7 && (detail.is_captain!=0 || detail.is_member!=0)}}">
+                还有{{7-detail.member_list.length}}人可加入战队
+            </button>  
+            <view class="state_join" bindtap='joinTeam' wx:if="{{detail.member_list.length<7 && shareDate && !isSelfShare &&detail.is_captain==0 && detail.is_member==0}}">
+                加入 
+            </view>
+            <!-- <button class="kf_button" open-type="contact" session-from="weapp">
+                <view class="state_item_img">
+                    <image class="kf_image" mode="widthFix" src="../../images/daimyshophou.png"></image>
+                </view>
+                <text>售后服务</text>
+            </button> -->
+            <!-- <contact-button  type="default-light"  size="20" session-from="weapp"></contact-button>
+            <view class="state_item">
+                <view class="state_item_img">
+                    <image mode="widthFix" src="../../images/daimyshophou.png"></image>
+                </view>
+                <text>售后服务</text>
+            </view> -->
+        </view>
+    </view>
+</view>

@@ -1,0 +1,68 @@
+.petFriends{
+    overflow: hidden;
+}
+.petFriends_item{
+    padding: 0 28rpx;
+    box-sizing: border-box;
+    height: 166rpx;
+    width: 100%;
+    border-bottom: 1px solid #f4f4f4;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.petFriends_item_left{
+    display: flex;
+    align-items: center;
+}
+.petFriends_item_avatar{
+    width: 112rpx;
+    height: 112rpx;
+    border-radius: 50%;
+    overflow: hidden;
+    /*background-color: #888;*/
+}
+.petFriends_item_avatar image{
+    width: 100%;
+}
+.petFriends_item_content{
+    margin-left: 28rpx;
+}
+.petFriends_item_content_name{
+    font-size: 32rpx;
+}
+.petFriends_item_content_pet{
+    margin-top: 10rpx;
+    font-size: 24rpx;
+    color: #888;
+}
+
+.petFriends_power{
+    padding: 6rpx 8rpx;
+    /* background: rgb(255, 109, 69); */
+    border-radius: 10rpx;
+    margin-right: 8rpx;
+}
+.petFriends_man{
+    padding: 6rpx 8rpx;
+    border-radius: 10rpx;
+    /* background: rgb(255, 193, 51) */
+}
+.petFriends_item_button{
+    width: 80rpx;
+    height: 50rpx;
+    line-height: 34rpx;
+    color: rgb(176, 176, 176);
+    /* border: 1px solid #e42f37; */
+    border-radius: 40%;
+    font-size: 22rpx;
+    text-align: center;
+}
+.petFriends_count{
+    font-size: 20px;
+    color: rgb(254, 147, 0);
+}
+.petFriends_name{
+    font-size: 24rpx;
+    color: #888;
+}

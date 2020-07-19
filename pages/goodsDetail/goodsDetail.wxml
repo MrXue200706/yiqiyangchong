@@ -5,6 +5,7 @@
             <image mode="widthFix" src="{{item.goods_img}}"  class="goodsDetail_headimg_item_img"></image>
         </swiper-item>
     </swiper>
+    <div wx:if="{{shopping != 'shopping'}}" class="goodsDetail_headimg_text">推荐本商品给宠友，购买确认收货后可获的积分：{{goods_detail.price*50}}</div>
 
     <!--商品标题-->
     <view class="goodsDetail_title">
@@ -19,15 +20,20 @@
         <view class="goodsDetail_title_content">
             <text>{{goods_detail.goods_name}}</text>
         </view>
-        <navigator url="../goodsTogether/goodsTogether?param_id={{goods_detail.id}}&shares=1&shopping={{shopping}}" class="goodsDetail_title_get"  wx:if="{{isjifen}}">
-            <!-- <image mode="widthFix" src="../../images/jifenxiangq.png"></image> -->
-            <text class="goodsDetail_title_text">赚积分</text>
-            <text class="goodsDetail_title_number">{{goods_detail.market_price*50}}</text>
-        </navigator>
-         <button class="goodsDetail_title_share"  wx:else data-id="{{goods_detail.id}}" open-type="share">
-           <image mode="widthFix" src="../../images/share.jpg"></image>
-            <text>分享</text>
-        </button>
+        <text wx:if='{{!isjifen && shopping=="shopping"}}' >
+        </text>
+        <view wx:else>
+            <navigator url="../goodsTogether/goodsTogether?param_id={{goods_detail.id}}&shares=1&shopping={{shopping}}" class="goodsDetail_title_get"  wx:if="{{isjifen}}">
+                <image mode="widthFix" src="../../images/zhuanjifen.png"></image>
+                <text class="goodsDetail_title_text">推荐</text>
+            <!-- <text class="goodsDetail_title_number">{{goods_detail.market_price*50}}</text> -->
+            </navigator>
+            <button class="goodsDetail_title_share"  wx:else data-id="{{goods_detail.id}}" open-type="share">
+            <image mode="widthFix" src="../../images/share.jpg"></image>
+                <text>分享</text>
+            </button>
+        </view>
+        
     </view>
 
     <!--服务-->
@@ -142,8 +148,7 @@
                     <image mode="widthFix" src="{{type_one_selected.spec_img}}"  class="goodsDetail_iframe_goods_avatar_img"></image>
                 </view>
                 <view class="goodsDetail_iframe_goods_price">
-                    
-                    <text wx:if="{{shopping=='normal'}}">￥ {{type_one_selected.spec_option[0].spec_price}}</text>
+                    <text wx:if="{{shopping=='normal' || shopping=='shopping'}}">￥ {{type_one_selected.spec_option[0].spec_price}}</text>
                     <text wx:else>￥ {{type_one_selected.spec_option[0].group_price}}</text>
                 </view>
                 <view class="goodsDetail_iframe_goods_descript">
@@ -185,7 +190,9 @@
                     <text>数量</text>
                     <view class="goodsDetail_iframe_number_button">
                         <view class="goodsDetail_iframe_number_button_left" bindtap="numberReduceFn">-</view>
-                        <input value="{{selected_numb}}" type="number" class="goodsDetail_iframe_number_button_text"/>
+                        <input bindinput="inputedit"
+                        data-name='selected_numb'
+                        value="{{selected_numb}}" type="number" class="goodsDetail_iframe_number_button_text"/>
                         <view class="goodsDetail_iframe_number_button_right" bindtap="numberAddFn">+</view>
                     </view>
                 </view>

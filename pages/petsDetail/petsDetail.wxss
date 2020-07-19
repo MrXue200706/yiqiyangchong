@@ -56,6 +56,7 @@ overflow:hidden;
     left: 0;
     width: 100%;
     height: 100%;
+    z-index: 99999;
 }
 .scroll-view_H{
     width: 100%;
@@ -74,8 +75,8 @@ overflow:hidden;
       height: 1700rpx;
   }
   .showimage{
-      width: 94%;
-      margin: 3%;
+      width: 96%;
+      margin: 2%;
       margin-top: 170rpx;
   }
   .showimglength{
@@ -120,20 +121,40 @@ overflow:hidden;
 
 /*标题*/
 .petsDetail_title{
-    height: 90rpx;
+    height: 160rpx;
     background-color: #fff;
     padding: 0 28rpx;
 }
 .petsDetail_title_item{
-    height: 100%;
-    border-bottom: 1px solid #e4e4e4;
+    height: 70rpx;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
+.petsDetail_title_messge{
+    border-bottom: 1px solid #e4e4e4;
+    height: 90rpx;
+}
+.margin_left_right{
+    margin: 0 8rpx;
+}
 .petsDetail_title_item_title{
     font-size: 30rpx;
     color: #333;
+}
+.petsDetail_content_item{
+    display: inline-block;
+    height: 180rpx;
+    overflow: hidden;
+    width: 31%;
+    margin: 1%;
+    border-radius: 6rpx;
+}
+.margin_top_30{
+    margin-top: 30rpx;
+}
+.petsDetail_content_item image{
+    width: 100%;
 }
 .petsDetail_title_item_time{
     font-size: 20rpx;
@@ -153,7 +174,7 @@ overflow:hidden;
     height: 100rpx;
     border-top: 1px solid #d2d2d2;
     position: fixed;
-    bottom: 0;
+    bottom: 28rpx;
     display: flex;
     justify-content: space-between;
     background-color: #fff;
@@ -204,8 +225,11 @@ button::after {
     padding: 20rpx;
     margin: 0 20rpx;
     padding-top: 40rpx;
-    padding-bottom: 40rpx;
+    padding-bottom: 34rpx;
     border-top: 1rpx solid #d2d2d2;
+}
+.min_height_set{
+    min-height: 58rpx;
 }
 .surperShop_goods_recommend_avatar{
     margin-right: 28rpx;
@@ -228,14 +252,26 @@ button::after {
     width: 100%;
 }
 .special_topic_detail_item{
-    width: 100%;
-    text-align: center;
+    /* margin-right: 28rpx;
+    float: left; */
+    display: flex;
+    flex-wrap: nowrap;
 }
 .special_content_item{
-    display: inline-block;
+    /* display: inline-block;
     margin: 5rpx;
     width: 10%;
-  
+    border-radius: 50%;
+    overflow: hidden; */
+    width: 70rpx;
+    height: 70rpx;
+    border-radius: 50%;
+    background-color: #888;
+    flex-shrink: 0;
+    border: 1rpx solid #fff;
+    box-sizing: border-box;
+    margin-left: -26rpx;
+    overflow: hidden;
 }
 .bottom_img_list_view{
     margin: 0 15rpx;
@@ -255,10 +291,84 @@ button::after {
     font-size: 28rpx;
 }
 .joinPerson{
-    text-align: center;
+    text-align: left;
     color: #888;
     font-size: 24rpx;
-    display: block;
-    margin: 15rpx auto;
+    display: inline-block;
+    margin: 20rpx 10rpx;
+    vertical-align: middle;
 
+}
+.petsDetail_join_person{
+    position: absolute;
+    right: 28rpx;
+    display:block;
+    padding:8rpx 28rpx;
+    height:34rpx;
+    background:rgb(253, 206, 12);
+    font-size:24rpx;
+    border-radius:34rpx;
+    color:#fff;
+    line-height:34rpx;
+    vertical-align:middle;
+    margin-top:10rpx;
+    float: right;
+}
+.petsDetail_line_view{
+    width: 100%;
+    height: 10rpx;
+    background: rgb(242, 246, 249)
+}
+
+.petFriends{
+    overflow: hidden;
+}
+.petFriends_item{
+    padding: 0 28rpx;
+    box-sizing: border-box;
+    height: 128rpx;
+    width: 100%;
+    border-bottom: 1px solid #f4f4f4;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #fff;
+}
+.petFriends_item_left{
+    display: flex;
+    align-items: center;
+    /* margin-top: -10rpx; */
+}
+.petFriends_item_avatar{
+    width: 100rpx;
+    height: 100rpx;
+    border-radius: 50%;
+    overflow: hidden;
+    /*background-color: #888;*/
+}
+.petFriends_item_avatar image{
+    width: 100%;
+}
+.petFriends_item_content{
+    margin-left: 28rpx;
+}
+.petFriends_item_content_name{
+    font-size: 32rpx;
+}
+.petFriends_item_content_pet{
+    font-size: 24rpx;
+    color: #888;
+}
+.petFriends_item_button{
+    width: 100rpx;
+    height: 42rpx;
+    line-height: 42rpx;
+    color: #e42f37;
+    border: 1px solid #e42f37;
+    border-radius: 10rpx;
+    font-size: 24rpx;
+    text-align: center;
+}
+.petsDetail_join_person_btn{
+    height: 48rpx;
 }

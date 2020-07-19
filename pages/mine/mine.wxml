@@ -21,16 +21,19 @@
                 <view class="avatar_fallow_center">
                     <navigator url="../petFriends/petFriends?pageType=mine&petType=follow&uid={{userInfo.member.id}}" class="avatar_fallow_left">关注 {{userInfo.follow_count}}</navigator>
                     <text>|</text>
-                    <navigator url="../petFriends/petFriends?pageType=mine&petType=fans&uid={{userInfo.member.id}}" class="avatar_fallow_right">粉丝 {{userInfo.fans_count}}</navigator>
-                </view>
+                    <navigator url="../petFriends/petFriends?pageType=mine&petType=fans&uid={{userInfo.member.id}}" class="avatar_fallow_right avatar_fallow_left">粉丝 {{userInfo.fans_count}}</navigator>
+                    <text>|</text>
                 <view class="avatar_name">{{userInfo.member.nickName}}</view>
+                    <view url="../petFriends/petFriends?pageType=mine&petType=fans&uid={{userInfo.member.id}}" class="avatar_fallow_right">战力 {{userInfo.member.power}}</view>
+                </view>
+                <!-- <view class="avatar_name">{{userInfo.member.nickName}}</view> -->
             </view>
-            <view class="avatar_sign_in" bindtap="showRedBag">
+            <!-- <view class="avatar_sign_in" bindtap="showRedBag">
                 <view class="avatar_sign_in_img">
                     <image mode="widthFix" src="../../images/signIn.png"></image>
                 </view>
                 签到
-            </view>
+            </view> -->
         </view>
         <!-- 积分弹框 -->
         <view class="diaglong" wx:if="{{isDlaigShow}}" bindtap="changeShowDiag">
@@ -88,6 +91,24 @@
             </view> -->
         </view>
     </view>
+    <view class="special_topic">
+        <scroll-view scroll-x="true">
+            <view class="special_topic_scroll">
+                <view class="special_topic_item"  bindtap="loginIntegral">
+                    <view class="special_topic_item_img">
+                    <image class="diagbtnImgs" src="../../images/getPoint.jpg" mode="widthFix"></image>
+                    </view>
+                    <!-- <text class="special_topic_item_title">签到领取积分</text> -->
+                </view>
+                <navigator url="../eventDetail/eventDetail?id={{item.id}}" class="special_topic_item"  wx:for="{{eventList}}" wx:key="item.id">
+                    <view class="special_topic_item_img">
+                    <image class="special_topic_item_img_image" src="{{item.events_img}}" mode="widthFix"></image>
+                    </view>
+                    <!-- <text class="special_topic_item_title">{{item.events_title}}</text> -->
+                </navigator>
+            </view>
+        </scroll-view>
+    </view>
     <!--事项-->
     <view class="official">
         <navigator url="../integral/integral?integral={{userInfo.member.integral}}" class="official_item">
@@ -101,8 +122,8 @@
             <view class="official_item_img">
                 <image class="hezuoicon" mode="widthFix" src="../../images/choujiang.png"></image>
             </view>
-            <view class="official_item_title">抽奖</view>
-            <view class="official_item_under">精美礼品免费领取</view>
+            <view class="official_item_title">战队</view>
+            <view class="official_item_under">组战队领豪礼</view>
         </view>
         <navigator url="../cuopon/cuopon" class="official_item">
             <view class="official_item_img">

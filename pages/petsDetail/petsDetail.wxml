@@ -1,59 +1,48 @@
 <view class="petsDetail">
     <!--头部轮播-->
     <view class="petsDetail_imgs">
-        <view class="petsDetail_imgs_swiper" bindtap="changshow">
-            <image mode="widthFix" src="{{petDetail.pet_img[0].pet_img}}"></image>
-            <view class="showimglength showalllength"><text >{{petDetail.pet_img.length}} 张</text></view>
-        </view>
-        <!-- <swiper class="petsDetail_imgs_swiper" autoplay="true">
-            <swiper-item wx:for="{{petDetail.pet_img}}" wx:key="item.index">
-                <image mode="aspectFit" src="{{item.pet_img}}"></image>
-            </swiper-item>
-        </swiper> -->
-        <view class="petsDetail_imgs_content">
-            <view>
-                <text class="petsDetail_imgs_content_item petsDetail_imgs_content_item_blue">
-                    <text>{{petDetail.pet_sex}}</text>
-                </text>
-            </view>
-            <view>
-                <text class="petsDetail_imgs_content_item petsDetail_imgs_content_item_red">
-                    <text>{{petDetail.pet_type}}</text>
-                </text>
-            </view>
-            <view>
-                <text class="petsDetail_imgs_content_item petsDetail_imgs_content_item_yellow">
-                    <text>{{petDetail.show_birthday}}</text>
-                </text>
+    </view>
+    <view class="surperShop_content_view" >
+        <!-- <view class="joinChoujian"  bindtap="jionClick" >
+            <text class="choujianText">参加抽奖</text>
+        </view> -->
+        <view class="min_height_set">
+            <view class="special_topic_detail_item"> 
+                <navigator  url="../petsActiveList/petsActiveList?key={{pet_id}}" class="special_content_item" wx:for="{{petDetail.pet_like_avatar}}" wx:key="item.index">
+                    <image mode="widthFix" src="{{item.avatarUrl}}" class="surperShop_goods_recommend_avatar_item_img"></image>
+                </navigator>
+                <text class="joinPerson" wx:if="{{petDetail.pet_like_avatar.length}}">{{petDetail.pet_like_avatar.length}}人喂食</text>
+                <text wx:if="{{!isownId}}" class="petsDetail_join_person" bindtap='giveLove'>喂食</text>
+                <button wx:if="{{isownId}}" class="petsDetail_join_person petsDetail_join_person_btn" open-type="share">喂食</button>
             </view>
         </view>
     </view>
-<view class="section section_gap" wx:if="{{showimages}}" bindtap="changshow">
-  <!-- <view class="section__title">horizontal scroll</view> -->
-  <swiper class="petsDetail_imgs_swiper_show" >
-        <swiper-item wx:for="{{petDetail.pet_img}}" wx:key="item.index">
-            <image class="showimage" mode="widthFix" src="{{item.pet_img}}"></image>
-            <view class="showimglength"><text >{{index+1}}/{{petDetail.pet_img.length}} </text></view>
-        </swiper-item>
-    </swiper>
-  <!-- <scroll-view class="scroll-view_H" scroll-x style="width: 100%">
-      <view url="##" class="scroll-view-item_H"  wx:for="{{petDetail.pet_img}}" wx:key="item.index">
-        <view class="special_topic_item_img">
-            <image class="special_topic_item_img_image" src="{{item.pet_img}}" mode="widthFix"></image>
-        </view>
-        <text class="special_topic_item_title">{{petDetail.pet_img.length}}</text>
-    </view> 
-    <view id="green" class="scroll-view-item_H bc_green">1</view>
-    <view id="red"  class="scroll-view-item_H bc_red">2</view>
-    <view id="yellow" class="scroll-view-item_H bc_yellow">3</view>
-    <view id="blue" class="scroll-view-item_H bc_blue">4</view>
-  </scroll-view> -->
-</view>
+    <view class="petsDetail_line_view"></view>
+    <view class="section section_gap" wx:if="{{showimages}}" bindtap="changshow">
+    <!-- <view class="section__title">horizontal scroll</view> -->
+        <swiper class="petsDetail_imgs_swiper_show" current="{{showIndex}}">
+            <swiper-item wx:for="{{petDetail.pet_img}}" wx:key="item.index">
+                <image class="showimage" mode="widthFix" src="{{item.pet_img}}"></image>
+                <view class="showimglength"><text >{{index+1}}/{{petDetail.pet_img.length}} </text></view>
+            </swiper-item>
+        </swiper>
+    </view>
     <!--标题-->
     <view class="petsDetail_title">
         <view class="petsDetail_title_item">
-            <text class="petsDetail_title_item_title">{{petDetail.pet_name}}的故事</text>
+            <text class="petsDetail_title_item_title">{{petDetail.pet_name}}</text>
             <text class="petsDetail_title_item_time">{{petDetail.pet_birthday}}</text>
+        </view>
+        <view class="petsDetail_title_messge">
+            <text class="petsDetail_imgs_content_item petsDetail_imgs_content_item_blue">
+                <text>{{petDetail.pet_sex}}</text>
+            </text>
+            <text class="petsDetail_imgs_content_item petsDetail_imgs_content_item_red margin_left_right">
+                <text>{{petDetail.pet_type}}</text>
+            </text>
+            <text class="petsDetail_imgs_content_item petsDetail_imgs_content_item_yellow">
+                <text>{{petDetail.show_birthday}}</text>
+            </text>
         </view>
     </view>
     
@@ -61,11 +50,13 @@
     <!--内容-->
     <view class="petsDetail_content">
         <text>{{petDetail.pet_story}}</text>
+        <view class="margin_top_30">
+            <view wx:for="{{petDetail.pet_img}}" wx:key="item.index" class="petsDetail_content_item" bindtap="changshow" data-showindex='{{index}}'>
+            <image lazyLoad='true'  mode="aspectFill" bindload='loadimg' src="{{item.pet_img}}" style="height: 220rpx; width: 220rpx;"></image>
+            </view>
+        </view>
     </view>
-    <view class="surperShop_content_view" wx:if="{{petDetail.pet_like_avatar.length}}">
-        <!-- <view class="joinChoujian"  bindtap="jionClick" >
-            <text class="choujianText">参加抽奖</text>
-        </view> -->
+    <!-- <view class="surperShop_content_view" wx:if="{{petDetail.pet_like_avatar.length}}">
         <view>
             <text class="joinPerson" wx:if="{{petDetail.pet_like_avatar.length}}">已有{{petDetail.pet_like_avatar.length}}人为你点赞</text>
             <view class="special_topic_detail_item"> 
@@ -74,14 +65,14 @@
                 </view>
             </view>
         </view>
-    </view>
+    </view> -->
 
     <!--占位-->
     <view class="petsDetail_palceholder"></view>
 
     <!--底部-->
     <view class="petsDetail_foot">
-        <view class="petsDetail_foot_left" bindtap='gotoIndex'>
+        <!-- <view class="petsDetail_foot_left" bindtap='gotoIndex'>
             <image mode="widthFix" src="../../images/homes.png"></image>
         </view>
         <view class="petsDetail_foot_right" >
@@ -94,12 +85,10 @@
             <view wx:else>
               <view class="petsDetail_foot_right_item" hidden="{{!showOnLike}}" bindtap='giveLove'>
                     <image mode="widthFix" src="../../images/dianz.png"></image>
-                    <!-- <text>点赞</text> -->
                     <text class="dianzhanText">{{petDetail.like}}</text>
               </view>
               <view class="petsDetail_foot_right_item" hidden="{{showOnLike}}" bindtap='downLove'>
                     <image mode="widthFix" src="../../images/dianz.png"></image>
-                    <!-- <text>取消点赞</text> -->
                     <text class="dianzhanText">{{petDetail.like}}</text>
               </view>
             </view>
@@ -108,6 +97,38 @@
                 <image mode="widthFix" src="../../images/fenxiangIcon.png"></image>
                 <text>分享</text>
             </button>
+        </view> -->
+        <view class="petFriends_item">
+            <navigator url="../expert/expert?key={{petList.member.id||petList.follow_id||petList.user_id}}" class="petFriends_item_left">
+            <!-- <navigator url="../expert/expert?key={{item.follow_id}}" class="petFriends_item_left"> -->
+                <view class="petFriends_item_avatar">
+                    <image mode="widthFix" src="{{petList.member.avatarUrl}}"></image>
+                </view>
+            <!-- <view class="petFriends_item_content">
+                <view class="petFriends_item_content_name">
+                    <text>阿华</text>
+                </view>
+                <view class="petFriends_item_content_pet">
+                    <text>泰迪 阿拉斯加</text>
+                </view>
+            </view> -->
+                <view class="petFriends_item_content">
+                    <view class="petFriends_item_content_name">
+                    <text>{{petList.member.nickName}}</text>
+                    </view>
+                    <view class="petFriends_item_content_pet">
+                    <text>{{petDetail.pet_name}}的主人</text>
+                    </view>
+                </view>
+            </navigator>
+            <view hidden="{{pageType=='mine'?true:false}}">
+                <view class="petFriends_item_button" wx:if="{{isActive}}" data-id="{{item.id}}" data-followid="{{item.follow_id}}" data-usersid="{{item.user_id}}" bindtap="unFocusOn">
+                    <text>取消关注</text>
+                </view>
+                <view class="petFriends_item_button" wx:else data-txt="{{item.is_follow==1?'取消关注':'关注'}}" data-id="{{item.id}}" bindtap="fansFocus" data-followid="{{item.follow_id}}" data-usersid="{{item.user_id}}">
+                    <text>{{item.is_follow==1?"取消关注":"关注"}}</text>
+                </view>
+            </view>
         </view>
     </view>
 </view>

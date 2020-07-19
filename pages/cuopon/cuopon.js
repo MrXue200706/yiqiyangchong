@@ -80,11 +80,13 @@ Page({
       success(res) {
         if (res.data.result == 1) {
           that.changTimeShow(res.data.data)
-          // let filterList = res.data.data.filter(item => {
-          //   return item.is_expire==0 && item.is_userd==0
-          // })
+          let filterList = res.data.data.filter(item => {
+            if(item.is_expire==0 && item.is_userd==0){
+              return item
+            }
+          })
           that.setData({
-            canUseCoupon: res.data.data
+            canUseCoupon: filterList
           });
         }
       },
@@ -107,7 +109,9 @@ Page({
           // });
           that.changTimeShow(res.data.data)
           let filterList = res.data.data.filter(item => {
-            return item.is_userd==1
+            if(item.is_userd==1){
+              return item
+            }
           })
           console.log(filterList)
           that.setData({
@@ -156,7 +160,9 @@ Page({
           // });
           that.changTimeShow(res.data.data)
           let filterList = res.data.data.filter(item => {
-            return item.is_expire==1
+            if(item.is_expire==1){
+              return item
+            }
           })
           console.log(filterList)
           that.setData({
@@ -217,7 +223,7 @@ Page({
       //获取上一页
       var prePage = pages[pages.length - 2]
       //查看优惠券的商品价格是否达到要求
-      if (parseFloat(e.currentTarget.dataset.order_money) <= parseFloat(prePage.data.totalPay)){
+      if (parseFloat(e.currentTarget.dataset.ordermoney) <= parseFloat(prePage.data.totalPay)){
         //如果是在购买页面跳转过来的，单击直接填充优惠券ID
         prePage.setData({
           couponId: e.currentTarget.dataset.couponid,

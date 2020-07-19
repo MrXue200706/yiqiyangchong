@@ -115,7 +115,10 @@ Page({
   },
   selecrInputNum(event) { //用户输入数字
     this.setData({
-      selected_numb: event.detail.value == 0 ? 1 : event.detail.value
+      selected_numb: event.detail.value < 0 ? 1 : event.detail.value
+    })
+    this.setData({
+      selected_numb: event.detail.value == '-' ? 0 : event.detail.value
     })
     this.totalPayCount();
     this.countIntegral();

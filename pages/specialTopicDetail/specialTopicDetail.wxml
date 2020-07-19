@@ -49,7 +49,7 @@
                 <text class="specialTopicDetail_goods_recommend_content">{{item.pet_friend_count}}推荐</text>
             </view>
             <view class="specialTopicDetail_goods_text_bottom">
-                <text class="specialTopicDetail_goods_text_bottom_red">￥{{item.price}}</text>
+                <text class="specialTopicDetail_goods_text_bottom_red">￥{{item.group_price || item.price}}</text>
                 <text class="specialTopicDetail_goods_text_bottom_gray">￥{{item.market_price}}</text>
                 <text class="specialTopicDetail_goods_text_bottom_button">去看看</text>
             </view>
@@ -57,12 +57,12 @@
     </navigator>
     <!-- 抽奖 -->
     <view class="surperShop_content_view">
-        <view class="{{joinChoujian}}"  bindtap="jionClick" >
+        <!-- <view class="{{joinChoujian}}"  bindtap="jionClick" >
             <text class="choujianText" wx:if="{{islike==0}}">参加抽奖</text>
             <text class="choujianText" wx:else>已参加</text>
-        </view>
+        </view> -->
         <view>
-            <text class="joinPerson">已有{{special_topic_detail.like}}人参加</text>
+            <text class="joinPerson">已有{{special_topic_detail.like}}人觉得有用</text>
             <view class="special_topic_detail_item"> 
                 <view class="special_content_item" wx:for="{{special_topic_detail.project_like_avatar}}">
                     <image mode="widthFix" src="{{item.avatarUrl}}" class="surperShop_goods_recommend_avatar_item_img"></image>
@@ -82,7 +82,7 @@
         <view class="specialTopicDetail_foot_right">
             <!-- <text class="specialTopicDetail_foot_right_follow">点赞12112</text>
             | -->
-            <view class="specialTopicDetail_foot_right_more" bindtap="gotoIndex">更多抽奖福利</view>
+            <view class="specialTopicDetail_foot_right_more" bindtap="jionClick">觉得有用</view>
         </view>
     </view>
 </view>

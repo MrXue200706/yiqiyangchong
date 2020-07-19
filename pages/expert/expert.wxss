@@ -1,6 +1,6 @@
 .expert{
     min-height: 1206rpx;
-    background-color: #fff;
+    background-color: #f2f7f8;
 }
 .expert_head{
     /* background: url("../../images/personCenter.jpg") no-repeat center center; */
@@ -133,9 +133,13 @@
 
 /*商品*/
 .expert_goods{
-    padding: 0 28rpx;
+    margin:0rpx 16rpx;
     margin-top: 28rpx;
     position: relative;
+    background: #fff;
+    padding: 8rpx;
+    border-radius: 10rpx;
+    margin-bottom: 28rpx;
 }
 .expert_goods_content{
     height: 208rpx;
@@ -198,6 +202,9 @@
     padding: 0 28rpx;
     margin-top: 28rpx;
 }
+.expert_pets_view{
+    position: relative;
+}
 .expert_pets_content{
     /* height: 410rpx;
     background-color: #888; */
@@ -236,4 +243,181 @@
 }
 .expert_pets_content_item_yellow{
     background-color: #cc9a00;
+}
+.petFriends_item{
+    padding: 0 28rpx;
+    box-sizing: border-box;
+    height: 166rpx;
+    width: 100%;
+    border-bottom: 1px solid #f4f4f4;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.petFriends_item_left{
+    display: flex;
+    align-items: center;
+}
+.petFriends_item_avatar{
+    width: 112rpx;
+    height: 112rpx;
+    border-radius: 14rpx;
+    overflow: hidden;
+    margin: 20rpx;
+    margin-right: 26rpx;
+    /*background-color: #888;*/
+}
+.petFriends_item_avatar image{
+    width: 100%;
+}
+.petFriends_item_content{
+    margin-left: 20rpx;
+}
+.petFriends_item_content_name{
+    font-size: 32rpx;
+}
+.petFriends_item_content_pet{
+    margin-top: 10rpx;
+    font-size: 20rpx;
+    color: #fff;
+}
+
+.petFriends_power{
+    /* padding: 6rpx 8rpx; */
+    /* background: rgb(255, 109, 69); */
+    color: #989898;
+    font-size: 28rpx;
+    border-radius: 10rpx;
+    margin-right: 8rpx;
+}
+.petFriends_man{
+    padding: 6rpx 8rpx;
+    border-radius: 10rpx;
+    font-size: 28rpx;
+    color: rgb(255, 193, 51)
+}
+.petFriends_item_button{
+    display: inline-block;
+    position: absolute;
+    right: 8rpx;
+    top: 50rpx;
+    width: 80rpx;
+    height: 50rpx;
+    line-height: 50rpx;
+    background: rgb(237, 237, 237);
+    color: rgb(176, 176, 176);
+    /* border: 1px solid #e42f37; */
+    border-radius: 16rpx;
+    font-size: 22rpx;
+    text-align: center;
+    margin-right: 16rpx;
+}
+.petFriends_item_nojion{
+    width: 100%;
+    text-align: center;
+    margin: 0 auto;
+    font-size: 30rpx;
+    height: 112rpx;
+    line-height: 112rpx;
+}
+/*活动*/
+.special_topic {
+    padding: 0 28rpx;
+    background-color:#f2f7f8;
+    /* margin-top: 16rpx;
+    padding-bottom: 0rpx; */
+  }
+  
+  .special_topic_title {
+    font-size: 28rpx;
+    font-weight: 600;
+  }
+  
+  .special_topic_more {
+    font-size: 28rpx;
+    color: #989898;
+    float: right;
+  }
+  
+  .special_topic_scroll {
+    display: flex;
+    flex-wrap: nowrap;
+    margin-top: 10rpx;
+    /* background: #fff; */
+  }
+  
+  .special_topic_item {
+    width: 474rpx;
+    height: 324rpx;
+    margin-right: 20rpx;
+    background: #fff;
+    padding-bottom: 80rpx;
+  }
+  
+  .special_topic_item_img {
+    width: 474rpx;
+    border-radius: 10rpx;
+    background-color: #fafafa;
+    text-align: center;
+    font-weight: 500;
+    overflow: hidden;
+  }
+  
+  .special_topic_item_img_image {
+    width: 100%;
+  }
+
+  .special_topic_item_title {
+    font-size: 26rpx;
+    margin: 0 28rpx;
+    box-sizing: border-box;
+    margin-top: 10rpx;
+    padding: 8rpx 28rpx;
+    position: absolute;
+    bottom: 8rpx;
+    z-index: 99;
+    background: #fff;
+    width: calc(100% - 56rpx);
+    border-bottom-right-radius:14rpx;
+    border-bottom-left-radius:14rpx;
+  }
+  .special_content_item{
+    /* display: inline-block;
+    margin: 5rpx;
+    width: 10%;
+    border-radius: 50%;
+    overflow: hidden; */
+    display: inline-block;
+    width: 70rpx;
+    height: 70rpx;
+    border-radius: 50%;
+    background-color: #fff;
+    flex-shrink: 0;
+    border: 1rpx solid #fff;
+    box-sizing: border-box;
+    margin-left: -26rpx;
+    overflow: hidden;
+  
+}
+.surperShop_goods_recommend_avatar_item_img{
+    width: 100%;
+}
+.special_topic_item_title view:first-child{
+    margin-left: 0rpx;
+}
+.special_topic_jion{
+    display:block;
+    position: absolute;
+    right: 34rpx;
+    padding:8rpx 28rpx;
+    height:34rpx;
+    background:rgb(253, 206, 12);
+    font-size:24rpx;
+    border-radius:34rpx;
+    color:#fff;
+    line-height:34rpx;
+    bottom: 14rpx;
+}
+.expert_pets_d{
+    padding-bottom: 44rpx;
 }

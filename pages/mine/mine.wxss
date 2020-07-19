@@ -1,6 +1,6 @@
 .mine{
     width: 100%;
-    height: 1130rpx;
+    /* height: 1130rpx; */
     background-color: #f2f7f8;
     overflow: hidden;
     background-repeat: no-repeat;
@@ -126,25 +126,31 @@
     vertical-align: middle;
 }
 .avatar_fallow_center{
-    margin-left: -22rpx;
+    margin-left: 8rpx;
+    margin-bottom: 40rpx;
 }
 .avatar_avatar image{
     width: 100%;
 }
 .avatar_name{
     font-size: 30rpx;
-    margin-top: 10rpx;
-    margin-left: 215rpx;
-    transform: translateX(-50%);
-    text-align: center;
-    display: inline-block;
-    vertical-align: middle;
+    font-size:30rpx;
+    display:inline-block;
+    position:absolute;
+    left:8rpx;
+    top:42rpx;
+    width:300rpx;
+    text-align: left;
+
 }
 .avatar_fallow{
+    position: absolute;
+    left: 170rpx;
+    top: 50prx;
     font-size: 24rpx;
     margin-top: 30rpx;
-    margin-left: 90rpx;
-    transform: translateX(-50%);
+    /* margin-left: 144rpx;
+    transform: translateX(-40%); */
     text-align: center;
     display: inline-block;
     vertical-align: middle;
@@ -325,3 +331,58 @@
        width: 100%;
        /* z-index: -9; */
    }
+/*活动*/
+.special_topic {
+    padding: 0 28rpx;
+    background-color:#f2f7f8;
+    /* margin-top: 16rpx;
+    padding-bottom: 0rpx; */
+    padding-right: 0rpx;
+  }
+  
+  .special_topic_title {
+    font-size: 28rpx;
+    font-weight: 600;
+  }
+  
+  .special_topic_more {
+    font-size: 28rpx;
+    color: #989898;
+    float: right;
+  }
+  
+  .special_topic_scroll {
+    display: flex;
+    flex-wrap: nowrap;
+    /* margin-top: 10rpx; */
+    /* background: #fff; */
+  }
+  
+  .special_topic_item {
+    width: 340rpx;
+    height: 190rpx;
+    border-radius: 10rpx;
+    margin-right: 14rpx;
+    /* overflow: hidden; */
+    background: #fff;
+  }
+  
+  .special_topic_item_img {
+    width: 340rpx;
+    height: 190rpx;
+    border-radius: 10rpx;
+    background-color: #fafafa;
+    text-align: center;
+    font-weight: 500;
+    overflow: hidden;
+  }
+  
+  .special_topic_item_img_image {
+    width: 100%;
+  }
+  
+  .special_topic_item_title {
+    font-size: 26rpx;
+    margin-top: 10rpx;
+    padding-left: 6rpx;
+  }

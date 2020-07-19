@@ -39,7 +39,7 @@
             </view>
             <scroll-view scroll-x="true">
                 <view class="petsAdd_form_item_pciture">
-                    <view class="petsAdd_form_item_pciture_item" wx:for="{{pet_img}}">
+                    <view class="petsAdd_form_item_pciture_item" wx:for="{{pet_img}}" wx:key="item.index">
                         <image class="pet_img_show" mode="widthFix" src="{{item.pet_img}}"></image>
                         <view class="petsAdd_form_item_pciture_item_cancel" data-pid='{{item.id}}' bindtap="cancelPic" wx:key="item.index">
                             <icon type="cancel" size="20" color="#fff"/>

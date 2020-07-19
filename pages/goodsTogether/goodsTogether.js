@@ -34,9 +34,10 @@ Page({
   onLoad(options) {
     app.checkLogin()
     console.log(options)
+    //console.log(222222222222222)
     if (options.shares == 2) {
       //非团购分享，回调记录数据
-      this.recordData(options)
+      //this.recordData(options)
     } else if (options.shares == 1) {
       //非团购分享
     } else if (options.ct == undefined || options.ct == null) {

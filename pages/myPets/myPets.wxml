@@ -1,4 +1,31 @@
 <view class="myPets">
+    <view class="myPets_like_list">
+        <view class="goods_item_price">
+            <view class="goods_item_title">喂食任务
+                <text class="goods_item_price_number">+{{pointList[0].integral}}积分</text>
+            </view>
+            <view class="goods_item_notice">每天邀请{{pointList[0].like_number}}位好友喂食萌宠</view>
+        </view>
+        <view class="goods_item_recommend">
+            <view class="goods_item_recommend_avatars">
+                <view class="goods_item_recommend_avatar_left" >
+                    <image class="goods_item_recommend_avatars_img" src="{{jionFrends[0]}}" mode="widthFix"></image>
+                </view>
+                <!-- <view class="goods_item_recommend_avatar_right">
+                    <image class="goods_item_recommend_avatars_img" src="{{jionFrends[1]}}" mode="widthFix"></image>
+                </view>
+                <view class="goods_item_recommend_avatar_right">
+                    <image class="goods_item_recommend_avatars_img" src="{{jionFrends[2]}}" mode="widthFix"></image>
+                </view>
+                <view class="goods_item_recommend_avatar_right">
+                    <image class="goods_item_recommend_avatars_img" src="{{jionFrends[3]}}" mode="widthFix"></image>
+                </view>
+                <view class="goods_item_recommend_avatar_right">
+                    <image class="goods_item_recommend_avatars_img" src="{{jionFrends[4]}}" mode="widthFix"></image>
+                </view> -->
+            </view>
+        </view>
+      </view>
     <!--萌宠框-->
     <view class="myPets_items">
         <view url="../petsDetail/petsDetail?pet_id={{item.id}}&editmore=true" class="myPets_item" wx:for="{{myPetList}}" wx:key="item.id">
@@ -24,7 +51,32 @@
                         <text>{{item.show_birthday}}</text>  <!-- <text>1岁1个月</text> -->
                     </text>
                 </view>
+                <view class="myPets_item_content_share">
+                    <view class="special_topic_detail_item"> 
+                        <!-- <navigator  url="../petsActiveList/petsActiveList?key={{pet_id}}" class="special_content_item" wx:for="{{item.like_member_list}}" wx:key="item.index" wx:for-index="{{idx}}">
+                            <image mode="widthFix" src="{{item.like_member_list.idx}}" class="surperShop_goods_recommend_avatar_item_img"></image>
+                        </navigator> -->
+                        <view  url="../petsActiveList/petsActiveList?key={{pet_id}}" class="special_content_item" wx:if="{{item.like_member_list.length<=1}}">
+                            <image mode="widthFix" src="{{item.like_member_list[0]}}" class="surperShop_goods_recommend_avatar_item_img"></image>
+                        </view>
+                        <view  url="../petsActiveList/petsActiveList?key={{pet_id}}" class="special_content_item" wx:if="{{item.like_member_list.length>1}}">
+                            <image mode="widthFix" src="{{item.like_member_list[0]}}" class="surperShop_goods_recommend_avatar_item_img"></image>
+                        </view>
+                        <view  url="../petsActiveList/petsActiveList?key={{pet_id}}" class="special_content_item" wx:if="{{item.like_member_list.length>=2}}">
+                            <image mode="widthFix" src="{{item.like_member_list[1]}}" class="surperShop_goods_recommend_avatar_item_img"></image>
+                        </view>
+                        <view  url="../petsActiveList/petsActiveList?key={{pet_id}}" class="special_content_item" wx:if="{{item.like_member_list.length>=3}}">
+                            <image mode="widthFix" src="{{item.like_member_list[2]}}" class="surperShop_goods_recommend_avatar_item_img"></image>
+                        </view>
+                        <text class="joinPerson" >{{item.like_member_list.length}}人喂食</text>
+                        <view class="petsDetail_join_person">
+                            <button  class="petsDetail_join_person_button" data-petgetid='{{item.id}}'  data-petname='{{item.pet_name}}' open-type="share">喂食</button>
+                        </view>
+                    </view>
+                </view>
             </view>
+            <!-- <view>youdibgx</view> -->
+            
         </view>
         <!-- <view class="delmenchon"> <image mode="widthFix" src="../../images/del.png"></image></view> -->
     </view>

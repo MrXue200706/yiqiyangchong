@@ -1,0 +1,11 @@
+.hot_troop_rule{
+    padding: 20rpx;
+    text-align: left;
+    font-size: 28rpx;
+}
+.hot_troop_rule_title{
+    font-weight: bold;
+}
+.hot_troop_rule_contant{
+    padding: 8rpx;
+}

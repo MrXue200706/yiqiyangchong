@@ -184,14 +184,14 @@
         <image class="goods_item_img_image" src="{{item.goods_img}}" mode="widthFix"></image>
       </view>
       <view class="goods_item_title">{{item.goods_name}}</view>
-      <view class="goods_item_price">￥{{item.price}}</view>
-      <view class="goods_item_recommend">
+      <view class="goods_item_price">￥{{item.group_price || item.price}}</view>
+      <view class="goods_item_recommend"  wx:if="{{item.pet_friend_count>0}}">
         <text class="goods_item_recommend_number">{{item.pet_friend_count}}推荐</text>
         <view class="goods_item_recommend_avatars">
-          <view class="goods_item_recommend_avatar_left">
+          <view class="goods_item_recommend_avatar_left" wx:if="{{item.pet_friend_list[0].avatarUrl}}">
             <image class="goods_item_recommend_avatars_img" src="{{item.pet_friend_list[0].avatarUrl}}" mode="widthFix"></image>
           </view>
-          <view class="goods_item_recommend_avatar_right">
+          <view class="goods_item_recommend_avatar_right" wx:if="{{item.pet_friend_list[1].avatarUrl}}">
             <image class="goods_item_recommend_avatars_img" src="{{item.pet_friend_list[1].avatarUrl}}" mode="widthFix"></image>
           </view>
         </view>

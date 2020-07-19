@@ -40,3 +40,35 @@
     font-size: 35rpx;
     background:#ffd306!important;
 }
+.head_swiper{
+    width: 100%;
+    height: 100vh;
+    width: 100vw;
+}
+.bc_blue{
+    width: 100%
+}
+.bc_blue image{
+    width: 100%;
+    height: 100%;
+}
+.windowheight{
+    width: 100%;
+    height: 100%;
+}
+
+.button_view{
+    width: 100%;
+}
+.login_bottom{
+    position: fixed;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 64rpx;
+    border-radius: 80rpx;
+    font-size: 30rpx;
+    padding:0 90rpx;
+    border: 2rpx solid #fff;
+    line-height:2.2;
+    background: rgba(255, 255, 255, 0) !important
+}

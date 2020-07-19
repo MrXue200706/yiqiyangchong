@@ -1,0 +1,150 @@
+<view class="mine">
+    <view class="diaglongs" wx:if="{{isFirstDlaigShow}}" bindtap="changeFirstShowDiag">
+        <view class="diagContets">
+            <view class="contentViews">
+                <image class="contentViewImgs" src="../../images/indexDI.png" mode="widthFix"></image>
+            </view>
+            <!-- <button open-type="getUserInfo" bindgetuserinfo>获取登陆</button> -->
+            <button class="shareBtns" bindtap="loginIntegral">
+                <image class="diagbtnImgs" src="../../images/indexDIBTN.png" mode="widthFix"></image>
+            </button>
+        </view>
+    </view>
+    <!--头像-->
+    <view class="hasBgCol" >
+        <image class="mineTopBg" mode="widthFix" src="../../images/personCenter.jpg"></image>
+        <view class="hasBgCol_top"></view>
+        <view class="avatar">
+            <view class="avatar_avatar">
+                <image mode="widthFix" src="{{userInfo.member.avatarUrl}}"></image>
+            </view>
+            <view class="avatar_fallow">
+                <view class="avatar_name">萌宠大联盟
+                    <view class="avatar_name_icon">
+                        <image class="goods_item_img_image" src="../../images/dianz.png" mode="widthFix"></image>
+                    </view>
+                </view>
+                <view class="avatar_fallow_center">
+                    <navigator url="../petFriends/petFriends?pageType=mine&petType=follow&uid={{userInfo.member.id}}" class="avatar_fallow_left">本月战队战力:</navigator>
+                    <!-- <text>|</text> -->
+                    <navigator url="../petFriends/petFriends?pageType=mine&petType=fans&uid={{userInfo.member.id}}" class="avatar_fallow_right">3200</navigator>
+                </view>
+                
+            </view>
+            <view class="avatar_sign_in" bindtap="showRedBag">
+                <!-- <view class="avatar_sign_in_img">
+                    <image mode="widthFix" src="../../images/signIn.png"></image>
+                </view> -->
+                16人
+            </view>
+        </view>
+        <!-- 积分弹框 -->
+        <view class="diaglong" wx:if="{{isDlaigShow}}" bindtap="changeShowDiag">
+            <view class="diagContet">
+                <view class="contentView">
+                    <image class="contentViewImg" src="../../images/integralMake.png" mode="widthFix"></image>
+                </view>
+                <view class="diagContet_text">兑换优惠券消耗积分</view>
+                <view class="diagContet_number">+50</view>
+            <!-- <button class="shareBtn" open-type="share">
+                <image class="diagbtnImg" src="../../images/indexDIBTN.png" mode="widthFix"></image>
+            </button> -->
+            </view>
+        
+        </view>
+        <!--状态-->
+        <view class="state">
+            <navigator class="state_item">
+                <view class="state_item_left">
+                    <image mode="widthFix" src="{{userInfo.member.avatarUrl}}"></image>
+                </view>
+                <view class="state_item_center">
+                    <view>啊花
+                        <text class="state_item_captain">队长</text>
+                    </view>
+                    <view class="state_item_petname">泰迪犬 宠物名</view>
+                </view>
+                <view class="state_item_right">
+                    <view>贡献战力</view>
+                    <view class="state_item_right_nunmber">2600</view>
+                </view>
+            </navigator>
+            <navigator class="state_item">
+                <view class="state_item_left">
+                    <image mode="widthFix" src="{{userInfo.member.avatarUrl}}"></image>
+                </view>
+                <view class="state_item_center">
+                    <view>啊花
+                        <text class="state_item_captain">队长</text>
+                    </view>
+                    <view class="state_item_petname">泰迪犬 宠物名</view>
+                </view>
+                <view class="state_item_right">
+                    <view>贡献战力</view>
+                    <view class="state_item_right_nunmber">2600</view>
+                </view>
+            </navigator>
+            <navigator class="state_item">
+                <view class="state_item_left">
+                    <image mode="widthFix" src="{{userInfo.member.avatarUrl}}"></image>
+                </view>
+                <view class="state_item_center">
+                    <view>啊花
+                        <text class="state_item_captain">队长</text>
+                    </view>
+                    <view class="state_item_petname">泰迪犬 宠物名</view>
+                </view>
+                <view class="state_item_right">
+                    <view>贡献战力</view>
+                    <view class="state_item_right_nunmber">2600</view>
+                </view>
+            </navigator>
+            <navigator class="state_item">
+                <view class="state_item_left">
+                    <image mode="widthFix" src="{{userInfo.member.avatarUrl}}"></image>
+                </view>
+                <view class="state_item_center">
+                    <view>啊花
+                        <text class="state_item_captain">队长</text>
+                    </view>
+                    <view class="state_item_petname">泰迪犬 宠物名</view>
+                </view>
+                <view class="state_item_right">
+                    <view>贡献战力</view>
+                    <view class="state_item_right_nunmber">2600</view>
+                </view>
+            </navigator>
+            <navigator class="state_item">
+                <view class="state_item_left">
+                    <image mode="widthFix" src="{{userInfo.member.avatarUrl}}"></image>
+                </view>
+                <view class="state_item_center">
+                    <view>啊花
+                        <text class="state_item_captain">队长</text>
+                    </view>
+                    <view class="state_item_petname">泰迪犬 宠物名</view>
+                </view>
+                <view class="state_item_right">
+                    <view>贡献战力</view>
+                    <view class="state_item_right_nunmber">2600</view>
+                </view>
+            </navigator>
+            <view class="state_join">
+                还有三人可加入战队
+            </view>
+            <!-- <button class="kf_button" open-type="contact" session-from="weapp">
+                <view class="state_item_img">
+                    <image class="kf_image" mode="widthFix" src="../../images/daimyshophou.png"></image>
+                </view>
+                <text>售后服务</text>
+            </button> -->
+            <!-- <contact-button  type="default-light"  size="20" session-from="weapp"></contact-button>
+            <view class="state_item">
+                <view class="state_item_img">
+                    <image mode="widthFix" src="../../images/daimyshophou.png"></image>
+                </view>
+                <text>售后服务</text>
+            </view> -->
+        </view>
+    </view>
+</view>

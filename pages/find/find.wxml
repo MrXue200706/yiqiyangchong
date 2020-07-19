@@ -1,0 +1,181 @@
+<!--index.wxml-->
+<view class="index">
+  <!-- <view class="diaglong" wx:if="{{isDlaigShow}}" bindtap="changeShowDiag">
+    <view class="diagContet">
+    <view class="contentView">
+        <image class="contentViewImg" src="../../images/indexDI.png" mode="widthFix"></image>
+    </view>
+      <button class="shareBtn" open-type="share">
+         <image class="diagbtnImg" src="../../images/indexDIBTN.png" mode="widthFix"></image>
+      </button>
+    </view>
+  
+  </view> -->
+  
+  <!--搜索框-->
+  <!-- <view class="search_box">
+    <navigator url="../search/search" class="search_box_in">
+      <image src="../../images/search.png" mode="widthFix"></image>
+      <text class="search_box_text" type="search" placeholder="输入想搜索的商品">输入想搜索的商品</text>
+    </navigator>
+  </view> -->
+
+  <!--头部轮播图-->
+  <!-- <swiper class="head_swiper" indicator-color="#fff" indicator-active-color="#fd9805" indicator-dots="{{true}}" autoplay="true">
+    <block wx:for="{{swiper}}" wx:key="{{item.url}}">
+      <navigator url="{{item.url}}">
+        <swiper-item class="bc_blue">
+          <image class="head_swiper_img" src="{{item.img}}" mode="widthFix"></image>
+        </swiper-item>
+      </navigator>
+    </block>
+  </swiper> -->
+
+  <!--商品分类-->
+  <!-- <view class="goods_class">
+    <navigator url="../dogGoods/dogGoods?category_id=1&shareType=jifen" class="goods_class_item">
+      <view class="goods_class_item_img">
+        <image src="../../images/dog.png" mode="widthFix"></image>
+      </view>
+      <text class="goods_class_item_title">狗狗</text>
+    </navigator>
+    <navigator url="../dogGoods/dogGoods?category_id=2&shareType=jifen" class="goods_class_item">
+      <view class="goods_class_item_img">
+        <image src="../../images/catIcon.png" mode="widthFix"></image>
+      </view>
+      <text class="goods_class_item_title">猫猫</text>
+    </navigator>
+    <navigator url="../dogGoods/dogGoods?category_id=3&shareType=jifen" class="goods_class_item">
+      <view class="goods_class_item_img">
+        <image src="../../images/xiaochong.png" mode="widthFix"></image>
+      </view>
+      <text class="goods_class_item_title">小宠</text>
+    </navigator>
+    <navigator url="../dogGoods/dogGoods?category_id=4&shareType=jifen" class="goods_class_item">
+      <view class="goods_class_item_img">
+        <image src="../../images/zhoubian.png" mode="widthFix"></image>
+      </view>
+      <text class="goods_class_item_title">周边</text>
+    </navigator>
+  </view> -->
+
+  <!-- 红包 -->
+  <!-- <view class="red_bag_class">
+    <navigator url="../cuoponcanuse/cuoponcanuse" class="goods_class_item"  hover-class="other-navigator-hover">
+      <view class="goods_class_item_img nobackground">
+        <image src="../../images/redBag.png" mode="widthFix"></image>
+      </view>
+      <text class="goods_class_item_title">狗狗</text>
+    </navigator>
+  </view> -->
+  <!--活动-->
+  <!-- <view class="goods_recommend">
+    <navigator url="../superShop/superShop?id={{goods_recommend[goods_recommend.length-1].id}}" class="goods_recommend_item">
+      <image class="goods_recommend_item_img" src="{{goods_recommend[goods_recommend.length-1].events_img}}" mode="widthFix"></image>
+    </navigator>
+    <navigator url="../superShop/superShop?id={{goods_recommend[goods_recommend.length-2].id}}" class="goods_recommend_item">
+      <image class="goods_recommend_item_img" src="{{goods_recommend[goods_recommend.length-2].events_img}}" mode="widthFix"></image>
+    </navigator>
+    <navigator url="../superShop/superShop?id={{goods_recommend[goods_recommend.length-3].id}}" class="goods_recommend_item">
+      <image class="goods_recommend_item_img" src="{{goods_recommend[goods_recommend.length-3].events_img}}" mode="widthFix"></image>
+    </navigator>
+    <navigator url="../superShop/superShop?id={{goods_recommend[goods_recommend.length-4].id}}" class="goods_recommend_item">
+      <image class="goods_recommend_item_img" src="{{goods_recommend[goods_recommend.length-4].events_img}}" mode="widthFix"></image>
+    </navigator>
+  </view> -->
+
+  <!--养宠达人-->
+  <view class="pet_expert">
+    <text class="pet_expert_title">养宠达人</text>
+    <text class="pet_expert_reflesh" bindtap="getPetExpert">换一组</text>
+    <scroll-view scroll-x="true">
+      <view class="pet_expert_scroll">
+        <view class="pet_expert_item" wx:for="{{pet_expert}}" wx:key="item.friend_id">
+          <navigator url="../expert/expert?key={{item.friend_id}}" class="pet_expert_avatar">
+            <view class="pet_expert_avatar_container">
+              <image class="pet_expert_avatar_img" src="{{item.avatarUrl}}" mode="widthFix"></image>
+            </view>
+          </navigator>
+          <view class="pet_expert_name">{{item.nick_name}}</view>
+          <view class="pet_expert_pet">{{item.pet_name}} {{item.pet_type}}</view>
+          <view class="{{item.is_follow==0?pet_expert_item_button:pet_expert_item_button_noclick}}" data-friendId="{{item.friend_id}}" bindtap='focusOn' data-isfollow="{{item.is_follow}}">
+            <text wx:if="{{item.is_follow==0}}">关注</text>
+            <text wx:else>已关注</text>
+          </view>
+        </view>
+      </view>
+    </scroll-view>
+  </view>
+
+  <!--专题精选-->
+  <view class="special_topic">
+    <text class="special_topic_title">专题精选</text>
+    <navigator url="../specialTopic/specialTopic" class="special_topic_more">更多 ></navigator>
+    <scroll-view scroll-x="true">
+      <view class="special_topic_scroll">
+          <navigator url="../specialTopicDetail/specialTopicDetail?id={{item.id}}" class="special_topic_item"  wx:for="{{special_topic}}" wx:key="item.id">
+            <view class="special_topic_item_img">
+              <image class="special_topic_item_img_image" src="{{item.project_img}}" mode="widthFix"></image>
+            </view>
+            <text class="special_topic_item_title">{{item.project_title}}</text>
+          </navigator>
+      </view>
+    </scroll-view>
+  </view>
+
+  <!-- 火热战队 -->
+  <view class="hottroops">
+    <text class="special_topic_title block_height">火热战队</text>
+    <navigator url="../hotTroopsList/hotTroopsList" class="special_topic_more">排行榜 ></navigator>
+    <scroll-view scroll-x="true">
+      <view class="hottroops_scroll">
+          <navigator url="../hotTroopDetail/hotTroopDetail?type=normal&id={{item.id}}&shareType=jifen&team_id={{item.id}}" class="hottroops_item"  wx:for="{{hottroopsList}}" wx:key="item.id">
+            <view class="hottroops_item_img">
+              <image lazyLoad='true' class="hottroops_item_img_image" src="{{item.team_img}}" bindload='loadimg' mode="aspectFill" style="height: 120rpx; width: 120rpx;"></image>
+            </view>
+            <view class="hottroops_item_view">
+              <view class="hottroops_item_name">
+                <text class="special_topic_item_title">{{item.team_name}}</text>
+              </view>
+              <view class="special_topic_item_mesg">
+                <text class="special_topic_item_power">战力:{{item.team_power}}</text>
+                <text class="special_topic_item_men">{{item.team_number}}人</text>
+              </view>
+            </view>
+          </navigator>
+      </view>
+    </scroll-view>
+  </view>
+
+  <!--商品列表-->
+  <view class="pets_title special_topic_title">明星萌宠</view>
+  <view class="goods">
+    <navigator url="../petsDetail/petsDetail?type=normal&id={{item.id}}&shareType=jifen&pet_id={{item.pet_id}}" class="goods_item" wx:for="{{petPointList}}" wx:key="item.id">
+      <image class="goods_item_img_image" src="{{item.pet_img}}" mode="widthFix"></image>
+      <view class="pets_bottom">
+        <view class="pets_bottom_left">
+          <image class="goods_item_img_image" src="{{item.avatarUrl}}" mode="widthFix"></image>
+        </view>
+        <text class="pets_bottom_left_title">{{item.nickName}}</text>
+        <view class="pets_bottom_right">
+          <image class="goods_item_img_image" src="../../images/petListIcon.png" mode="widthFix"></image>
+        </view>
+        <text class="pets_bottom_right_title">{{item.like_count}}</text> 
+      </view>
+      <!-- 
+      <view class="goods_item_title">{{item.goods_name}}</view>
+      <view class="goods_item_price">￥{{item.price}}</view>
+      <view class="goods_item_recommend">
+        <text class="goods_item_recommend_number">{{item.pet_friend_count}}推荐</text>
+        <view class="goods_item_recommend_avatars">
+          <view class="goods_item_recommend_avatar_left">
+            <image class="goods_item_recommend_avatars_img" src="{{item.pet_friend_list[0].avatarUrl}}" mode="widthFix"></image>
+          </view>
+          <view class="goods_item_recommend_avatar_right">
+            <image class="goods_item_recommend_avatars_img" src="{{item.pet_friend_list[1].avatarUrl}}" mode="widthFix"></image>
+          </view>
+        </view>
+      </view> -->
+    </navigator>
+  </view>
+</view>

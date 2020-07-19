@@ -77,9 +77,9 @@ Page({
 				key: "adressAddListoK",
 				data: false
 			});
-			wx.switchTab({
-				url: '../mine/mine',
-			})
+			// wx.switchTab({
+			// 	url: '../mine/mine',
+			// })
 			return;
 		}
 		console.log(options)
@@ -241,6 +241,17 @@ Page({
 		let fromcheckpay = pageroute.filter(function (item) {
 			return item.route == "pages/checkPay/checkPay"
 		})
+		let fromMine=pageroute.filter(function(item){
+			return item.route == "pages/mine/mine"
+		})
+		let hotTroopDetailList=pageroute.filter(function(item){
+			return item.route == "pages/hotTroopDetail/hotTroopDetail"
+		})
+		let eventDetailList=pageroute.filter(function(item){
+			return item.route == "pages/eventDetail/eventDetail"
+		})
+
+
 		var checkpayUrl;
 		if (fromcheckpay.length > 0) {
 			checkpayUrl = "../checkPay/checkPay?ct=" + fromcheckpay[0].options.ct + "&events_id=" + fromcheckpay[0].options.events_id + "&goods_id=" + fromcheckpay[0].options.goods_id + "&order_no=" + fromcheckpay[0].options.order_no + "&selected_numb=" + fromcheckpay[0].options.selected_numb + "&shopping=" + fromcheckpay[0].options.shopping + "&shoppingType=" + fromcheckpay[0].options.shoppingType + "&type_selected1=" + fromcheckpay[0].options.type_selected1 + "&type_selected2=" + fromcheckpay[0].options.type_selected2 + "&image=" + fromcheckpay[0].options.image;
@@ -269,6 +280,36 @@ Page({
 							data: true
 						});
 						console.log(from)
+						if(fromMine.length){
+							wx.setStorage({
+								key: "fromMine",
+								data: true
+							});
+							//获取页面栈
+							var pages = getCurrentPages();
+							console.log(pages)
+							//获取上一页
+							var prePage = pages[pages.length - 2]
+							let addrMsg={
+								is_default: that.data.defaultFlag,
+								name: that.data.consignee,
+								phone: that.data.phoneNumber,
+								addres: area + that.data.address,
+							}
+							prePage.setData({
+								address_id: that.data.adrId,
+								addressMsg: addrMsg
+							})
+							//返回上一页
+							wx.navigateBack();
+							return
+
+						}else{
+							wx.setStorage({
+								key: "fromMine",
+								data: false
+							});
+						}
 						if (from && from !== "null") {
 							wx.setStorage({
 								key: "adressAddoK",
@@ -278,9 +319,47 @@ Page({
 								key: "adressAddListoK",
 								data: false
 							});
-							wx.navigateTo({
-								url: checkpayUrl
+							//获取页面栈
+							var pages = getCurrentPages();
+							console.log(pages)
+							//获取上一页
+							var prePage = pages[pages.length - 2]
+							let addrMsg={
+								is_default: that.data.defaultFlag,
+								name: that.data.consignee,
+								phone: that.data.phoneNumber,
+								addres: area + that.data.address,
+							}
+							prePage.setData({
+								address_id: that.data.adrId,
+								addressMsg: addrMsg
 							})
+							//返回上一页
+							wx.navigateBack();
+
+							// if(checkpayUrl){
+							// 	wx.navigateTo({
+							// 		url: checkpayUrl
+							// 	})
+							// }else{
+							// 	//获取页面栈
+							// 	var pages = getCurrentPages();
+							// 	console.log(pages)
+							// 	//获取上一页
+							// 	var prePage = pages[pages.length - 2]
+							// 	let addrMsg={
+							// 		is_default: that.data.defaultFlag,
+							// 		name: that.data.consignee,
+							// 		phone: that.data.phoneNumber,
+							// 		addres: area + that.data.address,
+							// 	}
+							// 	prePage.setData({
+							// 		address_id: that.data.adrId,
+							// 		addressMsg: addrMsg
+							// 	})
+							// 	//返回上一页
+							// 	wx.navigateBack();
+							// }
 						} else {
 							wx.navigateTo({
 								url: '../myAdress/myAdress',
@@ -317,8 +396,37 @@ Page({
 							key: "adressAddoK",
 							data: true
 						});
+						if(fromMine.length){
+							wx.setStorage({
+								key: "fromMine",
+								data: true
+							});
+							//获取页面栈
+							var pages = getCurrentPages();
+							console.log(pages)
+							//获取上一页
+							var prePage = pages[pages.length - 2]
+							let addrMsg={
+								is_default: that.data.defaultFlag,
+								name: that.data.consignee,
+								phone: that.data.phoneNumber,
+								addres: area + that.data.address,
+							}
+							prePage.setData({
+								address_id: that.data.adrId,
+								addressMsg: addrMsg
+							})
+							//返回上一页
+							wx.navigateBack();
+							return
+						}else{
+							wx.setStorage({
+								key: "fromMine",
+								data: false
+							});
+						}
 						console.log(from)
-						if (fromcheckpay.length > 0) {
+						if (fromcheckpay.length > 0 || hotTroopDetailList.length > 0 ||eventDetailList.length > 0) {
 							wx.setStorage({
 								key: "adressAddoK",
 								data: false
@@ -327,9 +435,24 @@ Page({
 								key: "adressAddListoK",
 								data: false
 							});
-							wx.navigateTo({
-								url: checkpayUrl
+							//获取页面栈
+							var pages = getCurrentPages();
+							console.log(pages)
+							//获取上一页
+							var prePage = pages[pages.length - 2]
+							let addrMsg={
+								is_default: that.data.defaultFlag,
+								name: that.data.consignee,
+								phone: that.data.phoneNumber,
+								addres: area + that.data.address,
+							}
+							prePage.setData({
+								address_id: that.data.adrId,
+								addressMsg: addrMsg
 							})
+							//返回上一页
+							wx.navigateBack();
+							return
 						} else {
 							wx.navigateTo({
 								url: '../myAdress/myAdress',

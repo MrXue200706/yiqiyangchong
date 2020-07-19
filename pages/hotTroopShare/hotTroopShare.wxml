@@ -1,0 +1,80 @@
+<view class="specialTopicDetail" style="background-color:#{{backgroundCol}}">
+    <!--文章-->
+    <view class="specialTopicDetail_p">
+        <view class="specialTopicDetail_p_p">
+        </view>
+        <!-- <view class="specialTopicDetail_p_img">
+            <image mode="widthFix" src="{{special_topic_detail.events_info.events_img}}"></image>
+        </view> -->
+    </view>
+
+     <!-- <view class="specialTopicDetailName">{{special_topic_detail.project_info.project_title}}</view> -->
+
+    <view class="specialTopicDetail_p">
+        <view class="specialTopicDetail_p_img">
+            <image mode="widthFix" src="{{special_topic_detail.events_info.events_content_img}}"></image>
+        </view>
+        <!-- <view class="specialTopicDetail_p_p">
+            <text>
+             {{special_topic_detail.project_info.project_desc}}
+            </text>
+        </view> -->
+    </view>
+    <view class="specialTopicDetail_p">
+        <!-- <view class="specialTopicDetail_p_img">
+            <image mode="widthFix" src="{{special_topic_detail.events_info.events_background_img}}"></image>
+        </view> -->
+        <!-- <view class="specialTopicDetail_p_p">
+            <text>
+             {{special_topic_detail.project_info.project_desc}}
+            </text>
+        </view> -->
+    </view>
+
+    <view class="specialTopicDetail_member_list">
+        <view class="specialTopicDetail_member_list_top">
+            <view class="specialTopicDetail_member_list_top_title">还差5人组里</view>
+            <view class="specialTopicDetail_member_list_top_time">{{special_topic_detail.events_info.start_date}}至{{special_topic_detail.events_info.end_date}}</view>
+        </view>
+        <view class="specialTopicDetail_member_list_top_member">
+            <view class="specialTopicDetail_member_list_top_member_view" wx:for="{{special_topic_detail.like_member_list}}" wx:key="item.id">
+                <view class="specialTopicDetail_member_list_top_member_view_img">
+                    <image mode="widthFix" src="{{item.avatarUrl}}"></image>
+                </view>
+                <text class="specialTopicDetail_member_list_top_member_text">{{item.nickName}}</text>
+            </view>
+        </view>
+        <view class="specialTopicDetail_member_list_btn">
+            邀请好友助力
+        </view>
+    </view>
+
+   <!--商品-->
+   <view class="surperShop">
+       <view url="../goodsDetail/goodsDetail?type=activity&id={{item.id}}&events_id={{events_id}}" class="surperShop_goods" wx:for="{{special_topic_detail.events_like_reward}}" wx:key="item.id">
+        <view class="surperShop_goods_img">
+            <image class="surperShop_goods_img_image" mode="widthFix" src="{{item.integral_img || item.coupons_img}}"></image>
+        </view>
+        <view class="surperShop_goods_text">
+            <view class="surperShop_goods_text_title">{{item.integral_desc || item.coupons_desc}}</view>
+            <!-- <view class="surperShop_goods_recommend">
+                <view>
+                    <view class="surperShop_goods_recommend_avatar">
+                        <view class="surperShop_goods_recommend_avatar_item" wx:for="{{item.pet_friend_list}}" wx:key="item.id">
+                            <image mode="widthFix" src="{{item.avatarUrl}}" class="surperShop_goods_recommend_avatar_item_img"></image>
+                        </view>
+                    </view>
+                    <text class="surperShop_goods_recommend_content">{{item.pet_friend_count}}推荐</text>
+                </view>
+                <text class="surperShop_goods_recommend_number">{{superShop.events_info.group_number}}人团</text>
+            </view> -->
+        </view>
+        <view class="surperShop_goods_text_bottom">
+                <!-- <text class="surperShop_goods_text_bottom_red">￥{{item.price}}</text>
+                <text class="surperShop_goods_text_bottom_gray">￥{{item.market_price}}</text> -->
+                <text class="surperShop_goods_text_bottom_button">领取</text>
+            </view>
+    </view>
+   </view>
+    
+</view>

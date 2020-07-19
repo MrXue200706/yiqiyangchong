@@ -49,7 +49,7 @@
         <image class="goods_item_img_image" src="{{item.goods_img}}" mode="widthFix"></image>
       </view>
       <view class="dogGoods_goods_item_title">{{item.goods_name}}</view>
-      <view class="dogGoods_goods_item_price">￥{{item.price}}</view>
+      <view class="dogGoods_goods_item_price">￥{{ item.group_price|| item.price}}</view>
       <view class="dogGoods_goods_item_recommend">
         <text class="dogGoods_goods_item_recommend_number">{{item.pet_friend_count}}推荐</text>
         <view class="dogGoods_goods_item_recommend_avatars">

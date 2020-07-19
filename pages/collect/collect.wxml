@@ -14,7 +14,7 @@
                 <text class="collect_goods_recommend_content">{{item.count}}推荐</text>
             </view>
             <view class="collect_goods_text_bottom">
-                <text class="collect_goods_text_bottom_red">￥{{item.spec_price}}</text>
+                <text class="collect_goods_text_bottom_red">￥{{item.group_price}}</text>
                 <text class="collect_goods_text_bottom_gray">￥{{item.market_price}}</text>
                 <text class="collect_goods_text_bottom_button">去看看</text>
             </view>

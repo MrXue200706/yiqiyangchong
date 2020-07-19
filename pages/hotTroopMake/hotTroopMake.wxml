@@ -1,0 +1,46 @@
+<view class="{{petsAdd}}">
+    <!--表单内容-->
+    <view class="petsAdd_form">
+        <view class="petsAdd_form_item">
+            <text class="petsAdd_form_item_title">战队名称：</text>
+            <input type="text" placeholder="输入战队名称" value="{{pet_name}}" bindinput="petNameVal"/>
+        </view>
+        <view class="petsAdd_form_item petsAdd_form_item_other">
+            <text class="petsAdd_form_item_title">战队战徽：</text>
+            <view class="petsAdd_form_item_add" bindtap="addPic">
+                <text>+</text>
+            </view>
+            <scroll-view scroll-x="true">
+                <view class="petsAdd_form_item_pciture">
+                    <view class="petsAdd_form_item_pciture_item" wx:for="{{pet_img}}">
+                        <image class="pet_img_show" mode="widthFix" src="{{item.pet_img}}"></image>
+                        <view class="petsAdd_form_item_pciture_item_cancel" data-pid='{{item.id}}' bindtap="cancelPic" wx:key="item.index">
+                            <icon type="cancel" size="20" color="#fff"/>
+                        </view>
+                    </view>
+                </view>
+            </scroll-view>
+        </view>
+        <view class="petsAdd_form_item">
+            <text class="petsAdd_form_item_title"></text>
+            <text class="petsAdd_form_item_notice">请添加战队战徽</text>
+        </view>
+    </view>
+    <modal class="modal_size" title="" hidden="{{ismodalHidden}}"
+    confirm-text="确定" no-cancel='true' bindconfirm="modalBindaconfirmdis" >
+        <view class="hot_troop_rule_title">战队规则：</view>
+        <view class="hot_troop_rule_contant">1，每人均可创建战队或加入战队，战队人数最多为8人。</view>
+        <view class="hot_troop_rule_contant">2，加入战队，可以通过保存扫描战队微信群二维码加入，或通过战队成员邀请加入。创建战队，可自己创建战队信息，必须填写相关信息及图片，邀请好友加入自己的战队。（不可上传违规色情等信息，一经发现将清空战队积分）。</view>
+        <view class="hot_troop_rule_contant">3，战队奖励，包括不限于积分及优惠券。每月战队成员所获得的积分总和，达到相应的奖励目标，即可获得相应奖励，退出战队后，新获得积分将重新计算到新的战队。</view>
+        <view class="hot_troop_rule_contant">4，每月最后一天为结算日，不可加入或创建新战队。</view>
+        <view class="hot_troop_rule_contant">5，战力战力统计队友通过活动，签到，养宠，购物等途径获得积分总和，不包括战队战力奖励积分。</view>
+        <!-- <text class="modal_notice">长按识别二维码</text> -->
+    </modal>
+
+    <!--保存按钮-->
+    <view class="petsAdd_save">
+        <view class="petsAdd_save_button" bindtap="submitForm">
+            <text>创建战队</text>
+        </view>
+    </view>
+</view>

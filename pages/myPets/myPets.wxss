@@ -16,6 +16,7 @@
     position:relative;
     overflow: hidden;
     margin-top: 30rpx;
+    padding-bottom: 80rpx;
 }
 .myPets_item_img image{
     width: 100%;
@@ -84,3 +85,194 @@
     font-size: 26rpx;
     margin-bottom: 50rpx;
 }
+.special_topic_detail_item{
+    display: flex;
+    flex-wrap: nowrap;
+    background: #fff;
+    padding-left: 34rpx;
+    /* margin-top: 146rpx; */
+}
+.myPets_item_content_share{
+    position: absolute;
+    bottom: 0rpx;
+    width: 100%;
+    z-index: 999;
+    padding: 6rpx 0rpx;
+    background: #fff;
+}
+.special_content_item{
+    /* display: inline-block;
+    margin: 5rpx;
+    width: 10%;
+    border-radius: 50%;
+    overflow: hidden; */
+    width: 70rpx;
+    height: 70rpx;
+    border-radius: 50%;
+    background-color: #fff;
+    flex-shrink: 0;
+    border: 1rpx solid #fff;
+    box-sizing: border-box;
+    margin-left: -26rpx;
+    overflow: hidden;
+  
+}
+.surperShop_goods_recommend_avatar_item_img{
+    width: 100%;
+}
+.joinPerson{
+    text-align: center;
+    color: #888;
+    font-size: 24rpx;
+    display: inline-block;
+    margin: 20rpx 10rpx;
+    vertical-align: middle;
+
+}
+.petsDetail_join_person{
+    display:inline-block;
+    /* padding:8rpx 28rpx; */
+    /* width: 60rpx; */
+    position: absolute;
+    right: 10rpx;
+    height:34rpx;
+    /* background:rgb(253, 206, 12); */
+    font-size:24rpx;
+    border-radius:34rpx;
+    color:#fff;
+    line-height:34rpx;
+    vertical-align:middle;
+    margin-top:10rpx;
+    z-index: 99;
+}
+.petsDetail_join_person_button{
+    background:rgb(253, 206, 12);
+    font-size:24rpx;
+    color:#fff;
+    line-height:34rpx;
+    padding:8rpx 28rpx;
+    border-radius:34rpx;
+    z-index: 99;
+}
+.button_inner{
+    margin-left: 16rpx;
+}
+
+/*商品列表*/
+.goods {
+    padding: 0 20rpx;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+  .myPets_like_list{
+      margin: 16rpx 0;
+      border-radius: 10rpx;
+      background: #fff;
+      position: relative;
+      height: 100rpx;
+  }
+  
+  .goods_item {
+    width: 350rpx;
+    height: 500rpx;
+    border-radius: 10rpx;
+    background-color: #fff;
+    position: relative;
+    overflow: hidden;
+    flex-shrink: 0;
+    margin-top: 20rpx;
+  }
+  
+  .goods_item_img {
+    height: 350rpx;
+    background-color: #989898;
+    overflow: hidden;
+  }
+  
+  .goods_item_img_image {
+    width: 100%;
+  }
+  
+  .goods_item_title {
+    font-size: 26rpx;
+    line-height: 1em;
+    padding: 10rpx;
+    color: #010;
+    font-weight: normal;
+    padding-top: 4rpx;
+    /*font-weight: 600;*/
+  }
+
+.goods_item_price_number{
+    font-weight: normal;
+    padding: 4rpx 8rpx;
+    background: rgb(254, 245, 227);
+    color: #de361a;
+    font-size: 22rpx;
+}
+.goods_item_notice{
+    font-weight: normal;
+    color: #989898;
+    font-size: 22rpx;   
+    padding: 10rpx;
+    padding-top: 0rpx;
+}
+  
+  .goods_item_price {
+    color: #de361a;
+    font-size: 32rpx;
+    padding: 0rpx 10rpx;
+    position: absolute;
+    bottom: 4rpx;
+    left: 6rpx;
+    font-weight: 600;
+  }
+  
+  .goods_item_recommend {
+    position: absolute;
+    bottom: 20rpx;
+    right: 20rpx;
+  }
+  
+  .goods_item_recommend_number {
+    font-size: 22rpx;
+  }
+  
+  .goods_item_recommend_avatars {
+    width: 76rpx;
+    height: 50rpx;
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 10rpx;
+  }
+  
+  .goods_item_recommend_avatar_left {
+    width: 51rpx;
+    height: 51rpx;
+    border-radius: 50%;
+    background-color: #fff;
+    position: absolute;
+    left: 0;
+    top: 0;
+    border: 1px solid #fff;
+    box-sizing: border-box;
+    overflow: hidden;
+  }
+  
+  .goods_item_recommend_avatar_right {
+    width: 50rpx;
+    height: 50rpx;
+    border-radius: 50%;
+    background-color: #fff;
+    position: absolute;
+    top: 0;
+    right: 0;
+    border: 1px solid #fff;
+    overflow: hidden;
+  }
+  
+  .goods_item_recommend_avatars_img {
+    width: 100%;
+  }
